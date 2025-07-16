@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "docs:dev": "vitepress dev wiki",
+    "docs:build": "vitepress build wiki",
+    "docs:preview": "vitepress preview wiki"
+  },
+  "name": "mywiki",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
