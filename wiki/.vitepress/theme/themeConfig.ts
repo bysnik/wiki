@@ -16,7 +16,17 @@ export const themeConfig: DefaultTheme.Config = {
       {
         text: 'Материалы по дисциплинам',
         items: [
-          { text: 'Все материалы', link: '/docs/disciplines/' },
+          { text: 'Главная: материалы', link: '/docs/disciplines/' },
+          { text: 'Технологии физического уровня передачи данных', link: '/docs/disciplines/tfupd/' },
+          { text: 'Операционные системы и среды', link: '/docs/disciplines/osis/' },
+          { text: 'Стандартизация, сертификация и техническое документоведение', link: '/docs/disciplines/ssitd/' },
+          { text: 'Основы алгоритмизации и программирования', link: '/docs/disciplines/oaip/' },
+          { text: 'Архитектура аппаратных средств', link: '/docs/disciplines/aas/' },
+          { text: 'Основы проектирования баз данных', link: '/docs/disciplines/opbd/' },
+          { text: 'Под вопросом: Основы теории информации', link: '/docs/disciplines/oti/' },
+          { text: 'ПМ.01: Настройка сетевой инфраструктуры', link: '/docs/disciplines/pm1/' },
+          { text: 'ПМ.02: Организация сетевого администрирования операционных систем', link: '/docs/disciplines/pm2/' },
+          { text: 'ПМ.03: Эксплуатация объектов сетевой инфраструктуры', link: '/docs/disciplines/pm3/' },
         ]
       },
       {
