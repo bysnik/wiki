@@ -14,7 +14,7 @@ title: "Сотрудники"
   const coreMembers = [
     {
       avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
+      name: 'Быстров Никита',
       title: 'Создатель',
       links: [
         { icon: 'github', link: 'https://github.com/' },

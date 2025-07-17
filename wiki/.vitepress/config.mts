@@ -8,4 +8,35 @@ export default defineConfig({
   lang: 'ru',
 	base: '/wiki/',
   themeConfig: themeConfig,
+  head: [
+    [
+      'link',
+      { rel: 'icon', type: 'image/svg+xml', href: '/tcpip_mini.svg' }
+    ],
+    [
+      'link',
+      { rel: 'icon', type: 'image/png', href: '/tcpip_mini.png' }
+    ],
+    ['meta', { name: 'theme-color', content: '#5f67ee' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:site_name', content: 'VitePress' }],
+    [
+      'meta',
+      {
+        property: 'og:image',
+        content: 'https://vitepress.dev/vitepress-og.jpg'
+      }
+    ],
+    ['meta', { property: 'og:url', content: 'https://vitepress.dev/' }],
+    [
+      'script',
+      {
+        src: 'https://cdn.usefathom.com/script.js',
+        'data-site': 'AZBRSFGG',
+        'data-spa': 'auto',
+        defer: ''
+      }
+    ]
+  ],
+
 })

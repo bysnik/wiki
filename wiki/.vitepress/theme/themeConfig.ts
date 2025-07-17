@@ -3,8 +3,15 @@ import { sidebarConfig } from './sidebarConfig.ts'
 
 
 export const themeConfig: DefaultTheme.Config = { 
+    lastUpdated: {
+      text: 'Обновлено',
+      formatOptions: {
+        dateStyle: 'full',
+        timeStyle: 'medium'
+      }
+    },
     sidebar: sidebarConfig, 
-    logo: '/src/img/tcpip.jpg',
+    logo: '/public/tcpip.png',
     nav: [
       {
         text: 'Материалы по дисциплинам',
