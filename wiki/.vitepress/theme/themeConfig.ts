@@ -2,7 +2,7 @@ import { DefaultTheme } from 'vitepress'
 
 
 export const themeConfig: DefaultTheme.Config = {  
-    logo: '/src/img/tcpip.jpg',
+    logo: 'src/img/tcpip.jpg',
     nav: [
       {
         text: 'Материалы по дисциплинам',
