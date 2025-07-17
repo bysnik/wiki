@@ -1,7 +1,9 @@
 import { DefaultTheme } from 'vitepress'
+import { sidebarConfig } from './sidebarConfig.ts'
 
 
-export const themeConfig: DefaultTheme.Config = {  
+export const themeConfig: DefaultTheme.Config = { 
+    sidebar: sidebarConfig, 
     logo: '/src/img/tcpip.jpg',
     nav: [
       {
@@ -17,6 +19,10 @@ export const themeConfig: DefaultTheme.Config = {
           { text: 'КОД 09.02.06-3-2025', link: '/docs/de/09.02.06.3.2025/' },
 
         ]
+      },
+      {
+        text: 'Документация',
+        link: '/docs/wi/'
       },
       {
         text: 'О нас',
@@ -37,6 +43,7 @@ export const themeConfig: DefaultTheme.Config = {
     editLink: {
       pattern: 'https://github.com/nik5612/wiki/edit/main/wiki/:path'
     },
+
 
 //     search: {
 //       provider: 'local',

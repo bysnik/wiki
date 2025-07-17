@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Сборник различной документации"
   text: "Моя маленькая энциклопедия"
-  tagline: Какой-то тэглайн)
+  tagline: На данный момент этот сайт находится в зачаточном состоянии!
   image:
     src: /src/img/tcpip.jpg
   actions:
@@ -23,8 +23,9 @@ features:
   - title: Демонстрационные экзамены
     details: Гайды по настройки стендов, решение заданий, инструкции по проверке заданий...
     link: /docs/de/
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Документация
+    details: Различные гайды, методички и прочее
+    link: /docs/wi/
 ---
 
 Данная вики базируется на движке Vitepress, за что спасибо их создателям! Сслыка на их [Гитхаб](https://github.com/vuejs/vitepress).
