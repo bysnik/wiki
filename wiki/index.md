@@ -7,7 +7,7 @@ hero:
   text: "Моя маленькая энциклопедия"
   tagline: На данный момент этот сайт находится в зачаточном состоянии!
   image:
-    src: /public/tcpip.png
+    src: /tcpip.png
   actions:
     - theme: brand
       text: Дорожная карта студента

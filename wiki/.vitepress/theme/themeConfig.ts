@@ -11,7 +11,7 @@ export const themeConfig: DefaultTheme.Config = {
       }
     },
     sidebar: sidebarConfig, 
-    logo: '/public/tcpip.png',
+    logo: '/tcpip.png',
     nav: [
       {
         text: 'Материалы по дисциплинам',
