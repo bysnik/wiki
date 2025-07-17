@@ -3,23 +3,28 @@
 layout: home
 
 hero:
-  name: "My little wiki"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "Сборник различной документации"
+  text: "Моя маленькая энциклопедия"
+  tagline: Какой-то тэглайн)
+  image:
+    src: /src/img/tcpip.jpg
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
       text: API Examples
-      link: /api-examples
+      link: /docs/api-examples
+    - theme: alt
+      text: Markdown Examples
+      link: /docs/markdown-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Материалы по дисциплинам
+    details: Рабочие программы, материалы для занятий, практические, лабораторные и самостаятельные работы...
+    link: /docs/disciplines/
+  - title: Демонстрационные экзамены
+    details: Гайды по настройки стендов, решение заданий, инструкции по проверке заданий...
+    link: /docs/de/
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
+Данная вики базируется на движке Vitepress, за что спасибо их создателям! Сслыка на их [Гитхаб](https://github.com/vuejs/vitepress).
