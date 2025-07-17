@@ -7,7 +7,7 @@ hero:
   text: "Моя маленькая энциклопедия"
   tagline: Какой-то тэглайн)
   image:
-    src: ./src/img/tcpip.jpg
+    src: /src/img/tcpip.jpg
   actions:
     - theme: brand
       text: API Examples
