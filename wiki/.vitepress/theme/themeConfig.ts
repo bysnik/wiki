@@ -36,7 +36,7 @@ export const themeConfig: DefaultTheme.Config = {
     ],
 
     footer: {
-      message: 'Контакты: bystrovno@basealt,ru',
+      message: 'Контакты: bystrovno@basealt.ru',
       copyright: '© 2025 – настоящее время, Никита Б.'
     },
 

@@ -8,7 +8,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: 'Материалы по дисциплинам', link: '/docs/disciplines/' },
         { text: 'Демонстрационные экзамены', link: '/docs/de/' },
-        { text: 'Документация', link: '/docs/wi/' }
+        { text: 'Документация', link: '/docs/wi/' },
+        { text: 'Дорожная карта студентаы', link: '/docs/roadmap' },
       ]
     },
   ],
