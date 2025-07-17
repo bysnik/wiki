@@ -45,34 +45,34 @@ export const themeConfig: DefaultTheme.Config = {
     },
 
 
-//     search: {
-//       provider: 'local',
-//       options: {
-//         locales: {
-//           ru: { // используйте ключ `root`, если хотите перевести локаль по умолчанию
-//             translations: {
-//               button: {
-//                 buttonText: 'Поиск',
-//                 buttonAriaLabel: 'Поиск'
-//               },
-//               modal: {
-//                 displayDetails: 'Отобразить подробный список',
-//                 resetButtonTitle: 'Сбросить поиск',
-//                 backButtonTitle: 'Закрыть поиск',
-//                 noResultsText: 'Нет результатов по запросу',
-//                 footer: {
-//                   selectText: 'выбрать',
-//                   selectKeyAriaLabel: 'выбрать',
-//                   navigateText: 'перейти',
-//                   navigateUpKeyAriaLabel: 'стрелка вверх',
-//                   navigateDownKeyAriaLabel: 'стрелка вниз',
-//                   closeText: 'закрыть',
-//                   closeKeyAriaLabel: 'esc'
-//                 }
-//               },
-//             }
-//           }
-//         }
-//       }
-//     }
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          ru: { // используйте ключ `root`, если хотите перевести локаль по умолчанию
+            translations: {
+              button: {
+                buttonText: 'Поиск',
+                buttonAriaLabel: 'Поиск'
+              },
+              modal: {
+                displayDetails: 'Отобразить подробный список',
+                resetButtonTitle: 'Сбросить поиск',
+                backButtonTitle: 'Закрыть поиск',
+                noResultsText: 'Нет результатов по запросу',
+                footer: {
+                  selectText: 'выбрать',
+                  selectKeyAriaLabel: 'выбрать',
+                  navigateText: 'перейти',
+                  navigateUpKeyAriaLabel: 'стрелка вверх',
+                  navigateDownKeyAriaLabel: 'стрелка вниз',
+                  closeText: 'закрыть',
+                  closeKeyAriaLabel: 'esc'
+                }
+              },
+            }
+          }
+        }
+      }
+    }
   }
