@@ -1,10 +1,8 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
-
 hero:
-  name: "СиСА Вики"
-  text: "Моя маленькая энциклопедия"
+  name: СиСА Вики
+  text: Моя маленькая энциклопедия
   tagline: На данный момент этот сайт находится в зачаточном состоянии!
   image:
     src: /tcpip.png
@@ -15,7 +13,6 @@ hero:
     - theme: alt
       text: О нас
       link: /docs/about
-
 features:
   - title: Материалы по дисциплинам
     details: Рабочие программы, материалы для занятий, практические, лабораторные и самостаятельные работы...

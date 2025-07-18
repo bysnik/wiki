@@ -49,7 +49,7 @@ alterator-secsetup
 sysctl -a | grep altha
 ```
 
-!['altha'](/img/sysctlaltha.png)
+!['altha'](/public/img/sysctlaltha.png)
 
 При необходимости устанавливать эти переменные автоматически при каждой загрузке ОС, необходимо добавить их в файл `/etc/sysctl.conf`.
 
