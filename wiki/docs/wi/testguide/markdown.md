@@ -619,74 +619,6 @@ const line3 = 'Строка 3'
 // опция line-numbers включена, нумерация начинается с 2
 const line3 = 'Строка 3'
 const line4 = 'Строка 4'
-```
-
-## Импорт фрагментов кода {#import-code-snippets}
-
-Вы можете импортировать фрагменты кода из существующих файлов, используя следующий синтаксис:
-
-```md
-<<< @/filepath
-```
-
-[Выделение строк](#line-highlighting-in-code-blocks) тоже поддерживается:
-
-```md
-<<< @/filepath{highlightLines}
-```
-
-**Разметка**
-
-```md
-<<< @/snippets/snippet.js{2}
-```
-
-**Файл с кодом**
-
-<<< @/snippets/snippet.js
-
-**Результат**
-
-<<< @/snippets/snippet.js{2}
-
-::: tip СОВЕТ
-Значение `@` соответствует корню источника. По умолчанию это корень проекта VitePress, если не настроен параметр `srcDir`. Альтернативно вы также можете импортировать из относительных путей:
-
-```md
-<<< ../snippets/snippet.js
-```
-
-:::
-
-Вы также можете использовать [регион VS Code](https://code.visualstudio.com/docs/editor/codebasics#_folding), чтобы включить только соответствующую часть файла кода. Имя пользовательского региона начинается с `#` после пути к файлу:
-
-**Разметка**
-
-```md
-<<< @/snippets/snippet-with-region.js#snippet{1}
-```
-
-**Файл с кодом**
-
-<<< @/snippets/snippet-with-region.js
-
-**Результат**
-
-<<< @/snippets/snippet-with-region.js#snippet{1}
-
-Кроме того, можно указать язык внутри фигурных скобок (`{}`) следующим образом:
-
-```md
-<<< @/snippets/snippet.cs{c#}
-
-<!-- с подсветкой строк: -->
-
-<<< @/snippets/snippet.cs{1,2,4-6 c#}
-
-<!-- с номерами строк: -->
-
-<<< @/snippets/snippet.cs{1,2,4-6 c#:line-numbers}
-```
 
 Это полезно, если исходный язык нельзя определить по расширению вашего файла.
 
@@ -748,35 +680,6 @@ const config: UserConfig = {
 export default config
 ```
 
-:::
-
-Вы также можете [импортировать фрагменты](#import-code-snippets) в группы кода:
-
-**Разметка**
-
-```md
-::: code-group
-
-<!-- по умолчанию в качестве заголовка используется имя файла -->
-
-<<< @/snippets/snippet.js
-
-<!-- но можно предоставить и индивидуальный вариант -->
-
-<<< @/snippets/snippet-with-region.js#snippet{1,2 ts:line-numbers} [фрагмент с регионом]
-
-:::
-```
-
-**Результат**
-
-::: code-group
-
-<<< @/snippets/snippet.js
-
-<<< @/snippets/snippet-with-region.js#snippet{1,2 ts:line-numbers} [фрагмент с регионом]
-
-:::
 
 ## Включение файла Markdown {#markdown-file-inclusion}
 
@@ -969,6 +872,13 @@ export default {
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 
 **Уравнения Максвелла:**
+
+| уравнение                                                                                                                                                                 | описание                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| $\nabla \cdot \vec{\mathbf{B}}  = 0$                                                                                                                                      | дивергенция $\vec{\mathbf{B}}$ равна нулю                                            |
+| $\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}}$                                                          | искривление $\vec{\mathbf{E}}$ пропорционально скорости изменения $\vec{\mathbf{B}}$ |
+| $\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} = \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} = 4 \pi \rho$ | _что?_                                                                               |
+```
 
 **Результат**
 
