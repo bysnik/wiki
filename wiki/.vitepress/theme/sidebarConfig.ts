@@ -19,7 +19,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     {
       text: 'Основные блоки',
       items: [
-        { text: 'Ссылка', link: '/docs/wi/1' },
+        { text: 'Альт СП', link: '/docs/wi/altsp/' },
         { text: 'Ссылка', link: '/docs/wi/2' },
         {
           text: 'Блок 2 уровень',
@@ -30,27 +30,76 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
             { text: 'Ссылка', link: '/docs/wi/5' },
           ],
         },
-        {
-          text: 'Блок 2 уровень',
-          collapsed: true,
-          items: [
-            { text: 'Ссылка', link: '/docs/wi/6' },
-            { text: 'Ссылка', link: '/docs/wi/7' },
-            { text: 'Ссылка', link: '/docs/wi/8' },
-          ],
-        },
-        {
-          text: 'Блок 2 уровень',
-          collapsed: true,
-          items: [
-            { text: 'Ссылка', link: '/docs/wi/9' },
-            { text: 'Ссылка', link: '/docs/wi/10' },
-            { text: 'Ссылка', link: '/docs/wi/11' },
-          ],
-        },
       ]
     }
   ],
+
+    '/docs/wi/altsp/': [
+    {
+      text: 'Основные блоки',
+      items: [
+        { text: 'Альт СП', link: '/docs/wi/altsp/' },
+        { text: '1) x86-64, aarch64, Elbrus', link: '/docs/wi/altsp/1.arch' },
+        { text: '2) Legacy or CSM, UEFU (Secure Boot)', link: '/docs/wi/altsp/2.install' },
+        { text: '3) Ядро не ниже 6.1', link: '/docs/wi/altsp/3.core' },
+        { text: '4) Графическая среда MATE', link: '/docs/wi/altsp/4.mate' },
+        { text: '5) Работа на нескольких мониторах (видеокартах)', link: '/docs/wi/altsp/5.monitors' },
+        { text: '6) Графическая настройка multiuser mode', link: '/docs/wi/altsp/6.graph_mult' },
+        { text: '7) Руссифицированный интерфейс и документация', link: '/docs/wi/altsp/7.rus' },
+        { text: '8) Различные варианты установки', link: '/docs/wi/altsp/8.var_inst' },
+        { text: '9) Спасательный LiveCD', link: '/docs/wi/altsp/9.livecd' },
+        { text: '10) Программный RAID и LVM', link: '/docs/wi/altsp/10.raid_lvm' },
+        { text: '11) Безопасный режим', link: '/docs/wi/altsp/11.safemode' },
+        { text: '12) OEM установка', link: '/docs/wi/altsp/12.oem' },
+        { text: '13) Снапшоты', link: '/docs/wi/altsp/13.snapshot' },
+        { text: '14) Выбор приложений во время установки', link: '/docs/wi/altsp/14.apps' },
+        { text: '15) Инструмент поиска уязвимостей', link: '/docs/wi/altsp/15.trivy' },
+        { text: '16) Инструмент проверки checksum', link: '/docs/wi/altsp/16.checksum' },
+        { text: '17) Пароль на загрузчик', link: '/docs/wi/altsp/17.grub_pass' },
+        { text: '18) Блокировка vtty', link: '/docs/wi/altsp/18.vtty' },
+        { text: '19) Режим Киоск', link: '/docs/wi/altsp/19.kiosk' },
+        { text: '20) Ограничение USB-устройств в GUI', link: '/docs/wi/altsp/20.usb' },
+        { text: '21) Мониторинг ресурсов', link: '/docs/wi/altsp/21.resources' },
+        { text: '22) Единый графический интерфейс для настроек', link: '/docs/wi/altsp/22.alterator' },
+        { text: '23) Изолированные сеансы', link: '/docs/wi/altsp/23.isolate' },
+        { text: '24) Права доступа', link: '/docs/wi/altsp/24.access_right' },
+        { text: '25) Программа для ограничения ресурсов', link: '/docs/wi/altsp/25.limits' },
+        { text: '26) Ограничение действий в консоли', link: '/docs/wi/altsp/26.controlpp' },
+        { text: '27) Ограничение параллельных сеансов', link: '/docs/wi/altsp/27.maxlog' },
+        { text: '28) Ограничение прав на запуск', link: '/docs/wi/altsp/28.secure' },
+        { text: '29) Хеш-функции по ГОСТ Р 34.11-2012', link: '/docs/wi/altsp/29.rus_hash' },
+        { text: '30) SSH-туннели и ГОСТ Р 34.12-2015', link: '/docs/wi/altsp/30.rus_ssh' },
+        { text: '31) Смарт-карты', link: '/docs/wi/altsp/31.smartcard' },
+        { text: '32) Восстановление сеанса', link: '/docs/wi/altsp/32.acco' },
+        { text: '33) Экранная клавиатура', link: '/docs/wi/altsp/33.virtkeyb' },
+        { text: '34) Работа с доменом Active Directory', link: '/docs/wi/altsp/34.ad' },
+        { text: '35) Графический инструмент для работы с AD и GPO', link: '/docs/wi/altsp/35.admc' },
+        { text: '36) Доступ к политикам AD', link: '/docs/wi/altsp/36.gpui' },
+        { text: '37) Сетевые файлы и каталоги', link: '/docs/wi/altsp/37.share' },
+        { text: '38) Функционирование пользовательских политик', link: '/docs/wi/altsp/38.ad_mate' },
+        { text: '39) Домен FreeIPA', link: '/docs/wi/altsp/39.freeipa' },
+        { text: '40) Безопасные VPN соединения', link: '/docs/wi/altsp/40.openvpn' },
+        { text: '41) VPN-туннели ГОСТ Р 34.12-2015', link: '/docs/wi/altsp/41.openvpn_rus' },
+        { text: '42) Межсетевой экран', link: '/docs/wi/altsp/42.firewall' },
+        { text: '43) Изоляция приложений', link: '/docs/wi/altsp/43.isolate_app' },
+        { text: '44) Безопасные настройки по умолчанию', link: '/docs/wi/altsp/44.safe_sett' },
+        { text: '45) Управление фиксированными состояниями ключевых объектов', link: '/docs/wi/altsp/45.sec_obj' },
+        { text: '46) OpenSSL по ГОСТ Р 34.11.2012', link: '/docs/wi/altsp/46.openssl_rus' },
+        { text: '47) Утилита для работы с Электронными Подписями', link: '/docs/wi/altsp/47.cryptopro' },
+        { text: '48) ФСТЭК 25.12.2020 г.  Методика выявления уязвимостей', link: '/docs/wi/altsp/48.fstek' },
+        { text: '49) IMA и EVM', link: '/docs/wi/altsp/49.imaevm' },
+        { text: '50) Локальная виртуализация', link: '/docs/wi/altsp/50.locvirt' },
+        { text: '51) Поддержка файловых систем', link: '/docs/wi/altsp/51.manyfs' },
+        { text: '52) Поддержка сетевых протоколов', link: '/docs/wi/altsp/52.netprotokols' },
+        { text: '53) Доустановка ПО', link: '/docs/wi/altsp/53.apt' },
+        { text: '54) Исходные коды, обновления, инструменты для сборки', link: '/docs/wi/altsp/54.opensource' },
+        { text: '55) Единая система для установки ПО', link: '/docs/wi/altsp/55.epm' },
+        { text: '56) Отечественные корневые сертификаты', link: '/docs/wi/altsp/56.digital.gov' },
+        { text: '57) Поддержка корневых сертификатов ТЦИ', link: '/docs/wi/altsp/57.tlscc' },
+      ]
+    }
+  ],
+
  
   '/docs/disciplines/': [
     {

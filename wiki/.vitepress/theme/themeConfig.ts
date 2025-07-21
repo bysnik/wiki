@@ -86,7 +86,7 @@ export const themeConfig: DefaultTheme.Config = {
                   closeText: 'закрыть',
                   closeKeyAriaLabel: 'esc'
                 }
-              },
+              }
             }
           }
         }
