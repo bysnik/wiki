@@ -19,7 +19,18 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     {
       text: 'Дистрибутивы Альт',
       items: [
-        { text: 'Альт СП', link: '/docs/wi/altsp/' },
+        { text: 'Альт СП', link: '/docs/wi/altsp/' },       
+      ]
+    },
+    {
+      text: 'Сервисы',
+      items: [
+        { text: 'Gitea', link: '/docs/wi/gitea' },       
+      ]
+    },
+    {
+      text: 'Дистрибутиво',
+      items: [
         {
           text: 'Различное по мелочи',
           collapsed: true,
@@ -33,8 +44,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
 
     '/docs/wi/altsp/': [
     {
-      text: 'Основные блоки',
       items: [
+        { text: 'Документация', link: '/docs/wi/' },
         { text: 'Альт СП', link: '/docs/wi/altsp/' },
         { text: '1) x86-64, aarch64, Elbrus', link: '/docs/wi/altsp/1.arch' },
         { text: '2) Legacy or CSM, UEFU (Secure Boot)', link: '/docs/wi/altsp/2.install' },
