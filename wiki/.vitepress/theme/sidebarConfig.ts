@@ -11,25 +11,22 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Документация', link: '/docs/wi/' },
         { text: 'Дорожная карта студентаы', link: '/docs/roadmap' },
       ]
-    },
+    }
   ],
    
 
   '/docs/wi/': [
     {
-      text: 'Основные блоки',
+      text: 'Дистрибутивы Альт',
       items: [
         { text: 'Альт СП', link: '/docs/wi/altsp/' },
-        { text: 'Ссылка', link: '/docs/wi/2' },
         {
-          text: 'Блок 2 уровень',
+          text: 'Различное по мелочи',
           collapsed: true,
           items: [
-            { text: 'Тестовый гайд', link: '/docs/wi/testguide/' },
-            { text: 'Ссылка', link: '/docs/wi/4' },
-            { text: 'Ссылка', link: '/docs/wi/5' },
-          ],
-        },
+            { text: 'Веб-камеры', link: '/docs/wi/webcam' },
+          ]
+        }
       ]
     }
   ],

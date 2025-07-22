@@ -18,7 +18,7 @@ title: "Сотрудники"
       title: 'Создатель',
       links: [
         { icon: 'github', link: 'https://github.com/' },
-        { icon: 'twitter', link: 'https://twitter.com/' }
+        { icon: 'mailboxdotorg', link: 'mailto:bystrovno@basealt.ru?subject=Доработка СиСА Вики' }
       ]
     },
     {
