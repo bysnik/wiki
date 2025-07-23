@@ -12,7 +12,7 @@ outline: deep
 ```bash
 apt-get install gitea
 ```
-### Установка базы данных
+## Установка базы данных
 
 Gitea умеет работать с несколькими базами данных: MySQL, PostgreSQL, MS-SQL, Sqlite3 и TiDB.
 ### Настройка PostgreSQL
