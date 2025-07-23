@@ -1,112 +1,149 @@
+---
+outline: deep
+---
 
 
-## Установка Docker
+# Gitea
 
-Установить docker можно следующей командой:
-
-`# apt-get install docker-engine docker-compose` 
-
-Для запуска docker от пользователя (не root) следует выполнить несколько шагов:
-
-1. Добавить пользователя в группу `docker`;
-    
-    `# usermod ИМЯ_ПОЛЬЗОВАТЕЛЯ -aG docker`
-    
-2. Выполнить повторный вход в систему.
-
-Затем необходимо запустить соответствующую службу:
-
-`# systemctl enable --now docker`
-
+это бесплатный сервис с открытым исходным кодом для хостинга Git-репозиториев, разработанный для совместной работы над проектами. Он предоставляет функциональность для хранения, управления и совместной работы над исходным кодом, включая такие инструменты, как отслеживание ошибок, ревью кода, непрерывная интеграция и многое другое.
 
 ## Установка Gitea
 
-Первым делом надо поставить gitea, если этот этап ещё не выполнен:
-
+Установка Gitea:
+```bash
 apt-get install gitea
-
-
-## Настройка базы данных
-
-/etc/init.d/postgresql initdb
-
-systemctl enable --now postgresql
-
-Откройте PostgreSQL:
-
-psql -U postgres
-
-Наберите что-нибудь вроде:
-
 ```
-   CREATE USER "gitea@localhost" WITH PASSWORD '123';
-```
-
-чтобы создать пользователя gitea. '123' по желанию можно заменить на Ваш самый сложный пароль.
-
-Далее создайте базу данных:
-
-CREATE DATABASE gitea;
-
-После этого надо дать привилегии этому пользователю работать с базой данных:
-
-GRANT ALL PRIVILEGES ON DATABASE gitea TO "gitea@localhost"
-
-systemctl restart postgresql
 ## Установка базы данных
 
-Gitea умеет работать с 4мя базами данных: MySQL, PostgreSQL, MS-SQL и Sqlite3.
+Gitea умеет работать с несколькими базами данных: MySQL, PostgreSQL, MS-SQL, Sqlite3 и TiDB.
+### Настройка PostgreSQL
 
-Автор данного руководства предлагает Вам поставить MySQL:
+Установка PostgreSQL сервера:
+```bash
+apt-get install postgresql17-server
+```
 
-apt-get install MySQL-server
+Создание конфигурационных файлов PostgreSQL и создание пароля администратора:
+```bash
+/etc/init.d/postgresql initdb
+```
 
-## Настройка базы данных
+Запуск сервиса postgresql:
+```bash
+systemctl enable --now postgresql
+```
 
-Gitea сам этого не сделает, так что запустите MySQL:
+Вход в командую оболочку PostgreSQL:
+```bash
+psql -U postgres
+```
 
-systemctl start mysqld
-systemctl enable mysqld
+Создание пользователя gitea с паролем 123:
+```
+CREATE USER gitea WITH PASSWORD '123';
+```
 
-Откройте MySQL:
-
-mysql
-
-Наберите что-нибудь вроде:
-
-CREATE USER 'gitea'@'localhost' IDENTIFIED BY '123';
-
-чтобы создать пользователя gitea. '123' по желанию можно заменить на Ваш самый сложный пароль.
-
-Далее создайте базу данных:
-
+Создание базы данных gitea:
+```bash
 CREATE DATABASE gitea;
+```
 
-После этого надо дать привилегии этому пользователю работать с базой данных:
+Предоставление всех привилегий пользователю gitea для управление базой данных gitea:
+```bash
+GRANT ALL PRIVILEGES ON DATABASE gitea TO gitea;
+```
 
+Изменение владельца базой данных gitea на пользователя gitea:
+```bash
+ALTER DATABASE gitea OWNER TO gitea;
+```
+
+Выход из командной оболочки PostgreSQL:
+```bash
+exti;
+```
+
+Перезагрузка сервиса postgresql:
+```bash
+systemctl restart postgresql
+```
+
+
+### Настройка MySQL
+
+Установка MySQL сервера:
+```bash
+apt-get install MySQL-server
+```
+
+Запуск сервиса mysqld:
+```bash
+systemctl enable --now mysqld
+```
+
+Вход в командую оболочку MySQL:
+```bash
+mysql
+```
+
+Создание пользователя gitea с паролем 123:
+```bash
+CREATE USER 'gitea'@'localhost' IDENTIFIED BY '123';
+```
+ 
+Создание базы данных gitea:
+```bash
+CREATE DATABASE gitea;
+```
+
+Предоставление всех привилегий пользователю gitea для управление базой данных gitea:
+```bash
 GRANT ALL PRIVILEGES ON * . * TO 'gitea'@'localhost';
+```
 
-В конце концов надо перевести MySQL в режим сервера, чтобы он отдавал 3306 порт:
+Выход из командной оболочки MySQL:
+```bash
+exti;
+```
 
+Переключение MySQL в режим сервера, чтобы он отдавал 3306 порт:
+```bash
 control mysqld server
+```
+
+Перезагрузка сервиса mysqld:
+```bash
 systemctl restart mysqld
+```
 
 ## Запуск Gitea
 
-Запускается она через сервис-файл
+Редактируем конфигурационный файл:
+```bash
+nano /etc/gitea/app.ini
+```
 
-systemctl start gitea
-systemctl enable gitea
-
-ИИИИ он у ВАс не запустится)
-
-Редактируем файл /etc/gitea/app.ini
-В нем нужно разкомментировать строку: 
+Необходимо раскомментировать строку (убрать точку с запятой):
+```bash
 ;PROTOCOL = http 
-(пысы, нужно убрать \;)
+```
 
-После этого можно идти на localhost:3000 и увидеть графический интерфейс.
+Запуск сервиса gitea:
+```bash
+systemctl enable --now gitea
+```
 
-Имя пользователя базы данных не забудь написать gitea, вместо root
+При первом запуске Gitea по адресу localhost:3000 появится меню начальной конфигурации.
 
-Чтобы зайти, нужно зарегистрироваться (или ВНИМАТЕЛЬНО ПОСМОТРИ на пункт "Настройка учётной записи администратора")
+Главные настройки:
+
+Тип базы данных: выбрать базу данных, которая была создана.
+
+Имя пользователя : gitea
+
+Пароль: 123
+
+Схема (если PostgreSQL): Оставить поле пустым.
+
+Настройка учётной записи администратора: Создание учётной записи администратора необязательно. Первый зарегистрированный пользователь автоматически становится администратором.
+

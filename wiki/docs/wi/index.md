@@ -1,6 +1,6 @@
 ---
 layout: doc
-outline: deepы
+outline: deep
 ---
 
 # Вики внутри вики, хаха

@@ -25,11 +25,12 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     {
       text: 'Сервисы',
       items: [
+        { text: 'Docker', link: '/docs/wi/docker' },
         { text: 'Gitea', link: '/docs/wi/gitea' },       
       ]
     },
     {
-      text: 'Дистрибутиво',
+      text: 'Дистрибутивы',
       items: [
         {
           text: 'Различное по мелочи',
