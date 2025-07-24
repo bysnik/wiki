@@ -38,27 +38,27 @@ psql -U postgres
 ```
 
 Создание пользователя gitea с паролем 123:
-```
+```sql
 CREATE USER gitea WITH PASSWORD '123';
 ```
 
 Создание базы данных gitea:
-```bash
+```sql
 CREATE DATABASE gitea;
 ```
 
 Предоставление всех привилегий пользователю gitea для управление базой данных gitea:
-```bash
+```sql
 GRANT ALL PRIVILEGES ON DATABASE gitea TO gitea;
 ```
 
 Изменение владельца базой данных gitea на пользователя gitea:
-```bash
+```sql
 ALTER DATABASE gitea OWNER TO gitea;
 ```
 
 Выход из командной оболочки PostgreSQL:
-```bash
+```sql
 exti;
 ```
 
@@ -86,22 +86,22 @@ mysql
 ```
 
 Создание пользователя gitea с паролем 123:
-```bash
+```sql
 CREATE USER 'gitea'@'localhost' IDENTIFIED BY '123';
 ```
  
 Создание базы данных gitea:
-```bash
+```sql
 CREATE DATABASE gitea;
 ```
 
 Предоставление всех привилегий пользователю gitea для управление базой данных gitea:
-```bash
+```sql
 GRANT ALL PRIVILEGES ON * . * TO 'gitea'@'localhost';
 ```
 
 Выход из командной оболочки MySQL:
-```bash
+```sql
 exti;
 ```
 
@@ -191,10 +191,10 @@ services:
 хз почему, но если отсутствует файл config.yaml, то докер создает пустую директорию ./config.yaml . Если же файл есть, то всё работает как и должно.
 
 Либо создавайте переменные окружения, что будет правильнее, либо вписывайте значения вместо переменных:
-GITEA_INSTANCE_URL - ЮРЛ Вашего Гитеа, например http://192.168.0.1:3000 (лупбэк не работает)
-GITEA_RUNNER_REGISTRATION_TOKEN - Токен, который был получен ранее
-GITEA_RUNNER_NAME - имя раннера
-GITEA_RUNNER_LABELS - необязательный лейбл, можно просто удалить
+- GITEA_INSTANCE_URL - ЮРЛ Вашего Гитеа, например http://192.168.0.1:3000 (лупбэк не работает)
+- GITEA_RUNNER_REGISTRATION_TOKEN - Токен, который был получен ранее
+- GITEA_RUNNER_NAME - имя раннера
+- GITEA_RUNNER_LABELS - необязательный лейбл, можно просто удалить
 
 Запуск Act Runner:
 ```bash
