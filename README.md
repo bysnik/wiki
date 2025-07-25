@@ -20,7 +20,7 @@ graph LR
     B --> C[Сборка VitePress]
     C --> D[gh-pages branch]
     D -->|Автодеплой| E[GitHub Pages]
-
+```
 Ветки репозитория:
 
     main - исходный код и контент
