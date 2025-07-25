@@ -1,7 +1,7 @@
 # Вики для специальности 09.02.06 «Сетевое и системное администрирование»
 
 [![Лицензия: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ваш-юзернейм/ваш-репозиторий/ваш-workflow.yml?label=CI%20Build)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nik5612/wiki/deploy.yml?label=CI%20Build)
 
 Проект представляет собой учебную вики-базу знаний для специальности **09.02.06** на базе [VitePress](https://vitepress.dev). 
 
