@@ -233,3 +233,146 @@ jobs:
 
 Можно изучить логи, нажав на Нужное действие:
 ![](/public/img/20250723114145.png)
+
+### Раннер на Альт Р11
+
+Необходимо собрать Docker образ раннера на базе Альт Р11. 
+
+Скачайте бинарник раннера с сайта Gitea: https://dl.gitea.com/act_runner/
+	Я использовал файл act_runner-0.2.12-linux-amd64. Переименуйте его просто в act_runner.
+
+Далее необходимо создать рабочий каталог, поместить в него файл раннера. Далее в этом же каталоге создаем файл Dockerfile:
+```Dockerfile
+FROM alt:p11
+
+CMD ["/bin/sh"]
+
+COPY ./act_runner /usr/local/bin/act_runner
+
+COPY ./run.sh /usr/local/bin/run.sh
+
+VOLUME [/var/run/docker.sock]
+
+VOLUME [/data]
+
+ENTRYPOINT ["run.sh"]
+```
+
+Далее, в этой же директории создаем файл run.sh:
+```bash
+#!/usr/bin/env bash
+
+if [[ ! -d /data ]]; then
+  mkdir -p /data
+fi
+
+cd /data
+
+RUNNER_STATE_FILE=${RUNNER_STATE_FILE:-'.runner'}
+
+CONFIG_ARG=""
+if [[ ! -z "${CONFIG_FILE}" ]]; then
+  CONFIG_ARG="--config ${CONFIG_FILE}"
+fi
+EXTRA_ARGS=""
+if [[ ! -z "${GITEA_RUNNER_LABELS}" ]]; then
+  EXTRA_ARGS="${EXTRA_ARGS} --labels ${GITEA_RUNNER_LABELS}"
+fi
+if [[ ! -z "${GITEA_RUNNER_EPHEMERAL}" ]]; then
+  EXTRA_ARGS="${EXTRA_ARGS} --ephemeral"
+fi
+RUN_ARGS=""
+if [[ ! -z "${GITEA_RUNNER_ONCE}" ]]; then
+  RUN_ARGS="${RUN_ARGS} --once"
+fi
+
+# In case no token is set, it's possible to read the token from a file, i.e. a Docker Secret
+if [[ -z "${GITEA_RUNNER_REGISTRATION_TOKEN}" ]] && [[ -f "${GITEA_RUNNER_REGISTRATION_TOKEN_FILE}" ]]; then
+  GITEA_RUNNER_REGISTRATION_TOKEN=$(cat "${GITEA_RUNNER_REGISTRATION_TOKEN_FILE}")
+fi
+
+# Use the same ENV variable names as https://github.com/vegardit/docker-gitea-act-runner
+test -f "$RUNNER_STATE_FILE" || echo "$RUNNER_STATE_FILE is missing or not a regular file"
+
+if [[ ! -s "$RUNNER_STATE_FILE" ]]; then
+  try=$((try + 1))
+  success=0
+
+  # The point of this loop is to make it simple, when running both act_runner and gitea in docker,
+  # for the act_runner to wait a moment for gitea to become available before erroring out.  Within
+  # the context of a single docker-compose, something similar could be done via healthchecks, but
+  # this is more flexible.
+  while [[ $success -eq 0 ]] && [[ $try -lt ${GITEA_MAX_REG_ATTEMPTS:-10} ]]; do
+    act_runner register \
+      --instance "${GITEA_INSTANCE_URL}" \
+      --token    "${GITEA_RUNNER_REGISTRATION_TOKEN}" \
+      --name     "${GITEA_RUNNER_NAME:-`hostname`}" \
+      ${CONFIG_ARG} ${EXTRA_ARGS} --no-interactive 2>&1 | tee /tmp/reg.log
+
+    cat /tmp/reg.log | grep 'Runner registered successfully' > /dev/null
+    if [[ $? -eq 0 ]]; then
+      echo "SUCCESS"
+      success=1
+    else
+      echo "Waiting to retry ..."
+      sleep 5
+    fi
+  done
+fi
+# Prevent reading the token from the act_runner process
+unset GITEA_RUNNER_REGISTRATION_TOKEN
+unset GITEA_RUNNER_REGISTRATION_TOKEN_FILE
+
+exec act_runner daemon ${CONFIG_ARG} ${RUN_ARGS}
+```
+
+Теперь собираем Docker образ:
+```bash
+docker build -t alt11runner:0.5 .
+```
+
+Теперь можно запустить раннер командой:
+```bash
+docker run -e GITEA_INSTANCE_URL=https://your_gitea.com -e GITEA_RUNNER_REGISTRATION_TOKEN=<your_token> -v /var/run/docker.sock:/var/run/docker.sock --name my_runner alt11runner:0.5
+```
+
+Или же используя Docker compose. Для этого создаем файл docker-compose.yml:
+```yaml
+services:
+  runner:
+    image: alt11runner:0.5
+    environment:
+      CONFIG_FILES: /config.yaml
+      GITEA_INSTANCE_URL: https://your_gitea.com
+      GITEA_RUNNER_REGISTRATION_TOKEN: <your_token>
+      GITEA_RUNNER_NAME: <your_runner_name>
+    volumes:
+      - ./config.yaml:/config.yaml
+      - ./data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+```
+
+И запускаем контейнер командой:
+```bash
+docker compose up
+```
+
+И типа всё здорово.... Анннн нет, раннер не хочет выполнять задачи.
+При запусе тестовой задачи возникает вот такая ошибка: 
+```bash
+...
+
+2025-07-25T08:42:41.7802912Z Unable to clone https://github.com/actions/checkout refs/heads/v4: Get "https://github.com/actions/checkout/info/refs?service=git-upload-pack": tls: failed to verify certificate: x509: certificate signed by unknown authority
+2025-07-25T08:42:41.7803351Z Get "https://github.com/actions/checkout/info/refs?service=git-upload-pack": tls: failed to verify certificate: x509: certificate signed by unknown authority
+
+...
+
+🏁 Job failed
+Get "https://github.com/actions/checkout/info/refs?service=git-upload-pack": tls: failed to verify certificate: x509: certificate signed by unknown authority
+```
+
+Почему то, когда раннер создает контейнер используя МОЙ раннер, то проблема с ссл, когда СТАНДАРТНЫЙ, то всё норм. Я пробовал в моём образе поработать с ССЛ - всё норм, попробовал убунтовский образ, который раннер создает - всё норм. Но это я сам запускал образы. А вот когда РАннер, то проблемы с ссл
+
+Кстати, запускал раннер на хосте (Альт П11 Сервер), и всё норм) С ССЛ никаких проблем
+
+Кстати прикол, запуская контейнер используя Docker Compose, он не воспринимает файл config.yaml. То есть не считывает с него конифги. С директорией data всё нормально, он туда пишет параметры раннера.
