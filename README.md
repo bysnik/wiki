@@ -16,7 +16,7 @@
 ## 🛠 Техническая организация
 ```mermaid
 graph LR
-    A[main branch] -->|Исходники| B[GitHub Actions CI]
+    |Исходники| --> A[main branch] --> B[GitHub Actions CI]
     B --> C[Сборка VitePress]
     C --> D[gh-pages branch]
     D -->|Автодеплой| E[GitHub Pages]
