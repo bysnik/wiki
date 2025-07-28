@@ -10,3 +10,5 @@ podman
 github, gitea, gitlab action(s)
 
 Параллельно изучаем сборку пакетов для альта)
+
+Знакомство с S3 - MinIO
