@@ -247,6 +247,8 @@ FROM alt:p11
 
 CMD ["/bin/sh"]
 
+RUN /bin/sh -c 'apt-get update && apt-get install git'
+
 COPY ./act_runner /usr/local/bin/act_runner
 
 COPY ./run.sh /usr/local/bin/run.sh
@@ -357,22 +359,6 @@ services:
 docker compose up
 ```
 
-И типа всё здорово.... Анннн нет, раннер не хочет выполнять задачи.
-При запусе тестовой задачи возникает вот такая ошибка: 
-```bash
-...
-
-2025-07-25T08:42:41.7802912Z Unable to clone https://github.com/actions/checkout refs/heads/v4: Get "https://github.com/actions/checkout/info/refs?service=git-upload-pack": tls: failed to verify certificate: x509: certificate signed by unknown authority
-2025-07-25T08:42:41.7803351Z Get "https://github.com/actions/checkout/info/refs?service=git-upload-pack": tls: failed to verify certificate: x509: certificate signed by unknown authority
-
-...
-
-🏁 Job failed
-Get "https://github.com/actions/checkout/info/refs?service=git-upload-pack": tls: failed to verify certificate: x509: certificate signed by unknown authority
-```
-
-Почему то, когда раннер создает контейнер используя МОЙ раннер, то проблема с ссл, когда СТАНДАРТНЫЙ, то всё норм. Я пробовал в моём образе поработать с ССЛ - всё норм, попробовал убунтовский образ, который раннер создает - всё норм. Но это я сам запускал образы. А вот когда РАннер, то проблемы с ссл
-
-Кстати, запускал раннер на хосте (Альт П11 Сервер), и всё норм) С ССЛ никаких проблем
+И типа всё здорово должно быть
 
 Кстати прикол, запуская контейнер используя Docker Compose, он не воспринимает файл config.yaml. То есть не считывает с него конифги. С директорией data всё нормально, он туда пишет параметры раннера.
