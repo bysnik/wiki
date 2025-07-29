@@ -145,3 +145,43 @@
   margin-bottom: 2 !important;
   padding-top: 0 !important;
 }
+
+/**
+* Стили только для таблицы с id="program-table"
+ * -------------------------------------------------------------------------- */
+#program-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+    
+#program-table th,
+#program-table td {
+    padding: 8px;
+}
+
+/* Шапка таблицы */
+#program-table thead th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Основная часть таблицы */
+#program-table tbody td {
+    text-align: left;
+}
+
+/* 3-й и 4-й столбцы в основной части */
+#program-table tbody td:nth-child(2),
+#program-table tbody td:nth-child(3) {
+    text-align: center;
+}
+
+/* Подвал таблицы */
+#program-table tfoot td {
+    text-align: right;
+}
+
+/* 4-й столбец в подвале */
+#program-table tfoot td:nth-child(2) {
+    text-align: center;
+}
