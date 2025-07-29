@@ -30,4 +30,4 @@ features:
 
 <br>
 
-Данная вики базируется на движке Vitepress, за что спасибо их создателям! Сслыка на их [Гитхаб](https://github.com/vuejs/vitepress).
+Данная вики базируется на движке Vitepress, за что спасибо его создателям! Сслыка на их [Гитхаб](https://github.com/vuejs/vitepress).
