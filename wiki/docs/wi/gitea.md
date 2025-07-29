@@ -186,7 +186,7 @@ systemctl enable --now gitea
 
 Скачайте бинарник раннера с сайта Gitea: https://dl.gitea.com/act_runner/
 
-::: info
+::: info Информация
 Я использовал файл act_runner-0.2.12-linux-amd64
 :::
 
@@ -458,7 +458,7 @@ unset GITEA_RUNNER_REGISTRATION_TOKEN_FILE
 exec act_runner daemon ${CONFIG_ARG} ${RUN_ARGS}
 ```
 
-::: info
+::: info Информация
 Этот файл был взят из оригинально gitea act runner. Редактировать файл не нужно.
 :::
 
