@@ -23,8 +23,8 @@ title: "Сотрудники"
     },
     {
       avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
-      title: 'Создатель',
+      name: 'HP Poly Studio ProBook',
+      title: 'Рабочий ноутбук',
       links: [
         { icon: 'github', link: 'https://github.com/' },
         { icon: 'twitter', link: 'https://twitter.com/' }
@@ -32,46 +32,20 @@ title: "Сотрудники"
     },
     {
       avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
-      title: 'Создатель',
+      name: 'Bloody',
+      title: 'Клавиатура и мышь',
       links: [
         { icon: 'github', link: 'https://github.com/' },
         { icon: 'twitter', link: 'https://twitter.com/' }
       ]
     },
-    {
-      avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
-      title: 'Создатель',
-      links: [
-        { icon: 'github', link: 'https://github.com/' },
-        { icon: 'twitter', link: 'https://twitter.com/' }
-      ]
-    },
-    {
-      avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
-      title: 'Создатель',
-      links: [
-        { icon: 'github', link: 'https://github.com/' },
-        { icon: 'twitter', link: 'https://twitter.com/' }
-      ]
-    },
-    {
-      avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
-      title: 'Создатель',
-      links: [
-        { icon: 'github', link: 'https://github.com/' },
-        { icon: 'twitter', link: 'https://twitter.com/' }
-      ]
-    },
+    
   ]
   const partners = [
     {
       avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
       name: 'Place Holder',
-      title: 'Создатель',
+      title: 'Самый лучший человек',
       links: [
         { icon: 'github', link: 'https://github.com/' },
         { icon: 'twitter', link: 'https://twitter.com/' }
@@ -80,7 +54,7 @@ title: "Сотрудники"
     {
       avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
       name: 'Place Holder',
-      title: 'Создатель',
+      title: 'Самый лучший человек',
       links: [
         { icon: 'github', link: 'https://github.com/' },
         { icon: 'twitter', link: 'https://twitter.com/' }
@@ -89,7 +63,7 @@ title: "Сотрудники"
     {
       avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
       name: 'Place Holder',
-      title: 'Создатель',
+      title: 'Самый лучший человек',
       links: [
         { icon: 'github', link: 'https://github.com/' },
         { icon: 'twitter', link: 'https://twitter.com/' }
@@ -98,43 +72,7 @@ title: "Сотрудники"
     {
       avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
       name: 'Place Holder',
-      title: 'Создатель',
-      links: [
-        { icon: 'github', link: 'https://github.com/' },
-        { icon: 'twitter', link: 'https://twitter.com/' }
-      ]
-    },
-    {
-      avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
-      title: 'Создатель',
-      links: [
-        { icon: 'github', link: 'https://github.com/' },
-        { icon: 'twitter', link: 'https://twitter.com/' }
-      ]
-    },
-    {
-      avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
-      title: 'Создатель',
-      links: [
-        { icon: 'github', link: 'https://github.com/' },
-        { icon: 'twitter', link: 'https://twitter.com/' }
-      ]
-    },
-    {
-      avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
-      title: 'Создатель',
-      links: [
-        { icon: 'github', link: 'https://github.com/' },
-        { icon: 'twitter', link: 'https://twitter.com/' }
-      ]
-    },
-    {
-      avatar: 'https://avatars.githubusercontent.com/u/124361445?v=4&size=64',
-      name: 'Place Holder',
-      title: 'Создатель',
+      title: 'Самый лучший человек',
       links: [
         { icon: 'github', link: 'https://github.com/' },
         { icon: 'twitter', link: 'https://twitter.com/' }

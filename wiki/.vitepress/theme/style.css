@@ -170,7 +170,7 @@
     text-align: left;
 }
 
-/* 3-й и 4-й столбцы в основной части */
+/* 2-й и 3-й столбцы в основной части */
 #program-table tbody td:nth-child(2),
 #program-table tbody td:nth-child(3) {
     text-align: center;
