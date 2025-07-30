@@ -54,7 +54,7 @@ export const themeConfig: DefaultTheme.Config = {
 
     footer: {
       message: 'Контакты: bystrovno@basealt.ru',
-      copyright: '© 2025 – настоящее время, Никита Б.'
+      copyright: '© 2025 – настоящее время, Никита Б. Разработано на <a href="https://github.com/vuejs/vitepress">VitePress</a>.'
     },
 
     editLink: {

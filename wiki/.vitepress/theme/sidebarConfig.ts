@@ -14,6 +14,22 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     }
   ],
    
+  '/docs/de/09.02.06.3.2025/': [
+    {
+      items: [
+        { text: 'Подготовка стенда', link: '/docs/de/09.02.06.3.2025/s/' },       
+      ]
+    },
+    {
+      text: 'Модули',
+      items: [
+        { text: 'Модуль 1', link: '/docs/de/09.02.06.3.2025/m1/' },
+        { text: 'Модуль 2', link: '/docs/de/09.02.06.3.2025/m2/' }, 
+        { text: 'Модуль 3', link: '/docs/de/09.02.06.3.2025/m3/' }, 
+        { text: 'Вариативная часть', link: '/docs/de/09.02.06.3.2025/v/' },        
+      ]
+    },
+  ],
 
   '/docs/wi/': [
     {
@@ -43,7 +59,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     }
   ],
 
-    '/docs/wi/altsp/': [
+  '/docs/wi/altsp/': [
     {
       items: [
         { text: 'Документация', link: '/docs/wi/' },
@@ -108,7 +124,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       ]
     }
   ],
-
  
   '/docs/disciplines/': [
     {
