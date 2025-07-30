@@ -701,183 +701,185 @@ SCHEDULE = @midnight
 
 ## Cron (`cron`)
 
-- `ENABLED`: **false**: Enable to run all cron tasks periodically with default settings.
-- `RUN_AT_START`: **false**: Run cron tasks at application start-up.
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to switch on success notices.
-- `SCHEDULE` accept formats
-    - Full crontab specs, e.g. `* * * * * ?`
-    - Descriptors, e.g. `@midnight`, `@every 1h30m` ...
-    - See more: [cron documentation](https://pkg.go.dev/github.com/gogs/cron@v0.0.0-20171120032916-9f6c956d3e14)
-### Basic cron tasks - enabled by default 
+- `ENABLED`: **false**: Включить периодическое выполнение всех cron-задач с настройками по умолчанию.
+- `RUN_AT_START`: **false**: Запускать cron-задачи при старте приложения.
+- `NOTICE_ON_SUCCESS`: **false**: Установите `true`, чтобы включить уведомления об успешном выполнении.
+- `SCHEDULE` поддерживает форматы:
+    - Полные crontab-спецификации, например, `* * * * * ?`
+    - Дескрипторы, например, `@midnight`, `@every 1h30m` ...
+    - Подробнее: [документация cron](https://pkg.go.dev/github.com/gogs/cron@v0.0.0-20171120032916-9f6c956d3e14)
 
-Ну хз хз, но у меня они нифига не енейблед были по умолчанию, а точнее 
-был прописан лишь cron.update_cheker = false и всё.
-#### Cron - Cleanup old repository archives (`cron.archive_cleanup`)
+### Базовые cron-задачи — включены по умолчанию  
 
-- `ENABLED`: **true**: Enable service.
-- `RUN_AT_START`: **true**: Run tasks at start up time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Whether to emit notice on successful execution too
-- `SCHEDULE`: **@midnight**: Cron syntax for scheduling repository archive cleanup, e.g. `@every 1h`.
-- `OLDER_THAN`: **24h**: Archives created more than `OLDER_THAN` ago are subject to deletion, e.g. `12h`.
+Ну хз хз, но у меня они нифига не енейблед были по умолчанию, а точнее  
+был прописан лишь `cron.update_checker = false` и всё.  
 
-#### Cron - Update Mirrors (`cron.update_mirrors`)
+#### Cron - Очистка старых архивов репозиториев (`cron.archive_cleanup`)
 
-- `ENABLED`: **true**: Enable running Update mirrors task periodically.
-- `SCHEDULE`: **@every 10m**: Cron syntax for scheduling update mirrors, e.g. `@every 3h`.
-- `RUN_AT_START`: **false**: Run Update mirrors task when Gitea starts.
-- `NOTICE_ON_SUCCESS`: **false**: Notice if not success
-- `PULL_LIMIT`: **50**: Limit the number of mirrors added to the queue to this number (negative values mean no limit, 0 will result in no mirrors being queued effectively disabling pull mirror updating).
-- `PUSH_LIMIT`: **50**: Limit the number of mirrors added to the queue to this number (negative values mean no limit, 0 will result in no mirrors being queued effectively disabling push mirror updating).
+- `ENABLED`: **true**: Включить сервис.
+- `RUN_AT_START`: **true**: Запускать задачи при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Выводить ли уведомление при успешном выполнении.
+- `SCHEDULE`: **@midnight**: Cron-синтаксис для очистки архивов репозиториев, например, `@every 1h`.
+- `OLDER_THAN`: **24h**: Архивы, созданные более `OLDER_THAN` назад, будут удалены, например, `12h`.
 
-#### Cron - Repository Health Check (`cron.repo_health_check`)
+#### Cron - Обновление зеркал (`cron.update_mirrors`)
 
-- `ENABLED`: **true**: Enable running Update mirrors task periodically.
-- `SCHEDULE`: **@midnight**: Cron syntax for scheduling repository health check.
-- `RUN_AT_START`: **false**: Run Update mirrors task when Gitea starts.
-- `NOTICE_ON_SUCCESS`: **false**: Notice if not success
-- `TIMEOUT`: **60s**: Time duration syntax for health check execution timeout.
-- `ARGS`: **_empty_**: Arguments for command `git fsck`, e.g. `--unreachable --tags`. See more on [http://git-scm.com/docs/git-fsck](http://git-scm.com/docs/git-fsck)
+- `ENABLED`: **true**: Включить периодическое выполнение задачи обновления зеркал.
+- `SCHEDULE`: **@every 10m**: Cron-синтаксис для обновления зеркал, например, `@every 3h`.
+- `RUN_AT_START`: **false**: Запускать задачу при старте Gitea.
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять только при ошибках.
+- `PULL_LIMIT`: **50**: Ограничить количество зеркал, добавляемых в очередь (отрицательные значения — без ограничений, `0` отключает обновление pull-зеркал).
+- `PUSH_LIMIT`: **50**: Ограничить количество push-зеркал, добавляемых в очередь (отрицательные значения — без ограничений, `0` отключает обновление push-зеркал).
 
-#### Cron - Repository Statistics Check (`cron.check_repo_stats`)
+#### Cron - Проверка здоровья репозиториев (`cron.repo_health_check`)
 
-- `SCHEDULE`: **@midnight**: Cron syntax for scheduling repository statistics check.
-- `ENABLED`: **true**: Enable running Update mirrors task periodically.
-- `RUN_AT_START`: **true**: Run Update mirrors task when Gitea starts.
-- `NOTICE_ON_SUCCESS`: **false**: Notice if not success
+- `ENABLED`: **true**: Включить периодическую проверку здоровья репозиториев.
+- `SCHEDULE`: **@midnight**: Cron-синтаксис для проверки здоровья репозиториев.
+- `RUN_AT_START`: **false**: Запускать задачу при старте Gitea.
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять только при ошибках.
+- `TIMEOUT`: **60s**: Максимальное время выполнения проверки.
+- `ARGS`: **_empty_**: Аргументы для команды `git fsck`, например, `--unreachable --tags`. Подробнее: [http://git-scm.com/docs/git-fsck](http://git-scm.com/docs/git-fsck)
 
-#### Cron - Cleanup hook_task Table (`cron.cleanup_hook_task_table`)
+#### Cron - Проверка статистики репозиториев (`cron.check_repo_stats`)
 
-- `ENABLED`: **true**: Enable cleanup hook_task job.
-- `RUN_AT_START`: **false**: Run cleanup hook_task at start time (if ENABLED).
-- `SCHEDULE`: **@midnight**: Cron syntax for cleaning hook_task table.
-- `CLEANUP_TYPE` **OlderThan** OlderThan or PerWebhook Method to cleanup hook_task, either by age (i.e. how long ago hook_task record was delivered) or by the number to keep per webhook (i.e. keep most recent x deliveries per webhook).
-- `OLDER_THAN`: **168h**: If CLEANUP_TYPE is set to OlderThan, then any delivered hook_task records older than this expression will be deleted.
-- `NUMBER_TO_KEEP`: **10**: If CLEANUP_TYPE is set to PerWebhook, this is number of hook_task records to keep for a webhook (i.e. keep the most recent x deliveries).
+- `SCHEDULE`: **@midnight**: Cron-синтаксис для проверки статистики репозиториев.
+- `ENABLED`: **true**: Включить периодическую проверку.
+- `RUN_AT_START`: **true**: Запускать задачу при старте Gitea.
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять только при ошибках.
 
-#### Cron - Cleanup expired packages (`cron.cleanup_packages`)
+#### Cron - Очистка таблицы `hook_task` (`cron.cleanup_hook_task_table`)
 
-- `ENABLED`: **true**: Enable cleanup expired packages job.
-- `RUN_AT_START`: **true**: Run job at start time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Notify every time this job runs.
-- `SCHEDULE`: **@midnight**: Cron syntax for the job.
-- `OLDER_THAN`: **24h**: Unreferenced package data created more than OLDER_THAN ago is subject to deletion.
+- `ENABLED`: **true**: Включить очистку таблицы `hook_task`.
+- `RUN_AT_START`: **false**: Запускать очистку при старте (если `ENABLED`).
+- `SCHEDULE`: **@midnight**: Cron-синтаксис для очистки таблицы.
+- `CLEANUP_TYPE` **OlderThan**: Метод очистки: по возрасту (`OlderThan`) или количеству записей на вебхук (`PerWebhook`).
+- `OLDER_THAN`: **168h**: Если `CLEANUP_TYPE = OlderThan`, записи старше этого значения будут удалены.
+- `NUMBER_TO_KEEP`: **10**: Если `CLEANUP_TYPE = PerWebhook`, сохранять последние `N` записей для каждого вебхука.
 
-#### Cron - Update Migration Poster ID (`cron.update_migration_poster_id`)
+#### Cron - Очистка просроченных пакетов (`cron.cleanup_packages`)
 
-Update migrated repositories' issues and comments' posterid, it will always attempt synchronization when the instance starts.
+- `ENABLED`: **true**: Включить очистку просроченных пакетов.
+- `RUN_AT_START`: **true**: Запускать задачу при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при каждом выполнении.
+- `SCHEDULE`: **@midnight**: Cron-синтаксис для задачи.
+- `OLDER_THAN`: **24h**: Данные пакетов, не имеющие ссылок и созданные более `OLDER_THAN` назад, будут удалены.
 
-- `ENABLED`: **true**: Enable update migration poster id job.
-- `RUN_AT_START`: **true**: Update migrated repositories' issues and comments' posterid when starting server
-- `NOTICE_ON_SUCCESS`: **false**: Notice if not success
-- `SCHEDULE`: **@midnight** : Interval as a duration between each synchronization, it will always attempt synchronization when the instance starts.
+#### Cron - Обновление `poster_id` в мигрированных репозиториях (`cron.update_migration_poster_id`)
 
-#### Cron - Sync External Users (`cron.sync_external_users`)
+Обновляет `poster_id` в issues и комментариях мигрированных репозиториев. Всегда выполняется при старте сервера.
 
-Synchronize external user data (only LDAP user synchronization is supported)
+- `ENABLED`: **true**: Включить задачу.
+- `RUN_AT_START`: **true**: Обновлять `poster_id` при старте сервера.
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять только при ошибках.
+- `SCHEDULE`: **@midnight**: Интервал между синхронизациями (всегда выполняется при старте).
 
-- `ENABLED`: **true**: Enable synchronize external user data job
-- `RUN_AT_START`: **false**: Synchronize external user data when starting server
-- `NOTICE_ON_SUCCESS`: **false**: Notice if not success
-- `SCHEDULE`: **@midnight** : Interval as a duration between each synchronization, it will always attempt synchronization when the instance starts.
-- `UPDATE_EXISTING`: **true**: Create new users, update existing user data and disable users that are not in external source anymore (default) or only create new users if UPDATE_EXISTING is set to false.
+#### Cron - Синхронизация внешних пользователей (`cron.sync_external_users`)
 
-#### Cron - Cleanup Expired Actions Assets (`cron.cleanup_actions`)
+Синхронизация данных внешних пользователей (поддерживается только LDAP).
 
-- `ENABLED`: **true**: Enable cleanup expired actions assets job.
-- `RUN_AT_START`: **true**: Run job at start time (if ENABLED).
-- `SCHEDULE`: **@midnight** : Cron syntax for the job.
+- `ENABLED`: **true**: Включить синхронизацию.
+- `RUN_AT_START`: **false**: Синхронизировать при старте сервера.
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять только при ошибках.
+- `SCHEDULE`: **@midnight**: Интервал между синхронизациями (всегда выполняется при старте).
+- `UPDATE_EXISTING`: **true**: Создавать новых пользователей, обновлять существующих и отключать отсутствующих во внешнем источнике. Если `false` — только создавать новых.
 
-#### Cron - Cleanup Deleted Branches (`cron.deleted_branches_cleanup`)
+#### Cron - Очистка просроченных ассетов Actions (`cron.cleanup_actions`)
 
-- `ENABLED`: **true**: Enable deleted branches cleanup.
-- `RUN_AT_START`: **true**: Run job at start time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to log a success message.
-- `SCHEDULE`: **@midnight**: Cron syntax for scheduling deleted branches cleanup.
-- `OLDER_THAN`: **24h**: Branches deleted OLDER_THAN ago will be cleaned up.
+- `ENABLED`: **true**: Включить очистку.
+- `RUN_AT_START`: **true**: Запускать задачу при старте (если `ENABLED`).
+- `SCHEDULE`: **@midnight**: Cron-синтаксис для задачи.
 
-### Extended cron tasks
+#### Cron - Очистка удалённых веток (`cron.deleted_branches_cleanup`)
 
-#### Cron - Delete all repository archives (`cron.delete_repo_archives`)
+- `ENABLED`: **true**: Включить очистку.
+- `RUN_AT_START`: **true**: Запускать задачу при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
+- `SCHEDULE`: **@midnight**: Cron-синтаксис для очистки.
+- `OLDER_THAN`: **24h**: Ветки, удалённые более `OLDER_THAN` назад, будут очищены.
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to enable success notices.
-- `SCHEDULE`: **@annually**: Cron schedule for deleting all repository archives, e.g. `@annually`.
+### Расширенные cron-задачи
 
-#### Cron - Garbage collect all repositories (`cron.git_gc_repos`)
+#### Cron - Удаление всех архивов репозиториев (`cron.delete_repo_archives`)
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `SCHEDULE`: **@every 72h**: Cron syntax for scheduling repository archive cleanup, e.g. `@every 1h`.
-- `TIMEOUT`: **60s**: Time duration syntax for garbage collection execution timeout.
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to switch on success notices.
-- `ARGS`: **_empty_**: Arguments for command `git gc`, e.g. `--aggressive --auto`. The default value is same with [git] -> GC_ARGS
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
+- `SCHEDULE`: **@annually**: Cron-расписание для удаления архивов, например, `@annually`.
 
-#### Cron - Update the '.ssh/authorized_keys' file with Gitea SSH keys (`cron.resync_all_sshkeys`)
+#### Cron - Git GC для всех репозиториев (`cron.git_gc_repos`)
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to switch on success notices.
-- `SCHEDULE`: **@every 72h**: Cron syntax for scheduling repository archive cleanup, e.g. `@every 1h`.
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
+- `TIMEOUT`: **60s**: Максимальное время выполнения `git gc`.
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
+- `ARGS`: **_empty_**: Аргументы для `git gc`, например, `--aggressive --auto`. По умолчанию совпадает с `[git] -> GC_ARGS`.
 
-#### Cron - Resynchronize pre-receive, update and post-receive hooks of all repositories (`cron.resync_all_hooks`)
+#### Cron - Обновление `authorized_keys` SSH-ключами Gitea (`cron.resync_all_sshkeys`)
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to switch on success notices.
-- `SCHEDULE`: **@every 72h**: Cron syntax for scheduling repository archive cleanup, e.g. `@every 1h`.
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
+- `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Reinitialize all missing Git repositories for which records exist (`cron.reinit_missing_repos`)
+#### Cron - Ресинхронизация хуков всех репозиториев (`cron.resync_all_hooks`)
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to switch on success notices.
-- `SCHEDULE`: **@every 72h**: Cron syntax for scheduling repository archive cleanup, e.g. `@every 1h`.
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
+- `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Delete all repositories missing their Git files (`cron.delete_missing_repos`)
+#### Cron - Повторная инициализация отсутствующих Git-репозиториев (`cron.reinit_missing_repos`)
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to switch on success notices.
-- `SCHEDULE`: **@every 72h**: Cron syntax for scheduling repository archive cleanup, e.g. `@every 1h`.
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
+- `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Delete generated repository avatars (`cron.delete_generated_repository_avatars`)
+#### Cron - Удаление репозиториев без Git-файлов (`cron.delete_missing_repos`)
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to switch on success notices.
-- `SCHEDULE`: **@every 72h**: Cron syntax for scheduling repository archive cleanup, e.g. `@every 1h`.
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
+- `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Delete all old actions from database (`cron.delete_old_actions`)
+#### Cron - Удаление сгенерированных аватаров репозиториев (`cron.delete_generated_repository_avatars`)
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `NOTICE_ON_SUCCESS`: **false**: Set to true to switch on success notices.
-- `SCHEDULE`: **@every 168h**: Cron syntax to set how often to check.
-- `OLDER_THAN`: **8760h**: any action older than this expression will be deleted from database, suggest using `8760h` (1 year) because that's the max length of heatmap.
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
+- `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Check for new Gitea versions (`cron.update_checker`)
+#### Cron - Удаление старых Actions из БД (`cron.delete_old_actions`)
 
-- `ENABLED`: **true**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `ENABLE_SUCCESS_NOTICE`: **true**: Set to false to switch off success notices.
-- `SCHEDULE`: **@every 168h**: Cron syntax for scheduling a work, e.g. `@every 168h`.
-- `HTTP_ENDPOINT`: **[https://dl.gitea.com/gitea/version.json](https://dl.gitea.com/gitea/version.json)**: the endpoint that Gitea will check for newer versions
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
+- `SCHEDULE`: **@every 168h**: Интервал проверки.
+- `OLDER_THAN`: **8760h**: Удалять Actions старше этого значения (рекомендуется `8760h` — 1 год, так как это максимум для heatmap).
 
-#### Cron - Delete all old system notices from database (`cron.delete_old_system_notices`)
+#### Cron - Проверка новых версий Gitea (`cron.update_checker`)
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `NO_SUCCESS_NOTICE`: **false**: Set to true to switch off success notices.
-- `SCHEDULE`: **@every 168h**: Cron syntax to set how often to check.
-- `OLDER_THAN`: **8760h**: any system notice older than this expression will be deleted from database.
+- `ENABLED`: **true**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `ENABLE_SUCCESS_NOTICE`: **true**: Отключить уведомления об успехе, если `false`.
+- `SCHEDULE`: **@every 168h**: Cron-синтаксис для задачи, например, `@every 168h`.
+- `HTTP_ENDPOINT`: **[https://dl.gitea.com/gitea/version.json](https://dl.gitea.com/gitea/version.json)**: Эндпоинт для проверки новых версий.
 
-#### Cron - Garbage collect LFS pointers in repositories (`cron.gc_lfs`)
+#### Cron - Удаление старых системных уведомлений (`cron.delete_old_system_notices`)
 
-- `ENABLED`: **false**: Enable service.
-- `RUN_AT_START`: **false**: Run tasks at start up time (if ENABLED).
-- `SCHEDULE`: **@every 24h**: Cron syntax to set how often to check.
-- `OLDER_THAN`: **168h**: Only attempt to garbage collect LFSMetaObjects older than this (default 7 days)
-- `LAST_UPDATED_MORE_THAN_AGO`: **72h**: Only attempt to garbage collect LFSMetaObjects that have not been attempted to be garbage collected for this long (default 3 days)
-- `NUMBER_TO_CHECK_PER_REPO`: **100**: Minimum number of stale LFSMetaObjects to check per repo. Set to `0` to always check all.
-- `PROPORTION_TO_CHECK_PER_REPO`: **0.6**: Check at least this proportion of LFSMetaObjects per repo. (This may cause all stale LFSMetaObjects to be checked.)
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `NO_SUCCESS_NOTICE`: **false**: Отключить уведомления об успехе, если `true`.
+- `SCHEDULE`: **@every 168h**: Интервал проверки.
+- `OLDER_THAN`: **8760h**: Удалять уведомления старше этого значения.
+
+#### Cron - Git LFS GC в репозиториях (`cron.gc_lfs`)
+
+- `ENABLED`: **false**: Включить сервис.
+- `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
+- `SCHEDULE`: **@every 24h**: Интервал проверки.
+- `OLDER_THAN`: **168h**: Удалять LFS-объекты старше 7 дней.
+- `LAST_UPDATED_MORE_THAN_AGO`: **72h**: Проверять только объекты, не обновлявшиеся более 3 дней.
+- `NUMBER_TO_CHECK_PER_REPO`: **100**: Минимальное количество проверяемых объектов на репозиторий (`0` — проверять все).
+- `PROPORTION_TO_CHECK_PER_REPO`: **0.6**: Проверять как минимум эту долю объектов на репозиторий (может привести к полной проверке).
