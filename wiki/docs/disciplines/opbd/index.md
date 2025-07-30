@@ -408,7 +408,7 @@ https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.6/docs/pgadmin4-9.6.pdf pgAdm
 Порядок выполнения работы:  
 
 
-## Самостаятельные работы
+## Самостоятельные работы
 
 ### 1. 
 Раздел:  
