@@ -42,7 +42,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Сервисы',
       items: [
         { text: 'Docker', link: '/docs/wi/docker' },
-        { text: 'Gitea', link: '/docs/wi/gitea' },       
+        { text: 'Gitea', link: '/docs/wi/gitea' },   
+        { text: 'Cloud-init', link: '/docs/wi/cloudinit' },     
       ]
     },
     {
