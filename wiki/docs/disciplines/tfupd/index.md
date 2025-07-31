@@ -12,6 +12,7 @@ outline: deep
 [Ссыль](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://old.stgau.ru/company/personal/user/8068/files/element/historyget/222693/%25D0%259B%25D0%25B0%25D0%25B1%25D0%25BE%25D1%2580%25D0%25B0%25D1%2582%25D0%25BE%25D1%2580%25D0%25BD%25D0%25B0%25D1%258F%2520%25D1%2580%25D0%25B0%25D0%25B1%25D0%25BE%25D1%2582%25D0%25B0%25203.pdf&ved=2ahUKEwis4cqfmuSOAxUPAxAIHSNnGpM4ChAWegQIGRAB&usg=AOvVaw1MbKfphuqsn8nbA1mZdgIf)  
 [Ссыль](https://www.sut.ru/doci/umu/disc/55/01_Presentation_SS_IPSiU_PSU.pdf)
 
+Нашел ещё такую штуку [УМК по ТФУПД](https://elearning.academia-moscow.ru/shellserver?id=1927152&demo=1&module_id=778017#778017)
 
 Дисциплина разбивается на две части:
 
