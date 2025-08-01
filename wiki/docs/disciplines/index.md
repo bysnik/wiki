@@ -35,3 +35,8 @@ https://iksweb.ru/tools/generator-table-html/
 | Организация администрирования компьютерных систем      | ДЗ                       | 230         | 40                     | 74     | 8            | ЛР 102                             | 6                  |
 | Компьютерные сети                                      | Э 8                     | 258         | 34                     | 64     | 16           | ПР 106                             | 12                 |
 | Безопасность компьютерных сетей                        | Э 8                     | 144         | 32                     | 44     | 8            | ЛР 48                              | 4                  |
+
+
+
+https://docs.cntd.ru/document/902389617?marker=1HDI9IB&section=text
+https://273-фз.рф/voprosy_i_otvety/vprave-li-professionalnaya-obrazovatelnaya-organizaciya-ne-dopustit-studenta-do
