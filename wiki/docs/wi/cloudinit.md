@@ -25,7 +25,7 @@ users:
 ```
 Для преобразования конфигурационного файла в метаданные потребуется программа cloud-localds из пакета cloud-utils.
 ```bash
-# apt-get install cloud-utils
+\# apt-get install cloud-utils
 $ cloud-localds my-seed.img user-data.yaml
 ```
 Для использования kvm пользователь должен быть в группе vmusers.

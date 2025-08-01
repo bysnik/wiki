@@ -63,7 +63,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
   '/docs/wi/altsp/': [
     {
       items: [
-        { text: 'Документация', link: '/docs/wi/' },
+        { text: 'Назад', link: '/docs/wi/' },
         { text: 'Альт СП', link: '/docs/wi/altsp/' },
         { text: '1) x86-64, aarch64, Elbrus', link: '/docs/wi/altsp/1.arch' },
         { text: '2) Legacy or CSM, UEFU (Secure Boot)', link: '/docs/wi/altsp/2.install' },
