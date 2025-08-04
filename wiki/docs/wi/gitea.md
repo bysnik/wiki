@@ -678,9 +678,6 @@ ENABLED = true
 ENABLED = true
 RUN_AT_START = true
 
-[cron.update_mirrors]
-ENABLED = true
-
 [crone.start_schedule_tasks]
 ENABLED = true
 ```
