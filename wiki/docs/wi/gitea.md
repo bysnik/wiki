@@ -451,7 +451,7 @@ if [[ ! -s "$RUNNER_STATE_FILE" ]]; then
     fi
   done
 fi
-# Prevent reading the token from the act_runner process
+# Prevent reading the ![](/public/img/giteaalt.png)token from the act_runner process
 unset GITEA_RUNNER_REGISTRATION_TOKEN
 unset GITEA_RUNNER_REGISTRATION_TOKEN_FILE
 
@@ -474,7 +474,7 @@ docker build -t alt11runner:0.5 .
 docker run -e GITEA_INSTANCE_URL=https://your_gitea.com -e GITEA_RUNNER_REGISTRATION_TOKEN=<your_token> -v /var/run/docker.sock:/var/run/docker.sock --name my_runner_name alt11runner:0.5
 ```
 
-Или же используя Docker compose. Почему то, если делать этот файл в той же директории, что и Dockerfile, то начнутся странные ошибки, поэтому лучше писать compose файл и запускать его в другой директории. Создаем файл docker-compose.yml:
+Или же используя Docker compose. Почему то, если вы, например, накосячили, или просто решили несколько раз сделать `docker compose up` то докер начинает нести чушь и ругается на пути, поэтому лучше каждый раз работать в новом рабочем каталоге (помогало просто его каждый раз переименовывать). Создаем файл docker-compose.yml:
 ```yaml
 services:
   runner:
@@ -497,6 +497,61 @@ docker compose up
 ```
 
 И типа всё здорово)
+
+
+### Workflow image на Alt:P11
+
+Итак, первая задача - зарегистрировать в раннере образ Альт:П11 с докерхаба. Для этого, добавляем в конфигурационный файл, в блок `label` следующую запись:
+
+```yaml
+- "alt-p11:docker://docker.io/library/alt:p11"
+```
+
+Сохраняем конфиги. Запускаем раннер.
+
+В Gitea мы должны увидеть наш зарегистрированный раннер:
+
+![](/public/img/giteaalt.png)
+
+Там мы должны увидеть нашу метку.
+
+Тепер создаем репозиторий и прописываем workflow файл. В качестве примера будет аналогичный workflow как в предыдущем примере, но есть несколько отличий. Пример:
+
+.gitea/workflows/demo.yaml:
+```yaml
+name: AltP11 Actions Demo
+run-name: ${{ gitea.actor }} is testing out Gitea Actions
+on: [push]
+
+jobs:
+  Explore-Gitea-Actions:
+    runs-on: alt-p11
+    steps:
+      - name: Install git and node
+        run: |
+          apt-get update && apt-get install -y git node
+      - run: echo "The job was automatically triggered by a ${{ gitea.event_name }} event."
+      - run: echo "This job is now running on a ${{ runner.os }} server hosted by Gitea!"
+      - run: echo "The name of your branch is ${{ gitea.ref }} and your repository is ${{ gitea.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "The ${{ gitea.repository }} repository has been cloned to the runner."
+      - run: echo "The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ gitea.workspace }}
+      - run: echo "This job's status is ${{ job.status }}."
+```
+
+Всё остально аналогично, как и обычно.
+
+::: warning Предупреждение
+В связи с тем, что образ alt:p11 это не специальный образ под Actions, он пустой (просто голая система с минимальным набором пакетов), и требует установки всех необходимых зависимостей в нём, иначе ничего работать не будет.
+:::
+
+::: info Пояснение
+Данный гайд - это самый простой вариант использования образа альта для workflow. Можно собрать свой образ с необходимым инструментарием, например. Никто этого не запрещает.
+:::
 
 ## Файл config.yaml
 
@@ -635,55 +690,55 @@ ENABLED = true
 Ну и пока что нихрена оно не работает
 
 Вот список основных cron-задач:
-### Задача `start_schedule_tasks`
+Задача `start_schedule_tasks`
 
 - Задача `start_schedule_tasks` в Gitea отвечает за **запуск всех запланированных фоновых задач**, которые должны выполняться через определенные интервалы времени. Она запускается **каждую минуту**.
 
-### Задача `update_mirrors`
+Задача `update_mirrors`
 
 - Проверяет обновления в зеркалах (mirror repositories) и синхронизирует их.
 - Если у тебя есть зеркала репозиториев, теперь они не будут автоматически обновляться.(походу этот параметр перебивает базовое зеркалирование.)
 
-### Задача `repo_health_check`
+Задача `repo_health_check`
 
 - Проверяет репозитории на повреждения (например, отсутствующие файлы или некорректные коммиты).
 - Если репозитории работают стабильно, проблем не будет, но в долгосрочной перспективе могут появиться “битые” репозитории, если что-то сломается.
 
-### Задача `check_repo_stats`
+Задача `check_repo_stats`
 
 - Пересчитывает количество коммитов, изменений, контрибьюторов.
 
-### Задача `archive_cleanup`
+Задача `archive_cleanup`
 
 - Удаляет временные архивы (.zip, .tar.gz), созданные при скачивании репозиториев.
 - Без этой задачи дисковое пространство может постепенно заполняться ненужными файлами.
 
-### Задача `deleted_branches_cleanup`
+Задача `deleted_branches_cleanup`
 
 - Удаляет метаданные о ветках, которые были удалены.
 - Без этой задачи дисковое пространство может постепенно заполняться ненужными файлами.
 
-### Задача `cleanup_packages`
+Задача `cleanup_packages`
 
 - Очищает устаревшие пакеты из Gitea Package Registry.
 - Если ты используешь Gitea для хранения артефактов (например, Docker-образов, Maven-пакетов), они могут оставаться в системе навсегда.
 
-### Задачи `stop_zombie_tasks` и `stop_endless_tasks`
+Задачи `stop_zombie_tasks` и `stop_endless_tasks`
 
 - Останавливает фоновые задачи, которые зависли или выполняются бесконечно.
 - Если в Gitea зависнет процесс (например, Git-команда или индексация), он может остаться активным навсегда и жрать ресурсы.
 
-### Задача `cleanup_hook_task_table`
+Задача `cleanup_hook_task_table`
 
 - Удаляет старые уведомления о системных событиях.
 - Если у тебя много пользователей, база данных может расти из-за ненужных логов.
 
-### Задача `git_gc_repos`
+Задача `git_gc_repos`
 
 - Запускает git gc (сборщик мусора) для репозиториев, чтобы оптимизировать их размер.
 - Если ты часто пушишь большие файлы, размер репозиториев может расти быстрее, чем обычно.
 
-### Задача `gc_lfs`
+Задача `gc_lfs`
 
 - Удаляет устаревшие файлы из Git LFS (если используется).
 - Если у тебя включен Git LFS, репозитории могут занимать больше места, чем нужно.
@@ -712,7 +767,7 @@ SCHEDULE = @midnight
 Ну хз хз, но у меня они нифига не енейблед были по умолчанию, а точнее  
 был прописан лишь `cron.update_checker = false` и всё.  
 
-#### Cron - Очистка старых архивов репозиториев (`cron.archive_cleanup`)
+Cron - Очистка старых архивов репозиториев (`cron.archive_cleanup`)
 
 - `ENABLED`: **true**: Включить сервис.
 - `RUN_AT_START`: **true**: Запускать задачи при старте (если `ENABLED`).
@@ -720,7 +775,7 @@ SCHEDULE = @midnight
 - `SCHEDULE`: **@midnight**: Cron-синтаксис для очистки архивов репозиториев, например, `@every 1h`.
 - `OLDER_THAN`: **24h**: Архивы, созданные более `OLDER_THAN` назад, будут удалены, например, `12h`.
 
-#### Cron - Обновление зеркал (`cron.update_mirrors`)
+Cron - Обновление зеркал (`cron.update_mirrors`)
 
 - `ENABLED`: **true**: Включить периодическое выполнение задачи обновления зеркал.
 - `SCHEDULE`: **@every 10m**: Cron-синтаксис для обновления зеркал, например, `@every 3h`.
@@ -729,7 +784,7 @@ SCHEDULE = @midnight
 - `PULL_LIMIT`: **50**: Ограничить количество зеркал, добавляемых в очередь (отрицательные значения — без ограничений, `0` отключает обновление pull-зеркал).
 - `PUSH_LIMIT`: **50**: Ограничить количество push-зеркал, добавляемых в очередь (отрицательные значения — без ограничений, `0` отключает обновление push-зеркал).
 
-#### Cron - Проверка здоровья репозиториев (`cron.repo_health_check`)
+Cron - Проверка здоровья репозиториев (`cron.repo_health_check`)
 
 - `ENABLED`: **true**: Включить периодическую проверку здоровья репозиториев.
 - `SCHEDULE`: **@midnight**: Cron-синтаксис для проверки здоровья репозиториев.
@@ -738,14 +793,14 @@ SCHEDULE = @midnight
 - `TIMEOUT`: **60s**: Максимальное время выполнения проверки.
 - `ARGS`: **_empty_**: Аргументы для команды `git fsck`, например, `--unreachable --tags`. Подробнее: [http://git-scm.com/docs/git-fsck](http://git-scm.com/docs/git-fsck)
 
-#### Cron - Проверка статистики репозиториев (`cron.check_repo_stats`)
+Cron - Проверка статистики репозиториев (`cron.check_repo_stats`)
 
 - `SCHEDULE`: **@midnight**: Cron-синтаксис для проверки статистики репозиториев.
 - `ENABLED`: **true**: Включить периодическую проверку.
 - `RUN_AT_START`: **true**: Запускать задачу при старте Gitea.
 - `NOTICE_ON_SUCCESS`: **false**: Уведомлять только при ошибках.
 
-#### Cron - Очистка таблицы `hook_task` (`cron.cleanup_hook_task_table`)
+Cron - Очистка таблицы `hook_task` (`cron.cleanup_hook_task_table`)
 
 - `ENABLED`: **true**: Включить очистку таблицы `hook_task`.
 - `RUN_AT_START`: **false**: Запускать очистку при старте (если `ENABLED`).
@@ -754,7 +809,7 @@ SCHEDULE = @midnight
 - `OLDER_THAN`: **168h**: Если `CLEANUP_TYPE = OlderThan`, записи старше этого значения будут удалены.
 - `NUMBER_TO_KEEP`: **10**: Если `CLEANUP_TYPE = PerWebhook`, сохранять последние `N` записей для каждого вебхука.
 
-#### Cron - Очистка просроченных пакетов (`cron.cleanup_packages`)
+Cron - Очистка просроченных пакетов (`cron.cleanup_packages`)
 
 - `ENABLED`: **true**: Включить очистку просроченных пакетов.
 - `RUN_AT_START`: **true**: Запускать задачу при старте (если `ENABLED`).
@@ -762,7 +817,7 @@ SCHEDULE = @midnight
 - `SCHEDULE`: **@midnight**: Cron-синтаксис для задачи.
 - `OLDER_THAN`: **24h**: Данные пакетов, не имеющие ссылок и созданные более `OLDER_THAN` назад, будут удалены.
 
-#### Cron - Обновление `poster_id` в мигрированных репозиториях (`cron.update_migration_poster_id`)
+Cron - Обновление `poster_id` в мигрированных репозиториях (`cron.update_migration_poster_id`)
 
 Обновляет `poster_id` в issues и комментариях мигрированных репозиториев. Всегда выполняется при старте сервера.
 
@@ -771,7 +826,7 @@ SCHEDULE = @midnight
 - `NOTICE_ON_SUCCESS`: **false**: Уведомлять только при ошибках.
 - `SCHEDULE`: **@midnight**: Интервал между синхронизациями (всегда выполняется при старте).
 
-#### Cron - Синхронизация внешних пользователей (`cron.sync_external_users`)
+Cron - Синхронизация внешних пользователей (`cron.sync_external_users`)
 
 Синхронизация данных внешних пользователей (поддерживается только LDAP).
 
@@ -781,13 +836,13 @@ SCHEDULE = @midnight
 - `SCHEDULE`: **@midnight**: Интервал между синхронизациями (всегда выполняется при старте).
 - `UPDATE_EXISTING`: **true**: Создавать новых пользователей, обновлять существующих и отключать отсутствующих во внешнем источнике. Если `false` — только создавать новых.
 
-#### Cron - Очистка просроченных ассетов Actions (`cron.cleanup_actions`)
+Cron - Очистка просроченных ассетов Actions (`cron.cleanup_actions`)
 
 - `ENABLED`: **true**: Включить очистку.
 - `RUN_AT_START`: **true**: Запускать задачу при старте (если `ENABLED`).
 - `SCHEDULE`: **@midnight**: Cron-синтаксис для задачи.
 
-#### Cron - Очистка удалённых веток (`cron.deleted_branches_cleanup`)
+Cron - Очистка удалённых веток (`cron.deleted_branches_cleanup`)
 
 - `ENABLED`: **true**: Включить очистку.
 - `RUN_AT_START`: **true**: Запускать задачу при старте (если `ENABLED`).
@@ -797,14 +852,14 @@ SCHEDULE = @midnight
 
 ### Расширенные cron-задачи
 
-#### Cron - Удаление всех архивов репозиториев (`cron.delete_repo_archives`)
+Cron - Удаление всех архивов репозиториев (`cron.delete_repo_archives`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
 - `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
 - `SCHEDULE`: **@annually**: Cron-расписание для удаления архивов, например, `@annually`.
 
-#### Cron - Git GC для всех репозиториев (`cron.git_gc_repos`)
+Cron - Git GC для всех репозиториев (`cron.git_gc_repos`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
@@ -813,42 +868,42 @@ SCHEDULE = @midnight
 - `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
 - `ARGS`: **_empty_**: Аргументы для `git gc`, например, `--aggressive --auto`. По умолчанию совпадает с `[git] -> GC_ARGS`.
 
-#### Cron - Обновление `authorized_keys` SSH-ключами Gitea (`cron.resync_all_sshkeys`)
+Cron - Обновление `authorized_keys` SSH-ключами Gitea (`cron.resync_all_sshkeys`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
 - `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
 - `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Ресинхронизация хуков всех репозиториев (`cron.resync_all_hooks`)
+Cron - Ресинхронизация хуков всех репозиториев (`cron.resync_all_hooks`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
 - `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
 - `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Повторная инициализация отсутствующих Git-репозиториев (`cron.reinit_missing_repos`)
+Cron - Повторная инициализация отсутствующих Git-репозиториев (`cron.reinit_missing_repos`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
 - `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
 - `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Удаление репозиториев без Git-файлов (`cron.delete_missing_repos`)
+Cron - Удаление репозиториев без Git-файлов (`cron.delete_missing_repos`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
 - `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
 - `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Удаление сгенерированных аватаров репозиториев (`cron.delete_generated_repository_avatars`)
+Cron - Удаление сгенерированных аватаров репозиториев (`cron.delete_generated_repository_avatars`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
 - `NOTICE_ON_SUCCESS`: **false**: Уведомлять при успешном выполнении.
 - `SCHEDULE`: **@every 72h**: Cron-синтаксис для задачи, например, `@every 1h`.
 
-#### Cron - Удаление старых Actions из БД (`cron.delete_old_actions`)
+Cron - Удаление старых Actions из БД (`cron.delete_old_actions`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
@@ -856,7 +911,7 @@ SCHEDULE = @midnight
 - `SCHEDULE`: **@every 168h**: Интервал проверки.
 - `OLDER_THAN`: **8760h**: Удалять Actions старше этого значения (рекомендуется `8760h` — 1 год, так как это максимум для heatmap).
 
-#### Cron - Проверка новых версий Gitea (`cron.update_checker`)
+Cron - Проверка новых версий Gitea (`cron.update_checker`)
 
 - `ENABLED`: **true**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
@@ -864,7 +919,7 @@ SCHEDULE = @midnight
 - `SCHEDULE`: **@every 168h**: Cron-синтаксис для задачи, например, `@every 168h`.
 - `HTTP_ENDPOINT`: **[https://dl.gitea.com/gitea/version.json](https://dl.gitea.com/gitea/version.json)**: Эндпоинт для проверки новых версий.
 
-#### Cron - Удаление старых системных уведомлений (`cron.delete_old_system_notices`)
+Cron - Удаление старых системных уведомлений (`cron.delete_old_system_notices`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
@@ -872,7 +927,7 @@ SCHEDULE = @midnight
 - `SCHEDULE`: **@every 168h**: Интервал проверки.
 - `OLDER_THAN`: **8760h**: Удалять уведомления старше этого значения.
 
-#### Cron - Git LFS GC в репозиториях (`cron.gc_lfs`)
+Cron - Git LFS GC в репозиториях (`cron.gc_lfs`)
 
 - `ENABLED`: **false**: Включить сервис.
 - `RUN_AT_START`: **false**: Запускать задачу при старте (если `ENABLED`).
