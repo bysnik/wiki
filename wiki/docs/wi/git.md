@@ -1,4 +1,4 @@
-Если при выпеолнении слонирпования у вас происходит это:
+Если при выполнении клонирования у вас происходит это:
 ```bash
 [basealt@bystrovno-nb gitea]$ git clone gitea@192.168.56.10:admin/t342ewg4y4.git
 Cloning into 't342ewg4y4'...
@@ -20,7 +20,7 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights
 and the repository exists.
 ```
-Как вариант попробуйте удалить старый ключ и сделать повторное клонирование:
+Как вариант, попробуйте удалить старый ключ и сделать повторное клонирование:
 ```bash
 ssh-keygen -R 192.168.56.10
 ```
@@ -28,3 +28,4 @@ ssh-keygen -R 192.168.56.10
 ```bash
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 ```
+Ну и почему то он потом начал выдавать ошибку при клонировании
