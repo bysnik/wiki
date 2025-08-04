@@ -480,10 +480,11 @@ services:
   runner:
     image: alt11runner:0.5
     environment:
-      CONFIG_FILES: /config.yaml
-      GITEA_INSTANCE_URL: https://your_gitea.com
-      GITEA_RUNNER_REGISTRATION_TOKEN: <your_token>
-      GITEA_RUNNER_NAME: <your_runner_name>
+      CONFIG_FILE: /config.yaml
+      GITEA_INSTANCE_URL: "${INSTANCE_URL}"
+      GITEA_RUNNER_REGISTRATION_TOKEN: "${REGISTRATION_TOKEN}"
+      GITEA_RUNNER_NAME: "${RUNNER_NAME}"
+      GITEA_RUNNER_LABELS: "${RUNNER_LABELS}"
     volumes:
       - ./config.yaml:/config.yaml
       - ./data:/data
@@ -495,10 +496,7 @@ services:
 docker compose up
 ```
 
-И типа всё здорово должно быть
-
-Кстати прикол, запуская контейнер используя Docker Compose, не работают volumes. Что с альтовым образом, что с оригинальным
-
+И типа всё здорово)
 
 ## Файл config.yaml
 
