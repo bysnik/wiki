@@ -169,9 +169,8 @@ systemctl enable --now gitea
 ## Gitea Actions
 
 В системе, где будет работать раннер, должен быть установлен Docker. [Установка Docker](./docker)
-### Быстрый старт
 
-#### Получение токена
+### Получение токена
 
 Вы можете получить токены разных уровней из следующих источников для создания участников соответствующего уровня:
 
@@ -182,6 +181,8 @@ systemctl enable --now gitea
 Будем использовать уровень репозитория. Справа в верху: Создать новый раннер. Копируем Токен.
 
 ![](/public/img/20250723113505.png)
+
+### Быстрый старт
 
 #### Запуск локально
 
@@ -551,7 +552,140 @@ jobs:
 Данный гайд - это самый простой вариант использования образа альта для workflow. Можно собрать свой образ с необходимым инструментарием, например. Никто этого не запрещает.
 :::
 
+### Пример: сборка RPM-пакетов с помощью Gitea Actions
+#### Подготовка Docker образа alt:p11 
+
+Первым делом создаем рабочую директорию. Создаем файл Dockerfile с примерно следующим содержимым:
+
+```Dockerfile
+FROM alt:p11
+
+RUN groupadd -r runner && useradd -r -m -g runner runner
+
+RUN apt-get update && apt-get install git-core node rpmdevtools rpm-build gcc-c++ hasher gear
+
+USER runner
+
+RUN rpmdev-setuptree
+
+CMD ["/bin/bash"]
+```
+
+Собираем образ:
+
+```bash
+docker build -t alt-p11-rpmbuild .
+```
+
+Создадим тэг, чтобы загрузить образ в локальный репозиторий:
+
+```bash
+docker tag alt-p11-rpmbuild localhost:5000/alt-p11-rpmbuild
+```
+
+#### Запуск локального репозитория Docker
+
+Репозиторий будет локальным относительно раннера, то есть быть контейнером на том же хосте, что и сам раннер.
+
+Запускаем репозиторий:
+
+```bash
+docker run -d -p 5000:5000 --name my-registry registry:2
+```
+
+Загружаем ранее подготовленный образ:
+
+```bash
+docker push localhost:5000/alt-p11-rpmbuild
+```
+
+#### Редактирования конфигурации раннера
+
+Зарегистрируем в раннере ранее созданный образ. Для этого отредактируем файл config.yaml раннера. Необходимо добавить в блок `label` следующую запись:
+
+```yaml
+- "alt-p11-rpmbuild:docker://localhost:5000/alt-p11-rpmbuild"
+```
+
+Перезагружаем раннер.
+
+Проверяем, что наш образ определился:
+
+![](/public/img/altp11rpmbuild.png)
+
+#### Workflow
+
+Для примера, будем использовать проект https://gitlab.basealt.space/alt/edu/ExampleFirstProject.git
+
+Необходимо создать новый репозиторий, поместить в него файлы из брэнча rpmbuild-v1.
+
+Как это сделать, можно узнать [вот тут](git)
+
+Далее, создаем файл с примерно следующим содержанием:
+
+.gitea/workflows/demo.yaml:
+```yaml
+name: AltP11 RPM Demo
+run-name: ${{ gitea.actor }} is testing out Gitea Actions RPM Build
+on:
+  push:
+    tags:
+        - 'v*'
+
+jobs:
+  Build-RPM:
+    runs-on: alt-p11-rpmbuild
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "%_topdir    %homedir/RPM" > ~/.rpmmacros && echo "%packager   Nikita Bystrov bystrovno@basealt.ru" >> ~/.rpmmacros
+      - run: tar cvf HelloUniverse-1.0.tar HelloUniverse
+      - run: cp HelloUniverse-1.0.tar ~/RPM/SOURCES/
+      - run: cp HelloUniverse.spec ~/RPM/SPECS/
+      - run: rpmbuild -ba ~/RPM/SPECS/HelloUniverse.spec
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          files: |
+            /home/runner/RPM/RPMS/x86_64/HelloUniverse-1.0-alt1.x86_64.rpm
+            /home/runner/RPM/RPMS/x86_64/HelloUniverse-debuginfo-1.0-alt1.x86_64.rpm
+            /home/runner/RPM/SRPMS/HelloUniverse-1.0-alt1.src.rpm
+```
+
+В итоге должно получиться примерно следующее:
+
+![alt text](/public/img/image.png)
+
+(Если нет файла Readme, это не проблема)
+
+#### Сборка и релиз
+
+Итак, в файле `.gitea/workflows/demo.yaml` было указано, что этот workflow будет запускаться только тогда, когда он пушится в тэг. Поэтому теперь задача этот тэг создать. Сделано это затем, чтобы сборка происходила только при создании релиза.
+
+Заходим в раздел Релизы:
+
+![alt text](/public/img/image-0.png)
+
+Справа вверху кнопка Новый релиз. Нажимаем её и переходим в создание релиза.
+
+Минимально достаточно лишь придумать номер тэга. В нашем случае, в workflow файле было указано правило, что сборка будет произведена только тогда, когда номер тэга будет в виде например: v0.0.1
+
+![alt text](/public/img/image-2.png)
+
+Указываем номер тэга и нажимаем внизу Создать только тэг.
+
+Сразу же запустится Действие. 
+
+![alt text](/public/img/image-222.png)
+
+После его завершения, если зайти в раздел Релизы, то можно будет увидеть созданный релиз, в котором будут содержаться как исходные коды, так и собранные пакеты:
+
+![alt text](/public/img/image-3.png)
+
 ## Файл config.yaml
+
+<details>
+  <summary>Показать код</summary>
 
 ```yaml
 # Пример файла конфигурации, можно безопасно использовать этот файл как стандартную конфигурацию без изменений.
@@ -656,6 +790,8 @@ host:
   # Если оставить пустым, будет использоваться $HOME/.cache/act/.
   workdir_parent:
 ```
+
+</details>
 
 ## Файлы README профиля
 
