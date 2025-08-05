@@ -552,7 +552,7 @@ jobs:
 Данный гайд - это самый простой вариант использования образа альта для workflow. Можно собрать свой образ с необходимым инструментарием, например. Никто этого не запрещает.
 :::
 
-### Пример: сборка RPM-пакетов с помощью Gitea Actions
+### Пример: сборка rpmbuild
 #### Подготовка Docker образа alt:p11 
 
 Первым делом создаем рабочую директорию. Создаем файл Dockerfile с примерно следующим содержимым:
@@ -562,7 +562,7 @@ FROM alt:p11
 
 RUN groupadd -r runner && useradd -r -m -g runner runner
 
-RUN apt-get update && apt-get install git-core node rpmdevtools rpm-build gcc-c++ hasher gear
+RUN apt-get update && apt-get install git-core node rpmdevtools rpm-build gcc-c++
 
 USER runner
 
@@ -681,6 +681,19 @@ jobs:
 После его завершения, если зайти в раздел Релизы, то можно будет увидеть созданный релиз, в котором будут содержаться как исходные коды, так и собранные пакеты:
 
 ![alt text](/public/img/image-3.png)
+
+### Пример: сборка HASHER
+
+Требует изменение образа alt-p11-rpmbuild, создадим отдельный образ
+
+### Пример: сборка GEAR
+
+Требует изменение образа alt-p11-rpmbuild, создадим отдельный образ
+
+Есть два варианта работы Gear, в связке с:
+- rpmbuild
+- hasher
+
 
 ## Файл config.yaml
 
