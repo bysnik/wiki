@@ -1,3 +1,9 @@
+# GIT
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1024px-Git-logo.svg.png)
+
+
+
 Если при выполнении клонирования у вас происходит это:
 ```bash
 [basealt@bystrovno-nb gitea]$ git clone gitea@192.168.56.10:admin/t342ewg4y4.git

@@ -1,6 +1,5 @@
 
 # Cloud-init
-## cloud-init
 
 cloud-init это программа для инициализации виртуальных машин, обычно применяющаяся в облачных платформах. Но использовать cloud-init можно и локально. Примеры конфигурационных файлов - https://cloudinit.readthedocs.io/en/latest/topics/examples.html.
 Использование с qemu

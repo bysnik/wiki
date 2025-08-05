@@ -41,9 +41,11 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     {
       text: 'Сервисы',
       items: [
+        { text: 'Podman', link: '/docs/wi/podman' },
         { text: 'Docker', link: '/docs/wi/docker' },
         { text: 'Gitea', link: '/docs/wi/gitea' },  
         { text: 'Git', link: '/docs/wi/git' }, 
+        { text: 'Harbor', link: '/docs/wi/harbor' }, 
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },     
       ]
     },
