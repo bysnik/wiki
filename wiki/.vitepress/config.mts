@@ -6,7 +6,7 @@ export default defineConfig({
   title: "СиСА Вики",
   description: "Сборник различной документации по Сетевому и Системному администрированию",
   lang: 'ru',
-	base: '/wiki/',
+	base: '/',
   themeConfig: themeConfig,
   head: [
     [
