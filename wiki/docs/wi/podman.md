@@ -11,7 +11,7 @@ Podman – это инструмент с открытым исходным ко
 ## Установка Podman
 
 ```bash
-apt-get install podman
+apt-get install podman podman-compose
 ```
 
 ## Rootless режим

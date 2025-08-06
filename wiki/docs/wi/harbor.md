@@ -53,16 +53,18 @@ cp harbor.yml.tmpl harbor.yml
 
 Настройте остальные параметры согласно вашей политике безопасности и предполагаемой нагрузке.
 
+#### S3 Хранилище
+
 Если вы планируете использовать хранилище S3, например [MinIO](miniio) для данных, добавьте примерно следующие строки в файл harbor.yml:
 
 ```yaml
 storage_service:
   s3:
-    regionendpoint:
-    region: 
-    bucket: 
-    accesskey:
-    secretkey:
+    regionendpoint: fradf 
+    region: afgafdg
+    bucket: afdgadfg
+    accesskey: adfgadfg
+    secretkey: adfgadfda
 ```
 ### Шаг 4. Установка Harbor
 

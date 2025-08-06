@@ -40,3 +40,19 @@ systemctl enable --now docker
 ```bash
 systemctl restart docker
 ```
+
+## Rootless
+
+Для запуска docker демона от пользователя можно использовать пакет docker-engine-rootless. Установить его можно следующей командой:
+```bash
+apt-get install docker-engine-rootless
+```
+Далее нужно настроить запуск демона от пользователя:
+```bash
+$ dockerd-rootless-setuptool.sh install
+```
+И экcпортировать переменную DOCKER_HOST:
+```bash
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+```
+Последнюю строку можно добавить, в файл из которого шелл инициализирует переменные, например, в ~/.bash_profile, если используется bash. 
