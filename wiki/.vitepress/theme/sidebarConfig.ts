@@ -46,7 +46,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Gitea', link: '/docs/wi/gitea' },  
         { text: 'Git', link: '/docs/wi/git' }, 
         { text: 'Harbor', link: '/docs/wi/harbor' }, 
-        { text: 'Cloud-init', link: '/docs/wi/cloudinit' },     
+        { text: 'Cloud-init', link: '/docs/wi/cloudinit' }, 
+        { text: 'MiniIO', link: '/docs/wi/miniio' },    
       ]
     },
     {
