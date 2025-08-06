@@ -812,10 +812,7 @@ host:
 
 Помните, что fail2ban — мощный инструмент, и при неправильном использовании он может вызвать множество проблем, поэтому обязательно протестируйте его, прежде чем полагаться на него, чтобы не оказаться в затруднительном положении.
 
-Gitea возвращает HTTP 200 для неудачных попыток входа в веб-журналы, но если у вас есть параметры ведения журнала в app.ini, то вы должны иметь возможность выйти из log/gitea.log, что даст вам что-то вроде этого при неудачной аутентификации из веб-сайта или CLI с использованием SSH или HTTP соответственно
-
-(Начиная с версии 1.15 это новое сообщение будет доступно и не будет давать ложноположительных результатов, как это бывает с вышеуказанными сообщениями от publicKeyHandler. Оно будет регистрироваться только в том случае, если пользователь полностью не прошел аутентификацию.)
-
+Gitea возвращает HTTP 200 для неудачных попыток входа в веб-журналы, но если у вас есть параметры ведения журнала в app.ini, то вы должны иметь возможность выйти из log/gitea.log
 
 Добавьте наш фильтр в /etc/fail2ban/filter.d/gitea.local:
 ```ini
@@ -863,6 +860,37 @@ proxy_set_header X-Real-IP $remote_addr;
 REVERSE_PROXY_LIMIT = 1
 REVERSE_PROXY_TRUSTED_PROXIES = 127.0.0.1/8 ; 172.17.0.0/16 for the docker default network
 ```
+
+## Добавление юридической страницы (Политика конфиденциальности)
+
+Создаем директорию откуда Gitea будет брать файл политики:
+```bash
+mkdir -p /var/lib/gitea/custom/public/assets/
+```
+
+Скачиваем шаблон политики:
+```bash
+wget -O /var/lib/gitea/custom/public/assets/privacy.html https://raw.githubusercontent.com/go-gitea/gitea/main/contrib/legal/privacy.html.sample
+```
+
+Далее этот шаблон необходимо отредактировать под свои нужды.
+
+Создаем директорию для расширения HTML:
+```bash
+mkdir -p /var/lib/gitea/custom/templates/custom/
+```
+
+Создаем файл расширения HTML для внедрения ссылки на политику в футер Gitea:
+```bash
+echo "<a class="item" href="{{AppSubUrl}}/assets/privacy.html">Политика конфиденциальности</a>" > /var/lib/gitea/custom/templates/custom/extra_links_footer.tmpl
+```
+
+Перезагружаем сервис Gitea
+```bash
+systemctl restart gitea
+```
+
+
 
 ## Файлы README профиля
 
