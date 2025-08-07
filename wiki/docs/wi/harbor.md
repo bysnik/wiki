@@ -55,7 +55,7 @@ cp harbor.yml.tmpl harbor.yml
 
 #### S3 Хранилище
 
-Если вы планируете использовать хранилище S3, например [MinIO](minio) для данных, добавьте примерно следующие строки в файл harbor.yml:
+Если вы планируете использовать хранилище S3, например [MinIO](minio) для данных, добавьте примерно следующие строки в файл `harbor.yml`:
 
 ```yaml
 storage_service:
@@ -72,11 +72,11 @@ storage_service:
     encrypt: false
 ```
 
-1. ru-central-1 Работать не будет. Как я понял, отрабатывают ТОЛЬКО [стандартные ASW регионы](https://github.com/aws/aws-sdk-go/blob/v1.44.130/aws/endpoints/defaults.go#L141)
+1. Регион `ru-central-1` работать не будет. Как я понял, отрабатывают ТОЛЬКО [стандартные ASW регионы](https://github.com/aws/aws-sdk-go/blob/v1.44.130/aws/endpoints/defaults.go#L141)
 Иначе вот такая ошибка:
 ![alt text](/public/img/harbor-minio-region-panic.png)
 
-2. Вот эта ошиюбка происходит если использовать `endpoint`, а не `regionendpoint`:
+2. Вот эта ошибка происходит если использовать `endpoint`, а не `regionendpoint`:
 ![alt text](/public/img/harbor-minio-hell.png)
 
 3. Если у Вас кластер - он должен быть за балансировщиком, или, если по простому, указать только одну ноду, иначе не работает - синтаксис не позволяет указать несколько нод.
