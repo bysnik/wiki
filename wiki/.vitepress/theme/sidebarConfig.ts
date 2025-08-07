@@ -47,7 +47,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Git', link: '/docs/wi/git' }, 
         { text: 'Harbor', link: '/docs/wi/harbor' }, 
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' }, 
-        { text: 'MiniIO', link: '/docs/wi/miniio' },    
+        { text: 'MinIO', link: '/docs/wi/minio' },    
       ]
     },
     {
@@ -58,6 +58,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           collapsed: true,
           items: [
             { text: 'Веб-камеры', link: '/docs/wi/webcam' },
+            { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
           ]
         }
       ]

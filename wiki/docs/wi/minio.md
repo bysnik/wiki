@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# MiniIO
+# MinIO
 
 ![](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F1kco4frqn1sh3y3umvye.png)
 
@@ -76,6 +76,10 @@ chmod +x mc
 mv mc /usr/local/bin/
 ```
 
+::: warning Предупреждение
+В Альте есть предустановленный Midnight Commander (команда mc), поэтому либо удалите его, если не нужен, либо переименуйте minio-client (файл mc), ну либо в дальнейшем обращайтесь к клиенту по полному пути: `/usr/local/bin/mc`
+:::
+
 ### Шаг 4. Создание пользователя и группы minio-user
 
 Создайте группу и пользователя: 
@@ -126,11 +130,6 @@ MINIO_ROOT_USER="YOUR_ROOT_USER"
 MINIO_ROOT_PASSWORD="YOUR_ROOT_PASSWORD"
 ```
 
-Загрузите эти переменные окружения (действие необязательное):
-```bash
-su minio-user -c 'source /etc/default/minio'
-```
-
 ### Шаг 7. Запуск сервиса MinIO
 
 Выполните команды для запуска службы: 
@@ -155,7 +154,7 @@ journalctl -f -u minio.service
 
 ### Проблем: отсутствие панели администратора в веб-интерфейсе
 
-![alt text](/public/img/minio.png)
+![minio-console](/public/img/minio.png)
 
 ::: tip Цитата со страницы [документации](https://docs.min.io/community/minio-object-store/administration/minio-console.html)
 Изменено в версии `RELEASE.2025-05-24T17-08-30Z`: Консоль теперь предоставляет только возможности обозревателя объектов, аналогичные доступным в `mc` инструменте. Для административных действий, таких как управление пользователями, используйте команду `mc admin`
