@@ -697,6 +697,24 @@ jobs:
 - hasher
 
 
+### Запуск раннера с помощью Podman
+
+Я НЕ ТЕСТИЛ, ПРОСТО НАШЁЛ ЭТО РЕШЕНИЕ НА РЕДДИТЕ
+```bash
+podman run \
+    --network home-server-frontend \
+    -e GITEA_INSTANCE_URL=http://gitea:3000 \
+    -e GITEA_RUNNER_REGISTRATION_TOKEN=<token goes here> \
+    -e GITEA_RUNNER_NAME=gitea_runner \
+    -e DOCKER_HOST=unix:///run/user/$(id -u)/podman/podman.sock \
+    -v /run/user/$(id -u)/podman/podman.sock:/run/user/$(id -u)/podman/podman.sock \
+    --name gitea_runner \
+    docker.io/gitea/act_runner:latest
+```
+
+
+
+
 ## Файл config.yaml
 
 <details>
@@ -1110,3 +1128,7 @@ Cron - Git LFS GC в репозиториях (`cron.gc_lfs`)
 - `PROPORTION_TO_CHECK_PER_REPO`: **0.6**: Проверять как минимум эту долю объектов на репозиторий (может привести к полной проверке).
 - Удаляет устаревшие файлы из Git LFS (если используется).
 - Если у тебя включен Git LFS, репозитории могут занимать больше места, чем нужно.
+
+
+
+

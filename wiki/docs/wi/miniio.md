@@ -10,14 +10,12 @@ MiniIO — это высокопроизводительное, легковес
 
 https://packages.altlinux.org/ru/p11/binary/minio/x86_64/
 
-https://elma365.com/ru/help/platform/configure-minio.html
-
 https://elma365.com/ru/help/platform/minio-cluster.html
 
 https://www.dmosk.ru/miniinstruktions.php?mini=minio
 
 
-## Установка
+## Установка: одна нода, два диска
 
 ### Шаг 1. Подготовка дисков
 
@@ -122,14 +120,13 @@ MINIO_VOLUMES="/var/lib/minio/data1/minio /var/lib/minio/data2/minio"
 MINIO_OPTS="--certs-dir /etc/minio/certs --console-address :9001"
 MINIO_REGION="ru-central-1"
 
-
 MINIO_ACCESS_KEY="YOUR_ACCESS_KEY"
 MINIO_SECRET_KEY="YOUR_SECRET_KEY"
 MINIO_ROOT_USER="YOUR_ROOT_USER"
 MINIO_ROOT_PASSWORD="YOUR_ROOT_PASSWORD"
 ```
 
-Загрузите эти переменные окружения:
+Загрузите эти переменные окружения (действие необязательное):
 ```bash
 su minio-user -c 'source /etc/default/minio'
 ```
@@ -155,3 +152,15 @@ journalctl -f -u minio.service
 
 Логин по умолчанию: minioadmin
 Пароль по умолчанию: minioadmin
+
+### Проблем: отсутствие панели администратора в веб-интерфейсе
+
+![alt text](/public/img/minio.png)
+
+::: tip Цитата со страницы [документации](https://docs.min.io/community/minio-object-store/administration/minio-console.html)
+Изменено в версии `RELEASE.2025-05-24T17-08-30Z`: Консоль теперь предоставляет только возможности обозревателя объектов, аналогичные доступным в `mc` инструменте. Для административных действий, таких как управление пользователями, используйте команду `mc admin`
+:::
+
+Вот и вся проблема. Они тупо вырезали весь административный интерфейс из веб-консоли. Ну огонь вообще.
+
+Теперь в графике можно создавать и удалять бакеты, и загружать/удалять из них файлы, ну и по мелочи ещё.
