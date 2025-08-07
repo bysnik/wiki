@@ -126,11 +126,21 @@ MINIO_VOLUMES="/var/lib/minio/data1/minio /var/lib/minio/data2/minio"
 MINIO_OPTS="--certs-dir /etc/minio/certs --console-address :9001"
 MINIO_REGION="ru-central-1"
 
-MINIO_ACCESS_KEY="YOUR_ACCESS_KEY"
-MINIO_SECRET_KEY="YOUR_SECRET_KEY"
 MINIO_ROOT_USER="YOUR_ROOT_USER"
 MINIO_ROOT_PASSWORD="YOUR_ROOT_PASSWORD"
 ```
+
+::: tip Обратите внимание
+```bash
+MINIO_ACCESS_KEY="YOUR_ACCESS_KEY"
+MINIO_SECRET_KEY="YOUR_SECRET_KEY"
+```
+Эти переменные являются устаревшими, с ними MinIO не запустится. Вместо них используются:
+```bash
+MINIO_ROOT_USER="YOUR_ROOT_USER"
+MINIO_ROOT_PASSWORD="YOUR_ROOT_PASSWORD"
+```
+:::
 
 ### Шаг 7. Запуск сервиса MinIO
 
@@ -253,48 +263,11 @@ mv minio.service /etc/systemd/system
 
 Пример файла окружения в /etc/default/minio:
 ```bash
-# Set the hosts and volumes MinIO uses at startup
-# The command uses MinIO expansion notation {x...y} to denote a
-# sequential series.
-
-# The following example covers four MinIO hosts
-# with4 drives each at the specified hostname and drive locations.
-# The command includes the port that each MinIO server listens on
-# (default 9000)
-
 MINIO_VOLUMES="http://minio{1...2}.example.com:9000/var/lib/minio/data{1...2}/minio"
-
-# Set all MinIO server options
-
-# The following explicitly sets the MinIO Console listen address to
-# port 9001 on all network interfaces. The default behavior is dynamic
-# port selection.
 
 MINIO_OPTS="--certs-dir /etc/minio/certs --console-address :9001"
 
 MINIO_REGION="ru-central-1"
-
-# Set the root username. This user has unrestricted permissions to
-# perform S3 and administrative API operations on any resource in the
-# deployment.
-
-# Defer to your organizations requirements for superadmin user name.
-
-# MINIO_ROOT_USER=RootLogin
-
-# Set the root password
-
-# Use a long, random, unique string that meets your organizations
-# requirements for passwords.
-
-# MINIO_ROOT_PASSWORD=SecretPassword
-
-# Set to the URL of the load balancer for the MinIO deployment
-# This value *must* match across all MinIO servers. If you do
-# not have a load balancer, set this value to to any *one* of the
-# MinIO hosts in the deployment as a temporary measure.
-
-# MINIO_SERVER_URL="https://minio.example:9000"
 ```
 
 ### Шаг 8. Запуск сервиса MinIO

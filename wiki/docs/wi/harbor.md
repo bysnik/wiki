@@ -55,16 +55,15 @@ cp harbor.yml.tmpl harbor.yml
 
 #### S3 Хранилище
 
-Если вы планируете использовать хранилище S3, например [MinIO](miniio) для данных, добавьте примерно следующие строки в файл harbor.yml:
+Если вы планируете использовать хранилище S3, например [MinIO](minio) для данных, добавьте примерно следующие строки в файл harbor.yml:
 
 ```yaml
 storage_service:
   s3:
-    regionendpoint: fradf 
-    region: afgafdg
-    bucket: afdgadfg
-    accesskey: adfgadfg
-    secretkey: adfgadfda
+    region: ru-central-1
+    bucket: testbucket
+    accesskey: MINIO_ROOT_USER
+    secretkey: MINIO_ROOT_PASSWORD
 ```
 ### Шаг 4. Установка Harbor
 
