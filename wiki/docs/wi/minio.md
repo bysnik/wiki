@@ -19,6 +19,10 @@ https://www.dmosk.ru/miniinstruktions.php?mini=minio
 А на единственной ноде можете делать сколь угодно ОДИНАКОВЫХ дисков.
 
 Если диски будут разные по объему, то, как и в RAID-массивах, доступный объем будет расчитан по самому маленькому диску.
+
+Для обеспечения лучшей производительности используйте файловую систему XFS. В MinIO не различаются типы дисков и не используются смешанные типы хранилищ, поэтому на всех нодах должен использоваться одинаковый тип дисков (NVMe, SSD или HDD) с одинаковой ёмкостью, например, N ТБ.
+
+В MinIO ограничивается размер используемого диска до самого маленького диска в развёртывании. Например, если в развёртывании есть 15 дисков по 10 ТБ и 1 диск по 1 ТБ, в MinIO ёмкость каждого диска ограничится до 1 ТБ.
 :::
 
 ## Установка: одна нода, два диска
@@ -31,13 +35,13 @@ mkdir -p /var/lib/minio/data1
 mkdir -p /var/lib/minio/data2
 ```
 
-Подготовьте файловую систему XFS на дисках (например, для дисков /dev/sdb и /dev/sdc): 
+Подготовьте файловую систему XFS на дисках (например, для дисков `/dev/sdb` и `/dev/sdc`): 
 ```bash
 mkfs.xfs /dev/sdb -L DISK1
 mkfs.xfs /dev/sdc -L DISK2
 ```
     
-Добавьте точки монтирования дисков в файле /etc/fstab: 
+Добавьте точки монтирования дисков в файле `/etc/fstab`: 
 
 ```fstab
 LABEL=DISK1 /var/lib/minio/data1 xfs defaults,noatime 0 2
@@ -83,7 +87,7 @@ mv mc /usr/local/bin/
 ```
 
 ::: warning Предупреждение
-В Альте есть предустановленный Midnight Commander (команда mc), поэтому либо удалите его, если не нужен, либо переименуйте minio-client (файл mc), ну либо в дальнейшем обращайтесь к клиенту по полному пути: `/usr/local/bin/mc`
+В Альте есть предустановленный Midnight Commander (команда `mc`), поэтому либо удалите его, если не нужен, либо переименуйте minio-client (файл `mc`), ну либо в дальнейшем обращайтесь к клиенту по полному пути: `/usr/local/bin/mc`
 :::
 
 ### Шаг 4. Создание пользователя и группы minio-user
@@ -118,13 +122,13 @@ curl -O https://raw.githubusercontent.com/minio/minio-service/master/linux-syste
 mv minio.service /etc/systemd/system
 ```
 
-::: danger
-На этом шаге не запускайте minio.service.
+::: danger Бууу, опасссно
+На этом шаге не запускайте `minio.service`.
 :::
 
 ### Шаг 6. Создание файла окружения для MinIO
 
-Создайте файл окружения в /etc/default/minio. Пример содержимого:
+Создайте файл окружения в `/etc/default/minio`. Пример содержимого:
  
 ```bash
 # Set the hosts and volumes MinIO uses at startup
@@ -155,7 +159,7 @@ journalctl -f -u minio.service
 
 ### Шаг 8. Настройка подключения к MinIO
 
-После запуска сервиса вы сможете открыть браузер и перейти на страницу http://<IP-адрес сервера>:9001 — там откроется панель управления хранилищем S3.
+После запуска сервиса вы сможете открыть браузер и перейти на страницу `http://<IP-адрес сервера>:9001` — там откроется панель управления хранилищем S3.
 
 Логин по умолчанию: minioadmin
 Пароль по умолчанию: minioadmin
@@ -178,17 +182,13 @@ mkdir -p /var/lib/minio/data1
 mkdir -p /var/lib/minio/data2
 ```
 
-Для обеспечения лучшей производительности используйте файловую систему XFS. В MinIO не различаются типы дисков и не используются смешанные типы хранилищ, поэтому на всех нодах должен использоваться одинаковый тип дисков (NVMe, SSD или HDD) с одинаковой ёмкостью, например, N ТБ.
-
-В MinIO ограничивается размер используемого диска до самого маленького диска в развёртывании. Например, если в развёртывании есть 15 дисков по 10 ТБ и 1 диск по 1 ТБ, в MinIO ёмкость каждого диска ограничится до 1 ТБ.
-
 На каждой ноде подготовьте на дисках файловую систему XFS:
 ```bash
 mkfs.xfs /dev/sdb -L DISK1
 mkfs.xfs /dev/sdc -L DISK2
 ```
 
-На каждой ноде добавьте точки монтирования четырёх дисков в файле /etc/fstab:
+На каждой ноде добавьте точки монтирования четырёх дисков в файле `/etc/fstab`:
 ```fstab
 LABEL=DISK1      /var/lib/minio/data1     xfs     defaults,noatime  0       2
 LABEL=DISK2      /var/lib/minio/data2     xfs     defaults,noatime  0       2
@@ -220,7 +220,7 @@ mv mc /usr/local/bin/
 
 ### Шаг 5. Создание пользователя и группы minio-user
 
-На каждой ноде создайте пользователя и группу minio-user:
+На каждой ноде создайте пользователя и группу `minio-user`:
 ```bash
 groupadd -r minio-user
 useradd -M -r -g minio-user minio-user
@@ -249,15 +249,15 @@ curl -O https://raw.githubusercontent.com/minio/minio-service/master/linux-syste
 ```bash
 mv minio.service /etc/systemd/system
 ```
-::: danger
-На этом шаге не запускайте minio.service.
+::: danger Бууу, опассноссс
+На этом шаге не запускайте `minio.service`.
 :::
 
 ### Шаг 7. Создание файла окружения для MinIO
 
-На каждой ноде создайте файл окружения в /etc/default/minio. Служба MinIO использует этот файл в качестве источника всех переменных окружения, используемых MinIO и файлом minio.service.
+На каждой ноде создайте файл окружения в `/etc/default/minio`. Служба MinIO использует этот файл в качестве источника всех переменных окружения, используемых MinIO и файлом `minio.service`.
 
-Пример файла окружения в /etc/default/minio:
+Пример файла окружения в `/etc/default/minio`:
 ```bash
 MINIO_VOLUMES="http://minio{1...2}.example.com:9000/var/lib/minio/data{1...2}/minio"
 
@@ -275,7 +275,7 @@ systemctl enable minio.service
 systemctl start minio.service
 ```
 
-Убедитесь в том, что сервис minio запустился и работает без ошибок:
+Убедитесь в том, что сервис `minio.service` запустился и работает без ошибок:
 ```bash
 systemctl status minio.service
 journalctl -f -u minio.service
@@ -283,7 +283,7 @@ journalctl -f -u minio.service
 
 ### Шаг 9. Просмотр статуса MinIO
 
-Создайте alias для minio на ноде minio1.example.com:
+Создайте `alias` для minio на ноде `minio1.example.com`:
 ```bash
 mc alias set myminio http://minio1.example.com:9000 <MINIO_ROOT_USER> <MINIO_ROOT_PASSWORD>
 ```
@@ -296,7 +296,7 @@ mc admin info myminio
 
 ### Шаг 10. Создание бакета
 
-Чтобы создать  бакет c наименованием testbucket, используйте команду на ноде minio1.example.com:
+Чтобы создать  бакет c наименованием `testbucket`, используйте команду на ноде `minio1.example.com`:
 ```bash
 mc mb -p myminio/testbucket --region=ru-central-1
 ```
@@ -305,13 +305,13 @@ mc mb -p myminio/testbucket --region=ru-central-1
 ## Настройка включения TLS/SSL в MinIO
 
 Для включения поддержки TLS/SSL в MinIO нужно на каждой ноде:
-1. В файле окружения /etc/default/minio изменить протокол с HTTP на HTTPS в параметре MINIO_VOLUMES.
-2. Положить файл сертификата и файл закрытого ключа в каталог /etc/minio/certs.     
+1. В файле окружения `/etc/default/minio` изменить протокол с HTTP на HTTPS в параметре `MINIO_VOLUMES`.
+2. Положить файл сертификата и файл закрытого ключа в каталог `/etc/minio/certs`.     
 3. Все ноды имеют уникальные доменные имена. Сертификаты должны быть выпущены для каждой ноды индивидуально.
-4. Переименовать файл сертификата сервера в public.crt.
-5. Переименовать файл закрытого ключа в private.key.
+4. Переименовать файл сертификата сервера в `public.crt`.
+5. Переименовать файл закрытого ключа в `private.key`.
 
-При использовании самоподписанных сертификатов положить файл корневого CA в каталог /etc/minio/certs/CAs.
+При использовании самоподписанных сертификатов положить файл корневого CA в каталог `/etc/minio/certs/CAs`.
 
 
 ## Проблема: отсутствие панели администратора в веб-интерфейсе

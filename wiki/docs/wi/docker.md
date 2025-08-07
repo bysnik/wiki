@@ -25,9 +25,9 @@ usermod ИМЯ_ПОЛЬЗОВАТЕЛЯ -aG docker
 systemctl enable --now docker
 ```
 
-## Настройка подключение клинта Docker к репозиторию по HTTP
+## Настройка подключения клиента Docker к репозиторию по HTTP
 
-На клиенте, отредактируйте файла /etc/docker/daemon.json Нужно добавить блок с примерным содержимым:
+На клиенте, отредактируйте файла `/etc/docker/daemon.json` Нужно добавить блок с примерным содержимым:
 
 ```json
 {
@@ -43,7 +43,7 @@ systemctl restart docker
 
 ## Rootless
 
-Для запуска docker демона от пользователя можно использовать пакет docker-engine-rootless. Установить его можно следующей командой:
+Для запуска docker демона от пользователя можно использовать пакет `docker-engine-rootless`. Установить его можно следующей командой:
 ```bash
 apt-get install docker-engine-rootless
 ```
@@ -51,8 +51,8 @@ apt-get install docker-engine-rootless
 ```bash
 $ dockerd-rootless-setuptool.sh install
 ```
-И экcпортировать переменную DOCKER_HOST:
+И экcпортировать переменную `DOCKER_HOST`:
 ```bash
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 ```
-Последнюю строку можно добавить, в файл из которого шелл инициализирует переменные, например, в ~/.bash_profile, если используется bash. 
+Последнюю строку можно добавить, в файл из которого шелл инициализирует переменные, например, в `~/.bash_profile`, если используется `bash`. 
