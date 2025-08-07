@@ -60,11 +60,32 @@ cp harbor.yml.tmpl harbor.yml
 ```yaml
 storage_service:
   s3:
-    region: ru-central-1
+    region: us-east-1
     bucket: testbucket
     accesskey: MINIO_ROOT_USER
     secretkey: MINIO_ROOT_PASSWORD
+    secure: false
+    regionendpoint: http://minio1.example.com:9000
+    v4auth: true
+    chunksize: 5242880
+    rootdirectory: /
+    encrypt: false
 ```
+
+1. ru-central-1 Работать не будет. Как я понял, отрабатывают ТОЛЬКО [стандартные ASW регионы](https://github.com/aws/aws-sdk-go/blob/v1.44.130/aws/endpoints/defaults.go#L141)
+Иначе вот такая ошибка:
+![alt text](/public/img/harbor-minio-region-panic.png)
+
+2. Вот эта ошиюбка происходит если использовать `endpoint`, а не `regionendpoint`:
+![alt text](/public/img/harbor-minio-hell.png)
+
+3. Если у Вас кластер - он должен быть за балансировщиком, или, если по простому, указать только одну ноду, иначе не работает - синтаксис не позволяет указать несколько нод.
+
+4. Кажется, эта ошибка вознокает, если аналогичный Image уже лежит в репе. Просто у меня уже есть такой же образ в репе, потом я тупо на основе оригинального образа создал другой тэг, и вот этот тэг уже не пушится:
+![alt text](/public/img/harbor-minio-encrypt.png)
+
+P.S. Чисто чтобы понимали - это единственная [более-менее официальная документация по настройки связки Harbor-MinIO](https://blog.min.io/how-to-use-vmware-harbor-with-minio/)
+
 ### Шаг 4. Установка Harbor
 
 Установите Harbor, выполнив следующую команду:
