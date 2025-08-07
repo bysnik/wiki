@@ -280,14 +280,14 @@ MINIO_REGION="ru-central-1"
 
 # Defer to your organizations requirements for superadmin user name.
 
-MINIO_ROOT_USER=elma365user
+# MINIO_ROOT_USER=RootLogin
 
 # Set the root password
 
 # Use a long, random, unique string that meets your organizations
 # requirements for passwords.
 
-MINIO_ROOT_PASSWORD=SecretPassword
+# MINIO_ROOT_PASSWORD=SecretPassword
 
 # Set to the URL of the load balancer for the MinIO deployment
 # This value *must* match across all MinIO servers. If you do
