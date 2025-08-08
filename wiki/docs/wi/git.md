@@ -2,7 +2,6 @@
 outline: deep
 ---
 
-
 # GIT
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1024px-Git-logo.svg.png)
@@ -572,6 +571,8 @@ htpasswd -c /srv/git/.htpasswd schacon
 ```bash
 git clone http://<git_server_ip_address>/git/my_project.git
 ```
+
+При пуше попросит логин/пароль.
 :::
 
 
