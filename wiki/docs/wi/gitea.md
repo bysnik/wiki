@@ -295,7 +295,12 @@ systemctl enable act_runner --now
 ##### Одной командой
 
 ```bash
-docker run -e GITEA_INSTANCE_URL=https://your_gitea.com -e GITEA_RUNNER_REGISTRATION_TOKEN=<your_token> -v /var/run/docker.sock:/var/run/docker.sock --name my_runner_name docker.io/gitea/act_runner:latest
+docker run \
+    -e GITEA_INSTANCE_URL=https://your_gitea.com \
+    -e GITEA_RUNNER_REGISTRATION_TOKEN=<your_token> \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    --name my_runner_name \
+    docker.io/gitea/act_runner:latest
 ```
 ##### С помощью Docker Compose
 Необходимо создать файл `docker-compose.yml`:
@@ -470,7 +475,12 @@ docker build -t alt11runner:0.5 .
 
 Теперь можно запустить раннер командой:
 ```bash
-docker run -e GITEA_INSTANCE_URL=https://your_gitea.com -e GITEA_RUNNER_REGISTRATION_TOKEN=<your_token> -v /var/run/docker.sock:/var/run/docker.sock --name my_runner_name alt11runner:0.5
+docker run \
+    -e GITEA_INSTANCE_URL=https://your_gitea.com \
+    -e GITEA_RUNNER_REGISTRATION_TOKEN=<your_token> \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    --name my_runner_name \
+    alt11runner:0.5
 ```
 
 Или же используя Docker compose. Почему то, если вы, например, накосячили, или просто решили несколько раз сделать `docker compose up` то докер начинает нести чушь и ругается на пути, поэтому лучше каждый раз работать в новом рабочем каталоге (помогало просто его каждый раз переименовывать). Создаем файл docker-compose.yml:
@@ -585,15 +595,9 @@ docker build -t alt-p11-rpmbuild .
 docker tag alt-p11-rpmbuild localhost:5000/alt-p11-rpmbuild
 ```
 
-#### Запуск локального репозитория Docker
+#### Пушим на локальный репозиторий Docker
 
 Репозиторий будет локальным относительно раннера, то есть быть контейнером на том же хосте, что и сам раннер.
-
-Запускаем репозиторий:
-
-```bash
-docker run -d -p 5000:5000 --name my-registry registry:2
-```
 
 Загружаем ранее подготовленный образ:
 
@@ -699,20 +703,19 @@ jobs:
 
 ### Запуск раннера с помощью Podman
 
-Я НЕ ТЕСТИЛ, ПРОСТО НАШЁЛ ЭТО РЕШЕНИЕ НА РЕДДИТЕ
+#### Одной командой
 ```bash
 podman run \
-    --network home-server-frontend \
     -e GITEA_INSTANCE_URL=http://gitea:3000 \
     -e GITEA_RUNNER_REGISTRATION_TOKEN=<token goes here> \
     -e GITEA_RUNNER_NAME=gitea_runner \
-    -e DOCKER_HOST=unix:///run/user/$(id -u)/podman/podman.sock \
-    -v /run/user/$(id -u)/podman/podman.sock:/run/user/$(id -u)/podman/podman.sock \
-    --name gitea_runner \
+    -e DOCKER_HOST=unix:///run/podman/podman.sock \
+    -v /run/podman/podman.sock:/run/podman/podman.sock \
+    --name gitea_podman_runner \
     docker.io/gitea/act_runner:latest
 ```
 
-
+#### Podman Compose
 
 
 ## Файл config.yaml

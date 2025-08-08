@@ -14,6 +14,16 @@ Podman – это инструмент с открытым исходным ко
 apt-get install podman podman-compose
 ```
 
+Если Вам нужен Docker-совместимый сокет (например, для Docker CLI или других инструментов), включите службу:
+```bash
+systemctl enable --now podman.socket
+```
+
+Для rootless (пользовательский режим):
+```bash
+systemctl --user enable --now podman.socket
+```
+
 ## Rootless режим
 
 Для использования podman непривилегированными пользователями, необходимо произвести ряд дополнительных действий по настройке прав:

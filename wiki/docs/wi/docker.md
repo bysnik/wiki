@@ -56,3 +56,10 @@ $ dockerd-rootless-setuptool.sh install
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 ```
 Последнюю строку можно добавить, в файл из которого шелл инициализирует переменные, например, в `~/.bash_profile`, если используется `bash`. 
+
+
+## Простейший репозиторий Docker в контейнере
+
+```bash
+docker run -d -p 5000:5000 --name my-registry registry:2
+```
