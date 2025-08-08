@@ -569,7 +569,7 @@ htpasswd -c /srv/git/.htpasswd schacon
 ::: tip ПЫСЫ
 Я не поняль как работать с http ссылками), они даже на git.altlinux.org не работают)
 
-Я пробовал делать `git clone`
+Я пробовал делать `git clone` или ими как то по другому пользуются?
 :::
 
 
