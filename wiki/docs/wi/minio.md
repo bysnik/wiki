@@ -40,7 +40,7 @@ mkfs.xfs /dev/sdc -L DISK2
     
 Добавьте точки монтирования дисков в файле `/etc/fstab`: 
 
-```fstab
+```bash
 LABEL=DISK1 /var/lib/minio/data1 xfs defaults,noatime 0 2
 LABEL=DISK2 /var/lib/minio/data2 xfs defaults,noatime 0 2
 ```
@@ -186,7 +186,7 @@ mkfs.xfs /dev/sdc -L DISK2
 ```
 
 На каждой ноде добавьте точки монтирования четырёх дисков в файле `/etc/fstab`:
-```fstab
+```bash
 LABEL=DISK1      /var/lib/minio/data1     xfs     defaults,noatime  0       2
 LABEL=DISK2      /var/lib/minio/data2     xfs     defaults,noatime  0       2
 ```

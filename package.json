@@ -13,5 +13,10 @@
   "description": "",
   "devDependencies": {
     "vitepress": "^1.6.3"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "glob": "^11.0.3",
+    "papaparse": "^5.5.3"
   }
 }
