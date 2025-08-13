@@ -72,7 +72,7 @@ storage_service:
     encrypt: false
 ```
 
-1. Регион `ru-central-1` работать не будет. Как я понял, отрабатывают ТОЛЬКО [стандартные ASW регионы](https://github.com/aws/aws-sdk-go/blob/v1.44.130/aws/endpoints/defaults.go#L141). Иначе вот такая ошибка:
+1. Регион `ru-central-1` работать не будет. Как я понял, отрабатывают ТОЛЬКО [стандартные AWS регионы](https://github.com/aws/aws-sdk-go/blob/v1.44.130/aws/endpoints/defaults.go#L141). Иначе вот такая ошибка:
 ![alt text](/public/img/harbor-minio-region-panic.png)
 
 2. Вот эта ошибка происходит если использовать `endpoint`, а не `regionendpoint` (можно указывать и IP в качестве URL, главное протокол и порт не забудьте):
