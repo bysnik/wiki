@@ -52,6 +52,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! Forgejo', link: '/docs/wi/forgejo' }, 
         { text: '! CTFd', link: '/docs/wi/ctfd' },    
+        { text: '! Moodle', link: '/docs/wi/moodle' },  
       ]
     },
     {
