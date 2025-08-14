@@ -50,7 +50,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'MinIO', link: '/docs/wi/minio' },
         { text: '! Uptime Kuma', link: '/docs/wi/uptime-kuma' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
-        { text: '! Forgejo', link: '/docs/wi/forgejo' },    
+        { text: '! Forgejo', link: '/docs/wi/forgejo' }, 
+        { text: '! CTFd', link: '/docs/wi/ctfd' },    
       ]
     },
     {
@@ -62,6 +63,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           items: [
             { text: 'Веб-камеры', link: '/docs/wi/webcam' },
             { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
+            { text: 'Фишки', link: '/docs/wi/tricks' },
           ]
         }
       ]
