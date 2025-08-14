@@ -20,6 +20,8 @@
 
 ___
 
+https://uneex.ru/LecturesCMC - Георгий Курячий 
+
 https://iksweb.ru/tools/generator-table-html/
 
 Количество занятий в дисциплинах и часы усреднены, даже скорее приуменьшены.

@@ -47,7 +47,10 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Git', link: '/docs/wi/git' }, 
         { text: 'Harbor', link: '/docs/wi/harbor' }, 
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' }, 
-        { text: 'MinIO', link: '/docs/wi/minio' },    
+        { text: 'MinIO', link: '/docs/wi/minio' },
+        { text: '! Uptime Kuma', link: '/docs/wi/uptime-kuma' },
+        { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
+        { text: '! Forgejo', link: '/docs/wi/forgejo' },    
       ]
     },
     {
