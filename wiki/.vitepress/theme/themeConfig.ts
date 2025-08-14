@@ -66,7 +66,7 @@ export const themeConfig: DefaultTheme.Config = {
       provider: 'local',
       options: {
         locales: {
-          ru: { // используйте ключ `root`, если хотите перевести локаль по умолчанию
+          root: { // используйте ключ `root`, если хотите перевести локаль по умолчанию
             translations: {
               button: {
                 buttonText: 'Поиск',
