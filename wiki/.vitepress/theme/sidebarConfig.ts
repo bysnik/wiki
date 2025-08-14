@@ -53,6 +53,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Forgejo', link: '/docs/wi/forgejo' }, 
         { text: '! CTFd', link: '/docs/wi/ctfd' },    
         { text: '! Moodle', link: '/docs/wi/moodle' },  
+        { text: '! Modelio', link: '/docs/wi/modelio' },
       ]
     },
     {
