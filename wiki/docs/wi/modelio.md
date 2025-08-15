@@ -9,7 +9,7 @@
 epm repack modelio-open-source<версия>.rpm
 ```
 
-3. Установить перепакованный пакет через apt:
+3. Установить перепакованный пакет через `apt`:
 ```bash
 apt-get install modelio-open-source<версия>-epm1.repacked.<дата>.x86_64.rpm
 ```
