@@ -32,3 +32,23 @@ next: false
 `Logisim` - симулятор цифровой схемотехники
 
 `GNS3` - симулятор сети
+
+https://addons.thunderbird.net/RU/thunderbird/addon/filelink-nextcloud-owncloud/ - Связка Thunderbird + NextCloud для больших файлов
+
+`Nextcloud`
+
+`Netbox`
+
+`Open Project` https://www.openproject.org/docs/installation-and-operations/
+
+`NocoBase` https://github.com/nocobase/nocobase
+
+`Redmine` - пробовал поднять, не получилось)
+
+`Taskcafe` https://github.com/JordanKnott/taskcafe
+
+`BigBlueButton`
+
+`Foreman` https://www.theforeman.org/
+
+`glpi` https://glpi-project.org/
