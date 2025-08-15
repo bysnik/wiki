@@ -19,11 +19,11 @@ next: false
 
 `Ejudge` - система для проведения олимпиады по программированию с автопроверкой кода 
 
-`Sphinx` - автодокументирование кода
+? `Sphinx` - автодокументирование кода
 
-`Pontoon` - система управления переводами
+? `Pontoon` - система управления переводами
 
-`Weblate` - веб инструмент перевода
+? `Weblate` - веб инструмент перевода
 
 `Rars emulator` - симулятор RISC-V архитектуры
 
@@ -33,22 +33,22 @@ next: false
 
 `GNS3` - симулятор сети
 
-https://addons.thunderbird.net/RU/thunderbird/addon/filelink-nextcloud-owncloud/ - Связка Thunderbird + NextCloud для больших файлов
+[Связка Thunderbird + NextCloud для больших файлов](https://addons.thunderbird.net/RU/thunderbird/addon/filelink-nextcloud-owncloud/)
 
-`Nextcloud`
+`Nextcloud` - облачное хранилище
 
-`Netbox`
+`Netbox` - DCIM
 
-`Open Project` https://www.openproject.org/docs/installation-and-operations/
+[`Open Project`](https://www.openproject.org/docs/installation-and-operations/)
 
-`NocoBase` https://github.com/nocobase/nocobase
+[`NocoBase`](https://github.com/nocobase/nocobase)
 
 `Redmine` - пробовал поднять, не получилось)
 
-`Taskcafe` https://github.com/JordanKnott/taskcafe
+[`Taskcafe`](https://github.com/JordanKnott/taskcafe)
 
-`BigBlueButton`
+`BigBlueButton` - видеоконференции
 
-`Foreman` https://www.theforeman.org/
+[`Foreman`](https://www.theforeman.org/)
 
-`glpi` https://glpi-project.org/
+[`glpi`](https://glpi-project.org/)
