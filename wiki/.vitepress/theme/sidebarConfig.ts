@@ -65,6 +65,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
             { text: 'Веб-камеры', link: '/docs/wi/webcam' },
             { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
             { text: 'Фишки', link: '/docs/wi/tricks' },
+            { text: 'ZeroTier', link: '/docs/wi/zerotier' },
           ]
         }
       ]
