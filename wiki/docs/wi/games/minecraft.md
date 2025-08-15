@@ -7,12 +7,12 @@
 epm play mincraft-launcher
 ```
 
-2. Установить Prism Laucnher:
+2. Установка Prism Laucnher:
 ```bash
 apt-get install prismlaucher
 ```
 
 
-## Minecraft сервер Docker
+## Minecraft сервер в Docker
 
 [itzg docker-minecraft-server](https://github.com/itzg/docker-minecraft-server)
