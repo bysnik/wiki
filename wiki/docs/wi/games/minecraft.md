@@ -16,3 +16,5 @@ apt-get install prismlaucher
 ## Minecraft сервер в Docker
 
 [itzg docker-minecraft-server](https://github.com/itzg/docker-minecraft-server)
+
+[Конфигуратор файла compose для этого сервера](https://setupmc.com/java-server/)
