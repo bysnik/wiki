@@ -1,5 +1,7 @@
 # Modelio
 
+![](https://das6sa3.wordpress.com/wp-content/uploads/2017/01/logo-sponsor-modeliosoft.png)
+
 1. Скачать самый свежий rpm-пакет с сайта https://www.modelio.org/index.htm
 
 2. Пересобрать этот пакет:
