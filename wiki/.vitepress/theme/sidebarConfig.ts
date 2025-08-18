@@ -81,18 +81,14 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       ]
     },
     {
+      text: 'Различное по мелочи',
+      collapsed: true,
       items: [
-        {
-          text: 'Различное по мелочи',
-          collapsed: true,
-          items: [
-            { text: 'Веб-камеры', link: '/docs/wi/webcam' },
-            { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
-            { text: 'Фишки', link: '/docs/wi/tricks' },
-            { text: '! ZeroTier', link: '/docs/wi/zerotier' },
-            { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
-          ]
-        }
+        { text: 'Веб-камеры', link: '/docs/wi/webcam' },
+        { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
+        { text: 'Фишки', link: '/docs/wi/tricks' },
+        { text: '! ZeroTier', link: '/docs/wi/zerotier' },
+        { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
       ]
     },
     {
