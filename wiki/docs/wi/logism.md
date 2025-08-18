@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # Logism
 
 ![](https://github.com/logisim-evolution/logisim-evolution/raw/main/docs/img/logisim-evolution-logo.png)
@@ -12,16 +16,22 @@ Logisim Evolution существенно расширяет функционал
 
 ## Установка
 
-Скачайте [Logism](https://sourceforge.net/projects/circuit/) или [Logism Evolution](https://github.com/logisim-evolution/logisim-evolution)
+Скачайте [Logism](https://sourceforge.net/projects/circuit/) или [Logism Evolution](https://github.com/logisim-evolution/logisim-evolution). Выбирайте что скачивать в зависимости от вариантов установки.
 
-### rpm-пакет - только evolution
+### 1. rpm-пакет - только evolution
 
 Устанавливается без перепаковки, как через графику, так и в терминале:
 ```bash
 apt-get install ./logisim-evolution-3.9.0-1.x86_64.rpm
 ```
 
-### Чистый jar - оригинал и evolution
+### 2. Flatpak - только evolution
+
+```bash
+flatpak install flathub com.github.reds.LogisimEvolution
+```
+
+### 3. Чистый jar - оригинал и evolution
 
 Тут уже необходимо всё делать руками.
 
