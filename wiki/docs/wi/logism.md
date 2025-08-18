@@ -27,6 +27,7 @@ apt-get install ./logisim-evolution-3.9.0-1.x86_64.rpm
 
 ### 2. Flatpak - только evolution
 
+Тут вообще отдельно ничего скачивать не нужно:
 ```bash
 flatpak install flathub com.github.reds.LogisimEvolution
 ```
