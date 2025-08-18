@@ -61,7 +61,7 @@ ALTER DATABASE gitea OWNER TO gitea;
 
 Выход из командной оболочки PostgreSQL:
 ```sql
-exti;
+exit;
 ```
 
 Перезагрузка сервиса postgresql:

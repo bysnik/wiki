@@ -52,3 +52,5 @@ next: false
 [`Foreman`](https://www.theforeman.org/)
 
 [`glpi`](https://glpi-project.org/)
+
+[`keycloak`](https://www.keycloak.org/) - SSO
