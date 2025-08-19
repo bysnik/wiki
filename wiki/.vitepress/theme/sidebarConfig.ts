@@ -222,7 +222,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
 
   '/docs/disciplines/pm1/': [
     {
-      text: 'ПМ.02: Организация сетевого администрирования операционных систем',
+      text: 'ПМ.01: Настройка сетевой инфраструктуры',
       items: [
         { text: 'Все дисциплины', link: '/docs/disciplines/' },
         { text: 'Описание модуля', link: '/docs/disciplines/pm1/' },

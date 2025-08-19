@@ -12,9 +12,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "mermaid": "^11.10.0",
-    "vitepress": "^1.6.3",
-    "vitepress-plugin-mermaid": "^2.0.17"
+    "vitepress": "^1.6.3"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
