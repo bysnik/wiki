@@ -56,7 +56,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Moodle', link: '/docs/wi/moodle' },
         { text: 'Podman', link: '/docs/wi/podman' },
         { text: 'RARS Emulator', link: '/docs/wi/rars' },
-        { text: '! Uptime Kuma', link: '/docs/wi/uptime-kuma' }
+        { text: '! Uptime Kuma', link: '/docs/wi/uptime-kuma' },
+        { text: '! VM VirtualBox', link: '/docs/wi/vbox' }
       ]
     },
     {
