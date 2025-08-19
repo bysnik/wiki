@@ -261,17 +261,17 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
 
   '/docs/disciplines/pm1/mdk11/': [
     {
-      text: 'МДК 01.02 Организация, принципы построения и функционирования компьютерных сетей',
+      text: 'МДК 01.01 Компьютерные сети',
       items: [
         { text: 'Назад к модулю', link: '/docs/disciplines/pm1/' },
-        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm1/mdk11/page' },
+        { text: 'Урок 0. История развития т/к сетей', link: '/docs/disciplines/pm1/mdk11/history' },
       ]
     },
   ],
 
   '/docs/disciplines/pm1/mdk12/': [
     {
-      text: 'МДК 01.01 Компьютерные сети',
+      text: 'МДК 01.02 Организация, принципы построения и функционирования компьютерных сетей',
       items: [
         { text: 'Назад к модулю', link: '/docs/disciplines/pm1/' },
         { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm1/mdk11/page' },
