@@ -174,13 +174,13 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     {
       text: 'Общепрофессиональные дисциплины',
       items: [
-        { text: 'Технологии физического уровня передачи данных', link: '/docs/disciplines/tfupd/' },
-        { text: 'Операционные системы и среды', link: '/docs/disciplines/osis/' },
-        { text: 'Стандартизация, сертификация и техническое документоведение', link: '/docs/disciplines/ssitd/' },
-        { text: 'Основы алгоритмизации и программирования', link: '/docs/disciplines/oaip/' },
         { text: 'Архитектура аппаратных средств', link: '/docs/disciplines/aas/' },
+        { text: 'Операционные системы и среды', link: '/docs/disciplines/osis/' },
+        { text: 'Основы алгоритмизации и программирования', link: '/docs/disciplines/oaip/' },
+        { text: 'Основы теории информации', link: '/docs/disciplines/oti/' },
         { text: 'Основы проектирования баз данных', link: '/docs/disciplines/opbd/' },
-        { text: 'Под вопросом: Основы теории информации', link: '/docs/disciplines/oti/' },
+        { text: 'Стандартизация, сертификация и техническое документоведение', link: '/docs/disciplines/ssitd/' },
+        { text: 'Технологии физического уровня передачи данных', link: '/docs/disciplines/tfupd/' },      
       ],
     },
 
