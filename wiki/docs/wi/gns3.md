@@ -16,5 +16,7 @@ apt-get install gns3
 
 Чтобы подключить GNS3 VM Должен быть включен локальный или удалённый сервер на вкладке Server
 
+Ссылка на [GNS3 VM](https://github.com/GNS3/gns3-vm/tree/v0.15.0)
+
 
 У меня есть Template с Альт Линуксом для GNS3 https://github.com/bysnik/community-alt-gns3

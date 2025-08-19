@@ -218,5 +218,124 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         }
       ]
     }
-  ]
+  ],
+
+  '/docs/disciplines/pm1/': [
+    {
+      text: 'ПМ.02: Организация сетевого администрирования операционных систем',
+      items: [
+        { text: 'Все дисциплины', link: '/docs/disciplines/' },
+        { text: 'Описание модуля', link: '/docs/disciplines/pm1/' },
+        { text: 'МДК 01.01 Компьютерные сети', link: '/docs/disciplines/pm1/mdk11/' },
+        { text: 'МДК 01.02 Организация, принципы построения и функционирования компьютерных сетей', link: '/docs/disciplines/pm1/mdk12/' },
+        { text: 'МДК 01.03 Безопасность компьютерных сетей', link: '/docs/disciplines/pm1/mdk13/' },
+      ],
+    },
+  ],
+
+  '/docs/disciplines/pm2/': [
+    {
+      text: 'ПМ.02: Организация сетевого администрирования операционных систем',
+      items: [
+        { text: 'Все дисциплины', link: '/docs/disciplines/' },
+        { text: 'Описание модуля', link: '/docs/disciplines/pm2/' },
+        { text: 'МДК 02.01 Администрирование сетевых операционных сетей', link: '/docs/disciplines/pm2/mdk21/' },
+        { text: 'МДК 02.02 Программное обеспечение компьютерных сетей', link: '/docs/disciplines/pm2/mdk22/' },
+        { text: 'МДК 02.03 Организация администрирования компьютерных систем', link: '/docs/disciplines/pm2/mdk23/' },
+      ],
+    },
+  ],
+
+  '/docs/disciplines/pm3/': [
+    {
+      text: 'ПМ.03: Эксплуатация объектов сетевой инфраструктуры',
+      items: [
+        { text: 'Все дисциплины', link: '/docs/disciplines/' },
+        { text: 'Описание модуля', link: '/docs/disciplines/pm3/' },
+        { text: 'МДК 03.01 Эксплуатация объектов сетевой инфраструктуры', link: '/docs/disciplines/pm3/mdk31/' },
+        { text: 'МДК 03.02 Ремонт и восстановление работоспособности компьютерных сетей', link: '/docs/disciplines/pm3/mdk32/' },
+      ]
+    },
+  ],
+
+  '/docs/disciplines/pm1/mdk11/': [
+    {
+      text: 'МДК 01.02 Организация, принципы построения и функционирования компьютерных сетей',
+      items: [
+        { text: 'Назад к модулю', link: '/docs/disciplines/pm1/' },
+        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm1/mdk11/page' },
+      ]
+    },
+  ],
+
+  '/docs/disciplines/pm1/mdk12/': [
+    {
+      text: 'МДК 01.01 Компьютерные сети',
+      items: [
+        { text: 'Назад к модулю', link: '/docs/disciplines/pm1/' },
+        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm1/mdk11/page' },
+      ]
+    },
+  ],
+
+  '/docs/disciplines/pm1/mdk13/': [
+    {
+      text: 'МДК 01.03 Безопасность компьютерных сетей',
+      items: [
+        { text: 'Назад к модулю', link: '/docs/disciplines/pm1/' },
+        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm1/mdk12/page' },
+      ]
+    },
+  ],
+
+  '/docs/disciplines/pm2/mdk21/': [
+    {
+      text: 'МДК 02.01 Администрирование сетевых операционных сетей',
+      items: [
+        { text: 'Назад к модулю', link: '/docs/disciplines/pm2/' },
+        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm2/mdk21/page' },
+      ]
+    },
+  ],
+
+  '/docs/disciplines/pm2/mdk22/': [
+    {
+      text: 'МДК 02.02 Программное обеспечение компьютерных сетей',
+      items: [
+        { text: 'Назад к модулю', link: '/docs/disciplines/pm2/' },
+        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm2/mdk22/page' },
+      ]
+    },
+  ],
+
+  '/docs/disciplines/pm2/mdk23/': [
+    {
+      text: 'МДК 02.03 Организация администрирования компьютерных систем',
+      items: [
+        { text: 'Назад к модулю', link: '/docs/disciplines/pm2/' },
+        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm2/mdk23/page' },
+      ]
+    },
+  ],
+
+  '/docs/disciplines/pm3/mdk31/': [
+    {
+      text: 'МДК 03.01 Эксплуатация объектов сетевой инфраструктуры',
+      items: [
+        { text: 'Назад к модулю', link: '/docs/disciplines/pm3/' },
+        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm3/mdk31/page' },
+      ]
+    },
+  ],
+
+  '/docs/disciplines/pm3/mdk32/': [
+    {
+      text: 'МДК 03.02 Ремонт и восстановление работоспособности компьютерных сетей',
+      items: [
+        { text: 'Назад к модулю', link: '/docs/disciplines/pm3/' },
+        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm3/mdk32/page' },
+      ]
+    },
+  ],
+
 }
