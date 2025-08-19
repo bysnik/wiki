@@ -181,7 +181,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Основы проектирования баз данных', link: '/docs/disciplines/opbd/' },
         { text: 'Стандартизация, сертификация и техническое документоведение', link: '/docs/disciplines/ssitd/' },
         { text: 'Технологии физического уровня передачи данных', link: '/docs/disciplines/tfupd/' },      
-      ],
+      ]
     },
 
     {
@@ -195,7 +195,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
             { text: 'МДК 01.01 Компьютерные сети', link: '/docs/disciplines/pm1/mdk11/' },
             { text: 'МДК 01.02 Организация, принципы построения и функционирования компьютерных сетей', link: '/docs/disciplines/pm1/mdk12/' },
             { text: 'МДК 01.03 Безопасность компьютерных сетей', link: '/docs/disciplines/pm1/mdk13/' },
-          ],
+          ]
         },
         {
           text: 'ПМ.02: Организация сетевого администрирования операционных систем',
@@ -205,7 +205,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
             { text: 'МДК 02.01 Администрирование сетевых операционных сетей', link: '/docs/disciplines/pm2/mdk21/' },
             { text: 'МДК 02.02 Программное обеспечение компьютерных сетей', link: '/docs/disciplines/pm2/mdk22/' },
             { text: 'МДК 02.03 Организация администрирования компьютерных систем', link: '/docs/disciplines/pm2/mdk23/' },
-          ],
+          ]
         },
         {
           text: 'ПМ.03: Эксплуатация объектов сетевой инфраструктуры',
