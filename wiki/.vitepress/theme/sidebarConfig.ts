@@ -323,7 +323,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'МДК 03.01 Эксплуатация объектов сетевой инфраструктуры',
       items: [
         { text: 'Назад к модулю', link: '/docs/disciplines/pm3/' },
-        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm3/mdk31/page' },
+        { text: 'Урок ?. LXC и LXD', link: '/docs/disciplines/pm3/mdk31/lxclxd' },
+        { text: 'Урок ?. Контейнеризация', link: '/docs/disciplines/pm3/mdk31/containers' },
       ]
     },
   ],

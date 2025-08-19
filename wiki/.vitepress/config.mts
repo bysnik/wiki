@@ -1,12 +1,13 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from "vitepress-plugin-mermaid";
 import { themeConfig } from './theme/themeConfig.ts'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: "СиСА Вики",
   description: "Сборник различной документации по Сетевому и Системному администрированию",
   lang: 'ru',
-	base: '/wiki/',
+  base: '/wiki/',
   themeConfig: themeConfig,
   head: [
     [
@@ -34,5 +35,20 @@ export default defineConfig({
     //   }
     // ]
   ],
-
-})
+  
+  // Mermaid configuration
+  mermaid: {
+    theme: 'default',  // или 'dark', 'forest', etc.
+    startOnLoad: true,
+    securityLevel: 'loose',  // если нужны интерактивные элементы
+    // refer https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults for options
+    pie: {
+    useWidth: 900, // Фикс для обрезания текста
+  }
+  },
+  
+  // Mermaid plugin configuration
+  mermaidPlugin: {
+    class: "mermaid my-class", // set additional css classes for parent container 
+  },
+}))
