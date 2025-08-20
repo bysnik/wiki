@@ -77,8 +77,9 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Smath Studio', link: '/docs/wi/smath-studio' },
         { text: 'Sphinx', link: '/docs/wi/sphinx' },
         { text: 'Taskcafe', link: '/docs/wi/taskcafe' },
+        { text: 'Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
+        { text: 'Veyon', link: '/docs/wi/veyon' },
         { text: 'Weblate', link: '/docs/wi/weblate' },
-        { text: 'Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' }
       ]
     },
     {
