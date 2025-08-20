@@ -266,6 +266,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: 'Назад к модулю', link: '/docs/disciplines/pm1/' },
         { text: 'Урок 0. История развития т/к сетей', link: '/docs/disciplines/pm1/mdk11/history' },
+        { text: 'Урок 0. Утилита TCPDump', link: '/docs/disciplines/pm1/mdk11/tcpdump' },
       ]
     },
   ],
@@ -342,4 +343,62 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
   ],
 
+  '/docs/disciplines/osis/': [
+    {
+      text: 'Операционные системы и среды',
+      items: [
+        { text: 'Назад к дисциплинам', link: '/docs/disciplines/' },
+        { "text": "УМК и прочее", "link": "/docs/disciplines/osis/"},
+      ]
+    },
+
+    {
+      text: 'Лекции',
+      collapsed: true,
+      items: [
+        { text: "Лекция 1", "link": "/docs/disciplines/osis/l1" },
+        { text: "Лекция 2", "link": "/docs/disciplines/osis/l2" },
+        { text: "Лекция 3", "link": "/docs/disciplines/osis/l3" },
+        { text: "Лекция 4", "link": "/docs/disciplines/osis/l4" },
+        { text: "Лекция 5", "link": "/docs/disciplines/osis/l5" },
+        { text: "Лекция 6", "link": "/docs/disciplines/osis/l6" },
+        { text: "Лекция 7", "link": "/docs/disciplines/osis/l7" },
+        { text: "Лекция 8", "link": "/docs/disciplines/osis/l8" },
+        { text: "Лекция 9", "link": "/docs/disciplines/osis/l9" },
+        { text: "Лекция 10", "link": "/docs/disciplines/osis/l10" },
+        { text: "Лекция 11", "link": "/docs/disciplines/osis/l11" },
+      ]
+    },
+
+    {
+      text: 'Практические работы',
+      collapsed: true,
+      items: [
+        { text: "Практическая работа 1", "link": "/docs/disciplines/osis/p1" },
+        { text: "Практическая работа 2", "link": "/docs/disciplines/osis/p2" },
+        { text: "Практическая работа 3", "link": "/docs/disciplines/osis/p3" },
+        { text: "Практическая работа 4", "link": "/docs/disciplines/osis/p4" },
+        { text: "Практическая работа 5", "link": "/docs/disciplines/osis/p5" },
+        { text: "Практическая работа 6", "link": "/docs/disciplines/osis/p6" },
+        { text: "Практическая работа 7", "link": "/docs/disciplines/osis/p7" },
+        { text: "Практическая работа 8", "link": "/docs/disciplines/osis/p8" },
+      ]
+    },
+
+    {
+      text: 'Самостоятельные работы',
+      collapsed: true,
+      items: [
+        { text: "Самостоятельная работа 1", "link": "/docs/disciplines/osis/s1" },
+        { text: "Самостоятельная работа 2", "link": "/docs/disciplines/osis/s2" },
+        { text: "Самостоятельная работа 3", "link": "/docs/disciplines/osis/s3" },
+        { text: "Самостоятельная работа 4", "link": "/docs/disciplines/osis/s4" },
+        { text: "Самостоятельная работа 5", "link": "/docs/disciplines/osis/s5" },
+        { text: "Самостоятельная работа 6", "link": "/docs/disciplines/osis/s6" },
+        { text: "Самостоятельная работа 7", "link": "/docs/disciplines/osis/s7" },
+        { text: "Самостоятельная работа 8", "link": "/docs/disciplines/osis/s8" },
+      ]
+    }
+  ],
+  
 }
