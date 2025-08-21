@@ -351,7 +351,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       ]
     }
   ],
-
+// Операционные системы и среды
   '/docs/disciplines/osis/': [
     {
       text: 'Операционные системы и среды',
@@ -406,6 +406,380 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: "Самостоятельная работа 6", "link": "/docs/disciplines/osis/s6" },
         { text: "Самостоятельная работа 7", "link": "/docs/disciplines/osis/s7" },
         { text: "Самостоятельная работа 8", "link": "/docs/disciplines/osis/s8" },
+      ]
+    }
+  ],
+// Архитектура аппаратных средств
+  '/docs/disciplines/aas/': [
+    {
+      text: 'Архитектура аппаратных средств',
+      items: [
+        { text: 'Назад к дисциплинам', link: '/docs/disciplines/' },
+        { "text": "УМК и прочее", "link": "/docs/disciplines/ass/"},
+      ]
+    },
+
+    {
+      text: 'Лекции',
+      collapsed: true,
+      items: [
+        { text: "Лекция 1", "link": "/docs/disciplines/ass/l1" },
+        { text: "Лекция 2", "link": "/docs/disciplines/ass/l2" },
+        { text: "Лекция 3", "link": "/docs/disciplines/ass/l3" },
+        { text: "Лекция 4", "link": "/docs/disciplines/ass/l4" },
+        { text: "Лекция 5", "link": "/docs/disciplines/ass/l5" },
+        { text: "Лекция 6", "link": "/docs/disciplines/ass/l6" },
+        { text: "Лекция 7", "link": "/docs/disciplines/ass/l7" },
+        { text: "Лекция 8", "link": "/docs/disciplines/ass/l8" },
+        { text: "Лекция 9", "link": "/docs/disciplines/ass/l9" },
+        { text: "Лекция 10", "link": "/docs/disciplines/ass/l10" },
+        { text: "Лекция 11", "link": "/docs/disciplines/ass/l11" },
+        { text: "Лекция 12", "link": "/docs/disciplines/ass/l12" },
+        { text: "Лекция 13", "link": "/docs/disciplines/ass/l13" },
+        { text: "Лекция 14", "link": "/docs/disciplines/ass/l14" },
+        { text: "Лекция 15", "link": "/docs/disciplines/ass/l15" },
+        { text: "Лекция 16", "link": "/docs/disciplines/ass/l16" },
+        { text: "Лекция 17", "link": "/docs/disciplines/ass/l17" },
+      ]
+    },
+
+    {
+      text: 'Практические работы',
+      collapsed: true,
+      items: [
+        { text: "Практическая работа 1", "link": "/docs/disciplines/ass/p1" },
+        { text: "Практическая работа 2", "link": "/docs/disciplines/ass/p2" },
+        { text: "Практическая работа 3", "link": "/docs/disciplines/ass/p3" },
+        { text: "Практическая работа 4", "link": "/docs/disciplines/ass/p4" },
+        { text: "Практическая работа 5", "link": "/docs/disciplines/ass/p5" },
+        { text: "Практическая работа 6", "link": "/docs/disciplines/ass/p6" },
+        { text: "Практическая работа 7", "link": "/docs/disciplines/ass/p7" },
+        { text: "Практическая работа 8", "link": "/docs/disciplines/ass/p8" },
+      ]
+    },
+
+    {
+      text: 'Самостоятельные работы',
+      collapsed: true,
+      items: [
+        { text: "Самостоятельная работа 1", "link": "/docs/disciplines/ass/s1" },
+        { text: "Самостоятельная работа 2", "link": "/docs/disciplines/ass/s2" },
+        { text: "Самостоятельная работа 3", "link": "/docs/disciplines/ass/s3" },
+        { text: "Самостоятельная работа 4", "link": "/docs/disciplines/ass/s4" },
+        { text: "Самостоятельная работа 5", "link": "/docs/disciplines/ass/s5" },
+        { text: "Самостоятельная работа 6", "link": "/docs/disciplines/ass/s6" },
+        { text: "Самостоятельная работа 7", "link": "/docs/disciplines/ass/s7" },
+        { text: "Самостоятельная работа 8", "link": "/docs/disciplines/ass/s8" },
+      ]
+    }
+  ],
+// Основы алгоритмизации и программирования
+  '/docs/disciplines/oaip/': [
+    {
+      text: 'Основы алгоритмизации и программирования',
+      items: [
+        { text: 'Назад к дисциплинам', link: '/docs/disciplines/' },
+        { "text": "УМК и прочее", "link": "/docs/disciplines/oaip/"},
+      ]
+    },
+
+    {
+      text: 'Лекции',
+      collapsed: true,
+      items: [
+        { text: "Лекция 1", "link": "/docs/disciplines/oaip/l1" },
+        { text: "Лекция 2", "link": "/docs/disciplines/oaip/l2" },
+        { text: "Лекция 3", "link": "/docs/disciplines/oaip/l3" },
+        { text: "Лекция 4", "link": "/docs/disciplines/oaip/l4" },
+        { text: "Лекция 5", "link": "/docs/disciplines/oaip/l5" },
+        { text: "Лекция 6", "link": "/docs/disciplines/oaip/l6" },
+        { text: "Лекция 7", "link": "/docs/disciplines/oaip/l7" },
+        { text: "Лекция 8", "link": "/docs/disciplines/oaip/l8" },
+        { text: "Лекция 9", "link": "/docs/disciplines/oaip/l9" },
+        { text: "Лекция 10", "link": "/docs/disciplines/oaip/l10" },
+        { text: "Лекция 11", "link": "/docs/disciplines/oaip/l11" },
+      ]
+    },
+
+    {
+      text: 'Практические работы',
+      collapsed: true,
+      items: [
+        { text: "Практическая работа 1", "link": "/docs/disciplines/oaip/p1" },
+        { text: "Практическая работа 2", "link": "/docs/disciplines/oaip/p2" },
+        { text: "Практическая работа 3", "link": "/docs/disciplines/oaip/p3" },
+        { text: "Практическая работа 4", "link": "/docs/disciplines/oaip/p4" },
+        { text: "Практическая работа 5", "link": "/docs/disciplines/oaip/p5" },
+        { text: "Практическая работа 6", "link": "/docs/disciplines/oaip/p6" },
+        { text: "Практическая работа 7", "link": "/docs/disciplines/oaip/p7" },
+        { text: "Практическая работа 8", "link": "/docs/disciplines/oaip/p8" },
+        { text: "Практическая работа 9", "link": "/docs/disciplines/oaip/p9" },
+        { text: "Практическая работа 10", "link": "/docs/disciplines/oaip/p10" },
+        { text: "Практическая работа 11", "link": "/docs/disciplines/oaip/p11" },
+        { text: "Практическая работа 12", "link": "/docs/disciplines/oaip/p12" },
+        { text: "Практическая работа 13", "link": "/docs/disciplines/oaip/p13" },
+        { text: "Практическая работа 14", "link": "/docs/disciplines/oaip/p14" },
+        { text: "Практическая работа 15", "link": "/docs/disciplines/oaip/p15" },
+        { text: "Практическая работа 16", "link": "/docs/disciplines/oaip/p16" },
+        { text: "Практическая работа 17", "link": "/docs/disciplines/oaip/p17" },
+        { text: "Практическая работа 18", "link": "/docs/disciplines/oaip/p18" },
+        { text: "Практическая работа 19", "link": "/docs/disciplines/oaip/p19" },
+        { text: "Практическая работа 20", "link": "/docs/disciplines/oaip/p20" },
+        { text: "Практическая работа 21", "link": "/docs/disciplines/oaip/p21" },
+        { text: "Практическая работа 22", "link": "/docs/disciplines/oaip/p22" },
+      ]
+    },
+
+    {
+      text: 'Самостоятельные работы',
+      collapsed: true,
+      items: [
+        { text: "Самостоятельная работа 1", "link": "/docs/disciplines/oaip/s1" },
+        { text: "Самостоятельная работа 2", "link": "/docs/disciplines/oaip/s2" },
+        { text: "Самостоятельная работа 3", "link": "/docs/disciplines/oaip/s3" },
+        { text: "Самостоятельная работа 4", "link": "/docs/disciplines/oaip/s4" },
+        { text: "Самостоятельная работа 5", "link": "/docs/disciplines/oaip/s5" },
+        { text: "Самостоятельная работа 6", "link": "/docs/disciplines/oaip/s6" },
+        { text: "Самостоятельная работа 7", "link": "/docs/disciplines/oaip/s7" },
+        { text: "Самостоятельная работа 8", "link": "/docs/disciplines/oaip/s8" },
+      ]
+    }
+  ],
+// Основы проектирования баз данных
+  '/docs/disciplines/opbd/': [
+    {
+      text: 'Основы проектирования баз данных',
+      items: [
+        { text: 'Назад к дисциплинам', link: '/docs/disciplines/' },
+        { "text": "УМК и прочее", "link": "/docs/disciplines/opbd/"},
+      ]
+    },
+
+    {
+      text: 'Лекции',
+      collapsed: true,
+      items: [
+        { text: "Лекция 1", "link": "/docs/disciplines/opbd/l1" },
+        { text: "Лекция 2", "link": "/docs/disciplines/opbd/l2" },
+        { text: "Лекция 3", "link": "/docs/disciplines/opbd/l3" },
+      ]
+    },
+
+    {
+      text: 'Практические работы',
+      collapsed: true,
+      items: [
+        { text: "Практическая работа 1", "link": "/docs/disciplines/opbd/p1" },
+        { text: "Практическая работа 2", "link": "/docs/disciplines/opbd/p2" },
+        { text: "Практическая работа 3", "link": "/docs/disciplines/opbd/p3" },
+        { text: "Практическая работа 4", "link": "/docs/disciplines/opbd/p4" },
+        { text: "Практическая работа 5", "link": "/docs/disciplines/opbd/p5" },
+        { text: "Практическая работа 6", "link": "/docs/disciplines/opbd/p6" },
+        { text: "Практическая работа 7", "link": "/docs/disciplines/opbd/p7" },
+        { text: "Практическая работа 8", "link": "/docs/disciplines/opbd/p8" },
+        { text: "Практическая работа 9", "link": "/docs/disciplines/opbd/p9" },
+        { text: "Практическая работа 10", "link": "/docs/disciplines/opbd/p10" },
+        { text: "Практическая работа 11", "link": "/docs/disciplines/opbd/p11" },
+        { text: "Практическая работа 12", "link": "/docs/disciplines/opbd/p12" },
+        { text: "Практическая работа 13", "link": "/docs/disciplines/opbd/p13" },
+        { text: "Практическая работа 14", "link": "/docs/disciplines/opbd/p14" },
+        { text: "Практическая работа 15", "link": "/docs/disciplines/opbd/p15" },
+        { text: "Практическая работа 16", "link": "/docs/disciplines/opbd/p16" },
+        { text: "Практическая работа 17", "link": "/docs/disciplines/opbd/p17" },
+      ]
+    },
+
+    {
+      text: 'Самостоятельные работы',
+      collapsed: true,
+      items: [
+        { text: "Самостоятельная работа 1", "link": "/docs/disciplines/opbd/s1" },
+        { text: "Самостоятельная работа 2", "link": "/docs/disciplines/opbd/s2" },
+        { text: "Самостоятельная работа 3", "link": "/docs/disciplines/opbd/s3" },
+        { text: "Самостоятельная работа 4", "link": "/docs/disciplines/opbd/s4" },
+        { text: "Самостоятельная работа 5", "link": "/docs/disciplines/opbd/s5" },
+        { text: "Самостоятельная работа 6", "link": "/docs/disciplines/opbd/s6" },
+        { text: "Самостоятельная работа 7", "link": "/docs/disciplines/opbd/s7" },
+      ]
+    }
+  ],
+// Основы теории информации
+  '/docs/disciplines/oti/': [
+    {
+      text: 'Основы теории информации',
+      items: [
+        { text: 'Назад к дисциплинам', link: '/docs/disciplines/' },
+        { "text": "УМК и прочее", "link": "/docs/disciplines/oti/"},
+      ]
+    },
+
+    {
+      text: 'Лекции',
+      collapsed: true,
+      items: [
+        { text: "Лекция 1", "link": "/docs/disciplines/oti/l1" },
+        { text: "Лекция 2", "link": "/docs/disciplines/oti/l2" },
+        { text: "Лекция 3", "link": "/docs/disciplines/oti/l3" },
+        { text: "Лекция 4", "link": "/docs/disciplines/oti/l4" },
+        { text: "Лекция 5", "link": "/docs/disciplines/oti/l5" },
+        { text: "Лекция 6", "link": "/docs/disciplines/oti/l6" },
+        { text: "Лекция 7", "link": "/docs/disciplines/oti/l7" },
+        { text: "Лекция 8", "link": "/docs/disciplines/oti/l8" },
+        { text: "Лекция 9", "link": "/docs/disciplines/oti/l9" },
+        { text: "Лекция 10", "link": "/docs/disciplines/oti/l10" },
+        { text: "Лекция 11", "link": "/docs/disciplines/oti/l11" },
+        { text: "Лекция 12", "link": "/docs/disciplines/oti/l12" },
+        { text: "Лекция 13", "link": "/docs/disciplines/oti/l13" },
+      ]
+    },
+
+    {
+      text: 'Практические работы',
+      collapsed: true,
+      items: [
+        { text: "Практическая работа 1", "link": "/docs/disciplines/oti/p1" },
+        { text: "Практическая работа 2", "link": "/docs/disciplines/oti/p2" },
+        { text: "Практическая работа 3", "link": "/docs/disciplines/oti/p3" },
+        { text: "Практическая работа 4", "link": "/docs/disciplines/oti/p4" },
+        { text: "Практическая работа 5", "link": "/docs/disciplines/oti/p5" },
+        { text: "Практическая работа 6", "link": "/docs/disciplines/oti/p6" },
+        { text: "Практическая работа 7", "link": "/docs/disciplines/oti/p7" },
+        { text: "Практическая работа 8", "link": "/docs/disciplines/oti/p8" },
+        { text: "Практическая работа 9", "link": "/docs/disciplines/oti/p9" },
+      ]
+    },
+
+    {
+      text: 'Самостоятельные работы',
+      collapsed: true,
+      items: [
+        { text: "Самостоятельная работа 1", "link": "/docs/disciplines/oti/s1" },
+        { text: "Самостоятельная работа 2", "link": "/docs/disciplines/oti/s2" },
+        { text: "Самостоятельная работа 3", "link": "/docs/disciplines/oti/s3" },
+        { text: "Самостоятельная работа 4", "link": "/docs/disciplines/oti/s4" },
+        { text: "Самостоятельная работа 5", "link": "/docs/disciplines/oti/s5" },
+        { text: "Самостоятельная работа 6", "link": "/docs/disciplines/oti/s6" },
+        { text: "Самостоятельная работа 7", "link": "/docs/disciplines/oti/s7" },
+        { text: "Самостоятельная работа 8", "link": "/docs/disciplines/oti/s8" },
+        { text: "Самостоятельная работа 9", "link": "/docs/disciplines/oti/s9" },
+      ]
+    }
+  ],
+// Стандартизация, сертификация и техническое документоведение
+  '/docs/disciplines/ssitd/': [
+    {
+      text: 'Стандартизация, сертификация и техническое документоведение',
+      items: [
+        { text: 'Назад к дисциплинам', link: '/docs/disciplines/' },
+        { "text": "УМК и прочее", "link": "/docs/disciplines/ssitd/"},
+      ]
+    },
+
+    {
+      text: 'Лекции',
+      collapsed: true,
+      items: [
+        { text: "Лекция 1", "link": "/docs/disciplines/ssitd/l1" },
+        { text: "Лекция 2", "link": "/docs/disciplines/ssitd/l2" },
+        { text: "Лекция 3", "link": "/docs/disciplines/ssitd/l3" },
+        { text: "Лекция 4", "link": "/docs/disciplines/ssitd/l4" },
+        { text: "Лекция 5", "link": "/docs/disciplines/ssitd/l5" },
+        { text: "Лекция 6", "link": "/docs/disciplines/ssitd/l6" },
+        { text: "Лекция 7", "link": "/docs/disciplines/ssitd/l7" },
+        { text: "Лекция 8", "link": "/docs/disciplines/ssitd/l8" },
+        { text: "Лекция 9", "link": "/docs/disciplines/ssitd/l9" },
+        { text: "Лекция 10", "link": "/docs/disciplines/ssitd/l10" },
+        { text: "Лекция 11", "link": "/docs/disciplines/ssitd/l11" },
+        { text: "Лекция 12", "link": "/docs/disciplines/ssitd/l12" },
+        { text: "Лекция 13", "link": "/docs/disciplines/ssitd/l13" },
+        { text: "Лекция 14", "link": "/docs/disciplines/ssitd/l14" },
+        { text: "Лекция 15", "link": "/docs/disciplines/ssitd/l15" },
+        { text: "Лекция 16", "link": "/docs/disciplines/ssitd/l16" },
+        { text: "Лекция 17", "link": "/docs/disciplines/ssitd/l17" },
+        { text: "Лекция 18", "link": "/docs/disciplines/ssitd/l18" },
+        { text: "Лекция 19", "link": "/docs/disciplines/ssitd/l19" },
+        { text: "Лекция 20", "link": "/docs/disciplines/ssitd/l20" },
+        { text: "Лекция 21", "link": "/docs/disciplines/ssitd/l21" },
+        { text: "Лекция 22", "link": "/docs/disciplines/ssitd/l22" },
+        { text: "Лекция 23", "link": "/docs/disciplines/ssitd/l23" },
+        { text: "Лекция 24", "link": "/docs/disciplines/ssitd/l24" },
+      ]
+    },
+
+    {
+      text: 'Практические работы',
+      collapsed: true,
+      items: [
+        { text: "Практическая работа 1", "link": "/docs/disciplines/ssitd/p1" },
+        { text: "Практическая работа 2", "link": "/docs/disciplines/ssitd/p2" },
+        { text: "Практическая работа 3", "link": "/docs/disciplines/ssitd/p3" },
+        { text: "Практическая работа 4", "link": "/docs/disciplines/ssitd/p4" },
+      ]
+    },
+
+    {
+      text: 'Самостоятельные работы',
+      collapsed: true,
+      items: [
+        { text: "Самостоятельная работа 1", "link": "/docs/disciplines/ssitd/s1" },
+        { text: "Самостоятельная работа 2", "link": "/docs/disciplines/ssitd/s2" },
+        { text: "Самостоятельная работа 3", "link": "/docs/disciplines/ssitd/s3" },
+        { text: "Самостоятельная работа 4", "link": "/docs/disciplines/ssitd/s4" },
+      ]
+    }
+  ],
+// Технологии физического уровня передачи данных
+  '/docs/disciplines/tfupd/': [
+    {
+      text: 'Технологии физического уровня передачи данных',
+      items: [
+        { text: 'Назад к дисциплинам', link: '/docs/disciplines/' },
+        { "text": "УМК и прочее", "link": "/docs/disciplines/tfupd/"},
+      ]
+    },
+
+    {
+      text: 'Лекции',
+      collapsed: true,
+      items: [
+        { text: "Лекция 1", "link": "/docs/disciplines/tfupd/l1" },
+        { text: "Лекция 2", "link": "/docs/disciplines/tfupd/l2" },
+        { text: "Лекция 3", "link": "/docs/disciplines/tfupd/l3" },
+        { text: "Лекция 4", "link": "/docs/disciplines/tfupd/l4" },
+      ]
+    },
+
+    {
+      text: 'Практические работы',
+      collapsed: true,
+      items: [
+        { text: "Практическая работа 1", "link": "/docs/disciplines/tfupd/p1" },
+        { text: "Практическая работа 2", "link": "/docs/disciplines/tfupd/p2" },
+        { text: "Практическая работа 3", "link": "/docs/disciplines/tfupd/p3" },
+        { text: "Практическая работа 4", "link": "/docs/disciplines/tfupd/p4" },
+        { text: "Практическая работа 5", "link": "/docs/disciplines/tfupd/p5" },
+        { text: "Практическая работа 6", "link": "/docs/disciplines/tfupd/p6" },
+        { text: "Практическая работа 7", "link": "/docs/disciplines/tfupd/p7" },
+        { text: "Практическая работа 8", "link": "/docs/disciplines/tfupd/p8" },
+        { text: "Практическая работа 9", "link": "/docs/disciplines/tfupd/p9" },
+        { text: "Практическая работа 10", "link": "/docs/disciplines/tfupd/p10" },
+        { text: "Практическая работа 11", "link": "/docs/disciplines/tfupd/p11" },
+        { text: "Практическая работа 12", "link": "/docs/disciplines/tfupd/p12" },
+        { text: "Практическая работа 13", "link": "/docs/disciplines/tfupd/p13" },
+        { text: "Практическая работа 14", "link": "/docs/disciplines/tfupd/p14" },
+        { text: "Практическая работа 15", "link": "/docs/disciplines/tfupd/p15" },
+        { text: "Практическая работа 16", "link": "/docs/disciplines/tfupd/p16" },
+      ]
+    },
+
+    {
+      text: 'Самостоятельные работы',
+      collapsed: true,
+      items: [
+        { text: "Самостоятельная работа 1", "link": "/docs/disciplines/tfupd/s1" },
+        { text: "Самостоятельная работа 2", "link": "/docs/disciplines/tfupd/s2" },
+        { text: "Самостоятельная работа 3", "link": "/docs/disciplines/tfupd/s3" },
+        { text: "Самостоятельная работа 4", "link": "/docs/disciplines/tfupd/s4" },
       ]
     }
   ],
