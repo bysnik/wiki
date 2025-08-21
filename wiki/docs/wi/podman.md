@@ -144,6 +144,13 @@ flatpak install --user flathub io.podman_desktop.PodmanDesktop
 podman machine init
 ```
 
+Пока что есть следующая проблема:
+```
+podman machine start
+Starting machine "podman-machine-default"
+Error: could not find "gvproxy" in one of [/usr/local/libexec/podman /usr/local/lib/podman /usr/libexec/podman /usr/lib/podman].  To resolve this error, set the helper_binaries_dir key in the `[engine]` section of containers.conf to the directory containing your helper binaries.
+```
+
 ### Шаг 4. Запуск
 
 Либо через терминал:
