@@ -11,7 +11,7 @@ export default defineConfig({
   head: [
     [
       'link',
-      { rel: 'icon', type: 'image/png', href: '/wiki/tcpip_mini.png' }
+      { rel: 'icon', type: 'image/png', href: '/wiki/tcpip.png' }
     ],
     // ['meta', { name: 'theme-color', content: '#5f67ee' }],
     // ['meta', { property: 'og:type', content: 'website' }],
