@@ -28,7 +28,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Модуль 3', link: '/docs/de/09.02.06.3.2025/m3/' }, 
         { text: 'Вариативная часть', link: '/docs/de/09.02.06.3.2025/v/' },        
       ]
-    },
+    }
   ],
 
   '/docs/wi/': [
@@ -240,8 +240,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'МДК 01.01 Компьютерные сети', link: '/docs/disciplines/pm1/mdk11/' },
         { text: 'МДК 01.02 Организация, принципы построения и функционирования компьютерных сетей', link: '/docs/disciplines/pm1/mdk12/' },
         { text: 'МДК 01.03 Безопасность компьютерных сетей', link: '/docs/disciplines/pm1/mdk13/' },
-      ],
-    },
+      ]
+    }
   ],
 
   '/docs/disciplines/pm2/': [
@@ -253,8 +253,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'МДК 02.01 Администрирование сетевых операционных сетей', link: '/docs/disciplines/pm2/mdk21/' },
         { text: 'МДК 02.02 Программное обеспечение компьютерных сетей', link: '/docs/disciplines/pm2/mdk22/' },
         { text: 'МДК 02.03 Организация администрирования компьютерных систем', link: '/docs/disciplines/pm2/mdk23/' },
-      ],
-    },
+      ]
+    }
   ],
 
   '/docs/disciplines/pm3/': [
@@ -266,7 +266,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'МДК 03.01 Эксплуатация объектов сетевой инфраструктуры', link: '/docs/disciplines/pm3/mdk31/' },
         { text: 'МДК 03.02 Ремонт и восстановление работоспособности компьютерных сетей', link: '/docs/disciplines/pm3/mdk32/' },
       ]
-    },
+    }
   ],
 
   '/docs/disciplines/pm1/mdk11/': [
@@ -277,7 +277,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Урок 0. История развития т/к сетей', link: '/docs/disciplines/pm1/mdk11/history' },
         { text: 'Урок 0. Утилита TCPDump', link: '/docs/disciplines/pm1/mdk11/tcpdump' },
       ]
-    },
+    }
   ],
 
   '/docs/disciplines/pm1/mdk12/': [
@@ -287,7 +287,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Назад к модулю', link: '/docs/disciplines/pm1/' },
         { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm1/mdk11/page' },
       ]
-    },
+    }
   ],
 
   '/docs/disciplines/pm1/mdk13/': [
@@ -297,7 +297,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Назад к модулю', link: '/docs/disciplines/pm1/' },
         { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm1/mdk12/page' },
       ]
-    },
+    }
   ],
 
   '/docs/disciplines/pm2/mdk21/': [
@@ -308,7 +308,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Урок 0. Основы контроля доступа', link: '/docs/disciplines/pm2/mdk21/basicaccesscontrol' },
         { text: 'Урок 0. NAT', link: '/docs/disciplines/pm2/mdk21/nat' },
       ]
-    },
+    }
   ],
 
   '/docs/disciplines/pm2/mdk22/': [
@@ -318,7 +318,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Назад к модулю', link: '/docs/disciplines/pm2/' },
         { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm2/mdk22/page' },
       ]
-    },
+    }
   ],
 
   '/docs/disciplines/pm2/mdk23/': [
@@ -328,7 +328,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Назад к модулю', link: '/docs/disciplines/pm2/' },
         { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm2/mdk23/page' },
       ]
-    },
+    }
   ],
 
   '/docs/disciplines/pm3/mdk31/': [
@@ -339,7 +339,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Урок ?. LXC и LXD', link: '/docs/disciplines/pm3/mdk31/lxclxd' },
         { text: 'Урок ?. Контейнеризация', link: '/docs/disciplines/pm3/mdk31/containers' },
       ]
-    },
+    }
   ],
 
   '/docs/disciplines/pm3/mdk32/': [
@@ -349,7 +349,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Назад к модулю', link: '/docs/disciplines/pm3/' },
         { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm3/mdk32/page' },
       ]
-    },
+    }
   ],
 
   '/docs/disciplines/osis/': [
