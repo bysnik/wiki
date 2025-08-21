@@ -14,7 +14,7 @@ https://github.com/louislam/uptime-kuma?tab=readme-ov-file
 docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1
 ```
 
-Uptime Kuma is now running on <http://0.0.0.0:3001>.
+Uptime Kuma is now running on `http://0.0.0.0:3001`.
 
 > [!WARNING]
 > File Systems like **NFS** (Network File System) are **NOT** supported. Please map to a local directory or volume.
@@ -51,7 +51,7 @@ npm install pm2 -g && pm2 install pm2-logrotate
 pm2 start server/server.js --name uptime-kuma
 ```
 
-Uptime Kuma is now running on http://localhost:3001
+Uptime Kuma is now running on `http://localhost:3001`
 
 More useful PM2 Commands
 
