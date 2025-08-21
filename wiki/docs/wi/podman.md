@@ -106,3 +106,51 @@ podman pull registry.altlinux.org/alt/alt
 ```bash
 podman run -it --name alt registry.altlinux.org/alt/alt
 ```
+
+## Podman Desktop
+
+![](https://podman-desktop.io/img/features/homepage.webp)
+
+Документация - https://podman-desktop.io/docs/intro
+
+### Шаг 1. Установка необходимых компонентов
+
+```bash
+apt-get install flatpak podman podman-compose
+```
+
+### Шаг 2. Установка Podman Desktop
+
+Скачайте последнюю версию [Podman Desktop](https://podman-desktop.io/downloads/linux)
+
+Далее нужно установить скаченный файл:
+```bash
+flatpak install --user $HOME/Downloads/podman-desktop-<version>.flatpak
+```
+::: tip Альтернативный вариант
+Добавляем новый репозиторий FlatHub:
+```bash
+flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+Устанавливаем через FlatHub:
+```bash
+flatpak install --user flathub io.podman_desktop.PodmanDesktop
+```
+:::
+
+### Шаг 3. Инициализация Podman machine
+
+```bash
+podman machine init
+```
+
+### Шаг 4. Запуск
+
+Либо через терминал:
+```bash
+flatpak run io.podman_desktop.PodmanDesktop
+```
+
+Либо в меню найти `Podman Desktop`
+
+Далее, необходимо просто следовать указаниям.
