@@ -154,3 +154,32 @@ flatpak run io.podman_desktop.PodmanDesktop
 Либо в меню найти `Podman Desktop`
 
 Далее, необходимо просто следовать указаниям.
+
+### Вкладка Kubernetes (Kind) - создание кластера
+
+Если у Вас при создании кластера появляется ошибка:
+```
+using podman due to KIND_EXPERIMENTAL_PROVIDER
+enabling experimental podman provider
+
+Creating cluster "kind-cluster" ...
+
+ • Ensuring node image (kindest/node:v1.33.1) 🖼  ...
+
+ ✓ Ensuring node image (kindest/node:v1.33.1) 🖼
+ • Preparing nodes 📦   ...
+
+ ✗ Preparing nodes 📦 
+
+Deleted nodes: ["kind-cluster-control-plane"]
+ERROR: failed to create cluster: command "podman run --name kind-cluster-control-plane --hostname kind-cluster-control-plane --label io.x-k8s.kind.role=control-plane --privileged --tmpfs /tmp --tmpfs /run --volume 159a433f83bcdfb6ee583e25aabfe42b633ae24e418a0cf5e05da0c372f3b603:/var:suid,exec,dev --volume /lib/modules:/lib/modules:ro -e KIND_EXPERIMENTAL_CONTAINERD_SNAPSHOTTER --detach --tty --net kind --label io.x-k8s.kind.cluster=kind-cluster -e container=podman --cgroupns=private --volume /dev/mapper:/dev/mapper --device /dev/fuse --publish=0.0.0.0:9090:80/tcp --publish=0.0.0.0:9443:443/tcp --publish=127.0.0.1:34193:6443/tcp -e KUBECONFIG=/etc/kubernetes/admin.conf docker.io/kindest/node@sha256:050072256b9a903bd914c0b2866828150cb229cea0efe5892e2b644d5dd3b34f" failed with error: exit status 126
+
+Command Output: Error: setting up Pasta: pasta failed with exit code 1:
+Failed to open() /dev/net/tun: Permission denied
+Failed to set up tap device in namespace
+```
+
+В качестве решения данной проблемы, измените права:
+```bash
+chmod 666 /dev/net/tun
+```
