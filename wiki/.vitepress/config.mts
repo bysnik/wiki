@@ -36,7 +36,7 @@ export default defineConfig({
   ],
 
   sitemap: {
-    hostname: 'https://bysnik.github.io'
+    hostname: 'https://bysnik.github.io/wiki/',
   }
 
 })
