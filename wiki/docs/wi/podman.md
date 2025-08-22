@@ -144,14 +144,40 @@ flatpak install --user flathub io.podman_desktop.PodmanDesktop
 podman machine init
 ```
 
-Пока что есть следующая проблема:
-```
+### Шаг 4. Запуск Podman Machine
+
+```bash
 podman machine start
+```
+
+Если при `podman machine start` есть ошибка:
+```bash
 Starting machine "podman-machine-default"
 Error: could not find "gvproxy" in one of [/usr/local/libexec/podman /usr/local/lib/podman /usr/libexec/podman /usr/lib/podman].  To resolve this error, set the helper_binaries_dir key in the `[engine]` section of containers.conf to the directory containing your helper binaries.
 ```
 
-### Шаг 4. Запуск
+Тогда нужно сделать следующее:
+```bash
+curl -s https://api.github.com/repos/containers/gvisor-tap-vsock/releases/latest | awk 'BEGIN { FS = "\"\\s*:\\s*" } /browser_download_url/ && /linux-amd64/ {print $2}' | xargs wget -O gvproxy-linux-amd64
+
+chmod +x ./gvproxy-linux-amd64
+mkdir -p /usr/local/lib/podman/
+sudo mv gvproxy-linux-amd64 /usr/local/lib/podman/gvproxy
+```
+
+Если появляется ошибка:
+```bash
+Error: failed to find virtiofsd: exec: "virtiofsd": executable file not found in $PATH
+```
+
+Тогда:
+```bash
+sudo apt-get install virtiofsd
+
+sudo ln -s /usr/libexec/virtiofsd /usr/local/bin/virtiofsd
+```
+
+### Шаг 5. Запуск Podman Desktop
 
 Либо через терминал:
 ```bash
