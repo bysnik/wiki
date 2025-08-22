@@ -162,7 +162,7 @@ curl -s https://api.github.com/repos/containers/gvisor-tap-vsock/releases/latest
 
 chmod +x ./gvproxy-linux-amd64
 mkdir -p /usr/local/lib/podman/
-sudo mv gvproxy-linux-amd64 /usr/local/lib/podman/gvproxy
+mv gvproxy-linux-amd64 /usr/local/lib/podman/gvproxy
 ```
 
 Если появляется ошибка:
@@ -172,9 +172,9 @@ Error: failed to find virtiofsd: exec: "virtiofsd": executable file not found in
 
 Тогда:
 ```bash
-sudo apt-get install virtiofsd
+apt-get install virtiofsd
 
-sudo ln -s /usr/libexec/virtiofsd /usr/local/bin/virtiofsd
+ln -s /usr/libexec/virtiofsd /usr/local/bin/virtiofsd
 ```
 
 ### Шаг 5. Запуск Podman Desktop
