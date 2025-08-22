@@ -266,3 +266,131 @@ AVATAR_UPLOAD_PATH = /legacy_path
 PATH = /avatar_path
 ```
 будет хранить файлы аватаров в `/avatar_path`.
+
+
+
+## Реестр пакетов Alt
+
+Публикуйте пакеты Alt для вашего пользователя или организации.
+
+### Требования
+
+Для работы с реестром Alt необходимо использовать менеджер пакетов APT-RPM для использования пакетов.
+
+В следующих примерах используется `apt-rpm`.
+
+### Настройка реестра пакетов
+
+Чтобы зарегистрировать реестр RPM, добавьте URL в список известных источников в файл конфигурации в каталоге `/etc/apt/sources.list.d/`:
+
+```bash
+rpm https://forgejo.example.com/api/packages/{owner}/alt/{group}.repo {arch} classic
+```
+
+| Заполнитель      | Описание                                 |
+|------------------|------------------------------------------|
+| `owner`          | Владелец пакета.                         |
+| `group`          | Опционально: Например, пусто, `el7`, `rocky/el9`, `test/fc38`. |
+| `arch`           | Архитектура.                             |
+
+**Пример:**
+
+```bash
+# без группы и архитектуры x86_64
+rpm https://forgejo.example.com/api/packages/testuser/alt/alt.repo x86_64 classic
+
+# с группой 'centos/el7' и архитектурой noarch
+rpm https://forgejo.example.com/api/packages/testuser/alt/group/example1.repo noarch classic
+```
+
+Если реестр приватный, укажите учетные данные в URL. Можно использовать пароль или персональный токен доступа:
+
+```bash
+rpm https://{username}:{your_password_or_token}@forgejo.example.com/api/packages/{owner}/alt/{group}.repo {arch} classic
+```
+
+Вам также потребуется добавить учетные данные в URL в созданном файле `.repo` в `/etc/apt/sources.list.d/`.
+
+### Публикация пакета
+
+Чтобы опубликовать пакет RPM (`*.rpm`), выполните операцию HTTP `PUT`, поместив содержимое пакета в тело запроса.
+
+```http
+PUT https://forgejo.example.com/api/packages/{owner}/alt/{group}/upload
+```
+
+| Параметр | Описание                                 |
+|----------|------------------------------------------|
+| `owner`  | Владелец пакета.                         |
+| `group`  | Опционально: Например, пусто, `el7`, `rocky/el9`, `test/fc38`. |
+
+**Пример запроса с использованием HTTP Basic аутентификации:**
+
+```bash
+# без группы
+curl --user your_username:your_password_or_token \
+     --upload-file path/to/file.rpm \
+     https://forgejo.example.com/api/packages/testuser/alt/upload
+
+# с группой 'group/example1'
+curl --user your_username:your_password_or_token \
+     --upload-file path/to/file.rpm \
+     https://forgejo.example.com/api/packages/testuser/alt/group/example1/upload
+```
+
+Если вы используете 2FA или OAuth, используйте персональный токен доступа вместо пароля. Нельзя опубликовать файл с тем же именем дважды в одном пакете. Сначала необходимо удалить существующую версию пакета.
+
+Сервер отвечает со следующими кодами состояния HTTP:
+
+| Код состояния HTTP | Значение                                                                 |
+|--------------------|--------------------------------------------------------------------------|
+| `201 Created`      | Пакет опубликован.                                                       |
+| `400 Bad Request`  | Пакет невалиден.                                                         |
+| `409 Conflict`     | Файл пакета с такой же комбинацией параметров уже существует в пакете.   |
+
+### Удаление пакета
+
+Чтобы удалить пакет RPM, выполните операцию HTTP `DELETE`. Это также удалит версию пакета, если в нем не останется файлов.
+
+```http
+DELETE https://forgejo.example.com/api/packages/{owner}/alt/{group}.repo/{architecture}/RPMS.classic/{package_file_name.rpm}
+```
+
+| Параметр               | Описание                 |
+|------------------------|--------------------------|
+| `owner`                | Владелец пакета.         |
+| `group`                | Опционально: Группа пакета. |
+| `package_file_name.rpm`| Имя файла пакета.        |
+| `architecture`         | Архитектура пакета.      |
+
+**Пример запроса с использованием HTTP Basic аутентификации:**
+
+```bash
+# без группы
+curl --user your_username:your_token_or_password -X DELETE \
+     https://forgejo.example.com/api/packages/testuser/alt/alt.repo/x86_64/RPMS.classic/test-package.rpm
+
+# с группой 'group/example1'
+curl --user your_username:your_token_or_password -X DELETE \
+     https://forgejo.example.com/api/packages/testuser/alt/group/example1.repo/x86_64/RPMS.classic/test-package.rpm
+```
+
+Сервер отвечает со следующими кодами состояния HTTP:
+
+| Код состояния HTTP  | Значение                            |
+|---------------------|-------------------------------------|
+| `204 No Content`    | Успешно.                            |
+| `404 Not Found`     | Пакет или файл не найден.           |
+
+### Установка пакета
+
+Чтобы установить пакет из реестра RPM, выполните следующие команды:
+
+```bash
+# использовать последнюю версию
+apt-get install {package_name}
+
+# использовать конкретную версию
+apt-get install {package_name}-{package_version}
+```
+

@@ -173,7 +173,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Podman', link: '/docs/wi/podman' },
         { text: 'RARS Emulator', link: '/docs/wi/rars' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
-        { text: 'VM VirtualBox', link: '/docs/wi/vbox' }
+        { text: 'VM VirtualBox', link: '/docs/wi/vbox' },
+        { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
       ]
     },
     {
@@ -205,7 +206,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'UrBackup', link: '/docs/wi/urbackup' },
         { text: 'Veyon', link: '/docs/wi/veyon' },
         { text: 'Weblate', link: '/docs/wi/weblate' },
-        { text: 'Zabbix', link: '/docs/wi/zabbix' }
+        { text: 'Zabbix', link: '/docs/wi/zabbix' },
       ]
     },
     {
