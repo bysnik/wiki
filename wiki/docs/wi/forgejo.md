@@ -60,3 +60,220 @@ apt-get install forgejo
 ### Специальные labels
 
 Метки раннера также можно использовать для определения других специальных функций. Например, можно использовать `gpu:docker://node:20-bullseye` для определения бегуна с установленным графическим процессором. Рабочие процессы, которым требуется графический процессор, можно затем указать `runs-on: gpu` для выполнения на этом бегуне.
+
+
+## Настройки хранилища
+
+Хранилище для каждой подсистемы определяется в файле `app.ini`. Оно может быть на диске (локальное, по умолчанию) или использовать совместимый с S3 сервер (minio)[minio]. В обоих случаях каждая подсистема хранит все файлы (или объекты в терминологии S3) в выделенной директории, как показано в таблице ниже:
+
+| Подсистема          | Директория           | Секции в `app.ini`         |
+| :------------------ | :------------------- | :------------------------- |
+| Вложения            | `attachments/`       | `[attachment]`             |
+| LFS                 | `lfs/`               | `[lfs]`                    |
+| Аватары             | `avatars/`           | `[avatar]`                 |
+| Аватары репозиториев| `repo-avatars/`      | `[repo-avatar]`            |
+| Архивы репозиториев | `repo-archive/`      | `[repo-archive]`           |
+| Пакеты              | `packages/`          | `[packages]`               |
+| Логи действий       | `actions_log/`       | `[storage.actions_log]`    |
+| Артефакты действий  | `actions_artifacts/` | `[actions.artifacts]`      |
+
+Например:
+
+*   Если `STORAGE_TYPE` имеет значение `local`, а `APP_DATA_PATH` — `/appdata`, то директорией по умолчанию для хранения вложений будет `/appdata/attachments`.
+*   Если `STORAGE_TYPE` имеет значение `minio`, то директорией по умолчанию для хранения вложений в бакете `MINIO_BUCKET` будет `attachments/`.
+
+### Изменение хранилища для всех подсистем
+
+Секция `[storage]` может использоваться для изменения хранилища всех подсистем. По умолчанию используется локальное хранилище в `APP_DATA_PATH`, что эквивалентно записи следующего в `app.ini`:
+
+```ini
+[server]
+APP_DATA_PATH = /forgejo/data
+
+[storage]
+STORAGE_TYPE = local
+PATH = /forgejo/data
+```
+
+#### Использование local
+
+Для локального хранилища секция `[storage]` может использоваться только для изменения пути, под которым будут создаваться директории всех подсистем, с помощью настройки `PATH` с указанием абсолютного пути.
+
+Например:
+
+```ini
+[storage]
+STORAGE_TYPE = local
+PATH = /mystorage
+```
+изменит путь по умолчанию для хранения вложений на `/mystorage/attachments`, для LFS — на `/mystorage/lfs` и т.д.
+
+#### Использование minio
+
+Секция `[storage]` может использоваться для изменения типа хранилища по умолчанию, используемого всеми подсистемами, на `minio`.
+
+Например:
+
+```ini
+[storage]
+STORAGE_TYPE = minio
+
+MINIO_ENDPOINT = 127.0.0.1:9000
+MINIO_ACCESS_KEY_ID = [redacted]
+MINIO_SECRET_ACCESS_KEY = [redacted]
+MINIO_BUCKET = forgejo
+MINIO_LOCATION = us-east-1
+```
+изменит хранилище по умолчанию для вложений на `attachments/` в бакете `forgejo`, для LFS — на `lfs/` в бакете `forgejo` и т.д.
+
+**ПРИМЕЧАНИЕ:** Параметр `MINIO_BASE_PATH` не должен быть установлен в секции `[storage]`.
+
+Параметр конфигурации `MINIO_USE_SSL` по умолчанию имеет значение `false` для сохранения совместимости с локально размещенными экземплярами MinIO. Если предполагается использование внешнего провайдера S3, этому параметру следует присвоить значение `true`.
+
+Например, предположим, что экземпляр (MinIO)[minio] находится по адресу `https://minio.example.com`:
+
+```ini
+[storage]
+STORAGE_TYPE = minio
+
+MINIO_USE_SSL = true
+MINIO_ENDPOINT = minio.example.com
+MINIO_ACCESS_KEY_ID = [redacted]
+MINIO_SECRET_ACCESS_KEY = [redacted]
+MINIO_BUCKET = bucket
+MINIO_LOCATION = us-east-1
+```
+
+### Настройки хранилища для отдельной подсистемы
+
+Можно настроить некоторые подсистемы на использование хранилища S3, а другие — на использование локального хранилища, добавив настройки в их соответствующие секции. Например:
+
+```ini
+[attachment]
+PATH = /otherstorage/attachments
+
+[lfs]
+STORAGE_TYPE = minio
+MINIO_BASE_PATH = lfs/
+
+MINIO_ENDPOINT = 127.0.0.1:9000
+MINIO_ACCESS_KEY_ID = [redacted]
+MINIO_SECRET_ACCESS_KEY = [redacted]
+MINIO_BUCKET = forgejo
+MINIO_LOCATION = us-east-1
+```
+будет хранить вложения в локальной директории `/otherstorage/attachments`, в то время как файлы LFS будут храниться на S3-сервере в директории `lfs/` бакета `forgejo`.
+
+### Настройки хранилища
+
+Значение `STORAGE_TYPE` может быть `local` (по умолчанию) для директорий файловой системы или `minio` для S3-серверов. Каждый тип хранилища имеет свои собственные настройки, как объясняется ниже.
+
+#### Использование local
+
+Существует всего одна настройка, когда `STORAGE_TYPE` установлен в `local`: `PATH`. Это должен быть абсолютный путь, и он интерпретируется следующим образом.
+
+*   В секции `[storage]` `PATH` — это путь, под которым будут создаваться директории каждой подсистемы вместо `APP_DATA_PATH`. Например, если `APP_DATA_PATH` равен `/appdata`:
+    ```ini
+    [storage]
+    STORAGE_TYPE = local
+    PATH = /mystorage
+    ```
+    создаст вложения в `/mystorage/attachments` вместо `/appdata/attachments`, файлы LFS в `/mystorage/lfs` вместо `/appdata/lfs` и т.д.
+
+*   В секции, посвященной конкретной подсистеме (см. таблицу во введении), `PATH` — это базовый путь, под которым будут храниться все файлы. Например:
+    ```ini
+    [storage]
+    STORAGE_TYPE = local
+    PATH = /mystorage
+
+    [attachment]
+    STORAGE_TYPE = local
+    PATH = /otherstorage/attachments
+    ```
+    будет хранить вложения в `/otherstorage/attachments`, в то время как файлы LFS будут храниться в `/mystorage/lfs`.
+
+#### Использование minio
+
+Когда `STORAGE_TYPE` установлен в `minio`, настройки используются для подключения к совместимому с S3 серверу:
+
+*   `SERVE_DIRECT`: `false` — Позволяет драйверу хранилища перенаправлять на аутентифицированные URL-адреса для прямой раздачи файлов. Поддерживается только через подписанные URL-адреса.
+*   `MINIO_ENDPOINT`: `localhost:9000` — Конечная точка S3 для подключения.
+*   `MINIO_ACCESS_KEY_ID` — `accessKeyID` S3 для подключения.
+*   `MINIO_SECRET_ACCESS_KEY` — `secretAccessKey` S3 для подключения.
+*   `MINIO_BUCKET`: `forgejo` — Бакет S3 для хранения данных.
+*   `MINIO_BUCKET_LOOKUP`: `auto` — Тип поиска бакета S3.
+    *   `auto` — Автоопределение
+    *   `dns` — Стиль виртуального хоста
+    *   `path` — Path Style
+*   `MINIO_LOCATION`: `us-east-1` — Локация S3 для создания бакета.
+*   `MINIO_USE_SSL`: `false` — Использование SSL в S3.
+*   `MINIO_INSECURE_SKIP_VERIFY`: `false` — Пропуск проверки SSL в S3.
+*   `MINIO_CHECKSUM_ALGORITHM` — Алгоритм контрольной суммы Minio: `default` (для MinIO, garage или AWS S3) или `md5` (для Cloudflare или Backblaze).
+
+При использовании в секции `[storage]` они применяются ко всем подсистемам. При использовании в секции, специфичной для подсистемы (см. таблицу во введении), они используются только для объектов, принадлежащих этой подсистеме. Вот пример:
+
+```ini
+[storage]
+STORAGE_TYPE = minio
+
+SERVE_DIRECT = false
+MINIO_ENDPOINT = garage:9000
+MINIO_ACCESS_KEY_ID = [redacted]
+MINIO_SECRET_ACCESS_KEY = [redacted]
+MINIO_BUCKET = forgejo
+MINIO_BUCKET_LOOKUP = auto
+MINIO_LOCATION = us-east-1
+MINIO_USE_SSL = false
+MINIO_INSECURE_SKIP_VERIFY = false
+MINIO_CHECKSUM_ALGORITHM = md5
+
+[lfs]
+STORAGE_TYPE = minio
+MINIO_BASE_PATH = nonstandardlfs/
+
+SERVE_DIRECT = false
+MINIO_ENDPOINT = minio:9000
+MINIO_ACCESS_KEY_ID = [redacted]
+MINIO_SECRET_ACCESS_KEY = [redacted]
+MINIO_BUCKET = forgejo
+MINIO_BUCKET_LOOKUP = auto
+MINIO_LOCATION = us-east-1
+MINIO_USE_SSL = false
+MINIO_INSECURE_SKIP_VERIFY = false
+```
+
+*   `MINIO_BASE_PATH`: Допустимо только в специфичной для подсистемы секции (см. таблицу во введении). Переопределяет директорию по умолчанию, в которой объекты хранятся в бакете `MINIO_BUCKET`.
+
+Для всех подсистем, которые используют тип хранилища `minio`, указанный в секции `[storage]`, директория, в которой хранятся объекты, определяется с помощью таблицы во введении. Например, файлы LFS будут храниться в директории `lfs/` within the `forgejo` bucket.
+
+Когда хранилище `minio` настроено в секции, специфичной для подсистемы, параметр `MINIO_BASE_PATH` может быть использован для переопределения директории по умолчанию. В примере выше `MINIO_BASE_PATH = nonstandardlfs/` означает, что объекты LFS будут храниться в директории `nonstandardlfs/` бакета `forgejo` вместо директории `lfs/`.
+
+### Совместимость с S3-серверами
+
+Хотя тип хранилища S3 назван `minio`, он не зависит от каких-либо специфичных функций MinIO. Тип хранилища S3 протестирован на совместимость с:
+
+*   MinIO 2021.3.17 и 2023-08-23
+*   garage v0.8.2
+
+### Незадокументированные функции
+
+Настоятельно рекомендуется избегать использования незадокументированных функций — таких как `[storage.attachments]` в качестве альтернативы `[attachment]`, например (множественное число — не опечатка, это проблема унификации) — поскольку их поведение не thoroughly tested и может привести к неожиданным результатам.
+
+### Устаревшие настройки
+
+Некоторые настройки устарели, но все еще поддерживаются в интересах обратной совместимости. Их следует заменить следующим образом:
+
+*   `[server].LFS_CONTENT_PATH` заменяется на `[lfs].PATH`
+*   `[picture].AVATAR_UPLOAD_PATH` заменяется на `[avatar].PATH`
+*   `[picture].REPOSITORY_AVATAR_UPLOAD_PATH` заменяется на `[repo-avatar].PATH`
+
+Устаревшие настройки имеют более низкий приоритет и будут переопределены их заменами, если присутствуют обе. Например:
+
+```ini
+[picture]
+AVATAR_UPLOAD_PATH = /legacy_path
+
+[avatar]
+PATH = /avatar_path
+```
+будет хранить файлы аватаров в `/avatar_path`.
