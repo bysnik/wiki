@@ -157,6 +157,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     {
       text: 'Сервисы',
       items: [
+        { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' },
@@ -227,6 +228,20 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           collapsed: true,
           items: [
             { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
+          ]
+        }
+      ]
+    },
+
+    {
+      items: [
+        {
+          text: 'Open Source CRM',
+          collapsed: true,
+          items: [
+            { text: 'SuiteCRM', link: '/docs/wi/games/suitecrm' },
+            { text: 'Totum', link: '/docs/wi/games/totum' },
+            { text: 'EspoCRM', link: '/docs/wi/games/espocrm' },
           ]
         }
       ]
