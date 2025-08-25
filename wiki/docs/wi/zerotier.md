@@ -1,6 +1,6 @@
 # ZeroTier
 
-![](https://www.zerotier.com/wp-content/uploads/2025/01/Logo-White.svg)
+![](https://macdaily.me/wp-content/uploads/2024/02/zerotier-logo-wallpaper-4k-3840x2160-1-1920x1024.jpg)
 
 https://habr.com/ru/companies/ruvds/articles/484178/
 

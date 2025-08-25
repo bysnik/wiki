@@ -1,6 +1,6 @@
 # Codeberg Pages
 
-![](https://codeberg.org/assets/img/logo-250px.png)
+![](https://codeberg.org/attachments/10a0fc7a-eafe-4c1b-88a4-54352031fef6)
 
 https://codeberg.org/Codeberg/pages-server
 

@@ -4,7 +4,6 @@
 
 Docker – это открытая платформа для разработки, доставки и запуска приложений. Состоит из утилиты командной строки docker, которая вызывает одноименный сервис (сервис является потенциальной единой точкой отказа) и требует права доступа root. По умолчанию использует в качестве Container Runtime runc. Все файлы Docker (образы, контейнеры и др.) по умолчанию хранятся в каталоге /var/lib/docker.
 
-[Docker Desktop](docker-desktop)
 
 ## Установка Docker
 
@@ -89,3 +88,31 @@ cat alt-base.tar | docker import - alt-base:11.1
 ```bash
 docker images
 ```
+
+
+## Docker Desktop
+
+![](https://lh7-qw.googleusercontent.com/docsz/AD_4nXcJUyHMeleX4bZxoPwzJazF7wNsJEBRZR7Cu-fZEXebsi5Z4bnUpxda07yLkHN2OgpSLFEezCPG4hq3vVLAK1Sk-59E_2tJ2hqDQgR3sN2ExnSKu3EqRsiQESojTBn1TNTFaklM?key=5K-4atmrx18Kq4xriCXX3JiH)
+
+https://docs.docker.com/desktop/troubleshoot-and-support/faqs/linuxfaqs/
+
+```bash
+epm play docker-desktop
+```
+
+```bash
+grep "$USER" /etc/subuid >> /dev/null 2&>1 || (echo "$USER:100000:65536" | sudo tee -a /etc/subuid)
+
+grep "$USER" /etc/subgid >> /dev/null 2&>1 || (echo "$USER:100000:65536" | sudo tee -a /etc/subgid)
+```
+
+```bash
+apt-get install shadow-submap
+```
+
+```bash
+control newgidmap public
+
+control newuidmap public
+```
+Ну, ошибок больше нет, но Docker Engine тупо не стартует

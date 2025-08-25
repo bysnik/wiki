@@ -1,6 +1,6 @@
 # Phoronix Test Suite
 
-![](https://www.phoronix-test-suite.com/img/ptsLogo.png)
+![](https://itproffi.ru/wp-content/uploads/2019/07/phoronix.jpg)
 
 Phoronix Test Suite (PTS) — это свободно распространяемое (GNU GPLv3) кроссплаформенное ПО для проведения тестов – бенчмаркинга. PTS умеет проводить тесты в автоматическом режиме и доступен на Windows, Linux, macOS, Solaris и BSD. Phoronix Test Suite комплексно оценивает производительность компонентов системы, так как включает в себя более 600 различных тестов, начиная от производительности процессора и заканчивая тестами приложений (например, Apache или NGINX). 
 
