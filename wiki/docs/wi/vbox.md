@@ -4,6 +4,8 @@ outline: deep
 
 # VM VirtualBox
 
+![](https://applespbevent.ru/content/images/2024/09/virtualbox-maquina-virtual-1-.jpg)
+
 ## VBoxManage
 VBoxManage – это инструмент интерфейса командной строки, устанавливаемый по умолчанию как часть установки программного обеспечения VirtualBox.
 

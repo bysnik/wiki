@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # Uptime Kuma
 
 <!--<img src="https://github.com/louislam/uptime-kuma/raw/master/public/icon.svg" width="200"/>-->
@@ -6,7 +10,8 @@
 
 https://github.com/louislam/uptime-kuma?tab=readme-ov-file
 
-## 🔧 How to Install
+
+## 🔧 Установка
 
 ### 🐳 Docker
 
@@ -14,63 +19,59 @@ https://github.com/louislam/uptime-kuma?tab=readme-ov-file
 docker run -d --restart=always -p 3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1
 ```
 
-Uptime Kuma is now running on `http://0.0.0.0:3001`.
+Uptime Kuma теперь запущена и доступна по адресу `http://0.0.0.0:3001`.
 
 > [!WARNING]
-> File Systems like **NFS** (Network File System) are **NOT** supported. Please map to a local directory or volume.
+> Файловые системы типа **NFS** (Network File System) **НЕ** поддерживаются. Пожалуйста, используйте локальный каталог или том.
 
 > [!NOTE]
-> If you want to limit exposure to localhost (without exposing port for other users or to use a [reverse proxy](https://github.com/louislam/uptime-kuma/wiki/Reverse-Proxy)), you can expose the port like this:
-> 
+> Если вы хотите ограничить доступ только localhost (без открытия порта для других пользователей или для использования [обратного прокси](https://github.com/louislam/uptime-kuma/wiki/Reverse-Proxy)), вы можете пробросить порт следующим образом:
+>
 > ```bash
 > docker run -d --restart=always -p 127.0.0.1:3001:3001 -v uptime-kuma:/app/data --name uptime-kuma louislam/uptime-kuma:1
 > ```
 
-### 💪🏻 Non-Docker
+### 💪🏻 Установка без Docker
 
-Requirements:
+Установка зависимостей:
+```bash
+apt-get install node npm git 
 
-- [Node.js](https://nodejs.org/en/download/) 18 / 20.4
-- [npm](https://docs.npmjs.com/cli/) 9
-- [Git](https://git-scm.com/downloads)
-- [pm2](https://pm2.keymetrics.io/) - For running Uptime Kuma in the background
+npm install pm2 -g
+```
+
+Запуск приложения:
 
 ```bash
 git clone https://github.com/louislam/uptime-kuma.git
 cd uptime-kuma
 npm run setup
 
-# Option 1. Try it
+# Вариант 1. Запустить для проверки
 node server/server.js
 
-# (Recommended) Option 2. Run in the background using PM2
-# Install PM2 if you don't have it:
+# (Рекомендуется) Вариант 2. Запустить в фоновом режиме с помощью PM2
+# Установите PM2, если у вас его нет:
 npm install pm2 -g && pm2 install pm2-logrotate
 
-# Start Server
+# Запуск сервера
 pm2 start server/server.js --name uptime-kuma
 ```
 
-Uptime Kuma is now running on `http://localhost:3001`
+Uptime Kuma теперь запущена и доступна по адресу `http://localhost:3001`
 
-More useful PM2 Commands
+Полезные команды PM2
 
 ```bash
-# If you want to see the current console output
+# Чтобы посмотреть вывод консоли в реальном времени
 pm2 monit
 
-# If you want to add it to startup
+# Чтобы добавить в автозагрузку
 pm2 save && pm2 startup
 ```
 
-### Advanced Installation
+### Расширенные варианты установки
 
-If you need more options or need to browse via a reverse proxy, please read:
+Если вам нужны дополнительные опции или вы хотите использовать обратный прокси, ознакомьтесь с руководством:
 
 https://github.com/louislam/uptime-kuma/wiki/%F0%9F%94%A7-How-to-Install
-
-## 🆙 How to Update
-
-Please read:
-
-https://github.com/louislam/uptime-kuma/wiki/%F0%9F%86%99-How-to-Update
