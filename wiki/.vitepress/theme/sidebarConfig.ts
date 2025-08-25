@@ -161,7 +161,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' },
-        { text: 'Docker', link: '/docs/wi/docker' },
         { text: 'Forgejo', link: '/docs/wi/forgejo' },
         { text: 'Gitea', link: '/docs/wi/gitea' },
         { text: 'Git', link: '/docs/wi/git' },
@@ -171,7 +170,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'MinIO', link: '/docs/wi/minio' },
         { text: 'Modelio', link: '/docs/wi/modelio' },
         { text: '! Moodle', link: '/docs/wi/moodle' },
-        { text: 'Podman', link: '/docs/wi/podman' },
         { text: 'RARS Emulator', link: '/docs/wi/rars' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
         { text: 'VM VirtualBox', link: '/docs/wi/vbox' },
@@ -210,6 +208,19 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Zabbix', link: '/docs/wi/zabbix' },
       ]
     },
+
+    {
+      text: 'Контейнеризация и оркестрация',
+      collapsed: false,
+      items: [
+        { text: 'Docker', link: '/docs/wi/docker' },
+        { text: '! K9s', link: '/docs/wi/k9s' },
+        { text: '! Lens', link: '/docs/wi/k8slens' },
+        { text: 'Podman', link: '/docs/wi/podman' },
+        { text: '! Rancher', link: '/docs/wi/rancher' },
+      ]
+    },
+
     {
       text: 'Различное по мелочи',
       collapsed: true,
