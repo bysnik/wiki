@@ -160,58 +160,28 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
-        { text: '! CTFd', link: '/docs/wi/ctfd' },
-        { text: 'Forgejo', link: '/docs/wi/forgejo' },
-        { text: 'Gitea', link: '/docs/wi/gitea' },
-        { text: 'Git', link: '/docs/wi/git' },
-        { text: 'GNS3', link: '/docs/wi/gns3' },
-        { text: 'Harbor', link: '/docs/wi/harbor' },
-        { text: 'Logism', link: '/docs/wi/logism' },
-        { text: 'MinIO', link: '/docs/wi/minio' },
-        { text: 'Modelio', link: '/docs/wi/modelio' },
+        { text: '! CTFd', link: '/docs/wi/ctfd' },        
+        { text: 'Harbor', link: '/docs/wi/harbor' },        
+        { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
-        { text: 'RARS Emulator', link: '/docs/wi/rars' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
-        { text: 'VM VirtualBox', link: '/docs/wi/vbox' },
-        { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
       ]
     },
+
     {
-      text: 'Сервисы (В планах)',
+      text: 'Git и репозитории',
       collapsed: true,
       items: [
-        { text: 'Bacula', link: '/docs/wi/bacula' },
-        { text: 'BigBlueButton', link: '/docs/wi/bigbluebutton' },
-        { text: 'Ejudge', link: '/docs/wi/ejudge' },
-        { text: 'Flatpak', link: '/docs/wi/flatpak' },
-        { text: 'Foreman', link: '/docs/wi/foreman' },
-        { text: 'glpi', link: '/docs/wi/glpi' },
-        { text: 'keycloak', link: '/docs/wi/keycloak' },
-        { text: 'MediaWiki', link: '/docs/wi/mediawiki' },
-        { text: 'Netbox', link: '/docs/wi/netbox' },
-        { text: 'Nextcloud', link: '/docs/wi/nextcloud' },
-        { text: 'NocoBase', link: '/docs/wi/nocobase' },
-        { text: 'Open Project', link: '/docs/wi/open-project' },
-        { text: 'OpenUDS', link: '/docs/wi/openuds' },
-        { text: 'OpenVPN', link: '/docs/wi/openvpn' },
-        { text: 'Pacemaker', link: '/docs/wi/pacemaker' },
-        { text: 'Proxmox Backup Server', link: '/docs/wi/pbs' },
-        { text: 'Redmine', link: '/docs/wi/redmine' },
-        { text: 'Smath Studio', link: '/docs/wi/smath-studio' },
-        { text: 'SOGo', link: '/docs/wi/sogo' },
-        { text: 'Sphinx', link: '/docs/wi/sphinx' },
-        { text: 'Taskcafe', link: '/docs/wi/taskcafe' },
-        { text: 'Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
-        { text: 'UrBackup', link: '/docs/wi/urbackup' },
-        { text: 'Veyon', link: '/docs/wi/veyon' },
-        { text: 'Weblate', link: '/docs/wi/weblate' },
-        { text: 'Zabbix', link: '/docs/wi/zabbix' },
+        { text: 'Forgejo', link: '/docs/wi/forgejo' },
+        { text: 'Git', link: '/docs/wi/git' },
+        { text: 'Gitea', link: '/docs/wi/gitea' },
+        { text: 'GitLab', link: '/docs/wi/gitlab' },
       ]
     },
 
     {
       text: 'Контейнеризация и оркестрация',
-      collapsed: false,
+      collapsed: true,
       items: [
         { text: 'Docker', link: '/docs/wi/docker' },
         { text: '! K9s', link: '/docs/wi/k9s' },
@@ -222,14 +192,27 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
+      text: 'Автоматизация и IaC',
+      collapsed: true,
+      items: [
+        { text: '0 Ansible', link: '/docs/wi/ansible' },
+        { text: '0 Foreman', link: '/docs/wi/foreman' },
+        { text: '0 Puppet', link: '/docs/wi/puppet' },
+        { text: '! Terraform', link: '/docs/wi/terraform' },
+      ]
+    },
+
+    {
       text: 'Различное по мелочи',
       collapsed: true,
       items: [
         { text: 'Веб-камеры', link: '/docs/wi/webcam' },
-        { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
+        { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
         { text: 'Фишки', link: '/docs/wi/tricks' },
-        { text: '! ZeroTier', link: '/docs/wi/zerotier' },
         { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
+        { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
+        { text: '0 Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
+        { text: '! ZeroTier', link: '/docs/wi/zerotier' },
       ]
     },
     {
@@ -248,7 +231,50 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Totum', link: '/docs/wi/games/totum' },
         { text: 'EspoCRM', link: '/docs/wi/games/espocrm' },
       ]
-    }
+    },
+
+    {
+      text: 'Прикладное ПО',
+      collapsed: true,
+      items: [
+        { text: 'GNS3', link: '/docs/wi/gns3' },
+        { text: 'Logism', link: '/docs/wi/logism' },
+        { text: 'Modelio', link: '/docs/wi/modelio' },
+        { text: 'RARS Emulator', link: '/docs/wi/rars' },
+        { text: 'VM VirtualBox', link: '/docs/wi/vbox' },
+      ]
+    },
+
+    {
+      text: 'Сервисы (В планах)',
+      collapsed: true,
+      items: [
+        { text: '0 Bacula', link: '/docs/wi/bacula' },
+        { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },
+        { text: '0 Ejudge', link: '/docs/wi/ejudge' },
+        { text: '0 Flatpak', link: '/docs/wi/flatpak' },
+        { text: '0 GLPI', link: '/docs/wi/glpi' },
+        { text: '0 keycloak', link: '/docs/wi/keycloak' },
+        { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
+        { text: '0 Netbox', link: '/docs/wi/netbox' },
+        { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
+        { text: '0 NocoBase', link: '/docs/wi/nocobase' },
+        { text: '0 Open Project', link: '/docs/wi/open-project' },
+        { text: '0 OpenUDS', link: '/docs/wi/openuds' },
+        { text: '0 OpenVPN', link: '/docs/wi/openvpn' },
+        { text: '0 Pacemaker', link: '/docs/wi/pacemaker' },
+        { text: '0 Proxmox Backup Server', link: '/docs/wi/pbs' },
+        { text: '0 Redmine', link: '/docs/wi/redmine' },
+        { text: '0 Smath Studio', link: '/docs/wi/smath-studio' },
+        { text: '0 SOGo', link: '/docs/wi/sogo' },
+        { text: '0 Sphinx', link: '/docs/wi/sphinx' },
+        { text: '0 Taskcafe', link: '/docs/wi/taskcafe' },
+        { text: '0 UrBackup', link: '/docs/wi/urbackup' },
+        { text: '0 Veyon', link: '/docs/wi/veyon' },
+        { text: '0 Weblate', link: '/docs/wi/weblate' },
+        { text: '0 Zabbix', link: '/docs/wi/zabbix' },
+      ]
+    },
   ],
 
   '/docs/wi/altsp/': [
