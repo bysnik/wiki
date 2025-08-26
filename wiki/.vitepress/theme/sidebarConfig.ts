@@ -259,7 +259,9 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Netbox', link: '/docs/wi/netbox' },
         { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
         { text: '0 NocoBase', link: '/docs/wi/nocobase' },
+        { text: '0 OpenNebula', link: '/docs/wi/opennebula' },
         { text: '0 Open Project', link: '/docs/wi/open-project' },
+        { text: '! OpenStack', link: '/docs/wi/openstack' },
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
         { text: '0 OpenVPN', link: '/docs/wi/openvpn' },
         { text: '0 Pacemaker', link: '/docs/wi/pacemaker' },
@@ -272,6 +274,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 UrBackup', link: '/docs/wi/urbackup' },
         { text: '0 Veyon', link: '/docs/wi/veyon' },
         { text: '0 Weblate', link: '/docs/wi/weblate' },
+        { text: '0 XCP-ng', link: '/docs/wi/xcp-ng' },
         { text: '0 Zabbix', link: '/docs/wi/zabbix' },
       ]
     },
