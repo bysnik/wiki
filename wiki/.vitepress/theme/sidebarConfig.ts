@@ -233,28 +233,20 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       ]
     },
     {
+      text: 'Игры',
+      collapsed: true,
       items: [
-        {
-          text: 'Игры',
-          collapsed: true,
-          items: [
-            { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
-          ]
-        }
+        { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
       ]
     },
 
     {
+      text: 'Open Source CRM',
+      collapsed: true,
       items: [
-        {
-          text: 'Open Source CRM',
-          collapsed: true,
-          items: [
-            { text: 'SuiteCRM', link: '/docs/wi/games/suitecrm' },
-            { text: 'Totum', link: '/docs/wi/games/totum' },
-            { text: 'EspoCRM', link: '/docs/wi/games/espocrm' },
-          ]
-        }
+        { text: 'SuiteCRM', link: '/docs/wi/games/suitecrm' },
+        { text: 'Totum', link: '/docs/wi/games/totum' },
+        { text: 'EspoCRM', link: '/docs/wi/games/espocrm' },
       ]
     }
   ],
