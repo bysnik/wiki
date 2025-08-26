@@ -2,6 +2,10 @@
 
 CEPH - https://habr.com/ru/articles/313644/
 
+https://www.altlinux.org/DRBD_OCFS2
+
+www.altlinux.org/OCFS2
+
 
 https://www.basealt.ru/altpve-edu
 

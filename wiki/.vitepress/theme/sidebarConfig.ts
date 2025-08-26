@@ -215,21 +215,15 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! ZeroTier', link: '/docs/wi/zerotier' },
       ]
     },
-    {
-      text: 'Игры',
-      collapsed: true,
-      items: [
-        { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
-      ]
-    },
 
     {
       text: 'Open Source CRM',
       collapsed: true,
       items: [
-        { text: 'SuiteCRM', link: '/docs/wi/games/suitecrm' },
-        { text: 'Totum', link: '/docs/wi/games/totum' },
-        { text: 'EspoCRM', link: '/docs/wi/games/espocrm' },
+        { text: '0 NocoBase', link: '/docs/wi/nocobase' }, // Ну, может и не совсем CRM, он суть похожая
+        { text: '0 SuiteCRM', link: '/docs/wi/games/suitecrm' },
+        { text: '0 Totum', link: '/docs/wi/games/totum' },
+        { text: '0 EspoCRM', link: '/docs/wi/games/espocrm' },
       ]
     },
 
@@ -258,7 +252,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
         { text: '0 Netbox', link: '/docs/wi/netbox' },
         { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
-        { text: '0 NocoBase', link: '/docs/wi/nocobase' },
         { text: '0 OpenNebula', link: '/docs/wi/opennebula' },
         { text: '0 Open Project', link: '/docs/wi/open-project' },
         { text: '! OpenStack', link: '/docs/wi/openstack' },
@@ -278,6 +271,14 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Zabbix', link: '/docs/wi/zabbix' },
       ]
     },
+
+    {
+      text: 'Игры',
+      collapsed: true,
+      items: [
+        { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
+      ]
+    }
   ],
 
   '/docs/wi/altsp/': [
