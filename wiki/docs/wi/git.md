@@ -349,6 +349,23 @@ git clone -b <имя_ветки> --single-branch <URL_репозитория>
 3. `--single-branch`:
 Этот параметр гарантирует, что будет клонирована только указанная ветка, а не весь репозиторий со всеми его ветками. Это полезно для экономии места и времени, особенно если репозиторий большой. 
 
+## Ошибка при пуше в master при init
+
+Текст ошибки:
+```bash
+error: src refspec master does not match any
+error: failed to push some refs to 'github.com:xxxxxx/xxxxx.git'
+```
+
+Решение: удалить (переименовать) ремоут:
+```bash
+git remote rename origin old-origin
+```
+
+Или замена `master` на `main`
+```bash
+git push -u origin main
+```
 
 ## Свой Git-хостинг и GitWeb
 

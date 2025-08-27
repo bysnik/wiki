@@ -217,11 +217,22 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Прикладное ПО',
       collapsed: true,
       items: [
-        { text: 'GNS3', link: '/docs/wi/gns3' },
         { text: 'Logism', link: '/docs/wi/logism' },
         { text: 'Modelio', link: '/docs/wi/modelio' },
         { text: 'RARS Emulator', link: '/docs/wi/rars' },
         { text: 'VM VirtualBox', link: '/docs/wi/vbox' },
+      ]
+    },
+
+    {
+      text: 'Симуляторы сети',
+      collapsed: true,
+      items: [
+        { text: '0 EVE-NG', link: '/docs/wi/eve-ng' },
+        { text: 'GNS3', link: '/docs/wi/gns3' },
+        { text: '! Containerlab', link: '/docs/wi/containerlab' }, // CLI
+        { text: '! Mininet', link: '/docs/wi/mininet' },
+        { text: '! PNetLab', link: '/docs/wi/pnetlab' }, // Cloud
       ]
     },
 
