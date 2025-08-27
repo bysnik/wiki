@@ -203,20 +203,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
-      text: 'Различное по мелочи',
-      collapsed: true,
-      items: [
-        { text: 'Веб-камеры', link: '/docs/wi/webcam' },
-        { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
-        { text: 'Фишки', link: '/docs/wi/tricks' },
-        { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
-        { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
-        { text: '0 Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
-        { text: '! ZeroTier', link: '/docs/wi/zerotier' },
-      ]
-    },
-
-    {
       text: 'Open Source CRM',
       collapsed: true,
       items: [
@@ -250,6 +236,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 GLPI', link: '/docs/wi/glpi' },
         { text: '0 keycloak', link: '/docs/wi/keycloak' },
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
+        { text: '0 MODX', link: '/docs/wi/modx' },
         { text: '0 Netbox', link: '/docs/wi/netbox' },
         { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
         { text: '0 OpenNebula', link: '/docs/wi/opennebula' },
@@ -278,7 +265,21 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
       ]
-    }
+    },
+
+    {
+      text: 'Различное по мелочи',
+      collapsed: true,
+      items: [
+        { text: 'Веб-камеры', link: '/docs/wi/webcam' },
+        { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
+        { text: 'Фишки', link: '/docs/wi/tricks' },
+        { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
+        { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
+        { text: '0 Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
+        { text: '! ZeroTier', link: '/docs/wi/zerotier' },
+      ]
+    },
   ],
 
   '/docs/wi/altsp/': [
@@ -664,6 +665,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: "Лекция 9", "link": "/docs/disciplines/oaip/l9" },
         { text: "Лекция 10", "link": "/docs/disciplines/oaip/l10" },
         { text: "Лекция 11", "link": "/docs/disciplines/oaip/l11" },
+        { text: "Алгоритмы сортировки", "link": "/docs/disciplines/oaip/sorts" },
       ]
     },
 
