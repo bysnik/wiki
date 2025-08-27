@@ -2,6 +2,14 @@
 
 ![](https://habrastorage.org/r/w1560/getpro/habr/upload_files/48a/fd9/2b8/48afd92b8f85bbe3d9c96cb54ae059e4.png)
 
+<iframe
+  src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=git-obsidian.drawio#Uhttps%3A%2F%2Fbysnik.github.io%2Fwiki%2Fpublic%2Fstatic%2Fgit-obsidian.drawio"
+  width="100%"
+  height="600px"
+  frameborder="0"
+  allowfullscreen
+></iframe>
+
 Очевидно, что этот гайд взят с https://habr.com/ru/articles/843288/ Картинку нужно переделать под себя
 
 Это инструкция по настройке git-репозитория, на примере`gitlab.basealt.space`, в качестве удалённого хранилища Obsidian.
