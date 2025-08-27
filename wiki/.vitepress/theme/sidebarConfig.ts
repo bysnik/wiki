@@ -219,6 +219,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: 'Logism', link: '/docs/wi/logism' },
         { text: 'Modelio', link: '/docs/wi/modelio' },
+        { text: 'OBS', link: '/docs/wi/obs' },
         { text: 'RARS Emulator', link: '/docs/wi/rars' },
         { text: 'VM VirtualBox', link: '/docs/wi/vbox' },
       ]
