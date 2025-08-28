@@ -184,6 +184,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: 'Docker', link: '/docs/wi/docker' },
+        { text: '0 Kubernetes', link: '/docs/wi/kubernetes' },
         { text: '! K9s', link: '/docs/wi/k9s' },
         { text: '! Lens', link: '/docs/wi/k8slens' },
         { text: 'Podman', link: '/docs/wi/podman' },

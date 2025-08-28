@@ -7,3 +7,9 @@ https://k8slens.dev/
 https://habr.com/ru/companies/flant/articles/563422/
 
 https://docs.k8slens.dev/getting-started/install-lens/
+
+## Установка
+
+```bash
+flatpak install app/dev.k8slens.OpenLens/x86_64/stable
+```
