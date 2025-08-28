@@ -243,6 +243,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: '0 Bacula', link: '/docs/wi/bacula' },
+        { text: '! Bugzilla', link: '/docs/wi/bugzilla' },
         { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },
         { text: '0 Ejudge', link: '/docs/wi/ejudge' },
         { text: '0 Flatpak', link: '/docs/wi/flatpak' },
@@ -277,6 +278,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
+        { text: 'Moonlight', link: '/docs/wi/games/moonlight' },
       ]
     },
 
