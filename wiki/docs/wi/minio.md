@@ -338,5 +338,5 @@ MINIO_SECRET_KEY="YOUR_SECRET_KEY"
 :::
 
 ::: tip Ох уж этот S3
-По опыту работы с MinIO в связке с [Harbor](harbor#s3-хранилище) была получена информация, что работают ТОЛЬКО [стандартные ASW регионы](https://github.com/aws/aws-sdk-go/blob/v1.44.130/aws/endpoints/defaults.go#L141). Так что будьте внимательны!
+По опыту работы с MinIO в связке с [Harbor](harbor#s3-хранилище) была получена информация, что работают ТОЛЬКО [стандартные AWS регионы](https://github.com/aws/aws-sdk-go/blob/v1.44.130/aws/endpoints/defaults.go#L141). Так что будьте внимательны!
 :::
