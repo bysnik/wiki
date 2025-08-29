@@ -14,10 +14,10 @@ outline: deep
 ```bash
 apt-get install gitea
 ```
-## Установка СУБД
+### Установка СУБД
 
 Gitea умеет работать с несколькими базами данных: MySQL, PostgreSQL, MS-SQL, Sqlite3 и TiDB.
-### Настройка PostgreSQL
+#### Настройка PostgreSQL
 
 Установка PostgreSQL сервера:
 ```bash
@@ -70,7 +70,7 @@ systemctl restart postgresql
 ```
 
 
-### Настройка MySQL
+#### Настройка MySQL
 
 Установка MySQL сервера:
 ```bash
@@ -117,15 +117,15 @@ control mysqld server
 systemctl restart mysqld
 ```
 
-### Настройка SQLite
+#### Настройка SQLite
 
 При первом запуске, если выбрать в качестве СУБД SQLite3, то Gitea автоматически создаст базу. Никаких дополнительных настроек не требуется.
 
-### Настройка TiDB
+#### Настройка TiDB
 
 В настоящее время TiDB находится в Сизифе: https://packages.altlinux.org/ru/sisyphus/srpms/tidb/ поэтому, я думаю, пока не стоит его трогать.
 
-## Запуск Gitea
+### Запуск Gitea
 
 Редактируем конфигурационный файл:
 ```bash
@@ -282,7 +282,8 @@ systemctl enable act_runner --now
 
 #### Запуск в Docker контейнере
 
-##### Одной командой
+
+##### С помощью Docker Engine
 
 ```bash
 docker run \
