@@ -293,6 +293,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
         { text: '0 Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
+        { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
         { text: '! ZeroTier', link: '/docs/wi/zerotier' },
       ]
     },

@@ -57,7 +57,7 @@ https://github.com/sipcapture/homer
 
 https://github.com/GyulyVGC/sniffnet
 
-www.nagios.org/projects/nagios-core/
+https://www.nagios.org/projects/nagios-core/
 
 https://openipc.org/
 
@@ -95,7 +95,7 @@ https://docs.scrypted.app/
 
 https://github.com/mifi/lossless-cut
 
-www.hddsuperclone.com
+https://www.hddsuperclone.com
 
 https://github.com/puzed/wrapguard
 
@@ -129,7 +129,7 @@ https://github.com/telekom-security/tpotce
 
 https://github.com/openkilt/openrepo
 
-github.com/zitadel/zitadel
+https://github.com/zitadel/zitadel
 
 https://github.com/zeek/zeek
 
