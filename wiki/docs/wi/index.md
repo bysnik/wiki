@@ -41,6 +41,8 @@ next: false
 
 `BigBlueButton` - видеоконференции
 
+https://github.com/spacebarchat/spacebarchat - опенсорс аналог дискорда, совместимый с дискордом. селф хостед
+
 [`Foreman`](https://www.theforeman.org/)
 
 [`glpi`](https://glpi-project.org/)
