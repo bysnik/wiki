@@ -25,8 +25,6 @@ next: false
 
 `Smath Studio` - аналог маткада и матлаба
 
-`GNS3` - симулятор сети
-
 [Связка Thunderbird + NextCloud для больших файлов](https://addons.thunderbird.net/RU/thunderbird/addon/filelink-nextcloud-owncloud/)
 
 `Nextcloud` - облачное хранилище
@@ -48,3 +46,96 @@ next: false
 [`glpi`](https://glpi-project.org/)
 
 [`keycloak`](https://www.keycloak.org/) - SSO
+
+https://caddyserver.com/docs/
+
+https://github.com/Zaloog/kanban-tui
+
+https://github.com/bastienwirtz/homer
+
+https://github.com/sipcapture/homer
+
+https://github.com/GyulyVGC/sniffnet
+
+www.nagios.org/projects/nagios-core/
+
+https://openipc.org/
+
+https://docs.bunkerweb.io/latest/
+
+https://github.com/Ignitetechnologies/Mindmap
+
+https://github.com/charmbracelet/vhs
+
+https://github.com/leenooks/phpLDAPadmin
+
+https://github.com/winblues/blue95
+
+https://github.com/microsoft/monaco-editor
+
+https://documentation.wazuh.com/current/installation-guide/index.html
+
+https://github.com/soxoj/counter-osint-guide-ru
+
+https://github.com/stamparm/maltrail
+
+https://github.com/C0nw0nk/Nginx-Lua-Anti-DDoS
+
+https://github.com/semaphoreui/semaphore
+
+https://github.com/kainctl/isd
+
+https://github.com/Shmayro/dockerify-android
+
+https://docs.documize.com/s/VzO9ZqMOCgABGyfW/installation-guides/d/V16L08ucxwABhZF6/installation-guide
+
+https://github.com/redis/RedisInsight
+
+https://docs.scrypted.app/
+
+https://github.com/mifi/lossless-cut
+
+www.hddsuperclone.com
+
+https://github.com/puzed/wrapguard
+
+https://github.com/tiagozip/cap
+
+https://github.com/portainer/kubesolo
+
+https://github.com/meel-hd/lofi-engine#lofi-engine + https://pnpm.io/installation <!--Попробовал, забавно, но не более-->
+
+https://github.com/Lifailon/openrouter-bot
+
+https://github.com/OpenMaxIO/openmaxio-object-browser?tab=readme-ov-file
+
+https://github.com/georgmangold/console?tab=readme-ov-file
+
+https://github.com/Lifailon/ssh-bot
+
+https://github.com/jokob-sk/NetAlertXc
+
+https://github.com/Worklenz/worklenz
+
+https://github.com/skydive-project/skydive?tab=readme-ov-file
+
+https://github.com/groundcover-com/caretta  
+
+https://github.com/ekzhang/sshx
+
+https://github.com/makeplane/plane
+
+https://github.com/telekom-security/tpotce
+
+https://github.com/openkilt/openrepo
+
+github.com/zitadel/zitadel
+
+https://github.com/zeek/zeek
+
+https://github.com/Stirling-Tools/Stirling-PDF
+
+https://github.com/sctg-development/sctgdesk-server
+
+https://github.com/rescuezilla/rescuezilla?tab=readme-ov-file
+

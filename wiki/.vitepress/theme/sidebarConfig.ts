@@ -198,6 +198,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '0 Ansible', link: '/docs/wi/ansible' },
         { text: '0 Foreman', link: '/docs/wi/foreman' },
+        { text: '0 OpenTofu', link: '/docs/wi/opentofu' },
         { text: '0 Puppet', link: '/docs/wi/puppet' },
         { text: '! Terraform', link: '/docs/wi/terraform' },
       ]
@@ -265,7 +266,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 SOGo', link: '/docs/wi/sogo' },
         { text: '0 Sphinx', link: '/docs/wi/sphinx' },
         { text: '0 Taskcafe', link: '/docs/wi/taskcafe' },
-        { text: '0 UrBackup', link: '/docs/wi/urbackup' },
+        { text: '0 Traefik', link: '/docs/wi/traefik' },
         { text: '0 Veyon', link: '/docs/wi/veyon' },
         { text: '0 Weblate', link: '/docs/wi/weblate' },
         { text: '0 XCP-ng', link: '/docs/wi/xcp-ng' },
