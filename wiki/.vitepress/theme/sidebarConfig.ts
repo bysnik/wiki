@@ -489,7 +489,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'МДК 02.01 Администрирование сетевых операционных сетей',
       items: [
         { text: 'Назад к модулю', link: '/docs/disciplines/pm2/' },
-        { text: 'Урок 0. Основы контроля доступа', link: '/docs/disciplines/pm2/mdk21/basicaccesscontrol' },
         { text: 'Урок 0. NAT', link: '/docs/disciplines/pm2/mdk21/nat' },
       ]
     }
