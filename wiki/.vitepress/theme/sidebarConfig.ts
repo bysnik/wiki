@@ -291,6 +291,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Веб-камеры', link: '/docs/wi/webcam' },
         { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
         { text: 'Фишки', link: '/docs/wi/tricks' },
+        { text: '! ALT in WSL', link: '/docs/wi/alt-wsl' },
         { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
         { text: '0 Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
