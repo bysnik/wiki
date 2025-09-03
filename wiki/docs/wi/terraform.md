@@ -80,7 +80,7 @@ https://github.com/hashicorp
 ::: 
 
 
-::: tip
+```
 ## Docker
 
 Создайте каталог с именем learn-terraform-docker-container.
@@ -571,4 +571,4 @@ supports running Linux containers in Docker for Windows.  For example,
 AppVeyor is free for open source projects and provides Docker on its
 Windows builds, but only offers Linux containers on Windows as a paid
 upgrade.
-:::
+```
