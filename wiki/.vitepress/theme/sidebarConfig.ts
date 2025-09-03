@@ -199,7 +199,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '0 Ansible', link: '/docs/wi/ansible' },
         { text: '0 Foreman', link: '/docs/wi/foreman' },
-        { text: '0 OpenTofu', link: '/docs/wi/opentofu' },
+        { text: '! OpenTofu', link: '/docs/wi/opentofu' },
         { text: '0 Puppet', link: '/docs/wi/puppet' },
         { text: '! Terraform', link: '/docs/wi/terraform' },
       ]
