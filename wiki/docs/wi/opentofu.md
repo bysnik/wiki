@@ -1,5 +1,6 @@
 # OpenTofu
 
+![](https://www.linuxfoundation.org/hubfs/OpenTofu.png)
 
 ```bash
 # Download the installer script:
