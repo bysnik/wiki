@@ -160,8 +160,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
-        { text: '! CTFd', link: '/docs/wi/ctfd' },        
-        { text: 'Harbor', link: '/docs/wi/harbor' },        
+        { text: '! CTFd', link: '/docs/wi/ctfd' },               
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
@@ -190,6 +189,14 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Lens', link: '/docs/wi/k8slens' },
         { text: 'Podman', link: '/docs/wi/podman' },
         { text: '! Rancher', link: '/docs/wi/rancher' },
+        {
+          text: 'Репозитории',
+          collapsed: true,
+          items: [
+        { text: 'Harbor', link: '/docs/wi/harbor' }, 
+        { text: '0 Zot Registry', link: '/docs/wi/zotregistry' },
+          ]
+        }
       ]
     },
 
