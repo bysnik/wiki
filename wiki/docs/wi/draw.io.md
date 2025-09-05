@@ -31,8 +31,6 @@ Run the container.
 docker run -it --rm --name="draw" -p 8080:8080 -p 8443:8443 jgraph/drawio
 ```
 
-Start a web browser session to <http://localhost:8080/?offline=1&https=0> or <https://localhost:8443/?offline=1>
-
 > `?offline=1` is a security feature that disables support of cloud storage.
 
 ## Environment variables
