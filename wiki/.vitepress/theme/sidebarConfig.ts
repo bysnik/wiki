@@ -162,13 +162,10 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' }, 
-        { text: '! Draw.io', link: '/docs/wi/draw.io' },
-        { text: '! keycloak', link: '/docs/wi/keycloak' },               
+        { text: '! Keycloak', link: '/docs/wi/keycloak' },               
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
-        { text: '! Open Project', link: '/docs/wi/open-project' },
-        { text: '! OpenStack', link: '/docs/wi/openstack' },
-        { text: '! Taskcafe', link: '/docs/wi/taskcafe' }, 
+        { text: '! OpenStack', link: '/docs/wi/openstack' }, 
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
       ]
     },
@@ -189,7 +186,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: 'Docker', link: '/docs/wi/docker' },
-        { text: 'Deckhouse', link: '/docs/wi/deckhouse' },
+        { text: '0 Deckhouse', link: '/docs/wi/deckhouse' },
         { text: '0 Kubernetes', link: '/docs/wi/kubernetes' },
         { text: '! K9s', link: '/docs/wi/k9s' },
         { text: '! Lens', link: '/docs/wi/k8slens' },
@@ -199,8 +196,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           text: 'Репозитории',
           collapsed: true,
           items: [
-        { text: 'Harbor', link: '/docs/wi/harbor' }, 
-        { text: '0 Zot Registry', link: '/docs/wi/zotregistry' },
+            { text: 'Harbor', link: '/docs/wi/harbor' }, 
+            { text: '0 Zot Registry', link: '/docs/wi/zotregistry' },
           ]
         }
       ]
@@ -242,7 +239,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Open Source SIEM',
       collapsed: true,
       items: [
-        { text: '! SELKS', link: '/docs/wi/selks' }, // Как дополнение к Wazuh для сетевого мониторинга
+        { text: '! Clear NDR (SELKS)', link: '/docs/wi/selks' }, // Как дополнение к Wazuh для сетевого мониторинга
         { text: '! Wazuh', link: '/docs/wi/wazuh' },
       ]
     },
@@ -255,11 +252,21 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Modelio', link: '/docs/wi/modelio' },
         { text: 'OBS', link: '/docs/wi/obs' },
         { text: 'RARS Emulator', link: '/docs/wi/rars' },
+        { text: '! Smath Studio', link: '/docs/wi/smath-studio' }, 
         { text: 'VM VirtualBox', link: '/docs/wi/vbox' },
       ]
     },
 
-    
+    {
+      text: 'Управление проектами и задачами',
+      collapsed: true,
+      items: [
+        { text: '! Open Project', link: '/docs/wi/open-project' },
+        { text: '0 Redmine', link: '/docs/wi/redmine' },
+        { text: '! Taskcafe', link: '/docs/wi/taskcafe' },
+        { text: '0 Znuny', link: '/docs/wi/znuny' },
+      ]
+    },
 
     {
       text: 'Резервное копирование',
@@ -287,6 +294,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Self-hosted Tools',
       collapsed: true,
       items: [
+        { text: '! Draw.io', link: '/docs/wi/draw.io' },
         { text: '! Stirling-pdf', link: '/docs/wi/stirling-pdf' }, 
         { text: '! IT-tools', link: '/docs/wi/it-tools' }, 
       ]
@@ -300,20 +308,18 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Ejudge', link: '/docs/wi/ejudge' }, // система для проведения олимпиады по программированию с автопроверкой кода 
         { text: '0 Flatpak', link: '/docs/wi/flatpak' }, 
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
-        { text: '0 MODX', link: '/docs/wi/modx' },
+        { text: '0 MODX', link: '/docs/wi/modx' }, // CMS
         { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
         { text: '0 OpenNebula', link: '/docs/wi/opennebula' }, 
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
         { text: '0 OpenVPN', link: '/docs/wi/openvpn' },
-        { text: '0 Pacemaker', link: '/docs/wi/pacemaker' },
-        { text: '0 Redmine', link: '/docs/wi/redmine' },
-        { text: '0 Smath Studio', link: '/docs/wi/smath-studio' },
+        { text: '0 Pacemaker', link: '/docs/wi/pacemaker' }, // менеджер ресурсов кластера
         { text: '0 SOGo', link: '/docs/wi/sogo' },
         { text: '0 Sphinx', link: '/docs/wi/sphinx' }, // автодокументирование кода
         { text: '0 Traefik', link: '/docs/wi/traefik' },
         { text: '0 Veyon', link: '/docs/wi/veyon' },
         { text: '0 Weblate', link: '/docs/wi/weblate' },
-        { text: '0 XCP-ng', link: '/docs/wi/xcp-ng' },
+        { text: '0 XCP-ng', link: '/docs/wi/xcp-ng' }, // hypervisor based on XEN
         { text: '0 Zabbix', link: '/docs/wi/zabbix' },
       ]
     },

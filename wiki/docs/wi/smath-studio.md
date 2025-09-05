@@ -1,0 +1,3 @@
+```bash
+epm play smathstudio
+```
