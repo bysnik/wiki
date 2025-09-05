@@ -158,11 +158,14 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Сервисы',
       items: [
         { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
+        { text: '! Bugzilla', link: '/docs/wi/bugzilla' },
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
-        { text: '! CTFd', link: '/docs/wi/ctfd' },               
+        { text: '! CTFd', link: '/docs/wi/ctfd' }, 
+        { text: '! Draw.io', link: '/docs/wi/draw.io' },               
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
+        { text: '! OpenStack', link: '/docs/wi/openstack' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
       ]
     },
@@ -252,7 +255,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: '0 Bacula', link: '/docs/wi/bacula' },
-        { text: '! Bugzilla', link: '/docs/wi/bugzilla' },
         { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },
         { text: '0 Ejudge', link: '/docs/wi/ejudge' },
         { text: '0 Flatpak', link: '/docs/wi/flatpak' },
@@ -264,7 +266,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
         { text: '0 OpenNebula', link: '/docs/wi/opennebula' },
         { text: '0 Open Project', link: '/docs/wi/open-project' },
-        { text: '! OpenStack', link: '/docs/wi/openstack' },
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
         { text: '0 OpenVPN', link: '/docs/wi/openvpn' },
         { text: '0 Pacemaker', link: '/docs/wi/pacemaker' },
