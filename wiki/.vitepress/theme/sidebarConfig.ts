@@ -162,10 +162,13 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' }, 
-        { text: '! Draw.io', link: '/docs/wi/draw.io' },               
+        { text: '! Draw.io', link: '/docs/wi/draw.io' },
+        { text: '! keycloak', link: '/docs/wi/keycloak' },               
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
+        { text: '! Open Project', link: '/docs/wi/open-project' },
         { text: '! OpenStack', link: '/docs/wi/openstack' },
+        { text: '! Taskcafe', link: '/docs/wi/taskcafe' }, 
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
       ]
     },
@@ -208,7 +211,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: '0 Ansible', link: '/docs/wi/ansible' },
-        { text: '0 Foreman', link: '/docs/wi/foreman' },
+        { text: '! Foreman', link: '/docs/wi/foreman' }, 
         { text: '! OpenTofu', link: '/docs/wi/opentofu' },
         { text: '0 Puppet', link: '/docs/wi/puppet' },
         { text: '! Terraform', link: '/docs/wi/terraform' },
@@ -216,10 +219,19 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
+      text: 'Open Source DCIM',
+      collapsed: true,
+      items: [
+        { text: '! GLPi', link: '/docs/wi/glpi' },
+        { text: '0 NetBox', link: '/docs/wi/netbox' }, 
+
+      ]
+    },
+    {
       text: 'Open Source CRM',
       collapsed: true,
       items: [
-        { text: '0 NocoBase', link: '/docs/wi/nocobase' }, // Ну, может и не совсем CRM, он суть похожая
+        { text: '! NocoBase', link: '/docs/wi/nocobase' }, 
         { text: '0 SuiteCRM', link: '/docs/wi/games/suitecrm' },
         { text: '0 Totum', link: '/docs/wi/games/totum' },
         { text: '0 EspoCRM', link: '/docs/wi/games/espocrm' },
@@ -247,6 +259,18 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       ]
     },
 
+    
+
+    {
+      text: 'Резервное копирование',
+      collapsed: true,
+      items: [
+        { text: '0 Bacula', link: '/docs/wi/bacula' },
+        { text: '0 Proxmox Backup Server', link: '/docs/wi/pbs' },
+        { text: '0 Restic', link: '/docs/wi/restic' },
+      ]
+    },
+    
     {
       text: 'Симуляторы сети',
       collapsed: true,
@@ -260,30 +284,32 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
+      text: 'Self-hosted Tools',
+      collapsed: true,
+      items: [
+        { text: '! Stirling-pdf', link: '/docs/wi/stirling-pdf' }, 
+        { text: '! IT-tools', link: '/docs/wi/it-tools' }, 
+      ]
+    },
+
+    {
       text: 'Сервисы (В планах)',
       collapsed: true,
       items: [
-        { text: '0 Bacula', link: '/docs/wi/bacula' },
         { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },
-        { text: '0 Ejudge', link: '/docs/wi/ejudge' },
-        { text: '0 Flatpak', link: '/docs/wi/flatpak' },
-        { text: '0 GLPI', link: '/docs/wi/glpi' },
-        { text: '0 keycloak', link: '/docs/wi/keycloak' },
+        { text: '0 Ejudge', link: '/docs/wi/ejudge' }, // система для проведения олимпиады по программированию с автопроверкой кода 
+        { text: '0 Flatpak', link: '/docs/wi/flatpak' }, 
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
         { text: '0 MODX', link: '/docs/wi/modx' },
-        { text: '0 Netbox', link: '/docs/wi/netbox' },
         { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
-        { text: '0 OpenNebula', link: '/docs/wi/opennebula' },
-        { text: '0 Open Project', link: '/docs/wi/open-project' },
+        { text: '0 OpenNebula', link: '/docs/wi/opennebula' }, 
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
         { text: '0 OpenVPN', link: '/docs/wi/openvpn' },
         { text: '0 Pacemaker', link: '/docs/wi/pacemaker' },
-        { text: '0 Proxmox Backup Server', link: '/docs/wi/pbs' },
         { text: '0 Redmine', link: '/docs/wi/redmine' },
         { text: '0 Smath Studio', link: '/docs/wi/smath-studio' },
         { text: '0 SOGo', link: '/docs/wi/sogo' },
-        { text: '0 Sphinx', link: '/docs/wi/sphinx' },
-        { text: '0 Taskcafe', link: '/docs/wi/taskcafe' },
+        { text: '0 Sphinx', link: '/docs/wi/sphinx' }, // автодокументирование кода
         { text: '0 Traefik', link: '/docs/wi/traefik' },
         { text: '0 Veyon', link: '/docs/wi/veyon' },
         { text: '0 Weblate', link: '/docs/wi/weblate' },
@@ -311,7 +337,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! ALT in WSL', link: '/docs/wi/alt-wsl' },
         { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
-        { text: '0 Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
+        { text: '! Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' }, 
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
         { text: '! ZeroTier', link: '/docs/wi/zerotier' },
       ]
