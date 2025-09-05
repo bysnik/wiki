@@ -227,6 +227,15 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
+      text: 'Open Source SIEM',
+      collapsed: true,
+      items: [
+        { text: '! SELKS', link: '/docs/wi/selks' }, // Как дополнение к Wazuh для сетевого мониторинга
+        { text: '! Wazuh', link: '/docs/wi/wazuh' },
+      ]
+    },
+
+    {
       text: 'Прикладное ПО',
       collapsed: true,
       items: [

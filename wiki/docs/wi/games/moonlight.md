@@ -1,5 +1,6 @@
 # Moonlight
 
+![](https://habrastorage.org/getpro/habr/upload_files/7e5/a61/b4d/7e5a61b4d6fcad302a834f24e2f212cf.png)
 
 Moonlight (ранее Limelight) — это реализация протокола GameStream от NVIDIA с открытым исходным кодом. Участники проекта внедрили протокол, используемый NVIDIA Shield, и написали набор сторонних клиентов.
 
@@ -12,6 +13,8 @@ flatpak install flathub com.moonlight_stream.Moonlight
 ```
 
 ## Настройка в связке с Sunshine
+
+![](https://flathub.org/api/appOgImage/dev.lizardbyte.app.Sunshine?locale=ta)
 
 Sunshine — это хостинг-платформа для трансляции игр Moonlight. Предлагает возможности облачного игрового сервера с низкой задержкой и поддержкой видеокарт AMD, Intel и Nvidia для аппаратного кодирования. Также доступно программное кодирование. Вы можете подключиться к Sunshine с любого клиента Moonlight на различных устройствах. Веб-интерфейс позволяет настраивать параметры и подключать клиентов через ваш любимый веб-браузер. Подключение осуществляется с локального сервера или любого мобильного устройства.
 

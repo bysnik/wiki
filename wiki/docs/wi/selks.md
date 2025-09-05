@@ -1,0 +1,1 @@
+https://github.com/StamusNetworks/SELKS - сейчас они прекратили работу над ним, доработали, и теперь он https://docs.clearndr.io/docs/start/getting-started
