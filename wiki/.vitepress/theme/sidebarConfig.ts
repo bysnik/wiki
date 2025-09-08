@@ -353,51 +353,51 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Приколы с GitHub',
       collapsed: true,
       items: [
-          { text: 'spacebarchat', link: '/docs/wi/spacebarchat' }, // https://github.com/spacebarchat/spacebarchat
-          { text: 'caddyserver', link: '/docs/wi/caddyserver' }, // https://caddyserver.com/docs/
-          { text: 'kanban-tui', link: '/docs/wi/kanban-tui' }, // https://github.com/Zaloog/kanban-tui
-          { text: 'homer', link: '/docs/wi/homer' }, // https://github.com/bastienwirtz/homer
-          { text: 'homer', link: '/docs/wi/homer' }, // https://github.com/sipcapture/homer
-          { text: 'sniffnet', link: '/docs/wi/sniffnet' }, // https://github.com/GyulyVGC/sniffnet
-          { text: 'nagios-core', link: '/docs/wi/nagios-core' }, // https://www.nagios.org/projects/nagios-core/
-          { text: 'openipc', link: '/docs/wi/openipc' }, // https://openipc.org/
-          { text: 'bunkerweb', link: '/docs/wi/bunkerweb' }, // https://docs.bunkerweb.io/latest/
-          { text: 'Mindmap', link: '/docs/wi/Mindmap' }, // https://github.com/Ignitetechnologies/Mindmap
-          { text: 'vhs', link: '/docs/wi/vhs' }, // https://github.com/charmbracelet/vhs
-          { text: 'phpLDAPadmin', link: '/docs/wi/phpLDAPadmin' }, // https://github.com/leenooks/phpLDAPadmin
-          { text: 'blue95', link: '/docs/wi/blue95' }, // https://github.com/winblues/blue95
-          { text: 'monaco-editor', link: '/docs/wi/monaco-editor' }, // https://github.com/microsoft/monaco-editor
-          { text: 'counter-osint-guide-ru', link: '/docs/wi/counter-osint-guide-ru' }, // https://github.com/soxoj/counter-osint-guide-ru
-          { text: 'maltrail', link: '/docs/wi/maltrail' }, // https://github.com/stamparm/maltrail
-          { text: 'Nginx-Lua-Anti-DDoS', link: '/docs/wi/Nginx-Lua-Anti-DDoS' }, // https://github.com/C0nw0nk/Nginx-Lua-Anti-DDoS
-          { text: 'semaphore', link: '/docs/wi/semaphore' }, // https://github.com/semaphoreui/semaphore
-          { text: 'isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd
-          { text: 'dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android
-          { text: 'documize', link: '/docs/wi/documize' }, // https://docs.documize.com/s/VzO9ZqMOCgABGyfW/installation-guides/d/V16L08ucxwABhZF6/installation-guide
-          { text: 'RedisInsight', link: '/docs/wi/RedisInsight' }, // https://github.com/redis/RedisInsight
-          { text: 'scrypted', link: '/docs/wi/scrypted' }, // https://docs.scrypted.app/c
-          { text: 'lossless-cut', link: '/docs/wi/lossless-cut' }, // https://github.com/mifi/lossless-cut
-          { text: 'hddsuperclone', link: '/docs/wi/hddsuperclone' }, // https://www.hddsuperclone.com
-          { text: 'wrapguard', link: '/docs/wi/wrapguard' }, // https://github.com/puzed/wrapguard
-          { text: 'cap', link: '/docs/wi/cap' }, // https://github.com/tiagozip/cap
-          { text: 'kubesolo', link: '/docs/wi/kubesolo' }, // https://github.com/portainer/kubesolo
-          { text: 'lofi-engine', link: '/docs/wi/lofi-engine' }, // https://github.com/meel-hd/lofi-engine#lofi-engine забавно)
-          { text: 'openrouter-bot', link: '/docs/wi/openrouter-bot' }, // https://github.com/Lifailon/openrouter-bot
-          { text: 'openmaxio-object-browser', link: '/docs/wi/openmaxio-object-browser' }, // https://github.com/OpenMaxIO/openmaxio-object-browser?tab=readme-ov-file
-          { text: 'console', link: '/docs/wi/console' }, // https://github.com/georgmangold/console
-          { text: 'ssh-bot', link: '/docs/wi/ssh-bot' }, // https://github.com/Lifailon/ssh-bot
-          { text: 'NetAlertXc', link: '/docs/wi/NetAlertXc' }, // https://github.com/jokob-sk/NetAlertXc
-          { text: 'worklenz', link: '/docs/wi/worklenz' }, // https://github.com/Worklenz/worklenz
-          { text: 'skydive', link: '/docs/wi/skydive' }, // https://github.com/skydive-project/skydive
-          { text: 'caretta', link: '/docs/wi/caretta' }, // https://github.com/groundcover-com/caretta 
-          { text: 'sshx', link: '/docs/wi/sshx' }, // https://github.com/ekzhang/sshx
-          { text: 'plane', link: '/docs/wi/plane' }, // https://github.com/makeplane/plane
-          { text: 'tpotce', link: '/docs/wi/tpotce' }, // https://github.com/telekom-security/tpotce
-          { text: 'openrepo', link: '/docs/wi/openrepo' }, // https://github.com/openkilt/openrepo
-          { text: 'zitadel', link: '/docs/wi/zitadel' }, // https://github.com/zitadel/zitadel
-          { text: 'zeek', link: '/docs/wi/zeek' }, // https://github.com/zeek/zeek
-          { text: 'sctgdesk-server', link: '/docs/wi/sctgdesk-server' }, // https://github.com/sctg-development/sctgdesk-server
-          { text: 'rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla?tab=readme-ov-file
+          { text: '0 spacebarchat', link: '/docs/wi/spacebarchat' }, // https://github.com/spacebarchat/spacebarchat
+          { text: '0 caddyserver', link: '/docs/wi/caddyserver' }, // https://caddyserver.com/docs/
+          { text: '0 kanban-tui', link: '/docs/wi/kanban-tui' }, // https://github.com/Zaloog/kanban-tui
+          { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/bastienwirtz/homer
+          { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/sipcapture/homer
+          { text: '0 sniffnet', link: '/docs/wi/sniffnet' }, // https://github.com/GyulyVGC/sniffnet
+          { text: '0 nagios-core', link: '/docs/wi/nagios-core' }, // https://www.nagios.org/projects/nagios-core/
+          { text: '0 openipc', link: '/docs/wi/openipc' }, // https://openipc.org/
+          { text: '0 bunkerweb', link: '/docs/wi/bunkerweb' }, // https://docs.bunkerweb.io/latest/
+          { text: '0 Mindmap', link: '/docs/wi/Mindmap' }, // https://github.com/Ignitetechnologies/Mindmap
+          { text: '0 vhs', link: '/docs/wi/vhs' }, // https://github.com/charmbracelet/vhs
+          { text: '0 phpLDAPadmin', link: '/docs/wi/phpLDAPadmin' }, // https://github.com/leenooks/phpLDAPadmin
+          { text: '0 blue95', link: '/docs/wi/blue95' }, // https://github.com/winblues/blue95
+          { text: '0 monaco-editor', link: '/docs/wi/monaco-editor' }, // https://github.com/microsoft/monaco-editor
+          { text: '0 counter-osint-guide-ru', link: '/docs/wi/counter-osint-guide-ru' }, // https://github.com/soxoj/counter-osint-guide-ru
+          { text: '0 maltrail', link: '/docs/wi/maltrail' }, // https://github.com/stamparm/maltrail
+          { text: '0 Nginx-Lua-Anti-DDoS', link: '/docs/wi/Nginx-Lua-Anti-DDoS' }, // https://github.com/C0nw0nk/Nginx-Lua-Anti-DDoS
+          { text: '0 semaphore', link: '/docs/wi/semaphore' }, // https://github.com/semaphoreui/semaphore
+          { text: '0 isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd
+          { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android
+          { text: '0 documize', link: '/docs/wi/documize' }, // https://docs.documize.com/s/VzO9ZqMOCgABGyfW/installation-guides/d/V16L08ucxwABhZF6/installation-guide
+          { text: '0 RedisInsight', link: '/docs/wi/RedisInsight' }, // https://github.com/redis/RedisInsight
+          { text: '0 scrypted', link: '/docs/wi/scrypted' }, // https://docs.scrypted.app/c
+          { text: '0 lossless-cut', link: '/docs/wi/lossless-cut' }, // https://github.com/mifi/lossless-cut
+          { text: '0 hddsuperclone', link: '/docs/wi/hddsuperclone' }, // https://www.hddsuperclone.com
+          { text: '0 wrapguard', link: '/docs/wi/wrapguard' }, // https://github.com/puzed/wrapguard
+          { text: '0 cap', link: '/docs/wi/cap' }, // https://github.com/tiagozip/cap
+          { text: '0 kubesolo', link: '/docs/wi/kubesolo' }, // https://github.com/portainer/kubesolo
+          { text: '0 lofi-engine', link: '/docs/wi/lofi-engine' }, // https://github.com/meel-hd/lofi-engine#lofi-engine забавно)
+          { text: '0 openrouter-bot', link: '/docs/wi/openrouter-bot' }, // https://github.com/Lifailon/openrouter-bot
+          { text: '0 openmaxio-object-browser', link: '/docs/wi/openmaxio-object-browser' }, // https://github.com/OpenMaxIO/openmaxio-object-browser?tab=readme-ov-file
+          { text: '0 console', link: '/docs/wi/console' }, // https://github.com/georgmangold/console
+          { text: '0 ssh-bot', link: '/docs/wi/ssh-bot' }, // https://github.com/Lifailon/ssh-bot
+          { text: '0 NetAlertXc', link: '/docs/wi/NetAlertXc' }, // https://github.com/jokob-sk/NetAlertXc
+          { text: '0 worklenz', link: '/docs/wi/worklenz' }, // https://github.com/Worklenz/worklenz
+          { text: '0 skydive', link: '/docs/wi/skydive' }, // https://github.com/skydive-project/skydive
+          { text: '0 caretta', link: '/docs/wi/caretta' }, // https://github.com/groundcover-com/caretta 
+          { text: '0 sshx', link: '/docs/wi/sshx' }, // https://github.com/ekzhang/sshx
+          { text: '0 plane', link: '/docs/wi/plane' }, // https://github.com/makeplane/plane
+          { text: '0 tpotce', link: '/docs/wi/tpotce' }, // https://github.com/telekom-security/tpotce
+          { text: '0 openrepo', link: '/docs/wi/openrepo' }, // https://github.com/openkilt/openrepo
+          { text: '0 zitadel', link: '/docs/wi/zitadel' }, // https://github.com/zitadel/zitadel
+          { text: '0 zeek', link: '/docs/wi/zeek' }, // https://github.com/zeek/zeek
+          { text: '0 sctgdesk-server', link: '/docs/wi/sctgdesk-server' }, // https://github.com/sctg-development/sctgdesk-server
+          { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla?tab=readme-ov-file
         ]
     }
   ],
