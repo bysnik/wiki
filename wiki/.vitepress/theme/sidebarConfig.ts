@@ -264,7 +264,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Open Project', link: '/docs/wi/open-project' },
         { text: '0 Redmine', link: '/docs/wi/redmine' },
         { text: '! Taskcafe', link: '/docs/wi/taskcafe' },
-        { text: '0 Znuny', link: '/docs/wi/znuny' },
+        { text: 'Znuny', link: '/docs/wi/znuny' },
       ]
     },
 
