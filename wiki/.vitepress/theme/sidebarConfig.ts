@@ -291,11 +291,11 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
-      text: 'Self-hosted Tools',
+      text: 'Self-hosted Инструменты',
       collapsed: true,
       items: [
         { text: '! Draw.io', link: '/docs/wi/draw.io' },
-        { text: '! Stirling-pdf', link: '/docs/wi/stirling-pdf' }, 
+        { text: '! Stirling PDF', link: '/docs/wi/stirling-pdf' }, 
         { text: '! IT-tools', link: '/docs/wi/it-tools' }, 
       ]
     },

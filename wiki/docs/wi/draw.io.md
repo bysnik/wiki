@@ -1,70 +1,74 @@
-## Introduction
+# draw.io
 
-[draw.io](https://github.com/jgraph/drawio) is a whiteboarding / diagramming software application. This project contains various docker implementations of draw.io and associated tools:
+![](https://www.drawio.com/assets/img/blog/simple-mode.png)
 
-* draw.io docker image that is always up-to-date with draw.io releases
-* draw.io export server image which allow exporting draw.io diagrams to pdf and images
-* docker-compose to run draw.io with the export server
-* docker-compose to run draw.io integrated within nextcloud
-* docker-compose to run draw.io self-contained without any dependency on diagrams.net website (with the export server, Google Drive support, OneDrive support, and EMF conversion support (for VSDX export)
+## Введение
 
-## Description
+[draw.io](https://github.com/jgraph/drawio) — это приложение для совместной работы и создания диаграмм. Этот проект содержит различные реализации draw.io в Docker и связанные с ним инструменты:
 
-The Dockerfile builds from `tomcat:9-jre11` (see <https://hub.docker.com/_/tomcat/>)
+* Docker-образ draw.io, который всегда обновляется в соответствии с релизами draw.io
+* Образ сервера экспорта draw.io, позволяющий экспортировать диаграммы в pdf и изображения
+* docker-compose для запуска draw.io вместе с сервером экспорта
+* docker-compose для запуска draw.io, интегрированного в nextcloud
+* docker-compose для запуска автономной версии draw.io без каких-либо зависимостей от веб-сайта diagrams.net (с сервером экспорта, поддержкой Google Drive, поддержкой OneDrive и поддержкой преобразования EMF для экспорта VSDX)
 
-**Note: Starting from version 16.5.3, alpine and debian images are no longer maintained. We changed to a single image that uses the tomcat image with the least security vulnerabilities.**
+## Описание
 
-Forked from [fjudith/draw.io](https://github.com/fjudith/docker-draw.io)
+Dockerfile собирается на основе `tomcat:9-jre11` (см. <https://hub.docker.com/_/tomcat/>)
 
-## Features
+**Примечание: Начиная с версии 16.5.3, образы на основе alpine и debian больше не поддерживаются. Мы перешли на единый образ, использующий образ tomcat с наименьшим количеством уязвимостей безопасности.**
 
-* Based on Tomcat so it can be used directly or behind a reverse-proxy
-* Self-Signed certificate autogen
-* Let's encrypt certificate autogen
-* Support SSL Keystore mount to `/user/local/tomcat/.keystore`
+Ответвлен от [fjudith/draw.io](https://github.com/fjudith/docker-draw.io)
 
-## Quick Start
+## Возможности
 
-Run the container.
+* Основан на Tomcat, поэтому может использоваться напрямую или за обратным прокси-сервером
+* Автогенерация самоподписанного сертификата
+* Автогенерация сертификата Let's encrypt
+* Поддержка монтирования SSL Keystore в `/user/local/tomcat/.keystore`
+
+## Быстрый старт
+
+Запустите контейнер.
 
 ```bash
 docker run -it --rm --name="draw" -p 8080:8080 -p 8443:8443 jgraph/drawio
 ```
 
-> `?offline=1` is a security feature that disables support of cloud storage.
+> `?offline=1` — это функция безопасности, которая отключает поддержку облачных хранилищ.
 
-## Environment variables
+## Переменные окружения
 
-* **LETS_ENCRYPT_ENABLED**: Enables Let's Encrypt certificate instead of self-signed; default `false`
-* **PUBLIC_DNS**: DNS domain to be used as certificate "CN" record; default `draw.example.com`
-* **ORGANISATION_UNIT**: Organisation unit to be used as certificate "OU" record; default `Cloud Native Application`
-* **ORGANISATION**: Organisation name to be used as certificate "O" record; default `example inc`
-* **CITY**: City name to be used as certificate "L" record; default `Paris`
-* **STATE**: State name to be used as certificate "ST" record; default `Paris`
-* **COUNTRY_CODE**: Country code to be used as certificate "C" record; default `FR`
-* **KEYSTORE_PASS**: ".keystore"/.jks" store password; default `V3ry1nS3cur3P4ssw0rd`
-* **KEY_PASS**: Private key password; default `<ref:KEYSTORE_PASS>`
+* **LETS_ENCRYPT_ENABLED**: Включает сертификат Let's Encrypt вместо самоподписанного; по умолчанию `false`
+* **PUBLIC_DNS**: Доменное имя DNS, используемое в качестве записи "CN" сертификата; по умолчанию `draw.example.com`
+* **ORGANISATION_UNIT**: Организационное подразделение, используемое в качестве записи "OU" сертификата; по умолчанию `Cloud Native Application`
+* **ORGANISATION**: Название организации, используемое в качестве записи "O" сертификата; по умолчанию `example inc`
+* **CITY**: Название города, используемое в качестве записи "L" сертификата; по умолчанию `Paris`
+* **STATE**: Название штата/провинции, используемое в качестве записи "ST" сертификата; по умолчанию `Paris`
+* **COUNTRY_CODE**: Код страны, используемый в качестве записи "C" сертификата; по умолчанию `FR`
+* **KEYSTORE_PASS**: Пароль хранилища ".keystore"/.jks"; по умолчанию `V3ry1nS3cur3P4ssw0rd`
+* **KEY_PASS**: Пароль закрытого ключа; по умолчанию `<ref:KEYSTORE_PASS>`
 
-## HTTPS SSL Certificate via Let's Encrypt
+## HTTPS SSL сертификат через Let's Encrypt
 
-### Prerequisites:
+### Предварительные требования:
 
-1. A Linux machine connected to the Internet with ports 443 and 80 open
-1. A domain/subdomain name pointing to this machine's IP address. (e.g., drawio.example.com)
+1. Linux-машина, подключенная к Интернету, с открытыми портами 443 и 80
+2. Доменное имя/поддомен, указывающий на IP-адрес этой машины. (например, drawio.example.com)
 
-### Method:
+### Метод:
 
-1. Create a directory to store the letsencrypt data. (e.g., /opt/docker/drawiodata/letsencrypt-log, /opt/docker/drawiodata/letsencrypt-etc, /opt/docker/drawiodata/letsencrypt-lib)
-2. Using jgraph/drawio docker image, run the following command
+1. Создайте каталог для хранения данных letsencrypt. (например, /opt/docker/drawiodata/letsencrypt-log, /opt/docker/drawiodata/letsencrypt-etc, /opt/docker/drawiodata/letsencrypt-lib)
+2. Используя образ Docker jgraph/drawio, выполните следующую команду
 ```bash
 docker run -it -m1g -v "/opt/docker/drawiodata/letsencrypt-log:/var/log/letsencrypt/" -v "/opt/docker/drawiodata/letsencrypt-etc:/etc/letsencrypt/" -v "/opt/docker/drawiodata/letsencrypt-lib:/var/lib/letsencrypt" -e LETS_ENCRYPT_ENABLED=true -e PUBLIC_DNS=drawio.example.com --rm --name="draw" -p 80:80 -p 443:8443 jgraph/drawio
 ```
-Notice that mapping port 80 to container's port 80 allows certbot to work in stand-alone mode. Mapping port 443 to container's port 8443 allows the container tomcat to serve https requests directly.
+Обратите внимание, что проброс порта 80 на порт 80 контейнера позволяет certbot работать в автономном режиме. Проброс порта 443 на порт 8443 контейнера позволяет tomcat напрямую обслуживать https-запросы.
 
-## Changing draw.io configuration
+## Изменение конфигурации draw.io
 
-Configuration is managed by `DRAWIO_*` environment variables. For a list of these variables, check the `docker-entrypoint.sh` file in the `main` directory. For example, these variables allow enabling integration with Google Drive, OneDrive, ...
+Конфигурация управляется переменными окружения `DRAWIO_*`. Для получения списка этих переменных проверьте файл `docker-entrypoint.sh` в директории `main`. Например, эти переменные позволяют включить интеграцию с Google Drive, OneDrive, ...
 
-## Reference
+## Ссылки
 
 * <https://github.com/jgraph/drawio>
