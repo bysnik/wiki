@@ -328,6 +328,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Игры',
       collapsed: true,
       items: [
+        { text: 'DayZ', link: '/docs/wi/games/dayz' },
         { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
         { text: 'Moonlight', link: '/docs/wi/games/moonlight' },
       ]
