@@ -8,7 +8,7 @@
 
 **ALT Linux:**
 ```bash
-apt-get install gcc gdb i586-glibc i585-glibc-pthread
+apt-get install gcc gdb i586-glibc-* i586-glibc-pthread
 ```
 
 После установки этих пакетов выполните следующие действия:
