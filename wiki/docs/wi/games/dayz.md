@@ -65,7 +65,7 @@ curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.g
 
 ### Шаг 3: Запуск сервера DayZ
 
-> **⚠ ВАЖНО:** Перед первым запуском обязательно настройте файлы конфигурации (например, `serverDZ.cfg` и `serverDZ.ini` в папке `profiles`), указав название сервера, пароль, количество слотов и другие параметры.
+> **⚠ ВАЖНО:** Перед первым запуском обязательно настройте файлы конфигурации (файл `serverDZ.cfg`), указав название сервера, пароль, количество слотов и другие параметры.
 
 #### Вариант 3.1: Запуск без модов
 
@@ -77,12 +77,12 @@ cd ~/servers/dayz-server/
 ```bash
 # Запускаем исполняемый файл сервера с параметрами:
 # -config=serverDZ.cfg - указывает основной файл конфигурации
-# -port=2301 - задает игровой порт (UDP)
+# -port=2302 - задает игровой порт (UDP)
 # -BEpath=battleye - путь к файлам BattlEye (античит)
 # -profiles=profiles - папка с профилями сервера (логи, конфиги)
 # -dologs -adminlog -netlog - включает ведение различных логов
 # -freezecheck - включает проверку "зависаний"
-./DayZServer -config=serverDZ.cfg -port=2301 -BEpath=battleye -profiles=profiles -dologs -adminlog -netlog -freezecheck
+./DayZServer -config=serverDZ.cfg -port=2302 -BEpath=battleye -profiles=profiles -dologs -adminlog -netlog -freezecheck
 ```
 
 #### Вариант 3.2: Запуск с модами
