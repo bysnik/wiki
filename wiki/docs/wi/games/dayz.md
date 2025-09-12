@@ -15,6 +15,9 @@ apt-get install gcc gdb i586-glibc-* i586-glibc-pthread
 
 ```bash
 mkdir -p ~/servers/steamcmd && cd ~/servers/steamcmd
+```
+
+```bash
 curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
 ```
 
@@ -52,6 +55,9 @@ curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.g
 
 ```bash
 cd ~/servers/dayz-server/
+```
+
+```bash
 ./DayZServer -config=serverDZ.cfg -port=2301 -BEpath=battleye -profiles=profiles -dologs -adminlog -netlog -freezecheck
 ```
 
@@ -61,9 +67,21 @@ cd ~/servers/dayz-server/
 
 ```bash
 cd ~/servers/dayz-server/
+```
+
+```bash
 ln -s ~/servers/dayz-server/steamapps/workshop/content/221100/1559212036 ~/servers/dayz-server/1559212036
+```
+
+```bash
 ln -s ~/servers/dayz-server/steamapps/workshop/content/221100/1564026768 ~/servers/dayz-server/1564026768
+```
+
+```bash
 ln -s ~/servers/dayz-server/steamapps/workshop/content/221100/1559212036/keys/* ~/servers/dayz-server/keys/
+```
+
+```bash
 ./DayZServer -config=serverDZ.cfg -port=2301 "-mod=1559212036;1564026768;" -BEpath=battleye -profiles=profiles -dologs -adminlog -netlog -freezecheck
 ```
 
@@ -87,9 +105,21 @@ ln -s ~/servers/dayz-server/steamapps/workshop/content/221100/1559212036/keys/* 
 **С модами:** `nano ~/servers/dayz-server/update.sh`
 ```bash
 /home/your_username/servers/steamcmd/steamcmd.sh +force_install_dir /home/your_username/servers/dayz-server/ +login your_login +app_update 223350 +workshop_download_item 221100 1559212036 +workshop_download_item 221100 1564026768 +quit
+```
+
+```bash
 rm /home/your_username/servers/dayz-server/1559212036 /home/your_username/servers/dayz-server/1564026768 /home/your_username/servers/dayz-server/keys/Jacob_Mango_V3.bikey
+```
+
+```bash
 ln -s /home/your_username/servers/dayz-server/steamapps/workshop/content/221100/1559212036 /home/your_username/servers/dayz-server/1559212036
+```
+
+```bash
 ln -s /home/your_username/servers/dayz-server/steamapps/workshop/content/221100/1564026768 /home/your_username/servers/dayz-server/1564026768
+```
+
+```bash
 ln -s /home/your_username/servers/dayz-server/steamapps/workshop/content/221100/1559212036/keys/* /home/your_username/servers/dayz-server/keys/
 ```
 
@@ -317,13 +347,6 @@ clientPort = 2304; // значение int, принудительно указ�
 - `-mod=<string>` — Загружает указанные подпапки для разных модов. Разделяются точкой с запятой. Возможны абсолютный путь и несколько папок, расположенных друг над другом.
 - `-serverMod=<string>` — загружает указанные подпапки для различных серверных модов (не транслируемых клиентам). Разделяются точкой с запятой. Возможны абсолютные пути и несколько папок, расположенных друг над другом.
 - `-storage=` — определяет пользовательскую корневую папку для хранения.
-
-> **ℹ Примечание:** Можно определить пакетную переменную в файле .bat и использовать ее в аргументах конфигурации запуска exe-файла сервера, например:
-> ```batch
-> set missionLocation=%userProfile%\Documents\DayZ\Stable\mpmissions\dayzOffline.enoch
-> ...
-> DayZServer_x64.exe -mission=%missionLocation%
-> ```
 
 ### Приоритетная очередь
 
