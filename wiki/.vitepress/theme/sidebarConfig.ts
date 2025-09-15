@@ -603,7 +603,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'МДК 02.02 Программное обеспечение компьютерных сетей',
       items: [
         { text: 'Назад к модулю', link: '/docs/disciplines/pm2/' },
-        { text: 'Урок 0. Тестовый', link: '/docs/disciplines/pm2/mdk22/page' },
+        { text: 'Урок 0. Сага о драйверах', link: '/docs/disciplines/pm2/mdk22/driver_saga' },
       ]
     }
   ],
