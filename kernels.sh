@@ -5,9 +5,12 @@ show_help() {
     echo "Использование: $0 <команда>"
     echo ""
     echo "Команды:"
-    echo "  5.10.241-std-def-alt0.c9f.2  - установка данного ядра"
+    echo "  5.10.241-std-def-alt0.c9f.2  - установка данного ядра. Необходим заранее подготовленный локальный репозиторий c9f2"
+    echo "  6.12-6.12.41-alt0.c10f.2  - установка данного ядра. Необходим заранее подготовленный локальный репозиторий c10f2"
     echo "  repo-c9f2                    - создание минимального репозитория c9f2 для установки ядра"
+    echo "  repo-c10f2                   - создание минимального репозитория c10f2 для установки ядра"
     echo "  create-iso                   - подготовить iso-образ с репозиторием и данным скриптом"
+    echo "  burn-iso-interactive         - нарезать iso-образ в интерактивном режиме"
     echo "  help                         - показать эту справку"
     echo ""
     echo "Пример: $0 5.10.241-std-def-alt0.c9f.2"
@@ -15,17 +18,48 @@ show_help() {
 
 # Функция для запуска установки данного ядра
 5.10.241-std-def-alt0.c9f.2() {
+    install-kernel "5.10.241-std-def-alt0.c9f.2" "CF2"
+}
+
+# Функция для запуска установки данного ядра
+6.12-6.12.41-alt0.c10f.2() {
+    install-kernel "kernel-image-6.12-6.12.41-alt0.c10f.2" "c10f2"
+}
+
+# Функция скачивания репозитория c9f2
+repo-c9f2() {
+    download-repo "repo/ALTLinux/CF2/branch" "http://update.altsp.su/pub/distributions/ALTLinux/CF2/branch/" \
+    "noarch/RPMS.classic/ x86_64/RPMS.classic/ x86_64-i586/RPMS.classic/" "kernel tripso" "classic"
+}
+
+# Функция скачивания репозитория p9 !!!!!!!!!!!!!!!!!Не используется!!!!!!!!!!!!!!!!!!!!!!!!
+repo-p9() {
+    download-repo "repo/ALTLinux/p9/branch" "https://ftp.altlinux.org/pub/distributions/ALTLinux/p9/branch/" \
+    "noarch/RPMS.classic/ x86_64/RPMS.classic/ x86_64-i586/RPMS.classic/" "kernel tripso" "classic"
+}
+
+# Функция скачивания репозитория c10f2
+repo-c10f2() {
+    download-repo "repo/ALTLinux/c10f2/branch" "http://update.altsp.su/pub/distributions/ALTLinux/c10f2/branch/" \
+    "noarch/RPMS.classic/ x86_64/RPMS.classic/ x86_64-i586/RPMS.classic/" "kernel tripso" "classic"
+}
+
+# Функция для запуска установки ядра
+install-kernel() {
+    local kernelimage="${1}"
+    local repo="${2}"
     echo "Запуск процесса установки..."
 
-    # Поиск iso с репозиторием
+    # Поиск смонтированного устройства с репозиторием
     REPOISO=$(mount | grep iso | sed 's/.* on \(.*\) type.*/\1/')
     if [ -z "$REPOISO" ]; then
-        echo "Ошибка: Не найден ISO образ с репозиториями"
-        exit 1
+        echo "Путь до смонтированного устройства с репозиторием определить автоматически не удалось!"
+        echo ""
+        read -p "Укажите абсолютный путь до смонтированного устройства: " REPOISO
     fi
 
     # Проверяем наличие необходимой поддиректории
-    REPO_PATH="$REPOISO/ALTLinux/CF2"
+    REPO_PATH="$REPOISO/ALTLinux/$repo"
     if [ ! -d "$REPO_PATH" ]; then
         echo "Ошибка: В ISO образе не найдена необходимая структура директорий"
         echo "Ожидаемый путь: $REPO_PATH"
@@ -43,16 +77,16 @@ show_help() {
     # Удаляем текущие настройки репозиториев и подключаем собственную репу из iso
     echo "Подключение временного репозитория..."
     apt-repo rm all
-    apt-repo add "rpm file:$REPOISO/ALTLinux CF2/branch/x86_64 classic"
-    apt-repo add "rpm file:$REPOISO/ALTLinux CF2/branch/x86_64-i586 classic"
-    apt-repo add "rpm file:$REPOISO/ALTLinux CF2/branch/noarch classic"
+    apt-repo add "rpm file:$REPOISO/ALTLinux $repo/branch/x86_64 classic"
+    apt-repo add "rpm file:$REPOISO/ALTLinux $repo/branch/x86_64-i586 classic"
+    apt-repo add "rpm file:$REPOISO/ALTLinux $repo/branch/noarch classic"
 
     # Обновление индексов
     apt-get update
 
     # Установка ядра
-    echo "Установка ядра 5.10.241-std-def-alt0.c9f.2..."
-    update-kernel -r 5.10.241-std-def-alt0.c9f.2 -y
+    echo "Установка ядра $kernelimage..."
+    update-kernel -r $kernelimage -y
 
     echo "Восстановление настроек к изначальному состоянию..."
 
@@ -63,11 +97,7 @@ show_help() {
         apt-repo add $line
     done
 
-    confirm_reboot
-}
-
-# Функция подтверждения перезагрузки
-confirm_reboot() {
+    # Запрос на перезагрузку системы
     while true; do
 
         read -p "Перезагрузить компьютер сейчас? (Y/n): " answer
@@ -92,39 +122,47 @@ confirm_reboot() {
     done
 }
 
-repo-c9f2() {
-    # Базовый URL
-    BASE_URL="http://update.altsp.su/pub/distributions/ALTLinux/CF2/branch/"
+# Функция скачивания репозитория
+download-repo() {
+    local base_dir="${1}"
+    local base_url="${2}"
+    local subdirs_input="${3}"
+    local packages_input="${4}"
+    local repo_name="${5}"
 
-    # Массив поддиректорий для поиска
-    SUBDIRS=("noarch/RPMS.classic/" "x86_64/RPMS.classic/" "x86_64-i586/RPMS.classic/")
-
-    # Пакеты для скачивания (kernel и tripso)
-    PACKAGES=("kernel" "tripso")
+    # Преобразуем строки в массивы
+    IFS=' ' read -ra SUBDIRS <<< "$subdirs_input"
+    IFS=' ' read -ra PACKAGES <<< "$packages_input"
 
     # Создаем основную директорию
-    mkdir -p "ALTLinux/CF2/branch"
+    mkdir -p "$base_dir"
 
-    # Переходим в директорию branch
-    cd "ALTLinux/CF2/branch" || exit 1
+    # Переходим в основную директорию
+    cd "$base_dir" || { echo "Ошибка: не удалось перейти в директорию $base_dir"; return 1; }
 
     # Функция для скачивания файлов из указанной директории
     download_package_files() {
         local subdir="$1"
         local package="$2"
-        local url="${BASE_URL}${subdir}"
+        local url="${base_url}${subdir}"
 
         echo "=== Обрабатываю директорию: $subdir для пакета: $package ==="
 
-        # Создаем полную структуру каталогов (включая RPMS.classic)
+        # Создаем полную структуру каталогов
         mkdir -p "$subdir"
 
         # Переходим в созданную директорию
-        pushd "$subdir" > /dev/null || exit 1
+        pushd "$subdir" > /dev/null || return 1
 
         # Получаем список файлов, начинающихся с указанного пакета используя curl
         echo "Получаю список файлов из: $url"
-        files=$(curl -s "$url" | grep -o 'href="[^"]*"' | sed 's/href="//;s/"$//' | grep "^$package" | grep -v '/$')
+        files=$(curl -s -f "$url" | grep -o 'href="[^"]*"' | sed 's/href="//;s/"$//' | grep "^$package" | grep -v '/$')
+
+        if [ $? -ne 0 ]; then
+            echo "Ошибка при получении данных из $url"
+            popd > /dev/null
+            return 1
+        fi
 
         if [ -n "$files" ]; then
             echo "Найдены файлы:"
@@ -153,41 +191,48 @@ repo-c9f2() {
         done
     done
 
-    echo "Завершено скачивание! Все файлы сохранены в структуре каталогов branch/"
+    echo "Завершено скачивание! Все файлы сохранены в структуре каталогов $base_dir"
     echo ""
 
     # Создаем репозиторий
     echo "=== Создаю репозиторий ==="
-    REPO_DIR="$(pwd)"
-    REPO_NAME="classic"
+    local repo_dir="$(pwd)"
 
-    echo "Репозиторий находится в: $REPO_DIR"
+    echo "Локальная копия репозитория находится в: $repo_dir"
 
-    for arch in x86_64-i586 x86_64 noarch; do
+    # Находим все уникальные архитектуры из поддиректорий
+    declare -A architectures
+    for subdir in "${SUBDIRS[@]}"; do
+        arch=$(echo "$subdir" | cut -d'/' -f1)
+        architectures["$arch"]=1
+    done
+
+    for arch in "${!architectures[@]}"; do
         if [ -d "$arch" ]; then
             echo "=== Обрабатываю архитектуру: $arch ==="
-            mkdir -p "$REPO_DIR/$arch/base"
-            genbasedir --bloat --progress --topdir=. "$arch" "$REPO_NAME"
+            mkdir -p "$repo_dir/$arch/base"
+            genbasedir --bloat --progress --topdir=. "$arch" "$repo_name"
         else
             echo "Директория $arch не найдена, пропускаю"
         fi
     done
 
-    echo "Репозиторий успешно создан в текущей директории!"
+    echo "Локальная копия репозитория успешно создана в: $repo_dir"
 }
 
+# Функция создания iso-образа репозитория + этот скрипт внутри
 create-iso() {
     local output_file="${1:-image.iso}"
     local source_dir="${2:-.}"
 
     # Проверяем существование необходимых файлов
-    if [ ! -d "$source_dir/ALTLinux" ]; then
-        echo "Ошибка: Директория '$source_dir/ALTLinux' не найдена!"
+    if [ ! -d "$source_dir/repo/ALTLinux" ]; then
+        echo "Ошибка: Директория '$source_dir/ALTLinux' не найдена! Убедитесь, что репозиторий расположен в текущей директории"
         return 1
     fi
     
     if [ ! -f "$source_dir/kernels.sh" ]; then
-        echo "Ошибка: Файл '$source_dir/kernels.sh' не найден!"
+        echo "Ошибка: Файл '$source_dir/kernels.sh' не найден! Убедитесь, что скрипт расположен в текущей директории"
         return 1
     fi
     
@@ -203,15 +248,194 @@ create-iso() {
     echo "Исходная директория: $source_dir"
     
     # Создаем ISO образ
-    if mkisofs -o "$output_file" -V "ALT_LINUX_IMAGE" "$source_dir/ALTLinux" "$source_dir/kernels.sh"; then
+    if mkisofs -o "$output_file" -V "ALT_LINUX_IMAGE" -r -J -allow-lowercase \
+    -allow-multidot "$source_dir/repo" "$source_dir/kernels.sh"; then
         echo "ISO образ успешно создан: $output_file"
         echo "Размер файла: $(du -h "$output_file" | cut -f1)"
-        return 0
     else
         echo "Ошибка при создании ISO образа!"
         return 1
     fi
+
+    while true; do
+
+        read -p "Удалить локальную копию репозитория? (Y/n): " answer
+        
+        # Приводим к нижнему регистру для удобства сравнения
+        answer_lower=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
+        
+        case $answer_lower in
+            y|yes|д|да|"" )
+                echo "Удаление локальной копии репозитория..."
+                rm -rf ./repo/
+                echo "Удаление локальной копии репозитория завершено"
+                exit 0
+                ;;
+            n|no|н|нет)
+                echo "Удаление локальной копии репозитория отменено"
+                exit 0
+                ;;
+            *)
+                echo "Пожалуйста, введите Y (да) или N (нет)"
+                ;;
+        esac
+    done
 }    
+
+# Функция для безопасной нарезки устройства
+burn-iso-interactive() {
+
+    local iso_file="image.iso"
+
+    if [ ! -f "$iso_file" ]; then
+        echo "Ошибка: ISO файл '$iso_file' не существует"
+        read -p "Выберите iso-файл (например: image.iso): " iso_file
+    fi
+
+    echo "Доступные устройства для записи:"
+    echo ""
+    
+    # Показываем список устройств (исключаем системные диски)
+    local devices=()
+    while IFS= read -r line; do
+        if [[ "$line" =~ ^(sd|hd)[a-z][^0-9] ]]; then
+            echo "$line"
+            devices+=("$(echo "$line" | awk '{print $1}')")
+        fi
+    done < <(lsblk -o NAME,SIZE,MODEL,VENDOR,MOUNTPOINT | grep -E '^(sd|hd)' | grep -v '├' | grep -v '└' | grep -v "$(mount | grep ' / ' | cut -d' ' -f1 | sed 's/[0-9]//g')")
+
+    if [ ${#devices[@]} -eq 0 ]; then
+        echo "Не найдено подходящих устройств для записи"
+        echo "Подключите USB флешку или DVD устройство"
+        return 1
+    fi
+
+    echo ""
+    read -p "Выберите устройство (например: sda): " device_choice
+    
+    if [ -z "$device_choice" ]; then
+        echo "Отмена операции"
+        return 0
+    fi
+
+    # Проверяем выбор
+    if [[ ! " ${devices[@]} " =~ " ${device_choice} " ]]; then
+        echo "Ошибка: Устройство $device_choice не найдено в списке"
+        return 1
+    fi
+
+    # Запускаем запись
+    local target_device="/dev/$device_choice"
+    local block_size="4M"
+    local confirm="no"
+
+    # Проверка наличия необходимых утилит
+    if ! command -v dd &> /dev/null; then
+        echo "Ошибка: dd не установлен"
+        return 1
+    fi
+
+    if ! command -v lsblk &> /dev/null; then
+        echo "Ошибка: lsblk не установлен"
+        return 1
+    fi
+
+    # Получаем информацию об устройстве
+    local device_info=$(lsblk -o NAME,SIZE,MODEL,VENDOR,MOUNTPOINT -r "$target_device" 2>/dev/null)
+    if [ -z "$device_info" ]; then
+        echo "Ошибка: Не удалось получить информацию об устройстве $target_device"
+        return 1
+    fi
+    # Получаем точку монтирования
+    local mount_points=$(lsblk -n -o MOUNTPOINT "$target_device" | grep -v '^$' | head -1)
+
+    # Если устройство смотрировано:
+    if [ -n "$mount_points" ]; then
+        echo "Предупреждение: Устройство $target_device имеет точки монтирования:"
+        echo "$mount_points"
+        echo ""
+        echo "Выберите действие:"
+        echo "r) Размонтировать и продолжить"
+        echo "c) Отменить операцию"
+        echo "f) Принудительно продолжить (рискованно)"
+        echo ""
+        
+        read -p "Ваш выбор (r/c/f): " choice
+        
+        case $choice in
+            r|R)
+                echo "Размонтирование..."
+                for mount in $mount_points; do
+                    if ! sudo umount "$mount"; then
+                        echo "Ошибка при размонтировании $mount. Отмена."
+                        return 1
+                    fi
+                done
+                echo "Размонтирование завершено успешно."
+                ;;
+            c|C)
+                echo "Операция отменена."
+                return 1
+                ;;
+            f|F)
+                echo "Продолжаем без размонтирования (рискованно)..."
+                ;;
+            *)
+                echo "Неверный выбор. Отмена операции."
+                return 1
+                ;;
+        esac
+    fi
+
+    # Размер ISO и устройства
+    local iso_size=$(du -h "$iso_file" | cut -f1)
+    local device_size=$(lsblk -b -o SIZE -r "$target_device" | head -1)
+    local iso_size_bytes=$(stat -c%s "$iso_file")
+
+    # Проверка что устройство достаточно большое
+    if [ "$iso_size_bytes" -gt "$device_size" ]; then
+        echo "Ошибка: Размер ISO ($iso_size) больше размера устройства ($(echo "$device_size/1024/1024" | bc)M)"
+        return 1
+    fi
+
+    # Подтверждение действия
+    echo "=== ПОДТВЕРЖДЕНИЕ ЗАПИСИ ==="
+    echo "ISO файл:    $iso_file ($iso_size)"
+    echo "Устройство:  $target_device"
+    echo "Размер блока: $block_size"
+    echo "Информация об устройстве:"
+    lsblk -o NAME,SIZE,MODEL,VENDOR,MOUNTPOINT -r "$target_device"
+    echo ""
+    echo "ВНИМАНИЕ: Все данные на устройстве будут уничтожены!"
+    echo ""
+
+    if [ "$confirm" != "confirm" ]; then
+        read -p "Вы уверены что хотите продолжить? (y/N): " answer
+        if [[ ! "$answer" =~ ^[Yy]$ ]]; then
+            echo "Отмена операции"
+            return 0
+        fi
+    fi
+
+    # Запись ISO на устройство
+    echo "Начинаю запись ISO на устройство..."
+
+    # Выполняем запись
+    if dd if="$iso_file" of="$target_device" bs="$block_size" status=progress oflag=sync; then
+        echo ""
+        echo "Запись успешно завершена!"
+        echo "Синхронизация данных..."
+        # Синхронизируем данные
+        sync
+        
+        echo "Устройство готово к использованию"
+        return 0
+    else
+        echo ""
+        echo "Ошибка записи!"
+        return 1
+    fi
+}
 
 
 if [ $# -eq 0 ]; then
@@ -231,11 +455,20 @@ case "$1" in
     5.10.241-std-def-alt0.c9f.2)
         5.10.241-std-def-alt0.c9f.2
         ;;
+    6.12-6.12.41-alt0.c10f.2)
+        6.12-6.12.41-alt0.c10f.2
+        ;;
     repo-c9f2)
         repo-c9f2
         ;;
+    repo-c10f2)
+        repo-c10f2
+        ;;
     create-iso)
         create-iso
+        ;;
+    burn-iso-interactive)
+        burn-iso-interactive
         ;;
     help)
         show_help
