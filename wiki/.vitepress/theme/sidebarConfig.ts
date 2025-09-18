@@ -165,6 +165,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Keycloak', link: '/docs/wi/keycloak' },               
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
+        { text: '! n8n', link: '/docs/wi/n8n' },
         { text: '! OpenStack', link: '/docs/wi/openstack' }, 
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
       ]
@@ -240,6 +241,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: '! Clear NDR (SELKS)', link: '/docs/wi/selks' }, // Как дополнение к Wazuh для сетевого мониторинга
+        { text: '! Sniffnet', link: '/docs/wi/sniffnet' },
         { text: '! Wazuh', link: '/docs/wi/wazuh' },
       ]
     },
