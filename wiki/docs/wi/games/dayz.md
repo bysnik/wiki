@@ -13,6 +13,18 @@ SteamCMD — это инструмент командной строки от Va
 # Обновляем список пакетов и устанавливаем зависимости, необходимые для работы SteamCMD
 apt-get install gcc gdb i586-glibc-*
 ```
+**Для Debian (установка необходимых пакетов):**
+```bash
+sudo apt-get install lib32gcc-s1
+```
+**Для RHEL (установка необходимых пакетов):**
+```bash
+sudo yum install glibc.i686 libstdc++.i686
+```
+**Для Arch Linux (установка необходимых пакетов):**
+```bash
+sudo pacman -Syy glibc lib32-glibc nano
+```
 
 **Далее выполняем следующие действия для всех дистрибутивов Linux:**
 
@@ -423,3 +435,262 @@ clientPort = 2304; // значение int, принудительно указ�
 SteamId ; SteamId ; 01234567 890123456 ; 01234567 890123456
 ```
 
+
+
+
+
+Установка и настройка чистого сервера скриптом: 
+
+```bash
+#!/bin/bash
+
+# Цвета для вывода
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}=== Скрипт установки сервера DayZ без модов ===${NC}"
+
+# Проверка прав root
+if [[ $EUID -ne 0 ]]; then
+   echo -e "${RED}Этот скрипт должен быть запущен от root (или с sudo).${NC}" 
+   exit 1
+fi
+
+# Определение дистрибутива
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$ID
+    VERSION=$VERSION_ID
+elif [ -f /etc/debian_version ]; then
+    OS=debian
+elif [ -f /etc/redhat-release ]; then
+    OS=$(cat /etc/redhat-release | awk '{print tolower($1)}')
+else
+    echo -e "${RED}Не удалось определить дистрибутив.${NC}"
+    exit 1
+fi
+
+echo -e "${YELLOW}Обнаружен дистрибутив: $OS $VERSION${NC}"
+
+# Запрос логина Steam
+read -p "Введите ваш Steam логин (обязательно): " STEAM_LOGIN
+if [ -z "$STEAM_LOGIN" ]; then
+    echo -e "${RED}Логин не может быть пустым.${NC}"
+    exit 1
+fi
+
+# Определение текущего пользователя (не root!)
+echo -e "${YELLOW}Сервер будет работать от имени обычного пользователя. Укажите его имя:${NC}"
+read -p "Имя пользователя (например, dayz): " USERNAME
+if [ -z "$USERNAME" ]; then
+    echo -e "${RED}Имя пользователя не может быть пустым.${NC}"
+    exit 1
+fi
+
+if ! id "$USERNAME" &>/dev/null; then
+    echo -e "${RED}Пользователь '$USERNAME' не существует. Создайте его или укажите существующего.${NC}"
+    exit 1
+fi
+
+HOME_DIR=$(eval echo ~$USERNAME)
+SERVER_DIR="$HOME_DIR/servers/dayz-server"
+STEAMCMD_DIR="$HOME_DIR/servers/steamcmd"
+
+echo -e "${GREEN}Установка будет произведена в: $SERVER_DIR${NC}"
+
+# Установка зависимостей в зависимости от ОС
+install_dependencies() {
+    echo -e "${YELLOW}Установка зависимостей...${NC}"
+    case $OS in
+        debian|ubuntu)
+            apt-get update
+            apt-get install -y lib32gcc-s1 curl nano
+            ;;
+        rhel|centos|fedora|rocky|almalinux)
+            if command -v dnf &> /dev/null; then
+                dnf install -y glibc.i686 libstdc++.i686 curl nano
+            else
+                yum install -y glibc.i686 libstdc++.i686 curl nano
+            fi
+            ;;
+        altlinux)
+            apt-get update
+            apt-get install -y gcc gdb i586-glibc-*
+            ;;
+        arch|manjaro)
+            pacman -Sy --noconfirm glibc lib32-glibc curl nano
+            ;;
+        *)
+            echo -e "${RED}Неподдерживаемый дистрибутив: $OS${NC}"
+            exit 1
+            ;;
+    esac
+}
+
+# Установка SteamCMD
+install_steamcmd() {
+    echo -e "${YELLOW}Установка SteamCMD...${NC}"
+    sudo -u $USERNAME mkdir -p $STEAMCMD_DIR
+    cd $STEAMCMD_DIR || { echo "Не удалось перейти в $STEAMCMD_DIR"; exit 1; }
+    sudo -u $USERNAME curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | sudo -u $USERNAME tar zxvf - > /dev/null
+    if [ ! -f "steamcmd.sh" ]; then
+        echo -e "${RED}Ошибка: steamcmd.sh не найден после распаковки.${NC}"
+        exit 1
+    fi
+    echo -e "${GREEN}SteamCMD успешно установлен.${NC}"
+}
+
+# Установка сервера DayZ
+install_dayz_server() {
+    echo -e "${YELLOW}Установка сервера DayZ (стабильная версия, app 223350)...${NC}"
+    sudo -u $USERNAME mkdir -p $SERVER_DIR
+    cd $STEAMCMD_DIR || exit 1
+    sudo -u $USERNAME ./steamcmd.sh +force_install_dir $SERVER_DIR +login $STEAM_LOGIN +app_update 223350 validate +quit
+    if [ ! -f "$SERVER_DIR/DayZServer" ]; then
+        echo -e "${RED}Ошибка: DayZServer не найден. Убедитесь, что установка прошла успешно.${NC}"
+        exit 1
+    fi
+    echo -e "${GREEN}Сервер DayZ успешно установлен.${NC}"
+}
+
+# Создание базового serverDZ.cfg
+create_config() {
+    echo -e "${YELLOW}Создание базового конфигурационного файла serverDZ.cfg...${NC}"
+    CONFIG_FILE="$SERVER_DIR/serverDZ.cfg"
+    sudo -u $USERNAME mkdir -p "$SERVER_DIR/keys" "$SERVER_DIR/battleye" "$SERVER_DIR/profiles"
+
+    cat << 'EOF' | sudo -u $USERNAME tee $CONFIG_FILE > /dev/null
+hostname = "Мой DayZ Сервер";
+description = "Официальный сервер без модов";
+password = "";
+passwordAdmin = "admin123";
+maxPlayers = 40;
+verifySignatures = 2;
+forceSameBuild = 1;
+disableVoN = 0;
+vonCodecQuality = 20;
+disable3rdPerson = 0;
+disableCrosshair = 0;
+serverTime = "SystemTime";
+serverTimeAcceleration = 1;
+serverNightTimeAcceleration = 1;
+serverTimePersistent = 1;
+GuaranteedUpdates = 1;
+loginQueueConcurrentPlayers = 5;
+loginQueueMaxPlayers = 500;
+instanceId = 1;
+storageAutoFix = 1;
+
+class Missions {
+    class DayZ {
+        template = "dayzOffline.chernarusplus";
+    };
+};
+
+respawnTime = 5;
+motd[] = {"Добро пожаловать на сервер!", "Уважайте других игроков."};
+motdInterval = 60;
+timeStampFormat = "Short";
+logAverageFps = 30;
+logMemory = 30;
+logPlayers = 30;
+logFile = "server_console.log";
+adminLogPlayerHitsOnly = 0;
+adminLogPlacement = 1;
+adminLogBuildActions = 1;
+adminLogPlayerList = 1;
+allowFilePatching = 0;
+multithreadedReplication = 1;
+pingWarning = 200;
+pingCritical = 250;
+MaxPing = 300;
+serverFpsWarning = 15;
+shotValidation = 1;
+EOF
+
+    echo -e "${GREEN}Файл конфигурации создан: $CONFIG_FILE${NC}"
+}
+
+# Создание скрипта обновления
+create_update_script() {
+    echo -e "${YELLOW}Создание скрипта обновления update.sh...${NC}"
+    UPDATE_SCRIPT="$SERVER_DIR/update.sh"
+    cat << EOF | sudo -u $USERNAME tee $UPDATE_SCRIPT > /dev/null
+#!/bin/bash
+echo "[\$(date)] Обновление сервера DayZ..." >> /tmp/dayz_update.log
+$STEAMCMD_DIR/steamcmd.sh +force_install_dir $SERVER_DIR +login $STEAM_LOGIN +app_update 223350 validate +quit
+echo "[\$(date)] Обновление завершено." >> /tmp/dayz_update.log
+EOF
+
+    chmod +x $UPDATE_SCRIPT
+    chown $USERNAME:$USERNAME $UPDATE_SCRIPT
+    echo -e "${GREEN}Скрипт обновления создан: $UPDATE_SCRIPT${NC}"
+}
+
+# Создание systemd службы
+create_systemd_service() {
+    echo -e "${YELLOW}Создание службы systemd dayz-server.service...${NC}"
+    SERVICE_FILE="/etc/systemd/system/dayz-server.service"
+    cat << EOF | sudo tee $SERVICE_FILE > /dev/null
+[Unit]
+Description=Выделенный сервер DayZ
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target
+
+[Service]
+ExecStartPre=$SERVER_DIR/update.sh
+ExecStart=$SERVER_DIR/DayZServer -config=serverDZ.cfg -port=2302 -BEpath=battleye -profiles=profiles -dologs -adminlog -netlog -freezecheck
+WorkingDirectory=$SERVER_DIR
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP \$MAINPID
+ExecStop=/bin/kill -s INT \$MAINPID
+User=$USERNAME
+Group=$(id -gn $USERNAME)
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    systemctl daemon-reload
+    systemctl enable dayz-server
+    echo -e "${GREEN}Служба dayz-server создана и включена для автозапуска.${NC}"
+}
+
+# Запуск сервера
+start_server() {
+    echo -e "${YELLOW}Запуск сервера DayZ...${NC}"
+    systemctl start dayz-server
+    systemctl status dayz-server --no-pager
+}
+
+# Основная последовательность
+main() {
+    install_dependencies
+    install_steamcmd
+    install_dayz_server
+    create_config
+    create_update_script
+    create_systemd_service
+    start_server
+
+    echo -e "${GREEN}========================================================${NC}"
+    echo -e "${GREEN}✅ Установка сервера DayZ завершена!${NC}"
+    echo -e "${GREEN}Команды управления:${NC}"
+    echo -e "  systemctl start dayz-server     — запустить"
+    echo -e "  systemctl stop dayz-server      — остановить"
+    echo -e "  systemctl restart dayz-server   — перезапустить"
+    echo -e "  systemctl status dayz-server    — статус"
+    echo -e "  journalctl -u dayz-server -f    — логи в реальном времени"
+    echo -e "${GREEN}Конфиг: $SERVER_DIR/serverDZ.cfg${NC}"
+    echo -e "${GREEN}Логи: $SERVER_DIR/profiles/server_console.log${NC}"
+    echo -e "${GREEN}========================================================${NC}"
+}
+
+# Запуск
+main
+
+```
