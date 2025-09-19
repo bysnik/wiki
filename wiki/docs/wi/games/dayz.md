@@ -13,8 +13,8 @@ outline: deep
 SteamCMD — это инструмент командной строки от Valve для загрузки и обновления игровых серверов.
 
 **Для ALT Linux (установка необходимых пакетов):**
+Обновляем список пакетов и устанавливаем зависимости, необходимые для работы SteamCMD
 ```bash
-# Обновляем список пакетов и устанавливаем зависимости, необходимые для работы SteamCMD
 apt-get install gcc gdb i586-glibc-*
 ```
 **Для Debian (установка необходимых пакетов):**
@@ -31,14 +31,12 @@ sudo pacman -Syy glibc lib32-glibc nano
 ```
 
 **Далее выполняем следующие действия для всех дистрибутивов Linux:**
-
+Создаем директорию для SteamCMD и переходим в нее
 ```bash
-# Создаем директорию для SteamCMD и переходим в нее
 mkdir -p ~/servers/steamcmd && cd ~/servers/steamcmd
 ```
-
+Загружаем архив SteamCMD напрямую с серверов Steam и сразу же распаковываем его
 ```bash
-# Загружаем архив SteamCMD напрямую с серверов Steam и сразу же распаковываем его
 curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
 ```
 
@@ -53,27 +51,26 @@ curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.g
 #### Вариант 2.1: Установка без модов
 
 **Для стабильной версии игры (рекомендуется для production-сервера):**
+- +force_install_dir - указывает путь установки
+- +login - выполняет вход в Steam
+- +app_update 223350 - загружает/обновляет приложение с ID 223350 (стабильный сервер DayZ)
+- +quit - закрывает SteamCMD после завершения
 ```bash
-# +force_install_dir - указывает путь установки
-# +login - выполняет вход в Steam
-# +app_update 223350 - загружает/обновляет приложение с ID 223350 (стабильный сервер DayZ)
-# +quit - закрывает SteamCMD после завершения
 ~/servers/steamcmd/steamcmd.sh +force_install_dir ~/servers/dayz-server/ +login your_login +app_update 223350 +quit
 ```
 
 **Для экспериментальной версии (для тестирования новых обновлений):**
+Используется app_update 1042420 (экспериментальный сервер DayZ)
 ```bash
-# Используется app_update 1042420 (экспериментальный сервер DayZ)
 ~/servers/steamcmd/steamcmd.sh +force_install_dir ~/servers/dayz-server/ +login your_login +app_update 1042420 +quit
 ```
 
 #### Вариант 2.2: Установка с модами
 
 В этом примере мы установим два популярных мода: `Community Framework` и `Community Online Tools`.
-
+Команда дополнена параметрами:
+- +workshop_download_item 221100 <ID_мода> - загружает мод с указанным ID из мастерской (221100 — это ID игры DayZ в Steam)
 ```bash
-# Команда дополнена параметрами:
-# +workshop_download_item 221100 <ID_мода> - загружает мод с указанным ID из мастерской (221100 — это ID игры DayZ в Steam)
 ~/servers/steamcmd/steamcmd.sh +force_install_dir ~/servers/dayz-server/ +login your_login +app_update 223350 +workshop_download_item 221100 1559212036 +workshop_download_item 221100 1564026768 +quit
 ```
 
@@ -84,51 +81,44 @@ curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.g
 > **⚠ ВАЖНО:** Перед первым запуском обязательно настройте файлы конфигурации (файл `serverDZ.cfg`), указав название сервера, пароль, количество слотов и другие параметры.
 
 #### Вариант 3.1: Запуск без модов
-
+Переходим в директорию с сервером
 ```bash
-# Переходим в директорию с сервером
 cd ~/servers/dayz-server/
 ```
-
+Запускаем исполняемый файл сервера с параметрами:
+- -config=serverDZ.cfg - указывает основной файл конфигурации
+- -port=2302 - задает игровой порт (UDP)
+- -BEpath=battleye - путь к файлам BattlEye (античит)
+- -profiles=profiles - папка с профилями сервера (логи, конфиги)
+- -dologs -adminlog -netlog - включает ведение различных логов
+- -freezecheck - включает проверку "зависаний"
 ```bash
-# Запускаем исполняемый файл сервера с параметрами:
-# -config=serverDZ.cfg - указывает основной файл конфигурации
-# -port=2302 - задает игровой порт (UDP)
-# -BEpath=battleye - путь к файлам BattlEye (античит)
-# -profiles=profiles - папка с профилями сервера (логи, конфиги)
-# -dologs -adminlog -netlog - включает ведение различных логов
-# -freezecheck - включает проверку "зависаний"
 ./DayZServer -config=serverDZ.cfg -port=2302 -BEpath=battleye -profiles=profiles -dologs -adminlog -netlog -freezecheck
 ```
 
 #### Вариант 3.2: Запуск с модами
 
 Перед запуском необходимо создать символические ссылки на моды в корневой папке сервера, чтобы игровой клиент и сервер могли их правильно загрузить.
-
+Переходим в директорию с сервером
 ```bash
-# Переходим в директорию с сервером
 cd ~/servers/dayz-server/
 ```
-
+Создаем символическую ссылку на папку с модом "Community Framework" (ID 1559212036)
 ```bash
-# Создаем символическую ссылку на папку с модом "Community Framework" (ID 1559212036)
 ln -s ~/servers/dayz-server/steamapps/workshop/content/221100/1559212036 ~/servers/dayz-server/1559212036
 ```
-
+Создаем символическую ссылку на папку с модом "Community Online Tools" (ID 1564026768)
 ```bash
-# Создаем символическую ссылку на папку с модом "Community Online Tools" (ID 1564026768)
 ln -s ~/servers/dayz-server/steamapps/workshop/content/221100/1564026768 ~/servers/dayz-server/1564026768
 ```
-
+Создаем символические ссылки на файлы ключей (.bikey) из папки мода в папку /keys/ сервера.
+Это необходимо для того, чтобы сервер знал о доверенных модах.
 ```bash
-# Создаем символические ссылки на файлы ключей (.bikey) из папки мода в папку /keys/ сервера.
-# Это необходимо для того, чтобы сервер знал о доверенных модах.
 ln -s ~/servers/dayz-server/steamapps/workshop/content/221100/1559212036/keys/* ~/servers/dayz-server/keys/
 ```
-
+Запускаем сервер с дополнительным параметром:
+- "-mod=1559212036;1564026768;" - список ID модов для загрузки, разделенных точкой с запятой
 ```bash
-# Запускаем сервер с дополнительным параметром:
-# "-mod=1559212036;1564026768;" - список ID модов для загрузки, разделенных точкой с запятой
 ./DayZServer -config=serverDZ.cfg -port=2301 "-mod=1559212036;1564026768;" -BEpath=battleye -profiles=profiles -dologs -adminlog -netlog -freezecheck
 ```
 
@@ -147,10 +137,9 @@ ln -s ~/servers/dayz-server/steamapps/workshop/content/221100/1559212036/keys/* 
 #### Шаг 4.1: Создание скрипта для обновления
 
 Создадим скрипт, который будет отвечать за обновление игрового сервера и модов.
-
+Создаем и открываем файл скрипта в редакторе nano
 **Для сервера без модов:**
 ```bash
-# Создаем и открываем файл скрипта в редакторе nano
 nano ~/servers/dayz-server/update.sh
 ```
 Вставьте в файл следующее содержимое:
@@ -184,9 +173,8 @@ ln -sf /home/your_username/servers/dayz-server/steamapps/workshop/content/221100
 ```
 
 **Чтобы сохранить файл в редакторе nano:** Нажмите `Ctrl+O`, затем `Enter` для подтверждения имени файла. Для выхода нажмите `Ctrl+X`.
-
+Делаем скрипт исполняемым
 ```bash
-# Делаем скрипт исполняемым
 sudo chmod +x ~/servers/dayz-server/update.sh
 ```
 
@@ -194,8 +182,8 @@ sudo chmod +x ~/servers/dayz-server/update.sh
 
 Создадим файл службы, который будет управлять жизненным циклом нашего сервера.
 
+Создаем и открываем конфигурационный файл службы
 ```bash
-# Создаем и открываем конфигурационный файл службы
 sudo nano /etc/systemd/system/dayz-server.service
 ```
 
@@ -232,10 +220,9 @@ RestartSec=5s
 WantedBy=multi-user.target
 ```
 
-Сохраните файл и выйдите из редактора (`Ctrl+O` -> `Enter` -> `Ctrl+X`).
+Перечитываем конфигурацию systemd, чтобы она узнала о новой службе
 
 ```bash
-# Перечитываем конфигурацию systemd, чтобы она узнала о новой службе
 sudo systemctl daemon-reload
 ```
 
