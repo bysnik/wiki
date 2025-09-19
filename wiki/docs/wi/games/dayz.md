@@ -1,3 +1,7 @@
+---
+outline: deep
+---
+
 # Dayz
 
 ![](https://i.imgur.com/BvVmvC5.png)
@@ -436,10 +440,19 @@ SteamId ; SteamId ; 01234567 890123456 ; 01234567 890123456
 ```
 
 
+## Скрипты для автонастройки сервера
+
+Чтобы установить и настроить сервер, используя данные скрипты, достаточно всего лишь:
+1. Обновить систему до актуального состояния:
+2. Сохранить данный скрипт в файл, например, ~/install
+3. Выдать права на исполнение:
+```bash
+chmod +x ~/install
+```
+4. Запустить скрипт с правами root (либо под пользователем root, либо через sudo)
 
 
-
-Установка и настройка чистого сервера скриптом: 
+### Скрипт без модов 
 
 ```bash
 #!/bin/bash
@@ -683,7 +696,370 @@ main() {
     echo -e "  systemctl start dayz-server     — запустить"
     echo -e "  systemctl stop dayz-server      — остановить"
     echo -e "  systemctl restart dayz-server   — перезапустить"
-    echo -e "  systemctl status dayz-server    — статус"
+    echo -e "  systemctl status dayz-server    — статус сервера"
+    echo -e "  journalctl -u dayz-server -f    — логи в реальном времени"
+    echo -e "${GREEN}Конфиг: $SERVER_DIR/serverDZ.cfg${NC}"
+    echo -e "${GREEN}Логи: $SERVER_DIR/profiles/server_console.log${NC}"
+    echo -e "${GREEN}========================================================${NC}"
+}
+
+# Запуск
+main
+
+```
+
+###  Скрипт с Намальском
+```bash
+#!/bin/bash
+
+# Цвета для вывода
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}=== Скрипт установки сервера DayZ с модом Namalsk ===${NC}"
+
+# Проверка прав root
+if [[ $EUID -ne 0 ]]; then
+   echo -e "${RED}Этот скрипт должен быть запущен от root (или с sudo).${NC}"
+   exit 1
+fi
+
+# Определение дистрибутива
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$ID
+    VERSION=$VERSION_ID
+elif [ -f /etc/debian_version ]; then
+    OS=debian
+elif [ -f /etc/redhat-release ]; then
+    OS=$(cat /etc/redhat-release | awk '{print tolower($1)}')
+else
+    echo -e "${RED}Не удалось определить дистрибутив.${NC}"
+    exit 1
+fi
+
+echo -e "${YELLOW}Обнаружен дистрибутив: $OS $VERSION${NC}"
+
+# Запрос логина Steam
+read -p "Введите ваш Steam логин (обязательно): " STEAM_LOGIN
+if [ -z "$STEAM_LOGIN" ]; then
+    echo -e "${RED}Логин не может быть пустым.${NC}"
+    exit 1
+fi
+
+# Запрос Пароля Steam
+read -p "Введите ваш Steam пароль (обязательно): " STEAM_PASSWORD
+if [ -z "$STEAM_PASSWORD" ]; then
+    echo -e "${RED}Пароль не может быть пустым.${NC}"
+    exit 1
+fi
+
+# Запрос имени пользователя
+read -p "Имя пользователя (например, dayz): " USERNAME
+if [ -z "$USERNAME" ]; then
+    echo -e "${RED}Имя пользователя не может быть пустым.${NC}"
+    exit 1
+fi
+
+if ! id "$USERNAME" &>/dev/null; then
+    echo -e "${RED}Пользователь '$USERNAME' не существует. Создайте его или укажите существующего.${NC}"
+    exit 1
+fi
+
+HOME_DIR=$(eval echo ~$USERNAME)
+SERVER_DIR="$HOME_DIR/servers/dayz-server"
+STEAMCMD_DIR="$HOME_DIR/servers/steamcmd"
+
+echo -e "${GREEN}Установка будет произведена в: $SERVER_DIR${NC}"
+
+# Установка зависимостей
+install_dependencies() {
+    case $OS in
+        debian|ubuntu)
+            apt-get update && apt-get install -y lib32gcc-s1 curl nano wget
+            ;;
+        rhel|centos|fedora|rocky|almalinux)
+            if command -v dnf &> /dev/null; then
+                dnf install -y glibc.i686 libstdc++.i686 curl nano wget
+            else
+                yum install -y glibc.i686 libstdc++.i686 curl nano wget
+            fi
+            ;;
+        altlinux)
+            apt-get update && apt-get install -y gcc gdb i586-glibc-* curl nano wget
+            ;;
+        arch|manjaro)
+            pacman -Sy --noconfirm glibc lib32-glibc curl nano wget
+            ;;
+        *)
+            echo -e "${RED}Неподдерживаемый дистрибутив: $OS${NC}"
+            exit 1
+            ;;
+    esac
+}
+
+# Установка SteamCMD
+install_steamcmd() {
+    sudo -u $USERNAME mkdir -p $STEAMCMD_DIR
+    cd $STEAMCMD_DIR || exit 1
+    sudo -u $USERNAME curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | sudo -u $USERNAME tar zxvf - > /dev/null
+    if [ ! -f "steamcmd.sh" ]; then
+        echo -e "${RED}Ошибка: steamcmd.sh не найден.${NC}"
+        exit 1
+    fi
+    echo -e "${GREEN}SteamCMD установлен.${NC}"
+}
+
+# Установка сервера DayZ
+install_dayz_server() {
+    echo -e "${YELLOW}Установка сервера DayZ...${NC}"
+    sudo -u $USERNAME mkdir -p $SERVER_DIR
+    cd $STEAMCMD_DIR || exit 1
+    sudo -u $USERNAME ./steamcmd.sh +force_install_dir $SERVER_DIR +login $STEAM_LOGIN $STEAM_PASSWORD +app_update 223350 validate +quit
+    if [ ! -f "$SERVER_DIR/DayZServer" ]; then
+        echo -e "${RED}Ошибка: DayZServer не найден.${NC}"
+        exit 1
+    fi
+    echo -e "${GREEN}Сервер DayZ установлен.${NC}"
+}
+
+# Установка модов Namalsk
+install_namalsk_mods() {
+    echo -e "${YELLOW}Установка модов Namalsk...${NC}"
+    cd $STEAMCMD_DIR || exit 1
+    sudo -u $USERNAME ./steamcmd.sh +force_install_dir $SERVER_DIR +login $STEAM_LOGIN $STEAM_PASSWORD\
+        +app_update 223350 \
+        +workshop_download_item 221100 2289456201 \
+        +workshop_download_item 221100 2289461232 \
+        +quit
+
+    if [ ! -d "$SERVER_DIR/steamapps/workshop/content/221100/2289456201" ] || [ ! -d "$SERVER_DIR/steamapps/workshop/content/221100/2289461232" ]; then
+        echo -e "${RED}Ошибка: Не удалось загрузить моды Namalsk.${NC}"
+        exit 1
+    fi
+
+    # Исправляем владельца всей директории сервера
+    sudo chown -R $USERNAME:$USERNAME "$SERVER_DIR"
+
+    echo -e "${GREEN}Моды Namalsk успешно установлены.${NC}"
+}
+
+# Выбор режима
+select_mode() {
+    echo -e "${YELLOW}Выберите режим сервера:${NC}"
+    echo -e "1) Regular"
+    echo -e "2) Hardcore"
+    read -p "Введите 1 или 2: " MODE_CHOICE
+
+    case $MODE_CHOICE in
+        1)
+            MISSION="regular.namalsk"
+            CONFIG_URL="https://raw.githubusercontent.com/SumrakDZN/Namalsk-Server/main/Server%20Config/Regular/serverDZ.cfg"
+            ;;
+        2)
+            MISSION="hardcore.namalsk"
+            CONFIG_URL="https://raw.githubusercontent.com/SumrakDZN/Namalsk-Server/main/Server%20Config/Hardcore/serverDZ.cfg"
+            ;;
+        *)
+            echo -e "${RED}Неверный выбор.${NC}"
+            exit 1
+            ;;
+    esac
+
+    echo -e "${GREEN}Выбран режим: $MISSION${NC}"
+}
+
+# Создание символьных ссылок и копирование bikey + скачивание миссии
+# Создание символьных ссылок и копирование bikey + скачивание миссии
+setup_namalsk() {
+    echo -e "${YELLOW}Настройка мода Namalsk...${NC}"
+
+    # Убедимся, что вся директория принадлежит пользователю
+    sudo chown -R $USERNAME:$USERNAME "$SERVER_DIR"
+
+    # Создаем необходимые директории от имени пользователя
+    sudo -u $USERNAME mkdir -p "$SERVER_DIR/keys" "$SERVER_DIR/battleye" "$SERVER_DIR/profiles"
+
+    # Проверим, что директории созданы
+    if [ ! -d "$SERVER_DIR/keys" ] || [ ! -d "$SERVER_DIR/profiles" ]; then
+        echo -e "${RED}Ошибка: Не удалось создать директории. Проверьте права доступа к $SERVER_DIR.${NC}"
+        exit 1
+    fi
+
+    # Создаем ссылки на моды
+    sudo -u $USERNAME ln -sf "$SERVER_DIR/steamapps/workshop/content/221100/2289456201" "$SERVER_DIR/2289456201"
+    sudo -u $USERNAME ln -sf "$SERVER_DIR/steamapps/workshop/content/221100/2289461232" "$SERVER_DIR/2289461232"
+
+    # Копируем sumrak.bikey в keys
+    KEY_SOURCE="$SERVER_DIR/steamapps/workshop/content/221100/2289456201/Keys/sumrak.bikey"
+    KEY_DEST="$SERVER_DIR/keys/sumrak.bikey"
+
+    if [ -f "$KEY_SOURCE" ]; then
+        sudo -u $USERNAME cp "$KEY_SOURCE" "$KEY_DEST"
+        echo -e "${GREEN}Ключ sumrak.bikey скопирован.${NC}"
+    else
+        echo -e "${RED}Ошибка: sumrak.bikey не найден по пути: $KEY_SOURCE${NC}"
+        exit 1
+    fi
+
+    # === Скачиваем миссию с GitHub ===
+    MISSION_FOLDER="$SERVER_DIR/mpmissions/$MISSION"
+    MISSION_URL="https://github.com/SumrakDZN/Namalsk-Server/archive/refs/heads/main.zip"
+    TEMP_DIR="$HOME_DIR/tmp_namalsk_$(date +%s)"
+    sudo -u $USERNAME mkdir -p "$TEMP_DIR"
+
+    echo -e "${YELLOW}Скачивание миссии $MISSION из GitHub...${NC}"
+
+    # Скачиваем архив от имени пользователя в его домашнюю директорию
+    if command -v curl &> /dev/null; then
+        sudo -u $USERNAME curl -sL "$MISSION_URL" -o "$TEMP_DIR/namalsk.zip"
+    elif command -v wget &> /dev/null; then
+        sudo -u $USERNAME wget -qO "$TEMP_DIR/namalsk.zip" "$MISSION_URL"
+    else
+        echo -e "${RED}Ошибка: ни curl, ни wget не установлены.${NC}"
+        exit 1
+    fi
+
+    # Проверяем, что файл скачался
+    if [ ! -f "$TEMP_DIR/namalsk.zip" ] || [ ! -s "$TEMP_DIR/namalsk.zip" ]; then
+        echo -e "${RED}Ошибка: Не удалось скачать архив с GitHub.${NC}"
+        rm -rf "$TEMP_DIR"
+        exit 1
+    fi
+
+    # Распаковываем и копируем нужную папку
+    sudo -u $USERNAME unzip -q "$TEMP_DIR/namalsk.zip" -d "$TEMP_DIR"
+
+    # Проверяем структуру — в архиве папка называется "Namalsk-Server-main"
+    if [ -d "$TEMP_DIR/Namalsk-Server-main/Mission Files/$MISSION" ]; then
+        sudo -u $USERNAME mkdir -p "$MISSION_FOLDER"
+        sudo -u $USERNAME cp -r "$TEMP_DIR/Namalsk-Server-main/Mission Files/$MISSION"/* "$MISSION_FOLDER/"
+        echo -e "${GREEN}Миссия $MISSION успешно скопирована.${NC}"
+    else
+        echo -e "${RED}Ошибка: Не найдена папка Mission Files/$MISSION в архиве.${NC}"
+        echo -e "${YELLOW}Содержимое архива:${NC}"
+        sudo -u $USERNAME ls -la "$TEMP_DIR/"
+        if [ -d "$TEMP_DIR/Namalsk-Server-main" ]; then
+            echo -e "${YELLOW}Содержимое Namalsk-Server-main/Mission Files:${NC}"
+            sudo -u $USERNAME ls -la "$TEMP_DIR/Namalsk-Server-main/Mission Files/" 2>/dev/null || echo "Папка Mission Files не существует"
+        fi
+        rm -rf "$TEMP_DIR"
+        exit 1
+    fi
+
+    # Очищаем временные файлы
+    rm -rf "$TEMP_DIR"
+
+    echo -e "${GREEN}Символические ссылки, bikey и миссия $MISSION успешно настроены.${NC}"
+}
+
+# Создание конфига — скачиваем с GitHub
+create_config() {
+    echo -e "${YELLOW}Скачивание конфигурации serverDZ.cfg с GitHub...${NC}"
+    CONFIG_PATH="$SERVER_DIR/serverDZ.cfg"
+
+    # Скачиваем файл
+    if command -v curl &> /dev/null; then
+        sudo -u $USERNAME curl -sL "$CONFIG_URL" -o "$CONFIG_PATH"
+    elif command -v wget &> /dev/null; then
+        sudo -u $USERNAME wget -qO "$CONFIG_PATH" "$CONFIG_URL"
+    else
+        echo -e "${RED}Ошибка: ни curl, ни wget не установлены.${NC}"
+        exit 1
+    fi
+
+    # Проверяем, скачался ли файл
+    if [ ! -s "$CONFIG_PATH" ]; then
+        echo -e "${RED}Ошибка: Не удалось скачать конфигурационный файл с $CONFIG_URL${NC}"
+        exit 1
+    fi
+
+    # Подменяем template на выбранный (на всякий случай)
+    if grep -q "template=" "$CONFIG_PATH"; then
+        sudo -u $USERNAME sed -i "s/template=\"[^\"]*\"/template=\"$MISSION\"/" "$CONFIG_PATH"
+    else
+        echo -e "${YELLOW}Предупреждение: template не найден. Добавляем вручную.${NC}"
+        sudo -u $USERNAME sed -i '/class Missions {/a \    class DayZ {\n        template="'"$MISSION"'";\n    };' "$CONFIG_PATH"
+    fi
+
+    echo -e "${GREEN}Конфигурация сохранена: $CONFIG_PATH${NC}"
+}
+
+# Создание скрипта обновления
+create_update_script() {
+    UPDATE_SCRIPT="$SERVER_DIR/update.sh"
+    cat << EOF | sudo -u $USERNAME tee $UPDATE_SCRIPT > /dev/null
+#!/bin/bash
+echo "[\$(date)] Обновление сервера DayZ и Namalsk..." >> /tmp/dayz_update.log
+$STEAMCMD_DIR/steamcmd.sh +force_install_dir $SERVER_DIR +login $STEAM_LOGIN +app_update 223350 +workshop_download_item 221100 2289456201 +workshop_download_item 221100 2289461232 +quit
+echo "[\$(date)] Обновление завершено." >> /tmp/dayz_update.log
+EOF
+
+    chmod +x $UPDATE_SCRIPT
+    chown $USERNAME:$USERNAME $UPDATE_SCRIPT
+    echo -e "${GREEN}Скрипт обновления создан: $UPDATE_SCRIPT${NC}"
+}
+
+# Создание systemd службы
+create_systemd_service() {
+    SERVICE_FILE="/etc/systemd/system/dayz-server.service"
+    cat << EOF | sudo tee $SERVICE_FILE > /dev/null
+[Unit]
+Description=Выделенный сервер DayZ с Namalsk
+Wants=network-online.target
+After=syslog.target network.target nss-lookup.target network-online.target
+
+[Service]
+ExecStartPre=$SERVER_DIR/update.sh
+ExecStart=$SERVER_DIR/DayZServer -config=serverDZ.cfg -port=2302 -BEpath=battleye -profiles=profiles -dologs -adminlog -netlog -freezecheck "-mod=2289456201;2289461232;"
+WorkingDirectory=$SERVER_DIR
+LimitNOFILE=100000
+ExecReload=/bin/kill -s HUP \$MAINPID
+ExecStop=/bin/kill -s INT \$MAINPID
+User=$USERNAME
+Group=$(id -gn $USERNAME)
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    systemctl daemon-reload
+    systemctl enable dayz-server
+    echo -e "${GREEN}Служба dayz-server создана и включена для автозапуска.${NC}"
+}
+
+# Запуск сервера
+start_server() {
+    echo -e "${YELLOW}Запуск сервера DayZ...${NC}"
+    systemctl start dayz-server
+    sleep 3
+    systemctl status dayz-server --no-pager
+}
+
+# Основная последовательность
+main() {
+    install_dependencies
+    install_steamcmd
+    install_dayz_server
+    install_namalsk_mods
+    select_mode
+    setup_namalsk
+    create_config
+    create_update_script
+    create_systemd_service
+    start_server
+
+    echo -e "${GREEN}========================================================${NC}"
+    echo -e "${GREEN}✅ Установка сервера DayZ с модом Namalsk завершена!${NC}"
+    echo -e "${GREEN}Команды управления:${NC}"
+    echo -e "  systemctl start dayz-server     — запустить"
+    echo -e "  systemctl stop dayz-server      — остановить"
+    echo -e "  systemctl restart dayz-server   — перезапустить"
+    echo -e "  systemctl status dayz-server    — статус сервера"
     echo -e "  journalctl -u dayz-server -f    — логи в реальном времени"
     echo -e "${GREEN}Конфиг: $SERVER_DIR/serverDZ.cfg${NC}"
     echo -e "${GREEN}Логи: $SERVER_DIR/profiles/server_console.log${NC}"
