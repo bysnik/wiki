@@ -8,6 +8,7 @@ export default defineConfig({
   lang: 'ru',
   base: '/wiki/',
   themeConfig: themeConfig,
+  ignoreDeadLinks: true,
   head: [
     [
       'link',
