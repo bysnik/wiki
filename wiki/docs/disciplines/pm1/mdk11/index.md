@@ -9,3 +9,10 @@ GNS3 И ЖЁСТКАЯ База сетей. Проработать необхо�
 
 Ответ: `/etc/services`
 :::
+
+
+https://www.lartc.org/lartc.html
+
+https://www.ibiblio.org/pub/linux/docs/HOWTO/other-formats/html_single/NET3-4-HOWTO.html
+
+https://www.netfilter.org/documentation/HOWTO/networking-concepts-HOWTO.html
