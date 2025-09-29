@@ -162,6 +162,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' }, 
+        { text: '! INFRAX', link: '/docs/wi/infrax' }, 
         { text: '! Keycloak', link: '/docs/wi/keycloak' },               
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
@@ -306,6 +307,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Сервисы (В планах)',
       collapsed: true,
       items: [
+        { text: '0 Audiobookself', link: '/docs/wi/audiobookself' }, // audiobookself.org
         { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },
         { text: '0 Ejudge', link: '/docs/wi/ejudge' }, // система для проведения олимпиады по программированию с автопроверкой кода 
         { text: '0 Flatpak', link: '/docs/wi/flatpak' }, 
@@ -402,6 +404,306 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 sctgdesk-server', link: '/docs/wi/sctgdesk-server' }, // https://github.com/sctg-development/sctgdesk-server
           { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla?tab=readme-ov-file
         ]
+    },
+
+    {
+      "text": "Кибербезопасность (Заготовка)",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "0trace",
+          "collapsed": true,
+          "items": [
+            { "text": "0trace", "link": "/docs/wi/cyber/0trace" },
+            { "text": "dnsmap", "link": "/docs/wi/cyber/dnsmap" },
+            { "text": "ip2host", "link": "/docs/wi/cyber/ip2host" },
+            { "text": "whois", "link": "/docs/wi/cyber/whois" }
+          ]
+        },
+        {
+          "text": "analysis",
+          "collapsed": true,
+          "items": [
+            { "text": "angr", "link": "/docs/wi/cyber/angr" },
+            { "text": "binaryninja", "link": "/docs/wi/cyber/binaryninja" },
+            { "text": "ghidra", "link": "/docs/wi/cyber/ghidra" },
+            { "text": "radare2", "link": "/docs/wi/cyber/radare2" }
+          ]
+        },
+        {
+          "text": "anti-forensic",
+          "collapsed": true,
+          "items": [
+            { "text": "secure-delete", "link": "/docs/wi/cyber/secure-delete" },
+            { "text": "timestomp", "link": "/docs/wi/cyber/timestomp" },
+            { "text": "transmogrify", "link": "/docs/wi/cyber/transmogrify" }
+          ]
+        },
+        {
+          "text": "automation",
+          "collapsed": true,
+          "items": [
+            { "text": "faraday", "link": "/docs/wi/cyber/faraday" },
+            { "text": "pwnypot", "link": "/docs/wi/cyber/pwnypot" }
+          ]
+        },
+        {
+          "text": "backdoor",
+          "collapsed": true,
+          "items": [
+            { "text": "shellter", "link": "/docs/wi/cyber/shellter" },
+            { "text": "veil", "link": "/docs/wi/cyber/veil" },
+            { "text": "donut", "link": "/docs/wi/cyber/donut" }
+          ]
+        },
+        {
+          "text": "binary",
+          "collapsed": true,
+          "items": [
+            { "text": "binwalk", "link": "/docs/wi/cyber/binwalk" },
+            { "text": "objdump", "link": "/docs/wi/cyber/objdump" },
+            { "text": "readelf", "link": "/docs/wi/cyber/readelf" },
+            { "text": "strace", "link": "/docs/wi/cyber/strace" }
+          ]
+        },
+        {
+          "text": "bluetooth",
+          "collapsed": true,
+          "items": [
+            { "text": "bluelog", "link": "/docs/wi/cyber/bluelog" },
+            { "text": "bluez", "link": "/docs/wi/cyber/bluez" },
+            { "text": "spooftooph", "link": "/docs/wi/cyber/spooftooph" }
+          ]
+        },
+        {
+          "text": "code-audit",
+          "collapsed": true,
+          "items": [
+            { "text": "flawfinder", "link": "/docs/wi/cyber/flawfinder" },
+            { "text": "rats", "link": "/docs/wi/cyber/rats" },
+            { "text": "cppcheck", "link": "/docs/wi/cyber/cppcheck" }
+          ]
+        },
+        {
+          "text": "cracker",
+          "collapsed": true,
+          "items": [
+            { "text": "hashcat", "link": "/docs/wi/cyber/hashcat" },
+            { "text": "john", "link": "/docs/wi/cyber/john" },
+            { "text": "oclHashcat", "link": "/docs/wi/cyber/oclHashcat" },
+            { "text": "rarcrack", "link": "/docs/wi/cyber/rarcrack" }
+          ]
+        },
+        {
+          "text": "crypto",
+          "collapsed": true,
+          "items": [
+            { "text": "xortool", "link": "/docs/wi/cyber/xortool" },
+            { "text": "rsactftool", "link": "/docs/wi/cyber/rsactftool" },
+            { "text": "fealnx", "link": "/docs/wi/cyber/fealnx" }
+          ]
+        },
+        {
+          "text": "defensive",
+          "collapsed": true,
+          "items": [
+            { "text": "aide", "link": "/docs/wi/cyber/aide" },
+            { "text": "ossec", "link": "/docs/wi/cyber/ossec" },
+            { "text": "tripwire", "link": "/docs/wi/cyber/tripwire" }
+          ]
+        },
+        {
+          "text": "disassembler",
+          "collapsed": true,
+          "items": [
+            { "text": "cutter", "link": "/docs/wi/cyber/cutter" },
+            { "text": "lida", "link": "/docs/wi/cyber/lida" },
+            { "text": "retdec", "link": "/docs/wi/cyber/retdec" }
+          ]
+        },
+        {
+          "text": "dos",
+          "collapsed": true,
+          "items": [
+            { "text": "slowloris", "link": "/docs/wi/cyber/slowloris" },
+            { "text": "goldeneye", "link": "/docs/wi/cyber/goldeneye" },
+            { "text": "HOIC", "link": "/docs/wi/cyber/HOIC" }
+          ]
+        },
+        {
+          "text": "exploitation",
+          "collapsed": true,
+          "items": [
+            { "text": "metasploit", "link": "/docs/wi/cyber/metasploit" },
+            { "text": "exploitdb", "link": "/docs/wi/cyber/exploitdb" },
+            { "text": "searchsploit", "link": "/docs/wi/cyber/searchsploit" },
+            { "text": "pwntools", "link": "/docs/wi/cyber/pwntools" }
+          ]
+        },
+        {
+          "text": "firmware",
+          "collapsed": true,
+          "items": [
+            { "text": "binwalk", "link": "/docs/wi/cyber/binwalk" },
+            { "text": "firmadyne", "link": "/docs/wi/cyber/firmadyne" },
+            { "text": "ubootextract", "link": "/docs/wi/cyber/ubootextract" }
+          ]
+        },
+        {
+          "text": "fuzzing",
+          "collapsed": true,
+          "items": [
+            { "text": "afl", "link": "/docs/wi/cyber/afl" },
+            { "text": "boofuzz", "link": "/docs/wi/cyber/boofuzz" },
+            { "text": "wfuzz", "link": "/docs/wi/cyber/wfuzz" },
+            { "text": "sulley", "link": "/docs/wi/cyber/sulley" }
+          ]
+        },
+        {
+          "text": "honeypot",
+          "collapsed": true,
+          "items": [
+            { "text": "cowrie", "link": "/docs/wi/cyber/cowrie" },
+            { "text": "dionaea", "link": "/docs/wi/cyber/dionaea" },
+            { "text": "kippo", "link": "/docs/wi/cyber/kippo" }
+          ]
+        },
+        {
+          "text": "mobile",
+          "collapsed": true,
+          "items": [
+            { "text": "adb", "link": "/docs/wi/cyber/adb" },
+            { "text": "apktool", "link": "/docs/wi/cyber/apktool" },
+            { "text": "drozer", "link": "/docs/wi/cyber/drozer" },
+            { "text": "jadx", "link": "/docs/wi/cyber/jadx" }
+          ]
+        },
+        {
+          "text": "networking",
+          "collapsed": true,
+          "items": [
+            { "text": "scapy", "link": "/docs/wi/cyber/scapy" },
+            { "text": "hping3", "link": "/docs/wi/cyber/hping3" },
+            { "text": "yersinia", "link": "/docs/wi/cyber/yersinia" },
+            { "text": "netsniff-ng", "link": "/docs/wi/cyber/netsniff-ng" }
+          ]
+        },
+        {
+          "text": "recon",
+          "collapsed": true,
+          "items": [
+            { "text": "amass", "link": "/docs/wi/cyber/amass" },
+            { "text": "subfinder", "link": "/docs/wi/cyber/subfinder" },
+            { "text": "assetfinder", "link": "/docs/wi/cyber/assetfinder" },
+            { "text": "httprobe", "link": "/docs/wi/cyber/httprobe" }
+          ]
+        },
+        {
+          "text": "reversing",
+          "collapsed": true,
+          "items": [
+            { "text": "radare2", "link": "/docs/wi/cyber/radare2" },
+            { "text": "x64dbg", "link": "/docs/wi/cyber/x64dbg" },
+            { "text": "lida", "link": "/docs/wi/cyber/lida" }
+          ]
+        },
+        {
+          "text": "scanner",
+          "collapsed": true,
+          "items": [
+            { "text": "nmap", "link": "/docs/wi/cyber/nmap" },
+            { "text": "masscan", "link": "/docs/wi/cyber/masscan" },
+            { "text": "rustscan", "link": "/docs/wi/cyber/rustscan" },
+            { "text": "naabu", "link": "/docs/wi/cyber/naabu" }
+          ]
+        },
+        {
+          "text": "sniffer",
+          "collapsed": true,
+          "items": [
+            { "text": "wireshark", "link": "/docs/wi/cyber/wireshark" },
+            { "text": "tcpdump", "link": "/docs/wi/cyber/tcpdump" },
+            { "text": "dsniff", "link": "/docs/wi/cyber/dsniff" }
+          ]
+        },
+        {
+          "text": "social",
+          "collapsed": true,
+          "items": [
+            { "text": "set", "link": "/docs/wi/cyber/set" },
+            { "text": "seclists", "link": "/docs/wi/cyber/seclists" },
+            { "text": "phishing-frenzy", "link": "/docs/wi/cyber/phishing-frenzy" }
+          ]
+        },
+        {
+          "text": "spoofing",
+          "collapsed": true,
+          "items": [
+            { "text": "arpspoof", "link": "/docs/wi/cyber/arpspoof" },
+            { "text": "dnschef", "link": "/docs/wi/cyber/dnschef" },
+            { "text": "sslsplit", "link": "/docs/wi/cyber/sslsplit" }
+          ]
+        },
+        {
+          "text": "stego",
+          "collapsed": true,
+          "items": [
+            { "text": "steghide", "link": "/docs/wi/cyber/steghide" },
+            { "text": "outguess", "link": "/docs/wi/cyber/outguess" },
+            { "text": "stegsolve", "link": "/docs/wi/cyber/stegsolve" }
+          ]
+        },
+        {
+          "text": "tunnel",
+          "collapsed": true,
+          "items": [
+            { "text": "proxychains", "link": "/docs/wi/cyber/proxychains" },
+            { "text": "chisel", "link": "/docs/wi/cyber/chisel" },
+            { "text": "ngrok", "link": "/docs/wi/cyber/ngrok" },
+            { "text": "iodine", "link": "/docs/wi/cyber/iodine" }
+          ]
+        },
+        {
+          "text": "voip",
+          "collapsed": true,
+          "items": [
+            { "text": "sipvicious", "link": "/docs/wi/cyber/sipvicious" },
+            { "text": "ucsniff", "link": "/docs/wi/cyber/ucsniff" },
+            { "text": "rtpbreak", "link": "/docs/wi/cyber/rtpbreak" }
+          ]
+        },
+        {
+          "text": "webapp",
+          "collapsed": true,
+          "items": [
+            { "text": "burpsuite", "link": "/docs/wi/cyber/burpsuite" },
+            { "text": "sqlmap", "link": "/docs/wi/cyber/sqlmap" },
+            { "text": "xsser", "link": "/docs/wi/cyber/xsser" },
+            { "text": "commix", "link": "/docs/wi/cyber/commix" },
+            { "text": "dalfox", "link": "/docs/wi/cyber/dalfox" }
+          ]
+        },
+        {
+          "text": "windows",
+          "collapsed": true,
+          "items": [
+            { "text": "mimikatz", "link": "/docs/wi/cyber/mimikatz" },
+            { "text": "bloodhound", "link": "/docs/wi/cyber/bloodhound" },
+            { "text": "crackmapexec", "link": "/docs/wi/cyber/crackmapexec" },
+            { "text": "impacket", "link": "/docs/wi/cyber/impacket" }
+          ]
+        },
+        {
+          "text": "wireless",
+          "collapsed": true,
+          "items": [
+            { "text": "aircrack-ng", "link": "/docs/wi/cyber/aircrack-ng" },
+            { "text": "reaver", "link": "/docs/wi/cyber/reaver" },
+            { "text": "mdk4", "link": "/docs/wi/cyber/mdk4" },
+            { "text": "wifite2", "link": "/docs/wi/cyber/wifite2" }
+          ]
+        }
+      ]
     }
   ],
 
