@@ -10,7 +10,7 @@
 
 ## Устнаовка
 
-1. Устанавливаем необходимые пакеты:
+1. Устанавливаем необходимые пакеты (я тут их с перебором бахнул) ):
 ```bash
 apt-get install amnezia-vpn-service amnezia-vpn-client amneziawg-go amneziawg-tools kernel-modules-amneziawg-6.12
 ```
