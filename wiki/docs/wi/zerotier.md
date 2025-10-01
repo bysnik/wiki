@@ -23,7 +23,9 @@ ZeroTier поддерживает все основные операционны
 
 Сейчас последняя версия это 1.16.0, а для альта - 1.12.2, так как он был удалён из репозитория https://packages.altlinux.org/ru/sisyphus/srpms/zerotier-one/
 
-Вот графический интерфейс: https://github.com/key-networks/ztncui
+Вот графический интерфейс контроллера: https://github.com/key-networks/ztncui
+
+Вот графический интерфейс клиента: https://github.com/zerotier/DesktopUI
 :::
 
 ## Мои, вроде как, успешные потуги по сборке последней версии
