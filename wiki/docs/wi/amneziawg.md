@@ -1,0 +1,1 @@
+apt-get install amneziawg-go amneziawg-tools kernel-modules-amneziawg-6.12
