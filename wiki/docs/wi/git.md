@@ -67,7 +67,7 @@ ssh-ed25519 [ключ] [ваш email]
 ```bash
 git config --global user.name “[username]”
 ```
-Также, необходимо задатьemail для пользователя Git:
+Также, необходимо задать email для пользователя Git:
 ```bash
 git config --global user.email “[email]”
 ```

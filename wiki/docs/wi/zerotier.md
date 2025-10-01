@@ -14,3 +14,10 @@ https://habr.com/ru/companies/ruvds/articles/488184/
 Сейчас последняя версия это 1.16.0, а для альта - 1.12.2, так как он был удалён из репозитория https://packages.altlinux.org/ru/sisyphus/srpms/zerotier-one/
 
 Думаю, не сильной проблемой будет собрать последнюю версию из исходников, возможно, даже спеку переписывать не придётся: https://git.altlinux.org/gears/z/zerotier-one.git?a=tree;hb=0e3d36293e616990f7386343b4c6777782b71158 и https://github.com/zerotier/ZeroTierOne
+
+
+Вот графический интерфейс: https://github.com/key-networks/ztncui
+
+Я пытался с ним работать при сборке zerotier-one из исходников и это жопа, но вот с пакетированной версией гуишка заработала сразу как надо
+
+Минус zerotier - отсутствие GUI в Linux для подключения к сети (как в винде). Подключиться можно только через консоль: `sudo zerotier-cli join <Network ID>`

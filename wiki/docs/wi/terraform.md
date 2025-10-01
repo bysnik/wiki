@@ -69,7 +69,7 @@ Terraform — это инструмент для безопасного и эф�
     https://mirror.selectel.ru/3rd-party/hashicorp-releases/terraform/1.13.1/terraform_1.13.1_linux_amd64.zip
 
 ::: danger
-Классно классно, но терраформ ушел из россии и всё заблочил https://habr.com/ru/articles/807563/ 
+Классно классно, но терраформ ушел из России и всё заблочил https://habr.com/ru/articles/807563/ 
 
 Как по мне, нужно поднимать своё зеркало, чтобы быть независимым от других: https://developer.hashicorp.com/terraform/internals/provider-network-mirror-protocol
 
