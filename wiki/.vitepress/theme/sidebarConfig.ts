@@ -332,6 +332,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Сетевое туннелирование',
       collapsed: true,
       items: [
+        { text: 'AmneziaWG', link: '/docs/wi/amneziawg' },
         { text: 'ZeroTier', link: '/docs/wi/zerotier' },
       ]
     },
