@@ -1,6 +1,6 @@
 # Компас 3D
 
-![](https://kompas.ru/source/news/2608/2.png)
+![](/public/img/kompas-alt.jpg)
 
 Компас-3D вышел на GNU/Linux! Правда, пока в виде бета-версии.
 
