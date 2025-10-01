@@ -255,7 +255,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Modelio', link: '/docs/wi/modelio' },
         { text: 'OBS', link: '/docs/wi/obs' },
         { text: 'RARS Emulator', link: '/docs/wi/rars' },
-        { text: '! Smath Studio', link: '/docs/wi/smath-studio' }, 
+        { text: 'Smath Studio', link: '/docs/wi/smath-studio' }, 
         { text: 'VM VirtualBox', link: '/docs/wi/vbox' },
       ]
     },
