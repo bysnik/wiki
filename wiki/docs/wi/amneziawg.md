@@ -11,8 +11,13 @@
 ## Устнаовка
 
 1. Устанавливаем необходимые пакеты (я тут их с перебором бахнул) ):
+
 ```bash
-apt-get install amnezia-vpn-service amnezia-vpn-client amneziawg-go amneziawg-tools kernel-modules-amneziawg-6.12
+apt-get install amnezia-vpn-client kernel-modules-amneziawg-6.12
+```
+
+```bash
+apt-get install amnezia-vpn-service amneziawg-go amneziawg-tools
 ```
 
 2. Настраиваем systemd-resolved (https://bugzilla.altlinux.org/52679)
