@@ -329,6 +329,14 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
+      text: 'Сетевое туннелирование',
+      collapsed: true,
+      items: [
+        { text: 'ZeroTier', link: '/docs/wi/zerotier' },
+      ]
+    },
+    
+    {
       text: 'Игры',
       collapsed: true,
       items: [
@@ -350,7 +358,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
         { text: '! Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' }, 
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
-        { text: '! ZeroTier', link: '/docs/wi/zerotier' },
       ]
     },
 

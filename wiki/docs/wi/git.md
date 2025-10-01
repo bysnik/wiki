@@ -481,11 +481,6 @@ systemctl restart httpd2
 adduser git
 ```
 
-На сервере необходимо создать пользователя `git`:
-```bash
-adduser git
-```
-
 Проверьте наличие файла `authorized_keys`:
 ```bash
 cat /home/git/.ssh/authorized_keys
