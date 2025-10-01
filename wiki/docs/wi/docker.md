@@ -65,30 +65,37 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 docker run -d -p 5000:5000 --name my-registry registry:2
 ```
 
-## Непроверенное
 
-### Создание собственного базового образа ОС с помощью tar
+## Создание базового образа Docker на базе tar.xz образа Альт
 
-Работа должна выполняться в системе, из которой мы сделаем образ. Набор команд одинаковый и не зависит от дистрибутива Linux. При желании, мы можем заранее установить необходимые инструменты или наоборот, чтобы образ занимал меньше места, удалить некоторые пакеты и файлы.
+Заходим на сайт https://ftp.altlinux.org/pub/distributions/ALTLinux/p11/images/cloud/x86_64/ и скачиваем необходимый образ, например `alt-p11-rootfs-minimal-x86_64.tar.xz` (Архитектуру выбирайте по своему вкусу).
 
-После вводим команду:
+Далее, создаём рабочую директорию:
 ```bash
-tar --numeric-owner --exclude=/proc --exclude=/sys -cf alt-base.tar /
+mkdir -p workdir && cd workdir
 ```
 
-*где `alt-base.tar` будет именем tar-файла с нашей системой. В него попадет содержимое всех каталогов, кроме `/proc` и `/sys`.
-
-И создаем образ:
+Распаковываем скаченный архив:
 ```bash
-cat alt-base.tar | docker import - alt-base:11.1
-```
-*где `alt-base.tar` — созданный тарбол; `alt-base:11.1` — имя образа, который будет создан.
-
-Проверяем:
-```bash
-docker images
+mkdir -p my-rootfs && tar -xf alt-p11-rootfs-minimal-x86_64.tar.xz -C alt-rootfs
 ```
 
+Создаём Dockerfile:
+```Dockerfile
+FROM scratch
+COPY alt-rootfs/ /
+CMD ["/bin/bash"]
+```
+
+Производим сборку образа:
+```bash
+docker build -t altlinux:p11 .
+```
+
+Проверка работы образа:
+```bash
+docker run -it altlinux:p11 /bin/bash
+```
 
 ## Docker Desktop
 
@@ -116,3 +123,27 @@ control newgidmap public
 control newuidmap public
 ```
 Ну, ошибок больше нет, но Docker Engine тупо не стартует
+
+## Непроверенное
+
+### Создание собственного базового образа ОС с помощью tar
+
+Работа должна выполняться в системе, из которой мы сделаем образ. Набор команд одинаковый и не зависит от дистрибутива Linux. При желании, мы можем заранее установить необходимые инструменты или наоборот, чтобы образ занимал меньше места, удалить некоторые пакеты и файлы.
+
+После вводим команду:
+```bash
+tar --numeric-owner --exclude=/proc --exclude=/sys -cf alt-base.tar /
+```
+
+*где `alt-base.tar` будет именем tar-файла с нашей системой. В него попадет содержимое всех каталогов, кроме `/proc` и `/sys`.
+
+И создаем образ:
+```bash
+cat alt-base.tar | docker import - alt-base:11.1
+```
+*где `alt-base.tar` — созданный тарбол; `alt-base:11.1` — имя образа, который будет создан.
+
+Проверяем:
+```bash
+docker images
+```
