@@ -18,7 +18,11 @@ apt-get install amnezia-vpn-service amnezia-vpn-client amneziawg-go amneziawg-to
 2. Настраиваем systemd-resolved (https://bugzilla.altlinux.org/52679)
 ```bash
 apt-get install systemd-networkd
+```
+```bash
 systemctl enable --now systemd-resolved
+```
+```bash
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 ```
 

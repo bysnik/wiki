@@ -199,8 +199,8 @@ apt-get install meson ninja-build libgtk+3-devel pkg-config libayatana-appindica
 
 4. Редактируем файл `tray/Makefile` строки 24 и 25:
 ```Makefile
-TRAY_CFLAGS := $(OPT_FLAGS) -DTRAY_APPINDICATOR=1 $(shell pkg-config --cflags ayatana-appindicator3-0.1) -std=c99
-TRAY_LDFLAGS := $(shell pkg-config --libs ayatana-appindicator3-0.1)
+TRAY_CFLAGS := $(OPT_FLAGS) -DTRAY_APPINDICATOR=1 $(shell pkg-config --cflags appindicator3-0.1) -std=c99
+TRAY_LDFLAGS := $(shell pkg-config --libs appindicator3-0.1)
 ```
 
 Необходимо заменить `appindicator3-0.1` на `ayatana-appindicator3-0.1`.
