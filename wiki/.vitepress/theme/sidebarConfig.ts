@@ -162,6 +162,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' }, 
+        { text: '! DPI', link: '/docs/wi/dpi' },
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
         { text: '! Keycloak', link: '/docs/wi/keycloak' },
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
@@ -243,6 +244,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: '! Clear NDR (SELKS)', link: '/docs/wi/selks' }, // Как дополнение к Wazuh для сетевого мониторинга
+        { text: '! Nagios', link: '/docs/wi/nagios' },
         { text: '! Sniffnet', link: '/docs/wi/sniffnet' },
         { text: '! Wazuh', link: '/docs/wi/wazuh' },
       ]
@@ -334,6 +336,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: 'AmneziaWG', link: '/docs/wi/amneziawg' },
+        { text: '! obfsproxy', link: '/docs/wi/obfsproxy' },
         { text: 'ZeroTier', link: '/docs/wi/zerotier' },
       ]
     },

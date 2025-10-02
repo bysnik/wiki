@@ -36,4 +36,8 @@ ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 systemctl enable --now AmneziaVPN
 ```
 
-4. Теперь входим в графическое приложение как обычно через меню приложений.
+4. Перезагружаем систему.
+
+5. Теперь входим в графическое приложение как обычно через меню приложений.
+
+## Настройка сервера OpenVPN, WireGuard, Shadowsocks, IKEv2/IPSec и Cloak, L2TP/IPSec, PPTP, OpenConnect VPN, SSTP, XRay Reality, VLESS 
