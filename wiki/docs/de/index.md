@@ -8,11 +8,12 @@ hero:
   image:
     src: /daemon.png
 features:
-  - title: Код 09.02.06-3-2025
+  - title: Код 09.02.06-1-2026
     details: Сетевое и системное администрирование (Эксплуатация объектов сетевой инфраструктуры)
     link: /docs/de/09.02.06.3.2025/
-  - title: Feature В
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 
+    link: /docs/de/09.02.06.3.2025/
+    details: Сетевой и системный администратор
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit 
 ---

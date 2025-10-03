@@ -34,6 +34,7 @@ export const themeConfig: DefaultTheme.Config = {
         items: [
           { text: 'Все Демонстрационные экзамены', link: '/docs/de/' },
           { text: 'КОД 09.02.06-3-2025', link: '/docs/de/09.02.06.3.2025/' },
+          { text: 'КОД 09.02.06-1-2026', link: '/docs/de/09.02.06.1.2026/' },
 
         ]
       },
