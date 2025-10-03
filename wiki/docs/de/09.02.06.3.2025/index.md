@@ -24,6 +24,6 @@ features:
 
 # Видеообзор комплекта оценочных материалов
 
-<iframe src="https://vkvideo.ru/video_ext.php?oid=-219561594&id=456240041&hash=679214a3641f6eb6" width=100% height="650" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+<iframe src="https://vkvideo.ru/video_ext.php?oid=-219561594&id=456239391&hash=c3cb30b839d0e56b" width=100% height=650 frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 Ссылка на приложение к КОДу - https://bom.firpo.ru/file/public/113895/%D0%9F%D1%80%D0%B8%D0%BB_%D0%9E%D0%97_%D0%9A%D0%9E%D0%94%2009.02.06-1-2026.zip
