@@ -40,4 +40,4 @@ systemctl enable --now AmneziaVPN
 
 5. Теперь входим в графическое приложение как обычно через меню приложений.
 
-## Настройка сервера OpenVPN, WireGuard, Shadowsocks, IKEv2/IPSec и Cloak, L2TP/IPSec, PPTP, OpenConnect VPN, SSTP, XRay Reality, VLESS 
+## Настройка сервера OpenVPN, WireGuard, Shadowsocks, IKEv2/IPSec и Cloak, L2TP/IPSec, PPTP, OpenConnect VPN, SSTP, XRay Reality, MPLS, VLESS, L2TP, FreeLAN SSL P2P
