@@ -201,6 +201,10 @@ make ZT_NONFREE=1
 Кстати, в репозитории уже несколько лет висит Pull Request на тоже самое, что мы тут патчим: https://github.com/zerotier/DesktopUI/pull/57
 :::
 
+::: warning
+Для работы этого трея нужно, чтобы хотя бы единожды у пользователя, который запускает сервис, были права на sudo, потом их можно отключить. Иначе Вы увидите ошибку sudo (я тестил на чистой машине)
+:::
+
 ### Сборка руками из исходников
 
 1. Устанавливаем необходимые пакеты:
@@ -545,7 +549,7 @@ systemctl --user enable --now zerotier-desktop-ui.service
 ## ztncui
 
 ::: tip
-Так, я переписал спеку, теперь она даже собирается, но сам пакет я ещё не тестировал. [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm)
+Так, я переписал спеку, теперь она даже собирается, но сам пакет я ещё не тестировал. [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий
 :::
 
 Вот пошаговая инструкция по сборке RPM-пакета для Альт Линукс из исходного кода **ztncui**, поскольку официального релиза и готового `.spec`-файла нет.
@@ -592,12 +596,14 @@ Summary:        ZeroTier Network Controller Web UI
 License:        GPL-3.0-or-later
 Group:          Applications/Internet
 
+AutoReqProv: no
+
 URL:            https://github.com/key-networks/ztncui
 
 Source0: %{name}-%{version}.tar.gz
 
 # Зависимости
-Requires: nodejs
+Requires: nodejs >= 14
 Requires: zerotier-one
 
 BuildRequires: npm
@@ -641,8 +647,8 @@ After=network.target zerotier-one.service
 Type=simple
 User=ztncui
 Group=ztncui
-WorkingDirectory=/opt/ztncui
-EnvironmentFile=-/etc/ztncui/.env
+WorkingDirectory=/opt/ztncui/src
+EnvironmentFile=-/opt/ztncui/src/.env
 ExecStart=/usr/bin/npm start
 Restart=always
 RestartSec=10
@@ -657,42 +663,32 @@ getent group ztncui >/dev/null || groupadd -r ztncui
 getent passwd ztncui >/dev/null || useradd -r -g ztncui -d /var/lib/ztncui -s /sbin/nologin ztncui
 exit 0
 
-%post
-# Генерация самоподписанного сертификата, если отсутствует
-if [ ! -f /etc/ztncui/tls/fullchain.pem ] || [ ! -f /etc/ztncui/tls/privkey.pem ]; then
-    install -d -m 700 /etc/ztncui/tls
-    chown ztncui:ztncui /etc/ztncui/tls
-    sudo -u ztncui openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 \
-        -keyout /etc/ztncui/tls/privkey.pem -out /etc/ztncui/tls/fullchain.pem \
-        -subj "/CN=localhost" 2>/dev/null || :
-fi
-
 # Копируем passwd, если не существует
-if [ ! -f /etc/ztncui/passwd ]; then
-    cp -v /opt/ztncui/etc/default.passwd /etc/ztncui/passwd
-    chown ztncui:ztncui /etc/ztncui/passwd
-    chmod 600 /etc/ztncui/passwd
+if [ ! -f /opt/ztncui/src/etc/passwd ]; then
+    cp -v /opt/ztncui/src/etc/default.passwd /opt/ztncui/src/etc/passwd
+    chown ztncui:ztncui /opt/ztncui/src/etc/passwd
+    chmod 600 /opt/ztncui/src/etc/passwd
 fi
 
 # Создаём .env, если не существует
-if [ ! -f /etc/ztncui/.env ]; then
+if [ ! -f /opt/ztncui/src/.env ]; then
     ZT_TOKEN=$(cat /var/lib/zerotier-one/authtoken.secret 2>/dev/null || echo "YOUR_TOKEN_HERE")
-    cat > /etc/ztncui/.env << EOF
+    cat > /opt/ztncui/src/.env << EOF
 ZT_TOKEN=$ZT_TOKEN
 NODE_ENV=production
-HTTPS_PORT=3443
 EOF
-    chown ztncui:ztncui /etc/ztncui/.env
-    chmod 600 /etc/ztncui/.env
+    chown ztncui:ztncui /opt/ztncui/src/.env
+    chmod 600 /opt/ztncui/src/.env
 fi
 
 %files
 %attr(755, root, root) /opt/%{name}
+%dir %attr(755, root, root) /etc/%{name}
 %{_unitdir}/%{name}.service
 %dir %attr(755, ztncui, ztncui) /var/lib/%{name}
 
 %changelog
-* Mon Oct 06 2025 Your Name <your@email> - %{version}-%{release}
+* Mon Oct 06 2025 Nikita Bystrov bystrovno@basealt.ru - %{version}-%{release}
 - Initial RPM package for ALT Linux
 ```
 
@@ -727,14 +723,10 @@ systemctl status ztncui
 
 По умолчанию:
 - HTTP на `http://localhost:3000`
-- HTTPS на `https://localhost:3443`
-
-::: tip
-НО, чтобы выключить HTTPS, необходимо поместить `/etc/ztncui/tls/fullchain.pem` и `/etc/ztncui/tls/privkey.pem`, сгенерированные при сборке пакета, в `/etc/tls/` (вроде как, нужно это всё тестировать). Ну и, соответственно, если нужно, передать эти ключи на другой хост. (что-то мне подсказывает, что в Альте не `/etc/tls/`, а `/etc/pki/tls/`)
-:::
 
 Также в файл `/etc/ztncui/.env` можно добавить следующее:
 - `HTTP_ALL_INTERFACES=yes` Приложение можно заставить прослушивать все интерфейсы для HTTP-запросов, установив `HTTP_ALL_INTERFACES` в `.env` файл.
+- `HTTPS_PORT=3443`
 - `HTTPS_HOST=12.34.56.78` Приложение можно заставить прослушивать на определенном интерфейсе HTTPS-запросов, указав `HTTPS_HOST (имя хоста или IP-адрес интерфейса)` в `.env` файл. Если `HTTPS_HOST` не указан, но указано `HTTPS_PORT`, то приложение будет прослушивать запросы HTTPS на всех интерфейсах.
 
 Важные замечания
