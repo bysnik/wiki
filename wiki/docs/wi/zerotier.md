@@ -361,9 +361,7 @@ install -Dm644 packaging/systemd/zerotier-desktop-ui.service \
 %changelog
 * Mon Oct 06 2025 Nikita Bystrov bystrovno@basealt.ru - 1.8.3-alt1
 - Initial RPM package for ZeroTier Desktop UI with Ayatana AppIndicator support
-
 ```
-
 
 4. Вам понадобится создать **патч**, который автоматизирует изменения, описанные в шагах 4–6 инструкции по ручной сборке:
 
