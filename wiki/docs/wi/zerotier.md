@@ -727,7 +727,7 @@ systemctl status ztncui
 
 По умолчанию:
 - HTTP на `http://localhost:3000`
-- HTTPS на `http://localhost:3443`
+- HTTPS на `https://localhost:3443`
 
 ::: tip
 НО, чтобы выключить HTTPS, необходимо поместить `/etc/ztncui/tls/fullchain.pem` и `/etc/ztncui/tls/privkey.pem`, сгенерированные при сборке пакета, в `/etc/tls/` (вроде как, нужно это всё тестировать). Ну и, соответственно, если нужно, передать эти ключи на другой хост. (что-то мне подсказывает, что в Альте не `/etc/tls/`, а `/etc/pki/tls/`)
