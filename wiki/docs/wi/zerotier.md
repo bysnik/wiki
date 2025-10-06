@@ -545,7 +545,7 @@ systemctl --user enable --now zerotier-desktop-ui.service
 ## ztncui
 
 ::: tip
-Так, я переписал спеку, теперь она даже собирается, но сам пакет я ещё не тестировал.
+Так, я переписал спеку, теперь она даже собирается, но сам пакет я ещё не тестировал. [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm)
 :::
 
 Вот пошаговая инструкция по сборке RPM-пакета для **Альт Линукс** (ALT Linux) из исходного кода **ztncui**, поскольку официального релиза и готового `.spec`-файла нет.
@@ -590,7 +590,7 @@ Name:           ztncui
 Version:        0.8.14
 Release:        alt1
 Summary:        ZeroTier Network Controller Web UI
-License:        GPLv3
+License:        GPL-3.0-or-later
 Group:          Applications/Internet
 
 URL:            https://github.com/key-networks/ztncui
@@ -740,7 +740,7 @@ systemctl status ztncui
 
 Важные замечания
 
-1. **authtoken.secret**: Пакет пытается автоматически прочитать токен из `/var/lib/zerotier-one/authtoken.secret`. Убедитесь, что `zerotier-one` установлен и запущен **до** установки `ztncui`.
+1. **authtoken.secret**: Пакет пытается автоматически прочитать токен из `/var/lib/zerotier-one/authtoken.secret`. Убедитесь, что `zerotier-one` установлен и запущен **до** установки `ztncui` (Нужно, чтобы `zerotier-one` был собран вместе с контроллером, иначе, очевидно, работать не будет).
 2. **Обновления**: При обновлении пакета конфиги (`/etc/ztncui/.env`, `passwd`) не перезаписываются благодаря `%config(noreplace)`.
 
 Тестирование: Должен вернуть HTML-код страницы входа
