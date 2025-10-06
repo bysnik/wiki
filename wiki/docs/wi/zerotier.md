@@ -65,6 +65,14 @@ cd zerotier-one
 Version: 1.16.0
 ```
 
+::: warning
+Для некоммерческого использования: в строку 58 добавляем параметр `ZT_NONFREE=1`:
+```spec
+%make_build ZT_USE_MINIUPNPC=1 ZT_NONFREE=1 one
+```
+При добавлении данного параметра должна произойти Non Free сборка, содержащая контролер, ранее же этот контроллер шёл в поставке свободно, теперь только так (подробнее об этом ниже).
+:::
+
 - Копируем спеку в директорию сборки:
 
 ```bash
@@ -171,12 +179,15 @@ P.S. по пункту 2:
 
 P.S.2 по пункту 2:
 
-Контроллер по-прежнему существует в основном репозитории ZeroTierOne, но теперь находится в подкаталоге: ZeroTierOne/nonfree/controller/
+Контроллер по-прежнему существует в основном репозитории ZeroTierOne, но теперь находится в подкаталоге: `ZeroTierOne/nonfree/controller/`
 
-Для некоммерческого использования: можно попробовать собрать из исходников с `ZT_NONFREE=1`. (`git clone https://github.com/zerotier/ZeroTierOne.git && cd ZeroTierOne && make ZT_NONFREE=1 && sudo ./zerotier-one -D /var/lib/zerotier-one-controller` (насчёт последней команды запуская я не уверен) Возможно попробую потом на чистой машине это сделать)
+Для некоммерческого использования: можно попробовать собрать из исходников с `ZT_NONFREE=1`.
+```bash 
+make ZT_NONFREE=1
+```
 :::
 
-В принципе, я считаю, что шалость удалась. Вот сама собранная rpm`ка если кому надо: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.x86_64.rpm)
+В принципе, я считаю, что шалость удалась. Вот сама собранная rpm`ка (без контроллера) если кому надо: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.x86_64.rpm)
 
 ## Desktop UI
 
@@ -184,6 +195,10 @@ P.S.2 по пункту 2:
 
 ::: warning
 Была попытка сборка именно релиза 1.8.3, а не текущего состояния main ветки (6 октября 2025 года). Там у меня проблема с зависимостями, а именно `tauri-libappindicator-sys` требует именно `appindicator3` которого в Альте нет и ради которого делается патч (при сборке пакета).
+:::
+
+::: tip
+Кстати, в репозитории уже несколько лет висит Pull Request на тоже самое, что мы тут патчим: https://github.com/zerotier/DesktopUI/pull/57
 :::
 
 ### Сборка руками из исходников
@@ -196,6 +211,13 @@ apt-get install meson ninja-build libgtk+3-devel pkg-config libayatana-appindica
 ```bash
 git clone https://github.com/zerotier/DesktopUI.git
 ```
+
+::: tip
+Кстати, без изменений этой инструкции, по состоянию на 6 октября 2025 года, можно собрать ветку 1.16.0 из этого же репозитория:
+```bash
+git clone -b 1.16.0 https://github.com/zerotier/DesktopUI.git
+```
+:::
 
 3. Переходим в корень склонированного репозитория. Дальше я никуда перемещаться не буду. Все пути будут описаны от этой точки.
 ```bash
