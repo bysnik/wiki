@@ -28,7 +28,7 @@ ZeroTier поддерживает все основные операционны
 Вот графический интерфейс клиента: https://github.com/zerotier/DesktopUI
 :::
 
-## Мои, вроде как, успешные потуги по сборке последней версии
+## Сборка rpm-пакета ZeroTier-One
 
 Тут описаны мои потуги по сборке последней версии ZeroTierOne для Альт Линукс П11 (версия 1.16.0 на момент написания статьи).
 
@@ -281,18 +281,19 @@ systemctl --user start zerotier-desktop-ui.service
 
 ### Собираем rpm-пакет
 
-::: tip
-За эту работу пока что не ручаюсь, ибо это просто черновик)
-
-Собралось то успешно, но за корректность инструкции пока не отвечаю)
-:::
-
 Ниже приведён пример **полноценного `.spec` файла**, который учитывает все шаги, включая патчи под `ayatana-appindicator`, сборку через `make`, установку бинарника и создание systemd user unit.
 
 1. Клонируем репозиторий:
 ```bash
 git clone https://github.com/zerotier/DesktopUI.git
 ```
+
+::: tip
+Кстати, без изменений этой инструкции, по состоянию на 6 октября 2025 года, можно собрать ветку 1.16.0 из этого же репозитория:
+```bash
+git clone -b 1.16.0 https://github.com/zerotier/DesktopUI.git
+```
+:::
 
 2. Переименуйте директорию DesktopUI в DesktopUI-1.8.3:
 ```bash
@@ -321,7 +322,6 @@ BuildRequires:  rust
 
 # Runtime dependencies
 Requires:       zerotier-one
-Requires:       libayatana-appindicator3
 
 # Патчи для совместимости с Ayatana AppIndicator
 Patch0:         use-ayatana-appindicator.patch
@@ -486,7 +486,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=%{_bindir}/zerotier_desktop_ui
+ExecStart=/usr/bin/zerotier_desktop_ui
 Restart=on-failure
 RestartSec=5
 Environment=DISPLAY=:0
@@ -517,4 +517,9 @@ tar cvf ~/RPM/SOURCES/zerotier-desktop-ui-1.8.3.tar DesktopUI-1.8.3/
 rpmbuild -ba ~/RPM/SPECS/zerotier-desktop-ui.spec
 ```
 
-В принципе, я считаю, что шалость2 удалась. Вот сама собранная rpm`ка если кому надо: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm)
+В принципе, я считаю, что шалость2 удалась. Вот сама собранная rpm`ка (из ветки 1.16.0) если кому надо: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm)
+
+После установки пакета необходимо включить сервис:
+```bash
+systemctl --user enable --now zerotier-desktop-ui.service
+```
