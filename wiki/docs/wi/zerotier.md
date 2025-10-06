@@ -541,3 +541,212 @@ rpmbuild -ba ~/RPM/SPECS/zerotier-desktop-ui.spec
 ```bash
 systemctl --user enable --now zerotier-desktop-ui.service
 ```
+
+## ztncui
+
+::: tip
+Так, я переписал спеку, теперь она даже собирается, но сам пакет я ещё не тестировал.
+:::
+
+Вот пошаговая инструкция по сборке RPM-пакета для **Альт Линукс** (ALT Linux) из исходного кода **ztncui**, поскольку официального релиза и готового `.spec`-файла нет.
+
+
+Цель: Создать RPM-пакет `ztncui` для установки на ALT Linux, который:
+- Устанавливает приложение в `/opt/ztncui`
+- Создаёт пользователя `ztncui`
+- Управляет службой через systemd
+- Генерирует самоподписанный TLS-сертификат при первом запуске
+
+Убедитесь, что установлены необходимые пакеты:
+
+```bash
+apt-get install rpm-build git nodejs npm gcc-c++ make python3
+```
+
+Также установите `node-gyp` глобально:
+
+```bash
+npm install -g node-gyp
+```
+
+Клонирование и упаковка исходного кода
+
+```bash
+cd /tmp
+```
+```bash
+git clone https://github.com/key-networks/ztncui
+```
+
+Создаём архив исходников (имя должно соответствовать версии)
+```bash
+tar -czf ~/RPM/SOURCES/ztncui-0.8.14.tar.gz ztncui
+```
+
+Создайте файл `~/RPM/SPECS/ztncui.spec` со следующим содержимым:
+
+```spec
+Name:           ztncui
+Version:        0.8.14
+Release:        alt1
+Summary:        ZeroTier Network Controller Web UI
+License:        GPLv3
+Group:          Applications/Internet
+
+URL:            https://github.com/key-networks/ztncui
+
+Source0: %{name}-%{version}.tar.gz
+
+# Зависимости
+Requires: nodejs
+Requires: zerotier-one
+
+BuildRequires: npm
+BuildRequires: gcc-c++
+BuildRequires: make
+
+%description
+ztncui is a web-based user interface for managing a standalone ZeroTier network controller.
+
+%prep
+%setup -q -n %{name}
+
+%build
+cd src
+npm install --production
+
+%install
+rm -rf %{buildroot}
+
+# Основная установка в /opt
+install -d %{buildroot}/opt/%{name}
+cp -r . %{buildroot}/opt/%{name}/
+
+# Удаляем .git и ненужные файлы
+rm -rf %{buildroot}/opt/%{name}/.git*
+
+# Создаём конфигурационный каталог
+install -d %{buildroot}/etc/%{name}
+install -d %{buildroot}/var/lib/%{name}
+
+# Создаём пользователя (через %pre, см. ниже)
+
+# Systemd unit
+install -d %{buildroot}%{_unitdir}
+cat > %{buildroot}%{_unitdir}/%{name}.service << 'EOF'
+[Unit]
+Description=ZeroTier Network Controller UI
+After=network.target zerotier-one.service
+
+[Service]
+Type=simple
+User=ztncui
+Group=ztncui
+WorkingDirectory=/opt/ztncui
+EnvironmentFile=-/etc/ztncui/.env
+ExecStart=/usr/bin/npm start
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+%pre
+# Создаём пользователя, если не существует
+getent group ztncui >/dev/null || groupadd -r ztncui
+getent passwd ztncui >/dev/null || useradd -r -g ztncui -d /var/lib/ztncui -s /sbin/nologin ztncui
+exit 0
+
+%post
+# Генерация самоподписанного сертификата, если отсутствует
+if [ ! -f /etc/ztncui/tls/fullchain.pem ] || [ ! -f /etc/ztncui/tls/privkey.pem ]; then
+    install -d -m 700 /etc/ztncui/tls
+    chown ztncui:ztncui /etc/ztncui/tls
+    sudo -u ztncui openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 \
+        -keyout /etc/ztncui/tls/privkey.pem -out /etc/ztncui/tls/fullchain.pem \
+        -subj "/CN=localhost" 2>/dev/null || :
+fi
+
+# Копируем passwd, если не существует
+if [ ! -f /etc/ztncui/passwd ]; then
+    cp -v /opt/ztncui/etc/default.passwd /etc/ztncui/passwd
+    chown ztncui:ztncui /etc/ztncui/passwd
+    chmod 600 /etc/ztncui/passwd
+fi
+
+# Создаём .env, если не существует
+if [ ! -f /etc/ztncui/.env ]; then
+    ZT_TOKEN=$(cat /var/lib/zerotier-one/authtoken.secret 2>/dev/null || echo "YOUR_TOKEN_HERE")
+    cat > /etc/ztncui/.env << EOF
+ZT_TOKEN=$ZT_TOKEN
+NODE_ENV=production
+HTTPS_PORT=3443
+EOF
+    chown ztncui:ztncui /etc/ztncui/.env
+    chmod 600 /etc/ztncui/.env
+fi
+
+%files
+%attr(755, root, root) /opt/%{name}
+%{_unitdir}/%{name}.service
+%dir %attr(755, ztncui, ztncui) /var/lib/%{name}
+
+%changelog
+* Mon Oct 06 2025 Your Name <your@email> - %{version}-%{release}
+- Initial RPM package for ALT Linux
+```
+
+Сборка RPM:
+
+```bash
+rpmbuild -ba ~/RPM/SPECS/ztncui.spec
+```
+
+Если всё прошло успешно, RPM-пакет будет в:
+
+```bash
+~/RPM/RPMS/x86_64/ztncui-0.8.14-alt1.x86_64.rpm
+```
+
+Установка и запуск:
+
+```bash
+apt-get install ~/RPM/RPMS/ztncui-0.8.14-alt1.x86_64.rpm
+
+# Убедитесь, что ZeroTier запущен
+sudo systemctl enable --now zerotier-one
+
+# Запустите ztncui
+sudo systemctl enable --now ztncui
+
+# Проверьте статус
+systemctl status ztncui
+```
+
+Доступ к веб-интерфейсу:
+
+По умолчанию:
+- HTTP на `http://localhost:3000`
+- HTTPS на `http://localhost:3443`
+
+::: tip
+НО, чтобы выключить HTTPS, необходимо поместить `/etc/ztncui/tls/fullchain.pem` и `/etc/ztncui/tls/privkey.pem`, сгенерированные при сборке пакета, в `/etc/tls/` (вроде как, нужно это всё тестировать). Ну и, соответственно, если нужно, передать эти ключи на другой хост. (что-то мне подсказывает, что в Альте не `/etc/tls/`, а `/etc/pki/tls/`)
+:::
+
+Также в файл `/etc/ztncui/.env` можно добавить следующее:
+- `HTTP_ALL_INTERFACES=yes` Приложение можно заставить прослушивать все интерфейсы для HTTP-запросов, установив `HTTP_ALL_INTERFACES` в `.env` файл.
+- `HTTPS_HOST=12.34.56.78` Приложение можно заставить прослушивать на определенном интерфейсе HTTPS-запросов, указав `HTTPS_HOST (имя хоста или IP-адрес интерфейса)` в `.env` файл. Если `HTTPS_HOST` не указан, но указано `HTTPS_PORT`, то приложение будет прослушивать запросы HTTPS на всех интерфейсах.
+
+Важные замечания
+
+1. **authtoken.secret**: Пакет пытается автоматически прочитать токен из `/var/lib/zerotier-one/authtoken.secret`. Убедитесь, что `zerotier-one` установлен и запущен **до** установки `ztncui`.
+2. **Обновления**: При обновлении пакета конфиги (`/etc/ztncui/.env`, `passwd`) не перезаписываются благодаря `%config(noreplace)`.
+
+Тестирование: Должен вернуть HTML-код страницы входа
+```bash
+curl http://localhost:3000
+```
+
+
+
