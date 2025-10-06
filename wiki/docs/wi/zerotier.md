@@ -38,13 +38,13 @@ ZeroTier поддерживает все основные операционны
 apt-get install rpmdevtools rpm-build gcc-c++ git-core gem-ronn-ng gem-ronn ronn libstdc++-devel libminiupnpc-devel rust rust-cargo udev-rules clang libssl-devel libminiupnpc-devel
 ```
 
-2. Не знаю почему, но я не использовал GEAR, так что собирал чисто с помощью rpmbuild. Подготавливаем дерево каталогов для сборки:
+2. Не знаю почему, но я не использовал `GEAR`, так что собирал чисто с помощью `rpmbuild`. Подготавливаем дерево каталогов для сборки:
 
 ```bash
 rpmdev-setuptree
 ```
 
-3. Просто куда-нибудь клонируем два репозитория: один с исходниками и готовой спекой для 1.12 версии, и второй - последняя версия от разработчиков:
+3. Просто куда-нибудь клонируем два репозитория: один с исходниками и готовой спекой для 1.12.2 версии, и второй - последняя версия от разработчиков:
 
 ```bash
 git clone http://git.altlinux.org/gears/z/zerotier-one.git
@@ -53,7 +53,7 @@ git clone http://git.altlinux.org/gears/z/zerotier-one.git
 git clone https://github.com/zerotier/ZeroTierOne.git
 ```
 
-4. Переходим в директорию с 1.12 версией и начинаем шаманить:
+4. Переходим в директорию с 1.12.2 версией и начинаем шаманить:
 
 ```bash
 cd zerotier-one
@@ -89,7 +89,7 @@ cp -R zerotier-one/zeroidc zerotier-one-development-1.16.0/
 cd zerotier-one-development/zeroidc
 ```
 
-- Генерируем директорию vendor:
+- Генерируем директорию `vendor`:
 
 ```bash
 cargo vendor
@@ -127,7 +127,7 @@ tar cvf ~/RPM/SOURCES/zerotier-one-development-1.16.0.tar zerotier-one-developme
 cd ..
 ```
 
-- После клонирования должна быть директория ZeroTierOne. Переименовываем её:
+- После клонирования должна быть директория `ZeroTierOne`. Переименовываем её:
 
 ```bash
 mv ZeroTierOne zerotier-one-1.16.0
@@ -159,8 +159,7 @@ systemctl status zerotie-one
 
 ::: warning
 Эта инструкция далеко не истина в последней инстанции. Собирал по наитию, как ёжик в тумане. А  устанавливал этот пакет я вообще поверх уже установленной версии 1.12.2, и вот что плохое у меня случилось:
-1. Вроде как, консольные утилиты раньше можно было использовать не под рутом, а теперь они работают только под рутом (по хорошему перепроверить бы, память уже подводит) ).
-2. После обновления, ztncui, не смотря на то, что увидел zerotier, выдает ошибку HTTPError: Response code 404 (Not Found), но при этом ZeroTier version 1.16.0 он определяет. Вот за это всё-таки обидно.
+1. После обновления, ztncui, не смотря на то, что увидел zerotier, выдает ошибку HTTPError: Response code 404 (Not Found), но при этом ZeroTier version 1.16.0 он определяет. Вот за это всё-таки обидно.
 
 P.S. по пункту 2:
 
@@ -184,7 +183,7 @@ P.S.2 по пункту 2:
 Соберём и сделаем автозапуск графического интерфейса, который будет висеть в трее. С помощью него можно подключаться к сетям и чёт там настраивать.
 
 ::: warning
-Была попытка сборка именно релиза 1.8.3, а не текущего состояния main ветки (6 октября 2025 года). Там у меня проблема с зависимостями, а именно `tauri-libappindicator-sys`.
+Была попытка сборка именно релиза 1.8.3, а не текущего состояния main ветки (6 октября 2025 года). Там у меня проблема с зависимостями, а именно `tauri-libappindicator-sys` требует именно `appindicator3` которого в Альте нет и ради которого делается патч (при сборке пакета).
 :::
 
 ### Сборка руками из исходников
@@ -295,7 +294,7 @@ git clone -b 1.16.0 https://github.com/zerotier/DesktopUI.git
 ```
 :::
 
-2. Переименуйте директорию DesktopUI в DesktopUI-1.8.3:
+2. Переименуйте директорию `DesktopUI` в `DesktopUI-1.8.3`:
 ```bash
 mv DesktopUI DesktopUI-1.8.3
 ```
@@ -318,7 +317,6 @@ BuildRequires:  ninja-build
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(ayatana-appindicator3-0.1)
 BuildRequires:  rust
-
 
 # Runtime dependencies
 Requires:       zerotier-one
@@ -474,7 +472,7 @@ index fe18fea..0ed4ffc 100644
  #define TRAY_APPINDICATOR_ID "tray-id"
 ```
 
-5. Создайте папку `DesktopUI-1.8.3/packaging/systemd/` в корне исходников (не /tmp !) и поместите туда файл `DesktopUI-1.8.3/packaging/systemd/zerotier-desktop-ui.service`:
+5. Создайте папку `DesktopUI-1.8.3/packaging/systemd/` в корне исходников (не `/tmp` !) и поместите туда файл `DesktopUI-1.8.3/packaging/systemd/zerotier-desktop-ui.service`:
 
 ```systemd
 [Unit]
