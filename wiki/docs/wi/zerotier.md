@@ -48,7 +48,8 @@ rpmdev-setuptree
 
 ```bash
 git clone http://git.altlinux.org/gears/z/zerotier-one.git
-
+```
+```bash
 git clone https://github.com/zerotier/ZeroTierOne.git
 ```
 
@@ -182,19 +183,24 @@ P.S.2 по пункту 2:
 
 Соберём и сделаем автозапуск графического интерфейса, который будет висеть в трее. С помощью него можно подключаться к сетям и чёт там настраивать.
 
-1. Клонируем репозиторий:
+::: warning
+Была попытка сборка именно релиза 1.8.3, а не текущего состояния main ветки (6 октября 2025 года). Там у меня проблема с зависимостями, а именно `tauri-libappindicator-sys`.
+:::
+
+### Сборка руками из исходников
+
+1. Устанавливаем необходимые пакеты:
+```bash
+apt-get install meson ninja-build libgtk+3-devel pkg-config libayatana-appindicator3-devel
+```
+2. Клонируем репозиторий:
 ```bash
 git clone https://github.com/zerotier/DesktopUI.git
 ```
 
-2. Переходим в корень склонированного репозитория. Дальше я никуда перемещаться не буду. Все пути будут описаны от этой точки.
+3. Переходим в корень склонированного репозитория. Дальше я никуда перемещаться не буду. Все пути будут описаны от этой точки.
 ```bash
 cd DesktopUI
-```
-
-3. Устанавливаем необходимые пакеты:
-```bash
-apt-get install meson ninja-build libgtk+3-devel pkg-config libayatana-appindicator3-devel
 ```
 
 4. Редактируем файл `tray/Makefile` строки 24 и 25:
@@ -273,27 +279,37 @@ systemctl --user enable zerotier-desktop-ui.service
 systemctl --user start zerotier-desktop-ui.service
 ```
 
-### Немного ИИ шаманства
+### Собираем rpm-пакет
 
+::: tip
 За эту работу пока что не ручаюсь, ибо это просто черновик)
+
+Собралось то успешно, но за корректность инструкции пока не отвечаю)
+:::
 
 Ниже приведён пример **полноценного `.spec` файла**, который учитывает все шаги, включая патчи под `ayatana-appindicator`, сборку через `make`, установку бинарника и создание systemd user unit.
 
-#### `zerotier-desktop-ui.spec`
+1. Клонируем репозиторий:
+```bash
+git clone https://github.com/zerotier/DesktopUI.git
+```
+
+2. Переименуйте директорию DesktopUI в DesktopUI-1.8.3:
+```bash
+mv DesktopUI DesktopUI-1.8.3
+```
+
+3. Создаём файл `zerotier-desktop-ui.spec`
 
 ```spec
-# Замените на актуальную версию, если известна
-%global commit 0000000000000000000000000000000000000000
-%global shortcommit %(echo %{commit} | cut -c1-7)
-
 Name:           zerotier-desktop-ui
 Version:        1.8.3
 Release:        alt1
 Summary:        ZeroTier Desktop UI — system tray application for managing ZeroTier networks
+Group:          Applications/Internet
 
-License:        GPL-3.0-or-later
+License:        MPL-2.0
 URL:            https://github.com/zerotier/DesktopUI
-Source0:        https://github.com/zerotier/DesktopUI/archive/%{commit}/%{name}-%{shortcommit}.tar.gz
 
 # Build dependencies
 BuildRequires:  meson
@@ -301,7 +317,7 @@ BuildRequires:  ninja-build
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(ayatana-appindicator3-0.1)
 BuildRequires:  rust
-BuildRequires:  cargo
+
 
 # Runtime dependencies
 Requires:       zerotier-one
@@ -310,12 +326,14 @@ Requires:       libayatana-appindicator3
 # Патчи для совместимости с Ayatana AppIndicator
 Patch0:         use-ayatana-appindicator.patch
 
+Source0:        %{name}-%{version}.tar
+
 %description
 ZeroTier Desktop UI is a system tray application that allows you to manage ZeroTier networks
 from your desktop environment. This RPM builds the UI with Ayatana AppIndicator support.
 
 %prep
-%autosetup -n DesktopUI-%{commit}
+%setup -q -n DesktopUI-%{version}
 
 # Применяем патч для замены appindicator → ayatana-appindicator
 %patch0 -p1
@@ -337,73 +355,130 @@ install -Dm644 packaging/systemd/zerotier-desktop-ui.service \
     %{buildroot}%{_userunitdir}/zerotier-desktop-ui.service
 
 %files
-%license LICENSE
 %{_bindir}/zerotier_desktop_ui
 %{_userunitdir}/zerotier-desktop-ui.service
 
 %changelog
-* Mon Oct 01 2025 Your Name <your@email.com> - 1.8.3-alt1
+* Mon Oct 06 2025 Nikita Bystrov bystrovno@basealt.ru - 1.8.3-alt1
 - Initial RPM package for ZeroTier Desktop UI with Ayatana AppIndicator support
+
 ```
 
----
 
-#### Структура сопутствующих файлов
+4. Вам понадобится создать **патч**, который автоматизирует изменения, описанные в шагах 4–6 инструкции по ручной сборке:
 
-Вам понадобится создать **патч**, который автоматизирует изменения, описанные в шагах 4–6.
+- Распакуйте исходники релиза во временную директорию (или скопируйте директорию `DesktopUI-1.8.3`)
+```bash
+tar -xzf DesktopUI-1.8.3.tar.gz /tmp/DesktopUI-1.8.3
+```
+Или
+```bash
+cp DesktopUI-1.8.3/ /tmp/DesktopUI-1.8.3
+```
+- Перейдите в данную директорию
+```bash
+cd /tmp/DesktopUI-1.8.3
+```
 
-##### `use-ayatana-appindicator.patch`
+- Сохраните исходное состояние исходных файлов.
 
+```bash
+git init
+```
+```bash
+git add .
+```
+```bash
+git commit -m "original"
+```
+
+- Внесите нужные изменения **вручную**:
+
+`tray/Makefile`:
+Найдите строки с `appindicator3-0.1` и замените на `ayatana-appindicator3-0.1`:
+```bash
+sed -i 's/appindicator3-0.1/ayatana-appindicator3-0.1/g' tray/Makefile
+```
+
+`tray/tray.h`:
+Замените заголовок:
+```bash
+sed -i 's|libappindicator/app-indicator.h|libayatana-appindicator/app-indicator.h|' tray/tray.h
+```
+
+`build.rs`:
+Замените имя библиотеки:
+```bash
+sed -i 's/appindicator3/ayatana-appindicator3/' build.rs
+```
+
+
+- Сгенерируйте новый патч
+
+```bash
+git diff > ~/RPM/SOURCES/use-ayatana-appindicator.patch
+```
+
+- Проверьте патч
+
+```bash
+cd /tmp/DesktopUI-1.8.3
+```
+```bash
+git reset --hard  # или удалите изменения
+```
+```bash
+patch -p1 < ~/RPM/SOURCES/use-ayatana-appindicator.patch
+```
+
+Если нет ошибок — патч готов.
+
+Должен получиться следующий патч `use-ayatana-appindicator.patch`:
 ```diff
-diff --git a/tray/Makefile b/tray/Makefile
-index xxxxxxx..yyyyyyy 100644
---- a/tray/Makefile
-+++ b/tray/Makefile
-@@ -21,8 +21,8 @@ OPT_FLAGS := -O2 -g -Wall -Wextra -Werror
- # For AppIndicator support
- TRAY_CFLAGS := $(OPT_FLAGS) -DTRAY_APPINDICATOR=1 $(shell pkg-config --cflags appindicator3-0.1) -std=c99
- TRAY_LDFLAGS := $(shell pkg-config --libs appindicator3-0.1)
-+TRAY_CFLAGS := $(OPT_FLAGS) -DTRAY_APPINDICATOR=1 $(shell pkg-config --cflags ayatana-appindicator3-0.1) -std=c99
-+TRAY_LDFLAGS := $(shell pkg-config --libs ayatana-appindicator3-0.1)
- 
- # Default target
- all: tray
-diff --git a/tray/tray.h b/tray/tray.h
-index xxxxxxx..yyyyyyy 100644
---- a/tray/tray.h
-+++ b/tray/tray.h
-@@ -31,7 +31,7 @@
- #ifdef TRAY_APPINDICATOR
--#include <libappindicator/app-indicator.h>
-+#include <libayatana-appindicator/app-indicator.h>
- #endif
- 
- struct tray_menu;
 diff --git a/build.rs b/build.rs
-index xxxxxxx..yyyyyyy 100644
+index a332a99..e6edaab 100644
 --- a/build.rs
 +++ b/build.rs
-@@ -14,7 +14,7 @@ fn main() {
-     if cfg!(target_os = "linux") {
-         if cfg!(feature = "appindicator") {
--            println!("cargo:rustc-link-lib=dylib=appindicator3");
-+            println!("cargo:rustc-link-lib=dylib=ayatana-appindicator3");
-         }
+@@ -14,6 +14,6 @@ fn main() {
+         println!("cargo:rustc-link-lib=dylib=gdk-3");
+         println!("cargo:rustc-link-lib=dylib=gobject-2.0");
+         println!("cargo:rustc-link-lib=dylib=glib-2.0");
+-        println!("cargo:rustc-link-lib=dylib=appindicator3");
++        println!("cargo:rustc-link-lib=dylib=ayatana-appindicator3");
      }
  }
+diff --git a/tray/Makefile b/tray/Makefile
+index 2111412..2b6ed01 100644
+--- a/tray/Makefile
++++ b/tray/Makefile
+@@ -21,8 +21,8 @@ else ifeq ($(shell uname -s),Linux)
+ 	else
+ 		OPT_FLAGS := -Og
+ 	endif
+-	TRAY_CFLAGS := $(OPT_FLAGS) -DTRAY_APPINDICATOR=1 $(shell pkg-config --cflags appindicator3-0.1) -std=c99
+-	TRAY_LDFLAGS := $(shell pkg-config --libs appindicator3-0.1)
++	TRAY_CFLAGS := $(OPT_FLAGS) -DTRAY_APPINDICATOR=1 $(shell pkg-config --cflags ayatana-appindicator3-0.1) -std=c99
++	TRAY_LDFLAGS := $(shell pkg-config --libs ayatana-appindicator3-0.1)
+ else ifeq ($(shell uname -s),Darwin)
+ 	RM=rm -f
+ 	LIB_NAME=libzt_desktop_tray.a
+diff --git a/tray/tray.h b/tray/tray.h
+index fe18fea..0ed4ffc 100644
+--- a/tray/tray.h
++++ b/tray/tray.h
+@@ -31,7 +31,7 @@ void tray_update(struct tray *tray);
+ #if defined(TRAY_APPINDICATOR)
+ 
+ #include <gtk/gtk.h>
+-#include <libappindicator/app-indicator.h>
++#include <libayatana-appindicator/app-indicator.h>
+ 
+ #define TRAY_APPINDICATOR_ID "tray-id"
 ```
 
-> 💡 **Примечание**: точные строки могут отличаться — убедитесь, что патч корректно применяется. Можно сгенерировать его командой `diff -u` после внесения изменений.
+5. Создайте папку `DesktopUI-1.8.3/packaging/systemd/` в корне исходников (не /tmp !) и поместите туда файл `DesktopUI-1.8.3/packaging/systemd/zerotier-desktop-ui.service`:
 
----
-
-#### Дополнительно: systemd unit
-
-Создайте папку `packaging/systemd/` в корне исходников и поместите туда:
-
-##### `packaging/systemd/zerotier-desktop-ui.service`
-
-```ini
+```systemd
 [Unit]
 Description=ZeroTier Desktop UI
 After=graphical-session.target
@@ -421,40 +496,25 @@ Environment=XDG_RUNTIME_DIR=/run/user/%U
 WantedBy=default.target
 ```
 
-> В `.spec` файле используется макрос `%{_userunitdir}`, который в Fedora/RHEL обычно раскрывается в `/usr/lib/systemd/user`.
+6. Установите зависимости:
+```bash
+apt-get install rpm-build meson ninja-build gtk3-devel libayatana-appindicator3-devel rust cargo
+```
 
----
+7. Подготовьте сборочницу, перенеся все подготовленные файлы:
+```bash
+cp zerotier-desktop-ui.spec ~/RPM/SPECS/
+```
+```bash
+cp use-ayatana-appindicator.patch ~/RPM/SOURCES/
+```
+```bash
+tar cvf ~/RPM/SOURCES/zerotier-desktop-ui-1.8.3.tar DesktopUI-1.8.3/
+```
 
-#### Как собрать RPM
+8. Соберите:
+```bash
+rpmbuild -ba ~/RPM/SPECS/zerotier-desktop-ui.spec
+```
 
-1. Установите зависимости:
-   ```bash
-   sudo apt-get install rpm-build meson ninja-build gtk3-devel libayatana-appindicator3-devel rust cargo
-   ```
-
-2. Подготовьте дерево:
-   ```bash
-   mkdir -p ~/rpmbuild/{SOURCES,SPECS}
-   cp zerotier-desktop-ui.spec ~/rpmbuild/SPECS/
-   cp use-ayatana-appindicator.patch ~/rpmbuild/SOURCES/
-   # Скачайте исходники (или используйте spectool -g)
-   ```
-
-3. Соберите:
-   ```bash
-   rpmbuild -ba ~/rpmbuild/SPECS/zerotier-desktop-ui.spec
-   ```
-
----
-
-#### Что делает этот пакет:
-
-- Собирает UI с поддержкой **Ayatana AppIndicator** (актуально для Fedora, RHEL, openSUSE и др.)
-- Устанавливает бинарник в `/usr/bin/`
-- Устанавливает **systemd user unit** в `/usr/lib/systemd/user/`
-- Пользователь может включить автозапуск командой:
-  ```bash
-  systemctl --user enable --now zerotier-desktop-ui.service
-  ```
-
-> ⚠️ Обратите внимание: пользователь должен быть в графической сессии (graphical session), и `XDG_RUNTIME_DIR` должен быть установлен (обычно это делает display manager).
+В принципе, я считаю, что шалость2 удалась. Вот сама собранная rpm`ка если кому надо: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm)
