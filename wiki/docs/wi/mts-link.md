@@ -11,18 +11,18 @@
 epm repack ./mts-link-desktop.AppImage
 ```
 
-3. Установить AppImage:
+3. Установить перепакованный пакет:
 ```bash
-epm install ./mts-link-desktop.AppImage
+apt-get install ./mts-link-desktop-1.2.12.46144-epm1.repacked.2.x86_64.rpm
 ```
 
 ## Установка (автоматически)
 
 1. Скачать AppImage по ссылке: https://apps.webinar.ru/desktop/latest/mts-link-desktop.AppImage
 
-2. Установить перепакованный пакет:
+2. Установить AppImage:
 ```bash
-apt-get install ./mts-link-desktop-1.2.12.46144-epm1.repacked.2.x86_64.rpm
+epm install ./mts-link-desktop.AppImage
 ```
 
 ## Установка c помощью epm play (Неофициальная сборка)
