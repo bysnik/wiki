@@ -74,6 +74,21 @@ sudo -i PULSE_SERVER=unix:/run/user/$(id -u $whoami)/pulse/native flatpak run de
 
 ### Запуск
 
+#### SystemD Unit
+
+```systemd
+[Unit]
+Description=Sunshine Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/sunshine
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
 ### Запуск с захватом NVFBC (только X11)
 ```bash
 flatpak run dev.lizardbyte.app.Sunshine
@@ -210,8 +225,15 @@ libva info: va_openDriver() returns 0
 [2025-08-28 12:07:08.755]: Info: Avahi service bystrovno-nb successfully established.
 ```
 
-Видно, что есть ошибки, нужно с ними разбираться.
+Нейронка пишет:
+Проблема с Wayland-композитором: отсутствует wlr-export-dmabuf 
+```bash
+Warning: Missing Wayland wire for wlr-export-dmabuf
+```
+Это критично. Для KMS-захвата в Wayland Sunshine использует wlr-export-dmabuf, который предоставляется только некоторыми композиторами и KDE и GNOME не в их числе. 
 :::
+
+
 
 
 ## Настройка в связке с GeForce Experience
