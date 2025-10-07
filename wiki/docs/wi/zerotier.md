@@ -539,7 +539,7 @@ tar cvf ~/RPM/SOURCES/zerotier-desktop-ui-1.8.3.tar DesktopUI-1.8.3/
 rpmbuild -ba ~/RPM/SPECS/zerotier-desktop-ui.spec
 ```
 
-В принципе, я считаю, что шалость2 удалась. Вот сама собранная rpm`ка (из ветки 1.16.0) если кому надо: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm)
+В принципе, я считаю, что шалость2 удалась. Вот сама собранная rpmка (из ветки 1.16.0) если кому надо: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm) (Вероятнее всего пакет вообще не установится без уже установленного `zerotier-one` и будет кричать, что пакет битый, так как `apt` не сможет сам удовлетворить зависимость)
 
 После установки пакета необходимо включить сервис:
 ```bash
@@ -549,7 +549,7 @@ systemctl --user enable --now zerotier-desktop-ui.service
 ## ztncui
 
 ::: tip
-Так, я переписал спеку, теперь она даже собирается. [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий, я исправил права доступа, теперь вроде как всё нормально
+Вот собранный пакет: [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий, я исправил права доступа, теперь вроде как всё нормально
 :::
 
 
@@ -560,7 +560,7 @@ systemctl --user enable --now zerotier-desktop-ui.service
 1. Убедитесь, что установлены необходимые пакеты:
 
 ```bash
-apt-get install rpm-build git nodejs npm gcc-c++ make python3
+apt-get install rpm-build git nodejs npm gcc-c++ make
 ```
 
 2. Также установите `node-gyp` глобально:
@@ -575,7 +575,7 @@ npm install -g node-gyp
 cd /tmp
 ```
 ```bash
-git clone https://github.com/key-networks/ztncui
+git clone https://github.com/key-networks/ztncui.git
 ```
 
 4. Создаём архив исходников (имя должно соответствовать версии)
@@ -593,7 +593,7 @@ Summary:        ZeroTier Network Controller Web UI
 License:        GPL-3.0-or-later
 Group:          Applications/Internet
 
-AutoReqProv: no
+AutoReqProv:    no
 
 URL:            https://github.com/key-networks/ztncui
 
@@ -702,14 +702,20 @@ ls -l ~/RPM/RPMS/x86_64/ztncui-0.8.14-alt1.x86_64.rpm
 
 ```bash
 apt-get install ~/RPM/RPMS/ztncui-0.8.14-alt1.x86_64.rpm
+```
 
-# Убедитесь, что ZeroTier запущен
-sudo systemctl enable --now zerotier-one
+Убедитесь, что ZeroTier запущен
+```bash
+systemctl enable --now zerotier-one
+```
 
-# Запустите ztncui
-sudo systemctl enable --now ztncui
+Запустите ztncui
+```bash
+systemctl enable --now ztncui
+```
 
-# Проверьте статус
+Проверьте статус
+```bash
 systemctl status ztncui
 ```
 
@@ -723,15 +729,9 @@ systemctl status ztncui
 - `HTTPS_PORT=3443`
 - `HTTPS_HOST=12.34.56.78` Приложение можно заставить прослушивать на определенном интерфейсе HTTPS-запросов, указав `HTTPS_HOST (имя хоста или IP-адрес интерфейса)` в `.env` файл. Если `HTTPS_HOST` не указан, но указано `HTTPS_PORT`, то приложение будет прослушивать запросы HTTPS на всех интерфейсах.
 
-Важные замечания
+Важные замечания:
 
-1. **authtoken.secret**: Пакет пытается автоматически прочитать токен из `/var/lib/zerotier-one/authtoken.secret`. Убедитесь, что `zerotier-one` установлен и запущен **до** установки `ztncui` (Нужно, чтобы `zerotier-one` был собран вместе с контроллером, иначе, очевидно, работать не будет).
-2. **Обновления**: При обновлении пакета конфиги (`/opt/ztncui/src/.env`, `/opt/ztncui/src/passwd`) не перезаписываются благодаря `%config(noreplace)`.
-
-Тестирование: Должен вернуть HTML-код страницы входа
-```bash
-curl http://localhost:3000
-```
+**authtoken.secret**: Пакет пытается автоматически прочитать токен из `/var/lib/zerotier-one/authtoken.secret`. Убедитесь, что `zerotier-one` установлен и запущен **до** установки `ztncui` (Нужно, чтобы `zerotier-one` был собран вместе с контроллером, иначе, очевидно, работать не будет) (Вероятнее всего пакет вообще не установится без уже установленного `zerotier-one` и будет кричать, что пакет битый, так как `apt` не сможет сам удовлетворить зависимость).
 
 
 
