@@ -44,6 +44,13 @@ epm install --repack sunshine.AppImage
 
 ##### Запуск и настройка Sunshine
 
+::: warning Для Wayland
+Необходимо выполнить:
+```bash
+sudo setcap cap_sys_admin+p $(readlink -f $(which sunshine))
+```
+:::
+
 Запуск программы осуществляется через терминал, введите название программы для ее запуска:
 ```bash
 sunshine
@@ -71,6 +78,10 @@ sudo -i PULSE_SERVER=unix:/run/user/$(id -u $whoami)/pulse/native flatpak run de
 ```bash
 flatpak run dev.lizardbyte.app.Sunshine
 ```
+
+::: tip
+В сессии X11 запуск прошёл без проблем. 
+:::
 
 ### Запуск с захватом KMS (Wayland и X11)
 ```bash
