@@ -681,7 +681,7 @@ systemctl daemon-reload || :
 %dir %attr(755, zerotier-one, zerotier-one) /var/lib/%{name}
 
 %changelog
-* Tue Oct 07 2025 Nikita Bystrov bystrovno@basealt.ru - %{version}-%{release}
+* Tue Oct 07 2025 Nikita Bystrov bystrovno@basealt.ru - 0.8.14-alt1
 - Initial RPM package for ALT Linux
 ```
 
