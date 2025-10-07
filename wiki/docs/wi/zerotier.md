@@ -552,12 +552,11 @@ systemctl --user enable --now zerotier-desktop-ui.service
 Вот собранный пакет: [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий, я исправил права доступа, теперь вроде как всё нормально
 :::
 
-
+Данный пакет:
 - Устанавливает приложение в `/opt/ztncui`
-- Создаёт пользователя `ztncui`
-- Управляет службой через systemd
+- Управляет службой через systemd (`ztncui.service`)
 
-1. Убедитесь, что установлены необходимые пакеты:
+1. Убедитесь, что установлены необходимые пакеты для сборки и создано дерево сборки:
 
 ```bash
 apt-get install rpm-build git nodejs npm gcc-c++ make
