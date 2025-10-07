@@ -2,7 +2,7 @@
 
 ![](https://alt-gnome.wiki/mts-link/mts-link-3.png)
 
-## Установка (Через отделбную перепаковку)
+## Установка (Через отдельную перепаковку)
 
 1. Скачать AppImage по ссылке: https://apps.webinar.ru/desktop/latest/mts-link-desktop.AppImage
 
