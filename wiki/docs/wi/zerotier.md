@@ -549,7 +549,7 @@ systemctl --user enable --now zerotier-desktop-ui.service
 ## ztncui
 
 ::: tip
-Так, я переписал спеку, теперь она даже собирается. [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий
+Так, я переписал спеку, теперь она даже собирается. [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий, я исправил права доступа, теперь вроде как всё нормально
 :::
 
 
@@ -601,6 +601,7 @@ Source0: %{name}-%{version}.tar.gz
 
 # Зависимости
 Requires: nodejs >= 14
+Requires: npm
 Requires: zerotier-one
 
 BuildRequires: npm
@@ -631,8 +632,6 @@ rm -rf %{buildroot}/opt/%{name}/.git*
 install -d %{buildroot}/etc/%{name}
 install -d %{buildroot}/var/lib/%{name}
 
-# Создаём пользователя (через %pre, см. ниже)
-
 # Systemd unit
 install -d %{buildroot}%{_unitdir}
 cat > %{buildroot}%{_unitdir}/%{name}.service << 'EOF'
@@ -642,8 +641,8 @@ After=network.target zerotier-one.service
 
 [Service]
 Type=simple
-User=ztncui
-Group=ztncui
+User=zerotier-one
+Group=zerotier-one
 WorkingDirectory=/opt/ztncui/src
 EnvironmentFile=-/opt/ztncui/src/.env
 ExecStart=/usr/bin/npm start
@@ -654,16 +653,11 @@ RestartSec=10
 WantedBy=multi-user.target
 EOF
 
-%pre
-# Создаём пользователя, если не существует
-getent group ztncui >/dev/null || groupadd -r ztncui
-getent passwd ztncui >/dev/null || useradd -r -g ztncui -d /var/lib/ztncui -s /sbin/nologin ztncui
-exit 0
-
+%post
 # Копируем passwd, если не существует
 if [ ! -f /opt/ztncui/src/etc/passwd ]; then
     cp -v /opt/ztncui/src/etc/default.passwd /opt/ztncui/src/etc/passwd
-    chown ztncui:ztncui /opt/ztncui/src/etc/passwd
+    chown zerotier-one:zerotier-one /opt/ztncui/src/etc/passwd
     chmod 600 /opt/ztncui/src/etc/passwd
 fi
 
@@ -674,18 +668,21 @@ if [ ! -f /opt/ztncui/src/.env ]; then
 ZT_TOKEN=$ZT_TOKEN
 NODE_ENV=production
 EOF
-    chown ztncui:ztncui /opt/ztncui/src/.env
+    chown zerotier-one:zerotier-one /opt/ztncui/src/.env
     chmod 600 /opt/ztncui/src/.env
 fi
 
+# Перезагружаем systemd, чтобы увидеть новый unit
+systemctl daemon-reload || :
+
 %files
-%attr(755, root, root) /opt/%{name}
-%dir %attr(755, root, root) /etc/%{name}
+%attr(755, zerotier-one, zerotier-one) /opt/%{name}
+%dir %attr(755, zerotier-one, zerotier-one) /etc/%{name}
 %{_unitdir}/%{name}.service
-%dir %attr(755, ztncui, ztncui) /var/lib/%{name}
+%dir %attr(755, zerotier-one, zerotier-one) /var/lib/%{name}
 
 %changelog
-* Mon Oct 06 2025 Nikita Bystrov bystrovno@basealt.ru - %{version}-%{release}
+* Tue Oct 07 2025 Nikita Bystrov bystrovno@basealt.ru - %{version}-%{release}
 - Initial RPM package for ALT Linux
 ```
 
