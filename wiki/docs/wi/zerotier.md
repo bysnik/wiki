@@ -94,7 +94,7 @@ cp -R zerotier-one/zeroidc zerotier-one-development-1.16.0/
 - Проваливаемся в скопированные файлы:
 
 ```bash
-cd zerotier-one-development/zeroidc
+cd zerotier-one-development-1.16.0/zeroidc
 ```
 
 - Генерируем директорию `vendor`:
@@ -188,6 +188,8 @@ make ZT_NONFREE=1
 :::
 
 В принципе, я считаю, что шалость удалась. Вот сама собранная rpm`ка (без контроллера) если кому надо: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.x86_64.rpm)
+
+Также, собрал Non Free версию: [zerotier-one-1.16.0-alt1.nf.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.nf.x86_64.rpm)
 
 ## Desktop UI
 
