@@ -306,8 +306,6 @@ systemctl --user start zerotier-desktop-ui.service
 
 ### Собираем rpm-пакет
 
-Ниже приведён пример **полноценного `.spec` файла**, который учитывает все шаги, включая патчи под `ayatana-appindicator`, сборку через `make`, установку бинарника и создание systemd user unit.
-
 1. Клонируем репозиторий:
 ```bash
 git clone https://github.com/zerotier/DesktopUI.git
@@ -549,30 +547,27 @@ systemctl --user enable --now zerotier-desktop-ui.service
 ## ztncui
 
 ::: tip
-Так, я переписал спеку, теперь она даже собирается, но сам пакет я ещё не тестировал. [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий
+Так, я переписал спеку, теперь она даже собирается. [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий
 :::
 
-Вот пошаговая инструкция по сборке RPM-пакета для Альт Линукс из исходного кода **ztncui**, поскольку официального релиза и готового `.spec`-файла нет.
 
-Цель: Создать RPM-пакет `ztncui` для установки на ALT Linux, который:
 - Устанавливает приложение в `/opt/ztncui`
 - Создаёт пользователя `ztncui`
 - Управляет службой через systemd
-- Генерирует самоподписанный TLS-сертификат
 
-Убедитесь, что установлены необходимые пакеты:
+1. Убедитесь, что установлены необходимые пакеты:
 
 ```bash
 apt-get install rpm-build git nodejs npm gcc-c++ make python3
 ```
 
-Также установите `node-gyp` глобально:
+2. Также установите `node-gyp` глобально:
 
 ```bash
 npm install -g node-gyp
 ```
 
-Клонирование и упаковка исходного кода
+3. Клонирование и упаковка исходного кода
 
 ```bash
 cd /tmp
@@ -581,12 +576,12 @@ cd /tmp
 git clone https://github.com/key-networks/ztncui
 ```
 
-Создаём архив исходников (имя должно соответствовать версии)
+4. Создаём архив исходников (имя должно соответствовать версии)
 ```bash
 tar -czf ~/RPM/SOURCES/ztncui-0.8.14.tar.gz ztncui
 ```
 
-Создайте файл `~/RPM/SPECS/ztncui.spec` со следующим содержимым:
+5. Создайте файл `~/RPM/SPECS/ztncui.spec` со следующим содержимым:
 
 ```spec
 Name:           ztncui
@@ -692,19 +687,19 @@ fi
 - Initial RPM package for ALT Linux
 ```
 
-Сборка RPM:
+6. Сборка RPM:
 
 ```bash
 rpmbuild -ba ~/RPM/SPECS/ztncui.spec
 ```
 
-Если всё прошло успешно, RPM-пакет будет в:
+7. Если всё прошло успешно, RPM-пакет будет в:
 
 ```bash
-~/RPM/RPMS/x86_64/ztncui-0.8.14-alt1.x86_64.rpm
+ls -l ~/RPM/RPMS/x86_64/ztncui-0.8.14-alt1.x86_64.rpm
 ```
 
-Установка и запуск:
+8. Установка и запуск:
 
 ```bash
 apt-get install ~/RPM/RPMS/ztncui-0.8.14-alt1.x86_64.rpm
@@ -724,7 +719,7 @@ systemctl status ztncui
 По умолчанию:
 - HTTP на `http://localhost:3000`
 
-Также в файл `/etc/ztncui/.env` можно добавить следующее:
+Также в файл `/opt/ztncui/src/.env` можно добавить следующее:
 - `HTTP_ALL_INTERFACES=yes` Приложение можно заставить прослушивать все интерфейсы для HTTP-запросов, установив `HTTP_ALL_INTERFACES` в `.env` файл.
 - `HTTPS_PORT=3443`
 - `HTTPS_HOST=12.34.56.78` Приложение можно заставить прослушивать на определенном интерфейсе HTTPS-запросов, указав `HTTPS_HOST (имя хоста или IP-адрес интерфейса)` в `.env` файл. Если `HTTPS_HOST` не указан, но указано `HTTPS_PORT`, то приложение будет прослушивать запросы HTTPS на всех интерфейсах.
@@ -732,7 +727,7 @@ systemctl status ztncui
 Важные замечания
 
 1. **authtoken.secret**: Пакет пытается автоматически прочитать токен из `/var/lib/zerotier-one/authtoken.secret`. Убедитесь, что `zerotier-one` установлен и запущен **до** установки `ztncui` (Нужно, чтобы `zerotier-one` был собран вместе с контроллером, иначе, очевидно, работать не будет).
-2. **Обновления**: При обновлении пакета конфиги (`/etc/ztncui/.env`, `passwd`) не перезаписываются благодаря `%config(noreplace)`.
+2. **Обновления**: При обновлении пакета конфиги (`/opt/ztncui/src/.env`, `/opt/ztncui/src/passwd`) не перезаписываются благодаря `%config(noreplace)`.
 
 Тестирование: Должен вернуть HTML-код страницы входа
 ```bash
