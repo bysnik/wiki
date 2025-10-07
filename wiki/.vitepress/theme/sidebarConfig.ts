@@ -301,6 +301,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
+        { text: 'MTS Link', link: '/docs/wi/mts-link' },
         { text: '! n8n', link: '/docs/wi/n8n' },
         { text: '! OpenStack', link: '/docs/wi/openstack' }, 
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
