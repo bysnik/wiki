@@ -28,9 +28,21 @@ ZeroTier поддерживает все основные операционны
 Вот графический интерфейс клиента: https://github.com/zerotier/DesktopUI
 :::
 
-## Сборка rpm-пакета ZeroTier-One
+::: danger Дублирую ссылки на мои пакеты
+ZeroTier-One: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.x86_64.rpm)
 
-Тут описаны мои потуги по сборке последней версии ZeroTierOne для Альт Линукс П11 (версия 1.16.0 на момент написания статьи).
+ZeroTier-One NonFree: [zerotier-one-1.16.0-alt1.nf.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.nf.x86_64.rpm)
+
+ZeroTier Desktop UI: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm)
+
+ZTNCUI: [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm)
+
+Пишите, если будут ошибки)
+:::
+
+Ниже описаны мои потуги по сборке последней версии ZeroTierOne для Альт Линукс П11 (версия 1.16.0 на момент написания статьи), а также пакетов DesktopUI и ztncui.
+
+## Сборка rpm-пакета ZeroTier-One
 
 1. Устновка необходимых пакетов (скорее всего тут перечислены не все)
 
@@ -187,9 +199,11 @@ make ZT_NONFREE=1
 ```
 :::
 
+::: danger
 В принципе, я считаю, что шалость удалась. Вот сама собранная rpm`ка (без контроллера) если кому надо: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.x86_64.rpm)
 
 Также, собрал Non Free версию: [zerotier-one-1.16.0-alt1.nf.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.nf.x86_64.rpm)
+:::
 
 ## Desktop UI
 
@@ -538,9 +552,9 @@ tar cvf ~/RPM/SOURCES/zerotier-desktop-ui-1.8.3.tar DesktopUI-1.8.3/
 ```bash
 rpmbuild -ba ~/RPM/SPECS/zerotier-desktop-ui.spec
 ```
-
+::: danger
 В принципе, я считаю, что шалость2 удалась. Вот сама собранная rpmка (из ветки 1.16.0) если кому надо: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm) (Вероятнее всего пакет вообще не установится без уже установленного `zerotier-one` и будет кричать, что пакет битый, так как `apt` не сможет сам удовлетворить зависимость)
-
+:::
 После установки пакета необходимо включить сервис:
 ```bash
 systemctl --user enable --now zerotier-desktop-ui.service
@@ -548,7 +562,7 @@ systemctl --user enable --now zerotier-desktop-ui.service
 
 ## ztncui
 
-::: tip
+::: danger
 Вот собранный пакет: [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий, я исправил права доступа, теперь вроде как всё нормально
 :::
 
@@ -568,7 +582,7 @@ apt-get install rpm-build git nodejs npm gcc-c++ make
 npm install -g node-gyp
 ```
 
-3. Клонирование и упаковка исходного кода
+3. Клонирование репозитория:
 
 ```bash
 cd /tmp
@@ -728,9 +742,9 @@ systemctl status ztncui
 - `HTTPS_PORT=3443`
 - `HTTPS_HOST=12.34.56.78` Приложение можно заставить прослушивать на определенном интерфейсе HTTPS-запросов, указав `HTTPS_HOST (имя хоста или IP-адрес интерфейса)` в `.env` файл. Если `HTTPS_HOST` не указан, но указано `HTTPS_PORT`, то приложение будет прослушивать запросы HTTPS на всех интерфейсах.
 
-Важные замечания:
+::: tip Важные замечания:
 
 **authtoken.secret**: Пакет пытается автоматически прочитать токен из `/var/lib/zerotier-one/authtoken.secret`. Убедитесь, что `zerotier-one` установлен и запущен **до** установки `ztncui` (Нужно, чтобы `zerotier-one` был собран вместе с контроллером, иначе, очевидно, работать не будет) (Вероятнее всего пакет вообще не установится без уже установленного `zerotier-one` и будет кричать, что пакет битый, так как `apt` не сможет сам удовлетворить зависимость).
-
+:::
 
 
