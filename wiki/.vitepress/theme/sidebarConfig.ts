@@ -305,6 +305,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
         { text: '! n8n', link: '/docs/wi/n8n' },
         { text: '! OpenStack', link: '/docs/wi/openstack' }, 
+        { text: '! RustDesk', link: '/docs/wi/rustdesk' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
       ]
     },
@@ -327,6 +328,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Docker', link: '/docs/wi/docker' },
         { text: '0 Deckhouse', link: '/docs/wi/deckhouse' },
         { text: '0 Kubernetes', link: '/docs/wi/kubernetes' },
+        { text: '! K3s', link: '/docs/wi/k3s' },
         { text: '! K9s', link: '/docs/wi/k9s' },
         { text: '! Lens', link: '/docs/wi/k8slens' },
         { text: 'Podman', link: '/docs/wi/podman' },
@@ -442,13 +444,28 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
+      text: 'Веб-серверы',
+      collapsed: true,
+      items: [
+        { text: '0 Angie', link: '/docs/wi/angie' },
+        { text: '0 Apache2', link: '/docs/wi/apache2' }, 
+        { text: '0 Caddy', link: '/docs/wi/caddy' },
+        { text: '0 Lighttpd', link: '/docs/wi/lighttpd' },
+        { text: '0 Nginx', link: '/docs/wi/nginx' }, 
+      ]
+    },
+
+    {
       text: 'Сервисы (В планах)',
       collapsed: true,
       items: [
+        { text: '0 Anytype', link: '/docs/wi/anytype' }, // чёт тип обсидиана
         { text: '0 Audiobookself', link: '/docs/wi/audiobookself' }, // audiobookself.org
+        { text: '0 Audiorelay', link: '/docs/wi/audiorelay' }, //Turn your phone into a microphone or speakers for PC
         { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },
         { text: '0 Ejudge', link: '/docs/wi/ejudge' }, // система для проведения олимпиады по программированию с автопроверкой кода 
         { text: '0 Flatpak', link: '/docs/wi/flatpak' }, 
+        { text: '0 HAProxy', link: '/docs/wi/haproxy' },
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
         { text: '0 MODX', link: '/docs/wi/modx' }, // CMS
         { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
