@@ -466,6 +466,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Ejudge', link: '/docs/wi/ejudge' }, // система для проведения олимпиады по программированию с автопроверкой кода 
         { text: '0 Flatpak', link: '/docs/wi/flatpak' }, 
         { text: '0 HAProxy', link: '/docs/wi/haproxy' },
+        { text: '0 LocalSend', link: '/docs/wi/localsend' }, // Аналог AirDrop, только OpenSource
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
         { text: '0 MODX', link: '/docs/wi/modx' }, // CMS
         { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
