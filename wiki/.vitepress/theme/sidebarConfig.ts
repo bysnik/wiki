@@ -299,6 +299,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
         { text: '! Keycloak', link: '/docs/wi/keycloak' },
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
+        { text: '0 Matrix', link: '/docs/wi/matrix' },   
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
