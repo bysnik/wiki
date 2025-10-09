@@ -378,7 +378,6 @@ git log --show-signature -n N
 ```
 
 Вы должны увидеть `Good signature` для каждого коммита.
-<<<<<<< HEAD
 
 6. Послен подписания коммитов история вашего локального бренча изменилась — и теперь она **расходится** с удалённой веткой.
 
@@ -387,8 +386,6 @@ git log --show-signature -n N
 ```bash
 git push --force-with-lease origin main
 ```
-=======
->>>>>>> 56df29ace (restore)
 :::
 
 
