@@ -22,6 +22,8 @@
 
 ```bash
 mkdir -p /opt/matrix
+```
+```bash
 cd /opt/matrix
 ```
 
@@ -36,62 +38,59 @@ vi docker-compose.yml
 Содержимое файла:
 
 ```yaml
+services:
 
-
-    services:
-     
-      synapse-app:
-        image: matrixdotorg/synapse:latest
-        container_name: synapse-app
-        hostname: synapse-app
-        restart: unless-stopped
-        environment:
-          TZ: "Europe/Moscow"
-          SYNAPSE_CONFIG_PATH: /data/homeserver.yaml
-        volumes:
-          - ./synapse_data:/data
-        depends_on:
-          - synapse-db
-     
-      synapse-db:
-        image: docker.io/postgres:16-alpine
-        container_name: synapse-db
-        hostname: synapse-db
-        restart: unless-stopped
-        environment:
-          TZ: "Europe/Moscow"
-          POSTGRES_USER: synapse
-          POSTGRES_PASSWORD: synapse_password-123
-          POSTGRES_INITDB_ARGS: --encoding=UTF-8 --lc-collate=C --lc-ctype=C
-        volumes:
-          - ./pgsql_data:/var/lib/postgresql/data
-     
-      element:
-        image: vectorim/element-web:latest
-        hostname: element
-        container_name: element
-        restart: unless-stopped
-        environment:
-          TZ: "Europe/Moscow"
-        volumes:
-          - ./element_data/config.json:/app/config.json
-     
-      nginx:
-        image: nginx
-        hostname: nginx
-        container_name: nginx
-        restart: unless-stopped
-        depends_on:
-          - synapse-app
-          - element
-        environment:
-          TZ: "Europe/Moscow"
-        ports:
-          - 80:80
-        volumes:
-          - ./nginx_data/conf.d/element.conf:/etc/nginx/conf.d/element.conf
+  synapse-app:
+    image: matrixdotorg/synapse:latest
+    container_name: synapse-app
+    hostname: synapse-app
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Moscow"
+      SYNAPSE_CONFIG_PATH: /data/homeserver.yaml
+    volumes:
+      - ./synapse_data:/data
+    depends_on:
+      - synapse-db
+ 
+  synapse-db:
+    image: docker.io/postgres:16-alpine
+    container_name: synapse-db
+    hostname: synapse-db
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Moscow"
+      POSTGRES_USER: synapse
+      POSTGRES_PASSWORD: synapse_password-123
+      POSTGRES_INITDB_ARGS: --encoding=UTF-8 --lc-collate=C --lc-ctype=C
+    volumes:
+      - ./pgsql_data:/var/lib/postgresql/data
+ 
+  element:
+    image: vectorim/element-web:latest
+    hostname: element
+    container_name: element
+    restart: unless-stopped
+    environment:
+      TZ: "Europe/Moscow"
+    volumes:
+      - ./element_data/config.json:/app/config.json
+ 
+  nginx:
+    image: nginx
+    hostname: nginx
+    container_name: nginx
+    restart: unless-stopped
+    depends_on:
+      - synapse-app
+      - element
+    environment:
+      TZ: "Europe/Moscow"
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx_data/conf.d/element.conf:/etc/nginx/conf.d/element.conf
 ```
-
 
 ## Генерация конфигурации Synapse
 
@@ -133,6 +132,8 @@ database:
 
 ```bash
 mkdir -p element_data
+```
+```bash
 curl -sL https://develop.element.io/config.json -o element_data/config.json
 ```
 

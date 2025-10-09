@@ -42,11 +42,15 @@ apt-get install sysctl-conf-userns
 Предоставить права на запуск исполняемых файлов `/usr/bin/newuidmap` и `/usr/bin/newgidmap` пользователям, не являющимся владельцами файла и не принадлежащим к группе владельца файла:
 ```bash
 control newgidmap public
+```
+```bash
 control newuidmap public
 ```
 Поскольку эти исполняемые файлы обращаются к системным вызовам `setuid()` и `setgid()`, чтобы лишний раз не выдавать SUID бит, задайте этим файлам соответствующие file capabilities:
 ```bash
 setcap cap_setuid+ep /usr/bin/newuidmap
+```
+```bash
 setcap cap_setgid+ep /usr/bin/newgidmap
 ```
 Если при попытке работы с podman под непривилегированным пользователем (например, `"$ podman images"`) выдаётся ошибка `"Error: kernel does not support overlay fs: 'overlay' is not supported ..."`, то нужно донастроить `Fuse`:
@@ -54,13 +58,19 @@ setcap cap_setgid+ep /usr/bin/newgidmap
 Под пользователем root:
 ```bash
 apt-get install fuse-overlayfs
+```
+```bash
 control fusermount fuseonly
+```
+```bash
 usermod -aG fuse <your_unprivileged_user_here>
 ```
 Далее нужно перезайти под непривилегированным пользователем и проверить, что нет ошибок - вывод должен быть примерно такого вида:
 ```bash
 $ fusermount -V
 # fusermount version: 2.9.9
+```
+```bash
 $ fusermount3 -V
 # fusermount3 version: 3.16.2
 ```
@@ -159,9 +169,14 @@ Error: could not find "gvproxy" in one of [/usr/local/libexec/podman /usr/local/
 Тогда нужно сделать следующее:
 ```bash
 curl -s https://api.github.com/repos/containers/gvisor-tap-vsock/releases/latest | awk 'BEGIN { FS = "\"\\s*:\\s*" } /browser_download_url/ && /linux-amd64/ {print $2}' | xargs wget -O gvproxy-linux-amd64
-
+```
+```bash
 chmod +x ./gvproxy-linux-amd64
+```
+```bash
 mkdir -p /usr/local/lib/podman/
+```
+```bash
 mv gvproxy-linux-amd64 /usr/local/lib/podman/gvproxy
 ```
 
@@ -173,7 +188,8 @@ Error: failed to find virtiofsd: exec: "virtiofsd": executable file not found in
 Тогда:
 ```bash
 apt-get install virtiofsd
-
+```
+```bash
 ln -s /usr/libexec/virtiofsd /usr/local/bin/virtiofsd
 ```
 

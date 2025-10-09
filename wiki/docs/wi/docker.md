@@ -109,7 +109,8 @@ epm play docker-desktop
 
 ```bash
 grep "$USER" /etc/subuid >> /dev/null 2&>1 || (echo "$USER:100000:65536" | sudo tee -a /etc/subuid)
-
+```
+```bash
 grep "$USER" /etc/subgid >> /dev/null 2&>1 || (echo "$USER:100000:65536" | sudo tee -a /etc/subgid)
 ```
 
@@ -119,7 +120,8 @@ apt-get install shadow-submap
 
 ```bash
 control newgidmap public
-
+```
+```bash
 control newuidmap public
 ```
 Ну, ошибок больше нет, но Docker Engine тупо не стартует

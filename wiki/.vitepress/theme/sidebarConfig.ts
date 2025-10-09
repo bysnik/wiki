@@ -328,7 +328,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Docker', link: '/docs/wi/docker' },
         { text: '0 Deckhouse', link: '/docs/wi/deckhouse' },
         { text: '0 Kubernetes', link: '/docs/wi/kubernetes' },
-        { text: '! K3s', link: '/docs/wi/k3s' },
+        { text: '0 K3s', link: '/docs/wi/k3s' },
         { text: '! K9s', link: '/docs/wi/k9s' },
         { text: '! Lens', link: '/docs/wi/k8slens' },
         { text: 'Podman', link: '/docs/wi/podman' },
@@ -460,6 +460,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: '0 Anytype', link: '/docs/wi/anytype' }, // чёт тип обсидиана
+        { text: '0 Apache Guacamole', link: '/docs/wi/apacheguacamole' },
         { text: '0 Audiobookself', link: '/docs/wi/audiobookself' }, // audiobookself.org
         { text: '0 Audiorelay', link: '/docs/wi/audiorelay' }, //Turn your phone into a microphone or speakers for PC
         { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },
@@ -472,7 +473,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
         { text: '0 OpenNebula', link: '/docs/wi/opennebula' }, 
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
-        { text: '0 OpenVPN', link: '/docs/wi/openvpn' },
         { text: '0 Pacemaker', link: '/docs/wi/pacemaker' }, // менеджер ресурсов кластера
         { text: '0 SOGo', link: '/docs/wi/sogo' },
         { text: '0 Sphinx', link: '/docs/wi/sphinx' }, // автодокументирование кода
@@ -490,6 +490,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: 'AmneziaWG', link: '/docs/wi/amneziawg' },
         { text: '! obfsproxy', link: '/docs/wi/obfsproxy' },
+        { text: '0 OpenVPN', link: '/docs/wi/openvpn' },
         { text: 'ZeroTier', link: '/docs/wi/zerotier' },
       ]
     },
