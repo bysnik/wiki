@@ -13,9 +13,3 @@ Beekeeper Studio — это бесплатный, открытый и кросс
 ```bash
 epm play beekeeper-studio-5.4.1.x86_64.rpm
 ```
-
-или
-
-```bash
-sudo rpm -Uvh --noscripts beekeeper-studio-5.4.1.x86_64.rpm
-```
