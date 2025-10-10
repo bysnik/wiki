@@ -291,6 +291,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Сервисы',
       items: [
         { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
+        { text: '! Beekeeper Studio', link: '/docs/wi/beekeeper-studio' },
         { text: '! Bugzilla', link: '/docs/wi/bugzilla' },
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
