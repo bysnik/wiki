@@ -11,5 +11,11 @@ Beekeeper Studio — это бесплатный, открытый и кросс
 Скачайте RPM пакет из репозитория гитхаб: https://github.com/beekeeper-studio/beekeeper-studio/releases
 
 ```bash
-epm play beekeeper-studio-5.4.1.x86_64.rpm
+epm install --repack ./beekeeper-studio-5.4.1.x86_64.rpm
+```
+
+### Flatpak
+
+```bash
+flatpak install beekeeperstudio
 ```
