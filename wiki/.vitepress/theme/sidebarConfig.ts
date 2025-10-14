@@ -306,7 +306,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
         { text: '! n8n', link: '/docs/wi/n8n' },
         { text: '! OpenStack', link: '/docs/wi/openstack' }, 
-        { text: '0 Oracle-DBD', link: '/docs/wi/oracle-dbd' }, 
         { text: '! RustDesk', link: '/docs/wi/rustdesk' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
       ]
@@ -485,7 +484,15 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Zabbix', link: '/docs/wi/zabbix' },
       ]
     },
-
+      
+    {
+      text: 'Сервисное ПО',
+      collapsed: true,
+      items: [
+        { text: '0 Oracle-DBD', link: '/docs/wi/oracle-dbd' },
+      ]
+    },
+    
     {
       text: 'Сетевое туннелирование',
       collapsed: true,
