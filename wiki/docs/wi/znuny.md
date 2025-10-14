@@ -2,11 +2,15 @@
 outline: deep
 ---
 
-# Znuny OTRS версии 6.0.38 
+# Znuny OTRS
 
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI9GtlRHpJFeL7O0fru05DIoQO-X3RgmLH_5uOCxGEiuhqkfsk4a-OZWotc_3YH1rRfhk&usqp=CAU)
 
-## Установка
+Znuny — это сообщество-ориентированная версия популярной системы управления запросами и инцидентами, изначально известной как OTRS (Open-source Ticket Request System). После того как оригинальный проект OTRS перешёл к коммерческой модели и ограничил функциональность бесплатной версии, сообщество разработчиков и пользователей создало Znuny как полностью открытый и свободный форк OTRS. Znuny сохраняет все ключевые возможности системы: управление тикетами, интеграцию с почтой, гибкие правила обработки обращений, поддержку SLA, а также расширенные возможности для настройки под нужды конкретной организации.
+
+Znuny активно развивается сообществом и остаётся совместимым с большим количеством существующих модулей и расширений, созданных для OTRS. Это делает его привлекательным решением для компаний и ИТ-отделов, которым нужна надёжная, гибкая и бесплатная система поддержки без зависимости от коммерческих лицензий. Znuny можно развернуть как внутренний сервис поддержки, так и использовать для взаимодействия с клиентами — благодаря веб-интерфейсу, API и возможностям интеграции с другими системами.
+
+## Установка версии 6.0.38 из репозитория
 
 Для работы системы необходима база данных и веб-сервер, в примере используется PostgreSQL и Apache. Все команды необходимо выполнять с правами администратора системы.
 
@@ -112,8 +116,8 @@ systemctl enable --now httpd2
 Пакеты я собрал, но ещё не тестировал!!
 
 Вот ссылка на собранные пакеты: 
-otrs-7.2.3: [otrs-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/otrs-7.2.3-alt1.noarch.rpm)
-otrs-apache2-7.2.3: [otrs-apache2-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/otrs-apache2-7.2.3-alt1.noarch.rpm)
+- otrs-7.2.3: [otrs-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/otrs-7.2.3-alt1.noarch.rpm)
+- otrs-apache2-7.2.3: [otrs-apache2-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/otrs-apache2-7.2.3-alt1.noarch.rpm)
 :::
 
 1. Скачиваем архив: https://download.znuny.org/releases/znuny-7.2.3.tar.bz2
@@ -149,12 +153,12 @@ cp apache2.conf ~/RPM/SOURCES/
 mv otrs.spec ~/RPM/SPECS/
 ```
 
-::: tip описание изменений в spec-файле
+::: tip Описание изменений в spec-файле
 
 Достаточно лишь поправить версию. 
 
-Вот пример поих правок, ничего особенного
-```spec
+Вот пример моих правок, ничего особенного, лишь добавил в changelog.
+```spec{6}
 %define _unpackaged_files_terminate_build 1
 %define installdir %webserver_webappsdir/%name
 %define otrs_user otrs
