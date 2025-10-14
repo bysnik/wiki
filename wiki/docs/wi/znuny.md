@@ -4,7 +4,7 @@ outline: deep
 
 # Znuny OTRS
 
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI9GtlRHpJFeL7O0fru05DIoQO-X3RgmLH_5uOCxGEiuhqkfsk4a-OZWotc_3YH1rRfhk&usqp=CAU)
+![](https://media.licdn.com/dms/image/v2/D4D12AQEkvB14kAEA1A/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1689080388968?e=2147483647&v=beta&t=H2PcishkaF5cppDy5pkpwBUhSe2dY43ZQWnn0X8XDPY)
 
 Znuny — это сообщество-ориентированная версия популярной системы управления запросами и инцидентами, изначально известной как OTRS (Open-source Ticket Request System). После того как оригинальный проект OTRS перешёл к коммерческой модели и ограничил функциональность бесплатной версии, сообщество разработчиков и пользователей создало Znuny как полностью открытый и свободный форк OTRS. Znuny сохраняет все ключевые возможности системы: управление тикетами, интеграцию с почтой, гибкие правила обработки обращений, поддержку SLA, а также расширенные возможности для настройки под нужды конкретной организации.
 
@@ -56,8 +56,8 @@ echo httpd-addon.d=yes > /etc/httpd2/conf/extra-start.d/999-otrs.conf
 
 ::: warning
 На текущий момент мне осталось решить проблоемы с:
-- Размер подкачки более 200МВ - Ну тут надо при установке ОС делать раздел всего на 200МВ
-- Теоретически должен быть пакет Аля perl-DBD-Oracle, но у альта его нет
+- Размер подкачки более 200МВ - Ну каапец
+- Теоретически должен быть пакет Аля [perl-DBD-Oracle](oracle-dbd), но у альта его нет
 
 :::
 
@@ -112,6 +112,10 @@ systemctl enable --now httpd2
 
 ## Сборка RPM-пакета версии 7.2.3
 
+::: tip
+Это, на 14.10.2025г. последняя версия (2025-09-24)
+:::
+
 ::: warning
 Пакеты я собрал, но ещё не тестировал!!
 
@@ -120,7 +124,10 @@ systemctl enable --now httpd2
 - otrs-apache2-7.2.3: [otrs-apache2-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/otrs-apache2-7.2.3-alt1.noarch.rpm)
 :::
 
-1. Скачиваем архив: https://download.znuny.org/releases/znuny-7.2.3.tar.bz2
+1. Скачиваем архив с необходимой версией:
+```bash
+wget https://download.znuny.org/releases/znuny-7.2.3.tar.bz2
+```
 
 2. Переносим его в сборочнику:
 ```bash
@@ -153,7 +160,7 @@ cp apache2.conf ~/RPM/SOURCES/
 mv otrs.spec ~/RPM/SPECS/
 ```
 
-::: tip Описание изменений в spec-файле
+::: details Описание изменений в spec-файле
 
 Достаточно лишь поправить версию. 
 
