@@ -113,7 +113,7 @@ systemctl enable --now httpd2
 ## Сборка RPM-пакета версии 7.2.3
 
 ::: tip
-Это, на 14.10.2025г. последняя версия (2025-09-24)
+Это, на 14.10.2025г. последняя версия (дата выпуска: 2025-09-24)
 :::
 
 ::: warning
@@ -163,6 +163,18 @@ mv otrs.spec ~/RPM/SPECS/
 ::: details Описание изменений в spec-файле
 
 Достаточно лишь поправить версию. 
+
+1. Отредактировать пост скрипт
+2. добавьте в начало файла, сразу после #!/usr/bin/perl, строку: use lib '/var/www/webapps/otrs';
+3. apt-get install perl-Pod-Strip
+4. apt-get install perl-CPAN
+5. sudo cpan Crypt::JWT Data::UUID Hash::Merge iCal::Parser JavaScript::Minifier::XS Jq Spreadsheet::XLSX
+ 
+ 
+
+Сохраните файл и перезапустите Apache. 
+
+
 
 Вот пример моих правок, ничего особенного, лишь добавил в changelog.
 ```spec{6}
