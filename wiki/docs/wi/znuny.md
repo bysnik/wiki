@@ -186,6 +186,7 @@ jq - Command-line JSON processor
 perl-Spreadsheet-XLSX - perl module Spreadsheet-XLSX
 
 Сохраните файл и перезапустите Apache. 
+ывамвы
 
 
 
