@@ -70,7 +70,11 @@ apt-get install perl-CSS-Minifier-XS perl-Pg perl-JavaScript-Minifier-XS perl-NT
 Активируем модули apache2:
 ```bash
 a2enmod deflate
+```
+```bash
 a2enmod filter
+```
+```bash
 a2enmod headers
 ```
 
@@ -145,11 +149,13 @@ cd ./otrs
 ```
 
 5. Редактируем файл `apache2.conf`:
-```bash
+
+Строку
+```conf
 Alias /otrs-web/ "/var/www/webapps/otrs/var/httpd/htdocs/"
-
+```
 меняем на
-
+```conf
 Alias /znuny-web/ "/var/www/webapps/otrs/var/httpd/htdocs/"
 ```
 
@@ -171,20 +177,7 @@ mv otrs.spec ~/RPM/SPECS/
 
 ::: details Обновлённая спека
 
-УУУУ, очень сильно редактируем спеку
-
-Альтернатива (типа не подходит):
-
-perl-Mojo-JWT - cpan Crypt::JWT
-
-perl-Hash-Merge-Simple - cpan Hash::Merge
-
-? - iCal::Parser
- 
-jq - cpan Jq
-
-
-Вот пример моих правок:
+УУУУ, очень сильно редактируем спеку:
 ```spec:line-numbers {6,26,69,70,83,84,112-117,119-122,154-161}
 %define _unpackaged_files_terminate_build 1
 %define installdir %webserver_webappsdir/%name
@@ -211,7 +204,7 @@ BuildRequires(pre): rpm-macros-webserver-common rpm-macros-apache2 >= 3.9
 Requires: webserver-common 
 
 # requires for perl
-Requires: perl-CGI perl-DBI perl-DateTime perl-Template perl-Unicode-Collate perl-Moo perl-Archive-Tar perl-Archive-Zip perl-TimeDate perl-Net-DNS perl-YAML-LibYAML perl-CSS-Minifier-XS perl-Pg perl-JavaScript-Minifier-XS perl-NTLM perl-DBD-ODBC perl-ldap perl-Crypt-Random-Source perl-Encode-HanExtra perl-CSS-Minifier perl-JavaScript-Minifier perl-Data-UUID perl-Email-Valid perl-Crypt-PasswdMD5 perl-Pod-Strip perl-CPAN perl-Math-Random-Secure perl-Crypt-Eksblowfish perl-Crypt-SSLeay perl-JSON-XS perl-Mail-IMAPClient perl-IO-Socket-SSL perl-Text-CSV_XS perl-XML-LibXSLT perl-XML-Parser perl-CPAN-Meta perl-Spreadsheet-XLSX
+Requires: perl-CGI perl-DBI perl-DateTime perl-Template perl-Unicode-Collate perl-Moo perl-Archive-Tar perl-Archive-Zip perl-TimeDate perl-Net-DNS perl-YAML-LibYAML perl-CSS-Minifier-XS perl-Pg perl-JavaScript-Minifier-XS perl-NTLM perl-DBD-ODBC perl-ldap perl-Crypt-Random-Source perl-Encode-HanExtra perl-CSS-Minifier perl-JavaScript-Minifier perl-Data-UUID perl-Email-Valid perl-Crypt-PasswdMD5 perl-Pod-Strip perl-CPAN perl-Math-Random-Secure perl-Crypt-Eksblowfish perl-Crypt-SSLeay perl-JSON-XS perl-Mail-IMAPClient perl-IO-Socket-SSL perl-Text-CSV_XS perl-XML-LibXSLT perl-XML-Parser perl-CPAN-Meta perl-Spreadsheet-XLSX perl-DBD-mysql perl-DBD-Pg
 
 %add_findreq_skiplist */bin/*
 %add_findreq_skiplist */Kernel/*
@@ -494,3 +487,24 @@ rpmbuild -ba ~/RPM/SPECS/otrs.spec
 9. В результате получаем файлы:
 - `~/RPM/RPMS/noarch/otrs-7.2.3-alt1.noarch.rpm`
 - `~/RPM/RPMS/noarch/otrs-apache2-7.2.3-alt1.noarch.rpm`
+
+
+### Особенности установки этой версии
+
+1. Устанавливаем зависимости для `cpan`:
+```bash
+apt-get install gcc make perl-devel
+```
+
+2. Устанавливаем недостающие модули `perl`:
+```bash
+cpan Crypt::JWT cpan Hash::Merge iCal::Parser Jq
+```
+Там просто всё по умолчанию жмакаете.
+
+3. Дополнительные компоненты `perl` из инструкции для версии 6 устанавливать не нужно, они подтягиваются сами как зависимости.
+
+4. Ну и, соответсвенно, установка необходимых основных пакетов, будет примерно такая:
+```bash
+apt-get install postgresql17-server ./otrs-7.2.3-alt1.noarch.rpm ./otrs-apache2-7.2.3-alt1.noarch.rpm
+```
