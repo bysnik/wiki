@@ -524,6 +524,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! ALT in WSL', link: '/docs/wi/alt-wsl' },
         { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
+        { text: 'RPMBUILD', link: '/docs/wi/rpmbuild' },
         { text: '! Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' }, 
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
       ]
