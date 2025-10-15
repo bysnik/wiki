@@ -185,7 +185,7 @@ jq - cpan Jq
 
 
 Вот пример моих правок:
-```spec{6}
+```spec:line-numbers {6,26,69,70,83,84,112-117,119-122,154-161}
 %define _unpackaged_files_terminate_build 1
 %define installdir %webserver_webappsdir/%name
 %define otrs_user otrs
