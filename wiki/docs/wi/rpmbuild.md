@@ -1,24 +1,21 @@
 Пример простого RPM-пакета для **ALT Linux**, который устанавливает **обои рабочего стола** и может использоваться как **branding-пакет** (например, `mycompany-wallpapers`).
 
----
-
-## Структура проекта
+## Пример структуры архива
 
 ```
-mycompany-wallpapers/
-├── mycompany-wallpapers.spec
-├── SOURCES/
-│   └── wallpaper.jpg
-└── README
+mycompany-wallpapers-1.0/
+├── README
+├── wallpaper1.jpg
+├── wallpaper2.png
+└── themes/
+    ├── dark.jpg
+    └── light.jpg
 ```
-
----
 
 ## `mycompany-wallpapers.spec`
 
 ```spec
-%define wallpaper_name mycompany-wallpaper.jpg
-%define wallpaper_dir  /usr/share/backgrounds
+%define wallpaper_dir /usr/share/backgrounds/mycompany
 
 Name:           mycompany-wallpapers
 Version:        1.0
@@ -29,47 +26,39 @@ License:        Proprietary
 Url:            https://mycompany.example.com/
 BuildArch:      noarch
 
-Source0:        wallpaper.jpg
-Source1:        README
-
+Source0:        %{name}-%{version}.tar.gz
 BuildRequires:  rpm-build
 
 %description
 Official wallpapers for MyCompany desktop branding.
 
 %prep
-%setup -T -c
+%setup -q
 
 %install
-install -d -m 0755 %buildroot%wallpaper_dir
-install -p -m 0644 %SOURCE0 %buildroot%wallpaper_dir/%wallpaper_name
-install -p -m 0644 %SOURCE1 %buildroot%_datadir/doc/%name-%version/
+# Создаём корневой каталог для обоев
+install -d -m 0755 %{buildroot}%{wallpaper_dir}
+
+# Копируем всё содержимое (включая подкаталоги) в целевой каталог
+cp -r ./* %{buildroot}%{wallpaper_dir}/
+
+# Убеждаемся, что права корректны
+chmod -R u+rwX,go+rX,go-w %{buildroot}%{wallpaper_dir}
 
 %files
-%doc %_datadir/doc/%name-%version/README
-%wallpaper_dir/%wallpaper_name
+%doc %{wallpaper_dir}/README
+%{wallpaper_dir}/
 
 %changelog
 * Wed Oct 15 2025 Nikita Bystrov <bystrovno@basealt.ru> 1.0-alt1
-- Initial branding wallpaper package
+- Initial wallpaper package with archive-based source
 ```
-
----
-
-## Подготовка файлов
-
-1. Положите ваше изображение в `SOURCES/wallpaper.jpg`.
-2. Создайте `SOURCES/README` с кратким описанием (лицензия, автор и т.п.).
-
----
 
 ## Сборка пакета в ALT Linux
 
 ```bash
-# Установите зависимости (если нужно)
 apt-get install rpm-build
 ```
-# Создайте структуру rpmbuild (если нет)
 ```bash
 rpmdev-setuptree
 ```
@@ -77,7 +66,7 @@ rpmdev-setuptree
 Скопируйте spec и источники
 ```bash
 cp mycompany-wallpapers.spec ~/RPM/SPECS/
-cp SOURCES/* ~/RPM/SOURCES/
+cp mycompany-wallpapers-1.0.tar.gz ~/RPM/SOURCES/
 ```
 
 Соберите пакет
@@ -87,8 +76,6 @@ rpmbuild -ba ~/RPM/SPECS/mycompany-wallpapers.spec
 
 Готовый RPM будет в `~/RPM/RPMS/noarch/`.
 
----
-
 ### Как использовать обои
 
 После установки:
@@ -97,13 +84,13 @@ rpmbuild -ba ~/RPM/SPECS/mycompany-wallpapers.spec
 apt-get install ./mycompany-wallpapers-1.0-alt1.noarch.rpm
 ```
 
-Файл окажется в:
+Файлы окажутся в:
 
 ```
-/usr/share/backgrounds/mycompany-wallpaper.jpg
+/usr/share/backgrounds/
 ```
 
-Пользователи (или системный администратор) могут указать его как обои через настройки рабочего стола (в GNOME, KDE, XFCE и т.д.).
+Пользователи (или системный администратор) могут указать его как обои через настройки рабочего стола (в GNOME, KDE, XFCE и т.д.) или, например, через Групповые Политики.
 
 
 
