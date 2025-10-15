@@ -17,6 +17,11 @@ ___
 apt-get install perl perl-devel perl-DBI gcc make rpm-build
 ```
 
+1.1.1 Сделать сборочное дерево
+```bash
+rpmdev-setuptree
+```
+
 1.2 Установи Oracle Instant Client (минимум: Basic + SDK)
 
 Скачай с [официального сайта Oracle](https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html):
