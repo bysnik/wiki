@@ -117,7 +117,7 @@ systemctl enable --now httpd2
 :::
 
 ::: warning
-Пакеты я собрал, но ещё не тестировал!!
+Итак, после кучи тестов я жёстко дописал спеку, это новая версия пакетов
 
 Вот ссылка на собранные пакеты: 
 - otrs-7.2.3: [otrs-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/otrs-7.2.3-alt1.noarch.rpm)
@@ -144,7 +144,16 @@ git clone http://git.altlinux.org/gears/o/otrs.git
 cd ./otrs
 ```
 
-5. Переносим в сборочницу дополнительные файлы:
+5. Редактируем файл `apache2.conf`:
+```bash
+Alias /otrs-web/ "/var/www/webapps/otrs/var/httpd/htdocs/"
+
+меняем на
+
+Alias /znuny-web/ "/var/www/webapps/otrs/var/httpd/htdocs/"
+```
+
+6. Переносим в сборочницу дополнительные файлы:
 ```bash
 cp README.ALT.rus ~/RPM/SOURCES/
 ```
@@ -155,42 +164,27 @@ cp otrs-hold.conf ~/RPM/SOURCES/
 cp apache2.conf ~/RPM/SOURCES/
 ```
 
-6. Правим spec-файл и копируем его в сборочницу:
+7. Правим spec-файл и копируем его в сборочницу:
 ```bash
 mv otrs.spec ~/RPM/SPECS/
 ```
 
-::: details Описание изменений в spec-файле
+::: details Обновлённая спека
 
-Достаточно лишь поправить версию. 
+УУУУ, очень сильно редактируем спеку
 
-1. Отредактировать пост скрипт: ./znuny.SetPermissions.pl --znuny-user=otrs --web-group=_webserver --skip-regex="Config.pm" /var/www/webapps/otrs/
-2. добавьте в начало файла /var/www/webapps/otrs/bin/cgi-bin/installer.pl, сразу после #!/usr/bin/perl, строку: use lib '/var/www/webapps/otrs';
-3. apt-get install perl-Pod-Strip perl-CPAN
-4. cpan Crypt::JWT Data::UUID Hash::Merge iCal::Parser JavaScript::Minifier::XS Jq Spreadsheet::XLSX
- Альтернатива:
-perl-OSSP-uuid - perl bindings for Universally Unique Identifier library
-perl-Data-UUID - Perl extension for generating Globally/Universally Unique Identifiers (GUIDs/UUIDs)
-perl-UUID - DCE compatible Universally Unique Identifier library for Perl
+Альтернатива (типа не подходит):
 
-perl-Mojo-JWT - JSON Web Token the Mojo way
+perl-Mojo-JWT - cpan Crypt::JWT
 
-perl-Hash-Merge-Simple - Recursively merge two or more hashes
+perl-Hash-Merge-Simple - cpan Hash::Merge
 
-iCal::Parser  ?
-
-perl-JavaScript-Minifier-XS - XS based JavaScript minifier
+? - iCal::Parser
  
-jq - Command-line JSON processor
-
-perl-Spreadsheet-XLSX - perl module Spreadsheet-XLSX
-
-Сохраните файл и перезапустите Apache. 
-ывамвы
+jq - cpan Jq
 
 
-
-Вот пример моих правок, ничего особенного, лишь добавил в changelog.
+Вот пример моих правок:
 ```spec{6}
 %define _unpackaged_files_terminate_build 1
 %define installdir %webserver_webappsdir/%name
@@ -214,22 +208,10 @@ BuildArch: noarch
 
 BuildRequires(pre): rpm-macros-webserver-common rpm-macros-apache2 >= 3.9
 
-Requires: webserver-common perl-CGI perl-DBI perl-DBD-mysql
+Requires: webserver-common 
 
-# requires for start httpd2
-Requires: perl-DateTime perl-Template
-
-# is needed (found in /var/log/httpd2/error_log)
-Requires: perl-Unicode-Collate perl-Moo
-
-# hard requires by otrs.CheckModules.pl
-Requires: perl-Archive-Tar perl-Archive-Zip perl-TimeDate perl-Net-DNS perl-YAML-LibYAML
-
-# some of soft requires by otrs.CheckModules.pl
-Requires: perl-Crypt-Eksblowfish perl-Crypt-SSLeay perl-JSON-XS perl-Mail-IMAPClient perl-IO-Socket-SSL perl-Text-CSV_XS perl-XML-LibXSLT perl-XML-Parser
-
-# is needed for DBUpdate-to-6.pl
-Requires: perl-CPAN-Meta
+# requires for perl
+Requires: perl-CGI perl-DBI perl-DateTime perl-Template perl-Unicode-Collate perl-Moo perl-Archive-Tar perl-Archive-Zip perl-TimeDate perl-Net-DNS perl-YAML-LibYAML perl-CSS-Minifier-XS perl-Pg perl-JavaScript-Minifier-XS perl-NTLM perl-DBD-ODBC perl-ldap perl-Crypt-Random-Source perl-Encode-HanExtra perl-CSS-Minifier perl-JavaScript-Minifier perl-Data-UUID perl-Email-Valid perl-Crypt-PasswdMD5 perl-Pod-Strip perl-CPAN perl-Math-Random-Secure perl-Crypt-Eksblowfish perl-Crypt-SSLeay perl-JSON-XS perl-Mail-IMAPClient perl-IO-Socket-SSL perl-Text-CSV_XS perl-XML-LibXSLT perl-XML-Parser perl-CPAN-Meta perl-Spreadsheet-XLSX
 
 %add_findreq_skiplist */bin/*
 %add_findreq_skiplist */Kernel/*
@@ -272,9 +254,12 @@ install -pD -m0644 %SOURCE1 README.ALT.rus
 #replace '/opt/otrs' to '/var/www/webapps/otrs' in all files
 find %buildroot%installdir -type f -exec sed -i -e "s/\/opt\/otrs/\/var\/www\/webapps\/otrs/g" {} \;
 
+# add use lib '/var/www/webapps/otrs'; in bin/cgi-bin/installer.pl
+sed -i '/^use lib/a use lib "/var/www/webapps/otrs";' %buildroot%installdir/bin/cgi-bin/installer.pl
+
 # remove files
-find %buildroot%installdir -name *.spec -delete
-find %buildroot%installdir -name *.conf -delete
+find %buildroot%installdir -name '*.spec' -delete
+find %buildroot%installdir -name '*.conf' -delete
 
 #install default config
 cp %buildroot%installdir/Kernel/Config.pm.dist %buildroot%installdir/Kernel/Config.pm
@@ -282,6 +267,9 @@ cp %buildroot%installdir/Kernel/Config.pm.dist %buildroot%installdir/Kernel/Conf
 # for foo in *.dist; do cp $foo `basename $foo .dist`; done
 cd %buildroot%installdir/var/cron/
 for foo in *.dist; do cp $foo `basename $foo .dist`; done
+
+# replace home path
+sed -i "s|/opt/znuny|%installdir|g" %buildroot%installdir/Kernel/Config.pm
 
 # all needed files packaged from %%builddir
 rm -f %buildroot%installdir/ARCHIVE
@@ -308,14 +296,18 @@ fi
 
 %post
 cd %installdir/bin/
-./otrs.SetPermissions.pl \
-    --otrs-user=%otrs_user \
-    --web-user=root \
-    --otrs-group=%webserver_group \
+
+./znuny.SetPermissions.pl \
+    --znuny-user=%otrs_user \
     --web-group=%webserver_group \
     --skip-regex="Config.pm" \
-    %installdir >/dev/null 2>&1
-#./Cron.sh start %otrs_user >/dev/null 2>&1
+    %installdir || :
+./Cron.sh start %otrs_user || :
+
+# create symlink for Kernel Modules
+if [ ! -e /opt/znuny ]; then
+    ln -sf /var/www/webapps/otrs /opt/znuny
+fi
 
 %files
 %doc AUTHORS.md
@@ -347,8 +339,14 @@ cd %installdir/bin/
 %config(noreplace) %attr(0644,root,root) %_sysconfdir/httpd2/conf/addon.d/A.%name.conf
 
 %changelog
-* Tue Oct 14 2025 Nikita Bystrov <bystrovno@basealt.ru> 7.2.3-alt1
-- New version
+* Wed Oct 15 2025 Nikita Bystrov <bystrovno@basealt.ru> 7.2.3-alt1
+- Updated to Znuny 7.2.3
+- Added use lib '/var/www/webapps/otrs' to installer.pl for correct module loading
+- Patched Kernel/Config.pm to use correct $Self->{Home}
+- Added compatibility symlink /opt/znuny → /var/www/webapps/otrs in %post for Kernel Modules
+- Adjusted file permissions via znuny.SetPermissions.pl in %post
+- Kept package name 'otrs' for upgrade compatibility from OTRS 6.0.x
+- Added most required Perl dependencies for Znuny 7.2.3; some may still require manual installation via CPAN
 
 * Sun Oct 31 2021 Sergey Y. Afonin <asy@altlinux.org> 6.0.38-alt1
 - New version
