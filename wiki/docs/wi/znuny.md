@@ -164,13 +164,26 @@ mv otrs.spec ~/RPM/SPECS/
 
 Достаточно лишь поправить версию. 
 
-1. Отредактировать пост скрипт
-2. добавьте в начало файла, сразу после #!/usr/bin/perl, строку: use lib '/var/www/webapps/otrs';
-3. apt-get install perl-Pod-Strip
-4. apt-get install perl-CPAN
-5. sudo cpan Crypt::JWT Data::UUID Hash::Merge iCal::Parser JavaScript::Minifier::XS Jq Spreadsheet::XLSX
+1. Отредактировать пост скрипт: ./znuny.SetPermissions.pl --znuny-user=otrs --web-group=_webserver --skip-regex="Config.pm" /var/www/webapps/otrs/
+2. добавьте в начало файла /var/www/webapps/otrs/bin/cgi-bin/installer.pl, сразу после #!/usr/bin/perl, строку: use lib '/var/www/webapps/otrs';
+3. apt-get install perl-Pod-Strip perl-CPAN
+4. cpan Crypt::JWT Data::UUID Hash::Merge iCal::Parser JavaScript::Minifier::XS Jq Spreadsheet::XLSX
+ Альтернатива:
+perl-OSSP-uuid - perl bindings for Universally Unique Identifier library
+perl-Data-UUID - Perl extension for generating Globally/Universally Unique Identifiers (GUIDs/UUIDs)
+perl-UUID - DCE compatible Universally Unique Identifier library for Perl
+
+perl-Mojo-JWT - JSON Web Token the Mojo way
+
+perl-Hash-Merge-Simple - Recursively merge two or more hashes
+
+iCal::Parser  ?
+
+perl-JavaScript-Minifier-XS - XS based JavaScript minifier
  
- 
+jq - Command-line JSON processor
+
+perl-Spreadsheet-XLSX - perl module Spreadsheet-XLSX
 
 Сохраните файл и перезапустите Apache. 
 
