@@ -12,54 +12,95 @@ Znuny активно развивается сообществом и остаё
 
 ## Установка версии 6.0.38 из репозитория
 
-Для работы системы необходима база данных и веб-сервер, в примере используется PostgreSQL и Apache. Все команды необходимо выполнять с правами администратора системы.
+Для работы системы необходима база данных и веб-сервер, в примере используется `PostgreSQL` и `Apache`. Все команды необходимо выполнять с правами администратора системы.
 
 Устанавливаем необходимые пакеты:
 ```bash
-apt-get install postgresql17-server perl-DBD-Pg otrs otrs-apache2
+apt-get install perl-DBD-Pg otrs otrs-apache2
 ```
 
-### Настройка PostgreSQL
+### Настройка сервера базы данных
 
-Создание конфигурационных файлов PostgreSQL и создание пароля администратора:
+Лично я всеми руками за `PostgreSQL`, но на всякий оставляю тут инструкцию и для `MySQL`.
+
+#### Настройка PostgreSQL
+
+Устанавливаем `PostgreSQL Server`:
+```bash
+apt-get install postgresql17-server
+```
+
+Создание конфигурационных файлов `PostgreSQL` и создание пароля администратора:
 ```bash
 /etc/init.d/postgresql initdb
 ```
 
-Запуск сервиса postgresql:
+Запуск сервиса `postgresql`:
 ```bash
 systemctl enable --now postgresql
 ```
 
+#### Настройка MySQL
+
+Устанавливаем `MySQL Server`:
+```bash
+apt-get install MySQL-server
+```
+
+В файл `/var/lib/mysql/my.cnf` добавляем директиву из файла-рекомедации: `max_allowed_packet=50M`
+
+Включаем автостарт сервиса при загрузке системы и запускаем его:
+```bash
+systemctl enable --now mysqld
+```
+
+Для настройки безопасности после запуска `MySQL` необходимо выполнить скрипт
+```bash
+/usr/bin/mysql_secure_installation
+```
+
+Скрипт задаст Вам несколько вопросов. 
+```bash
+Skip root password for root 
+#По умолчанию пароль для root пустой, поэтому просто нажмите Enter.
+
+Install new password for root: security
+#Задайте пароль для root
+Do remove an anonymous user
+#Удалим анонимного пользователя
+Do not disallow remote connections
+#Не запрещаем коннект к базе с удаленных серверов 
+#(если, конечно, эта опция вам нужна, в другом случае, запретите ее)
+Do remove a test database
+#Тестовая база нам не нужна - удаляйте ее
+Do reload the privileges
+#Перегрузим привилегии для их активации
+```
+
+Пароль `root` от `MySQL`: используется тот что вы задали в предыдущем пункте
+
 ### Настройка Apache2
 
-Включаем использование каталога с расширениями для apache2:
+Включаем использование каталога с расширениями для `apache2`:
 ```bash
 a2enextra httpd-addon.d
 ```
 
-Кроме того, в пакете apache2 присутствует `010-httpd-addon.d.conf`, содержащий `httpd-addon.d=no`, что приводит к отключению httpd-addon.d при запуске `a2chkconfig`. Следует переопределить это значение, например, так:
+Кроме того, в пакете `apache2` присутствует `010-httpd-addon.d.conf`, содержащий `httpd-addon.d=no`, что приводит к отключению `httpd-addon.d` при запуске `a2chkconfig`. Следует переопределить это значение, например, так:
 ```bash
 echo httpd-addon.d=yes > /etc/httpd2/conf/extra-start.d/999-otrs.conf
 ```
 
-Не беда, если следующие шаги вы выполнять не будете. Далее все эти моменты можно отследить на страницу "Admin Support Data Collector (Сбор данных для поддержки)" на странице Администрирования.
+Не беда, если следующие шаги (блок `Дополнительные настройки`) вы выполнять не будете. Далее все эти моменты можно отследить на страницу "Admin Support Data Collector (Сбор данных для поддержки)" на странице Администрирования.
 
-::: tip 
-Вообще, эта заррраза ругается на всякую фигню: ой ой, у тебя не установлен модуль перл для Оракл БД и МС БД, вот жешь ты плохой. У тебя не установлена поддержка китайских символов. Ну ты и хад! Ну и т.д.
+::: details Дополнительные настройки
+Вообще, эта заррраза ругается на всякую фигню: ой ой, у тебя не установлен модуль `perl` для `Oracle DB` и `MS DB`, вот жешь ты плохой. У тебя не установлена поддержка китайских символов. Ну ты и хад! Ну и т.д.
+
+![](https://www.meme-arsenal.com/memes/b23f273efb17fcd5536ef8eb129fbad7.jpg)
 
 Да, плюсом там руготня про оптимизацию.
 
-Так что ниже будут все доп моменты чтобы убрать все ошибки. КРОМЕ ОДНОЙ: Знуни не может определить Линукс - Он не знает про Альт(
-:::
-
-
-::: warning
-На текущий момент мне осталось решить проблоемы с:
-- Размер подкачки более 200МВ - Ну каапец
-- Теоретически должен быть пакет Аля [perl-DBD-Oracle](oracle-dbd), но у альта его нет
-
-:::
+Так что ниже будут все доп моменты чтобы убрать все ошибки. КРОМЕ ОДНОЙ: Znuny не может определить Линукс - Он не знает про Альт(
 
 Устанавливаем дополнительные компоненты:
 
@@ -67,7 +108,7 @@ echo httpd-addon.d=yes > /etc/httpd2/conf/extra-start.d/999-otrs.conf
 apt-get install perl-CSS-Minifier-XS perl-Pg perl-JavaScript-Minifier-XS perl-NTLM perl-DBD-ODBC perl-ldap perl-Crypt-Random-Source perl-Encode-HanExtra
 ```
 
-Активируем модули apache2:
+Активируем модули `apache2`:
 ```bash
 a2enmod deflate
 ```
@@ -78,19 +119,27 @@ a2enmod filter
 a2enmod headers
 ```
 
-Установка prefork MPM
+Установка `prefork MPM`:
 ```bash
 apt-get install apache2-httpd-prefork
 ```
 
-Удаление worker MPM
+Удаление `worker MPM`:
 ```bash
 apt-get remove apache2-httpd-worker
 ```
-::: tip Проверка:
+
+Проверка:
 ```bash
 apachectl -V | grep -i mpm
 ```
+:::
+
+::: warning
+На текущий момент мне осталось решить проблоемы с:
+- Размер подкачки более 200МВ - Ну каапец
+- Теоретически должен быть пакет Аля [perl-DBD-Oracle](oracle-dbd), но у Альта его нет
+
 :::
 
 Запускаем демон веб-сервера и устанавливаем его на автозапуск:
@@ -103,7 +152,7 @@ systemctl enable --now httpd2
 Открываем браузер, в адресную строку вводим `http://ip_вашего_сервера/otrs/installer.pl`, следуем инструкциям для инсталляции.
 
 
-После входа будет видна ошибка, что демон Cron не запущен. Запуск Cron:
+После входа будет видна ошибка, что демон `Cron` не запущен. Запуск `Cron`:
 
 ```bash
 /var/www/webapps/otrs/bin/Cron.sh start otrs
@@ -151,11 +200,11 @@ cd ./otrs
 5. Редактируем файл `apache2.conf`:
 
 Строку
-```conf
+```apache
 Alias /otrs-web/ "/var/www/webapps/otrs/var/httpd/htdocs/"
 ```
 меняем на
-```conf
+```apache
 Alias /znuny-web/ "/var/www/webapps/otrs/var/httpd/htdocs/"
 ```
 
@@ -284,7 +333,7 @@ if id %otrs_user >/dev/null 2>&1; then
     # update home dir
     usermod -d %installdir %otrs_user
 else
-   %_sbindir/useradd -r  -g %webserver_group -c 'OTRS User' -d %installdir -s '/dev/null' %otrs_user >/dev/null 2>&1 ||:
+   %_sbindir/useradd -r  -g %webserver_group -c 'OTRS User' -d %installdir -s '/dev/null' %otrs_user >/dev/null 2>&1 || :
 fi
 
 %post
@@ -299,7 +348,7 @@ cd %installdir/bin/
 
 # create symlink for Kernel Modules
 if [ ! -e /opt/znuny ]; then
-    ln -sf /var/www/webapps/otrs /opt/znuny
+    ln -sf /var/www/webapps/otrs /opt/znuny || :
 fi
 
 %files
@@ -498,7 +547,7 @@ apt-get install gcc make perl-devel
 
 2. Устанавливаем недостающие модули `perl`:
 ```bash
-cpan Crypt::JWT cpan Hash::Merge iCal::Parser Jq
+cpan Crypt::JWT Hash::Merge iCal::Parser Jq
 ```
 Там просто всё по умолчанию жмакаете.
 
@@ -508,3 +557,5 @@ cpan Crypt::JWT cpan Hash::Merge iCal::Parser Jq
 ```bash
 apt-get install postgresql17-server ./otrs-7.2.3-alt1.noarch.rpm ./otrs-apache2-7.2.3-alt1.noarch.rpm
 ```
+
+5. Насчёт `Cron` - пакет при установке автоматически должен запускать `Cron` и типа через 5 минут после запуска `Znuny` ошибка пропадёт.
