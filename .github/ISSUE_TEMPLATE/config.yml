@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Сообщить об ошибке или предложить материал
+    url: https://github.com/bysnik/wiki/issues/new/choose
+    about: Используйте один из шаблонов выше
+  - name: Прямой контакт (альтернатива)
+    url: mailto:bystrovno@basealt.ru
+    about: Напишите на почту, если не можете использовать GitHub Issues
