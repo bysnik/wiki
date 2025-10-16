@@ -469,6 +469,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },
         { text: '0 Ejudge', link: '/docs/wi/ejudge' }, // система для проведения олимпиады по программированию с автопроверкой кода 
         { text: '0 Flatpak', link: '/docs/wi/flatpak' }, 
+        { text: '0 Goaccess', link: '/docs/wi/goaccess' }, // https://packages.altlinux.org/ru/p11/srpms/goaccess/
         { text: '0 HAProxy', link: '/docs/wi/haproxy' },
         { text: '0 LocalSend', link: '/docs/wi/localsend' }, // Аналог AirDrop, только OpenSource
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
