@@ -308,6 +308,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! OpenStack', link: '/docs/wi/openstack' }, 
         { text: '! RustDesk', link: '/docs/wi/rustdesk' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
+        { text: 'WinApps', link: '/docs/wi/winapps' },
       ]
     },
 
@@ -439,8 +440,9 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: '! Draw.io', link: '/docs/wi/draw.io' },
-        { text: '! Stirling PDF', link: '/docs/wi/stirling-pdf' }, 
         { text: '! IT-tools', link: '/docs/wi/it-tools' }, 
+        { text: '! Photopea', link: '/docs/wi/photopea' }, 
+        { text: '! Stirling PDF', link: '/docs/wi/stirling-pdf' }, 
       ]
     },
 
