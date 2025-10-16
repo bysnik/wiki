@@ -301,8 +301,9 @@ docker exec nginx sh -c "nginx -t && nginx -s reload"
 ## Установка административной панели Synapse Admin
 
 Для быстрого управления аккаунтами Matrix может быть использована админ-консоль **synapse-admin**. Загружаем соответствующий проект:
-
+```bash
 git clone https://github.com/Awesome-Technologies/synapse-admin.git admin_data
+```
 
 ### 1. Добавим сервис в `docker-compose.yml`
 
