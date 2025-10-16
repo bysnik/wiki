@@ -1,5 +1,5 @@
 name: Предложить новый материал
-about: Хотите добавить статью, лекцию, практику или разбор задания?
+description: Хотите добавить лекцию, практику или разбор задания?
 title: '[Контент] '
 labels: enhancement
 body:
@@ -10,14 +10,14 @@ body:
     id: topic
     attributes:
       label: Тема материала
-      description: Например, «Настройка Samba в ALT Linux» или «Задание 3.2 демонстрационного экзамена»
+      description: Например, «Настройка Samba в ALT Linux»
     validations:
       required: true
   - type: textarea
     id: description
     attributes:
       label: Описание
-      description: Что вы хотите добавить? Есть ли у вас черновик или источники?
+      description: Что вы хотите добавить? Есть ли черновик?
     validations:
       required: true
   - type: checkboxes
@@ -25,5 +25,5 @@ body:
     attributes:
       label: Лицензирование
       options:
-        - label: Я подтверждаю, что материал может быть опубликован под лицензией GNU GPL v3.0
+        - label: Материал может быть опубликован под лицензией GNU GPL v3.0
           required: true
