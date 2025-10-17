@@ -506,6 +506,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'DayZ', link: '/docs/wi/games/dayz' },
         { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
         { text: 'Moonlight', link: '/docs/wi/games/moonlight' },
+        { text: 'RenPy', link: '/docs/wi/games/renpy' },
       ]
     },
 
