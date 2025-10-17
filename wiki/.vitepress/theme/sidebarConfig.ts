@@ -300,7 +300,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
         { text: '! Keycloak', link: '/docs/wi/keycloak' },
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
-        { text: '0 Matrix', link: '/docs/wi/matrix' },   
+        { text: '! Matrix', link: '/docs/wi/matrix' },   
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' },
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
@@ -487,14 +487,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Zabbix', link: '/docs/wi/zabbix' },
       ]
     },
-      
-    {
-      text: 'Сервисное ПО',
-      collapsed: true,
-      items: [
-        { text: '0 Oracle-DBD', link: '/docs/wi/oracle-dbd' },
-      ]
-    },
     
     {
       text: 'Сетевое туннелирование',
@@ -534,7 +526,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
-      text: 'Приколы с GitHub',
+      text: 'Приколы с GitHub (Заготовка)',
       collapsed: true,
       items: [
           { text: '0 spacebarchat', link: '/docs/wi/spacebarchat' }, // https://github.com/spacebarchat/spacebarchat
