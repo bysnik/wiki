@@ -1,0 +1,1 @@
+{ text: '0 caddyserver', link: '/docs/wi/caddyserver' }, // https://caddyserver.com/docs/

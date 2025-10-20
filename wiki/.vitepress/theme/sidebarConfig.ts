@@ -452,7 +452,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '0 Angie', link: '/docs/wi/angie' },
         { text: '0 Apache2', link: '/docs/wi/apache2' }, 
-        { text: '0 Caddy', link: '/docs/wi/caddy' },
+        { text: '! Caddy', link: '/docs/wi/caddy' },
         { text: '0 Lighttpd', link: '/docs/wi/lighttpd' },
         { text: '0 Nginx', link: '/docs/wi/nginx' }, 
       ]
@@ -531,25 +531,23 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
           { text: '0 spacebarchat', link: '/docs/wi/spacebarchat' }, // https://github.com/spacebarchat/spacebarchat
-          { text: '0 caddyserver', link: '/docs/wi/caddyserver' }, // https://caddyserver.com/docs/
           { text: '0 kanban-tui', link: '/docs/wi/kanban-tui' }, // https://github.com/Zaloog/kanban-tui
           { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/bastienwirtz/homer
           { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/sipcapture/homer
-          { text: '0 sniffnet', link: '/docs/wi/sniffnet' }, // https://github.com/GyulyVGC/sniffnet
           { text: '0 nagios-core', link: '/docs/wi/nagios-core' }, // https://www.nagios.org/projects/nagios-core/
           { text: '0 openipc', link: '/docs/wi/openipc' }, // https://openipc.org/
           { text: '0 bunkerweb', link: '/docs/wi/bunkerweb' }, // https://docs.bunkerweb.io/latest/
           { text: '0 Mindmap', link: '/docs/wi/Mindmap' }, // https://github.com/Ignitetechnologies/Mindmap
           { text: '0 vhs', link: '/docs/wi/vhs' }, // https://github.com/charmbracelet/vhs
           { text: '0 phpLDAPadmin', link: '/docs/wi/phpLDAPadmin' }, // https://github.com/leenooks/phpLDAPadmin
-          { text: '0 blue95', link: '/docs/wi/blue95' }, // https://github.com/winblues/blue95
+          { text: '0 Chikago95', link: '/docs/wi/chikago95' }, // https://github.com/grassmunk/Chicago95 работает) забавно
           { text: '0 monaco-editor', link: '/docs/wi/monaco-editor' }, // https://github.com/microsoft/monaco-editor
           { text: '0 counter-osint-guide-ru', link: '/docs/wi/counter-osint-guide-ru' }, // https://github.com/soxoj/counter-osint-guide-ru
           { text: '0 maltrail', link: '/docs/wi/maltrail' }, // https://github.com/stamparm/maltrail
           { text: '0 Nginx-Lua-Anti-DDoS', link: '/docs/wi/Nginx-Lua-Anti-DDoS' }, // https://github.com/C0nw0nk/Nginx-Lua-Anti-DDoS
           { text: '0 semaphore', link: '/docs/wi/semaphore' }, // https://github.com/semaphoreui/semaphore
           { text: '0 isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd
-          { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android
+          { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android так или иначе работает
           { text: '0 documize', link: '/docs/wi/documize' }, // https://docs.documize.com/s/VzO9ZqMOCgABGyfW/installation-guides/d/V16L08ucxwABhZF6/installation-guide
           { text: '0 RedisInsight', link: '/docs/wi/RedisInsight' }, // https://github.com/redis/RedisInsight
           { text: '0 scrypted', link: '/docs/wi/scrypted' }, // https://docs.scrypted.app/c
@@ -573,7 +571,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 openrepo', link: '/docs/wi/openrepo' }, // https://github.com/openkilt/openrepo
           { text: '0 zitadel', link: '/docs/wi/zitadel' }, // https://github.com/zitadel/zitadel
           { text: '0 zeek', link: '/docs/wi/zeek' }, // https://github.com/zeek/zeek
-          { text: '0 sctgdesk-server', link: '/docs/wi/sctgdesk-server' }, // https://github.com/sctg-development/sctgdesk-server
           { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla?tab=readme-ov-file
         ]
     },
