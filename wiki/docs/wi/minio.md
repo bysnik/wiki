@@ -557,3 +557,6 @@ the `CONSOLE_DEBUG_LOGLEVEL` environment variable to one of the following values
  - Duration of the request
 
 The detailed logging also includes all request and response headers (if any).
+
+
+{ text: '0 console', link: '/docs/wi/console' }, // https://github.com/georgmangold/console
