@@ -288,7 +288,7 @@ mc alias set myminio http://minio1.example.com:9000 <MINIO_ROOT_USER> <MINIO_ROO
 ```bash
 mc admin info myminio
 ```
-![minio-cluster-status](/public/img/minio-cluster-status.png)
+![minio-cluster-status](/img/minio-cluster-status.png)
 
 
 ### Шаг 10. Создание бакета
@@ -313,7 +313,7 @@ mc mb -p myminio/testbucket --region=ru-central-1
 
 ## Проблема: отсутствие панели администратора в веб-интерфейсе
 
-![minio-console](/public/img/minio.png)
+![minio-console](/img/minio.png)
 
 ::: tip Цитата со страницы [документации](https://docs.min.io/community/minio-object-store/administration/minio-console.html)
 Изменено в версии `RELEASE.2025-05-24T17-08-30Z`: Консоль теперь предоставляет только возможности обозревателя объектов, аналогичные доступным в `mc` инструменте. Для административных действий, таких как управление пользователями, используйте команду `mc admin`
