@@ -2,6 +2,10 @@
 
 ## Сборка rpm-пакета
 
+::: warning Ссылка на собраный пакет
+DupeGuru: [dupeguru-4.3.1-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/dupeguru-4.3.1-alt1.x86_64.rpm)
+:::
+
 Установка сборочных зависимостей:
 ```bash
 apt-get install python3-devel python3-module-setuptools python3-module-PyQt5-devel make python3-module-distro python3-module-mutagen python3-module-polib python3-module-semantic_version python3-module-xxhash
