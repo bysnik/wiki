@@ -291,6 +291,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Сервисы',
       items: [
         { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
+        { text: '! Anytype', link: '/docs/wi/anytype' }, // чёт тип обсидиана
         { text: '! Beekeeper Studio', link: '/docs/wi/beekeeper-studio' },
         { text: '! BSS Crypto Plugin', link: '/docs/wi/bssCryptoPlugin' },
         { text: '! Bugzilla', link: '/docs/wi/bugzilla' },
@@ -383,6 +384,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Open Source CRM',
       collapsed: true,
       items: [
+        { text: '0 IceBw', link: '/docs/wi/icebw' }, 
         { text: '! NocoBase', link: '/docs/wi/nocobase' }, 
         { text: '0 SuiteCRM', link: '/docs/wi/games/suitecrm' },
         { text: '0 Totum', link: '/docs/wi/games/totum' },
@@ -483,7 +485,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Сервисы (В планах)',
       collapsed: true,
       items: [
-        { text: '0 Anytype', link: '/docs/wi/anytype' }, // чёт тип обсидиана
         { text: '0 Apache Guacamole', link: '/docs/wi/apacheguacamole' },
         { text: '0 Audiobookself', link: '/docs/wi/audiobookself' }, // audiobookself.org
         { text: '0 Audiorelay', link: '/docs/wi/audiorelay' }, //Turn your phone into a microphone or speakers for PC
