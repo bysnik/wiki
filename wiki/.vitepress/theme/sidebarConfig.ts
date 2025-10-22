@@ -547,6 +547,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'RPMBUILD', link: '/docs/wi/rpmbuild' },
         { text: '! Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' }, 
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
+        { text: 'deb', link: '/docs/wi/deb' },
       ]
     },
 
