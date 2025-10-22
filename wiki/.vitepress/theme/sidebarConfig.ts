@@ -299,6 +299,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' }, 
         { text: '! DPI', link: '/docs/wi/dpi' },
+        { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
         { text: '! Matrix', link: '/docs/wi/matrix' },   
@@ -476,8 +477,11 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Angie', link: '/docs/wi/angie' },
         { text: '0 Apache2', link: '/docs/wi/apache2' }, 
         { text: '! Caddy', link: '/docs/wi/caddy' },
+        { text: '0 HAProxy', link: '/docs/wi/haproxy' },
         { text: '0 Lighttpd', link: '/docs/wi/lighttpd' },
         { text: '0 Nginx', link: '/docs/wi/nginx' }, 
+        { text: '0 Nginx-Lua-Anti-DDoS', link: '/docs/wi/Nginx-Lua-Anti-DDoS' }, // https://github.com/C0nw0nk/Nginx-Lua-Anti-DDoS
+        { text: '0 Traefik', link: '/docs/wi/traefik' },
       ]
     },
 
@@ -492,17 +496,15 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 Ejudge', link: '/docs/wi/ejudge' }, // система для проведения олимпиады по программированию с автопроверкой кода 
         { text: '0 Flatpak', link: '/docs/wi/flatpak' }, 
         { text: '0 Goaccess', link: '/docs/wi/goaccess' }, // https://packages.altlinux.org/ru/p11/srpms/goaccess/
-        { text: '0 HAProxy', link: '/docs/wi/haproxy' },
         { text: '0 LocalSend', link: '/docs/wi/localsend' }, // Аналог AirDrop, только OpenSource
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
         { text: '0 MODX', link: '/docs/wi/modx' }, // CMS
-        { text: '0 Nextcloud', link: '/docs/wi/nextcloud' },
+        { text: '0 NextCloud', link: '/docs/wi/nextcloud' },
         { text: '0 OpenNebula', link: '/docs/wi/opennebula' }, 
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
         { text: '0 Pacemaker', link: '/docs/wi/pacemaker' }, // менеджер ресурсов кластера
         { text: '0 SOGo', link: '/docs/wi/sogo' },
         { text: '0 Sphinx', link: '/docs/wi/sphinx' }, // автодокументирование кода
-        { text: '0 Traefik', link: '/docs/wi/traefik' },
         { text: '0 Veyon', link: '/docs/wi/veyon' },
         { text: '0 Weblate', link: '/docs/wi/weblate' },
         { text: '0 XCP-ng', link: '/docs/wi/xcp-ng' }, // hypervisor based on XEN
@@ -562,7 +564,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 Chikago95', link: '/docs/wi/chikago95' }, // https://github.com/grassmunk/Chicago95 работает) забавно
           { text: '0 monaco-editor', link: '/docs/wi/monaco-editor' }, // https://github.com/microsoft/monaco-editor
           { text: '0 counter-osint-guide-ru', link: '/docs/wi/counter-osint-guide-ru' }, // https://github.com/soxoj/counter-osint-guide-ru
-          { text: '0 Nginx-Lua-Anti-DDoS', link: '/docs/wi/Nginx-Lua-Anti-DDoS' }, // https://github.com/C0nw0nk/Nginx-Lua-Anti-DDoS
           { text: '0 isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd
           { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android так или иначе работает
           { text: '0 RedisInsight', link: '/docs/wi/RedisInsight' }, // https://github.com/redis/RedisInsight
