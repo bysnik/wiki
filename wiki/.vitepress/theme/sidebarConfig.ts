@@ -555,7 +555,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Приколы с GitHub (Заготовка)',
       collapsed: true,
       items: [
-          { text: '0 spacebarchat', link: '/docs/wi/spacebarchat' }, // https://github.com/spacebarchat/spacebarchat
+          { text: '0 spacebarchat', link: '/docs/wi/spacebarchat' }, // https://github.com/spacebarchat/spacebarchat реверс инж Дискордика (сервер и клиент)
           { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/bastienwirtz/homer
           { text: '0 openipc', link: '/docs/wi/openipc' }, // https://openipc.org/
           { text: '0 bunkerweb', link: '/docs/wi/bunkerweb' }, // https://docs.bunkerweb.io/latest/
@@ -565,7 +565,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 Chikago95', link: '/docs/wi/chikago95' }, // https://github.com/grassmunk/Chicago95 работает) забавно
           { text: '0 monaco-editor', link: '/docs/wi/monaco-editor' }, // https://github.com/microsoft/monaco-editor
           { text: '0 counter-osint-guide-ru', link: '/docs/wi/counter-osint-guide-ru' }, // https://github.com/soxoj/counter-osint-guide-ru
-          { text: '0 isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd
+          { text: '0 isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd  epm install isd.x86_64-linux.AppImage вот и вся установка
           { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android так или иначе работает
           { text: '0 RedisInsight', link: '/docs/wi/RedisInsight' }, // https://github.com/redis/RedisInsight
           { text: '0 scrypted', link: '/docs/wi/scrypted' }, // https://docs.scrypted.app/
@@ -579,7 +579,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           
 
           { text: '0 hddsuperclone', link: '/docs/wi/hddsuperclone' }, // https://www.hddsuperclone.com
-          { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla?tab=readme-ov-file
+          { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla
         ]
     },
 
