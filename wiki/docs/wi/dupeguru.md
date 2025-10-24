@@ -4,7 +4,7 @@
 
 ::: warning Ссылка на собраный пакет
 DupeGuru: [dupeguru-4.3.1-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/dupeguru-4.3.1-alt1.x86_64.rpm)
-Я в пакете забыл указать зависимость python3-module-send2trash. Попозже перепосберу)
+Я в пакете забыл указать зависимость python3-module-send2trash. Попозже пересоберу)
 :::
 
 Установка сборочных зависимостей:
