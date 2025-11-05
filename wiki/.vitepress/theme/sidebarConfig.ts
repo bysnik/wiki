@@ -489,20 +489,20 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Сервисы (В планах)',
       collapsed: true,
       items: [
-        { text: '0 Apache Guacamole', link: '/docs/wi/apacheguacamole' },
+        { text: '! Apache Guacamole', link: '/docs/wi/apacheguacamole' },
         { text: '0 Audiobookself', link: '/docs/wi/audiobookself' }, // audiobookself.org
         { text: '0 Audiorelay', link: '/docs/wi/audiorelay' }, //Turn your phone into a microphone or speakers for PC
         { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },
         { text: '0 Ejudge', link: '/docs/wi/ejudge' }, // система для проведения олимпиады по программированию с автопроверкой кода 
         { text: '0 Flatpak', link: '/docs/wi/flatpak' }, 
         { text: '0 Goaccess', link: '/docs/wi/goaccess' }, // https://packages.altlinux.org/ru/p11/srpms/goaccess/
-        { text: '0 LocalSend', link: '/docs/wi/localsend' }, // Аналог AirDrop, только OpenSource
+        { text: '0 LocalSend', link: '/docs/wi/localsend' }, // Аналог AirDrop, только OpenSource, работает)
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
         { text: '0 MODX', link: '/docs/wi/modx' }, // CMS
         { text: '0 NextCloud', link: '/docs/wi/nextcloud' },
         { text: '0 OpenNebula', link: '/docs/wi/opennebula' }, 
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
-        { text: '0 Open vAIR', link: '/docs/wi/openvair' },
+        { text: '0 Open vAIR', link: '/docs/wi/openvair' }, // какая то русская система виртуализации
         { text: '0 Pacemaker', link: '/docs/wi/pacemaker' }, // менеджер ресурсов кластера
         { text: '0 SOGo', link: '/docs/wi/sogo' },
         { text: '0 Sphinx', link: '/docs/wi/sphinx' }, // автодокументирование кода
@@ -577,7 +577,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 openrouter-bot', link: '/docs/wi/openrouter-bot' }, // https://github.com/Lifailon/openrouter-bot
           { text: '0 ssh-bot', link: '/docs/wi/ssh-bot' }, // https://github.com/Lifailon/ssh-bot
           { text: '0 sshx', link: '/docs/wi/sshx' }, // https://github.com/ekzhang/sshx
-          
+
 
           { text: '0 hddsuperclone', link: '/docs/wi/hddsuperclone' }, // https://www.hddsuperclone.com
           { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla
