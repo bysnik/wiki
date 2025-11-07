@@ -10,4 +10,4 @@ next: false
 Этот раздел посвящён всему тому, что неукладывается в демоэкзамен и дисциплины - это просто сборник различных рецептов
 
 
-Хахахах, [Манга про Ubuntu!](https://remanga.org/manga/ubunchu/main)
+Хахахах, [Манга про Ubuntu!](https://remanga.org/manga/ubunchu/main)  
