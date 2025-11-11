@@ -311,6 +311,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! RustDesk', link: '/docs/wi/rustdesk' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
         { text: 'WinApps', link: '/docs/wi/winapps' },
+        { text: 'Yandex Music', link: '/docs/wi/yandexmusic' },
       ]
     },
     {
