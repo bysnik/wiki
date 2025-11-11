@@ -11,4 +11,3 @@ next: false
 
 
 Хахахах, [Манга про Ubuntu!](https://remanga.org/manga/ubunchu/main)  
-   
