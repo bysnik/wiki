@@ -346,6 +346,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 K3s', link: '/docs/wi/k3s' },
         { text: '! K9s', link: '/docs/wi/k9s' },
         { text: '! Lens', link: '/docs/wi/k8slens' },
+        { text: '0 Openshift', link: '/docs/wi/openshift' }, // https://packages.altlinux.org/ru/sisyphus/srpms/openshift-installer/
         { text: 'Podman', link: '/docs/wi/podman' },
         { text: '! Rancher', link: '/docs/wi/rancher' },
         {
@@ -505,6 +506,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
         { text: '0 Open vAIR', link: '/docs/wi/openvair' }, // какая то русская система виртуализации
         { text: '0 Pacemaker', link: '/docs/wi/pacemaker' }, // менеджер ресурсов кластера
+        { text: '0 Penpot', link: '/docs/wi/penpot' }, //https://penpot.app/self-host аналог Figma
         { text: '0 SOGo', link: '/docs/wi/sogo' },
         { text: '0 Sphinx', link: '/docs/wi/sphinx' }, // автодокументирование кода
         { text: '0 Veyon', link: '/docs/wi/veyon' },
