@@ -19,7 +19,7 @@ https://repo.ascon.ru/beta/ и https://repo.ascon.ru/stable/
 
 Получение ознакомительной лицензии на месяц: https://sd.ascon.ru/otrs/public.pl?Action=PublicFAQZoom;ItemID=1440
 
-Информация о системе лицензирования Guardant SLK: https://sd.ascon.ru/otrs/public.pl?Action=PublicFAQZoom;ItemID=1431#item_1_1
+Информация о системе лицензирования Guardant SLK: https://sd.ascon.ru/otrs/public.pl?Action=PublicFAQZoom;ItemID=1431
 
 Информация о утилите Мастере лицензий Guardant: https://sd.ascon.ru/otrs/public.pl?Action=PublicFAQZoom;ItemID=1485
 
@@ -71,7 +71,6 @@ $ nohup /opt/ascon/common/coredump-watcher/inotify_dump_script.sh > /dev/null 2>
 ```bash
 apt-get install ascon-kompas3d-v24
 ```
-
 
 Для установки всех компонентов КОМПАС-3D v24 и зависимостей:
 
