@@ -304,7 +304,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
         { text: '! Matrix', link: '/docs/wi/matrix' },   
         { text: 'MinIO', link: '/docs/wi/minio' },     
-        { text: '! Moodle', link: '/docs/wi/moodle' },
+        { text: '! Moodle', link: '/docs/wi/moodle' }, // /var/www/html/index.html - если создать, то он будет главной страницей (независимо от мудла). дополнительно конфиги настраивать не надо
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
         { text: '! n8n', link: '/docs/wi/n8n' },
         { text: '! OpenStack', link: '/docs/wi/openstack' }, 
@@ -404,6 +404,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 maltrail', link: '/docs/wi/maltrail' }, // https://github.com/stamparm/maltrail
         { text: '! Nagios', link: '/docs/wi/nagios' },// https://www.nagios.org/projects/nagios-core/
         { text: '0 NetAlertXc', link: '/docs/wi/NetAlertXc' }, // https://github.com/jokob-sk/NetAlertX
+        { text: '0 PrestaShop', link: '/docs/wi/prestaShop' }, // https://github.com/PrestaShop/PrestaShop
         { text: '0 Skydive', link: '/docs/wi/skydive' }, // https://github.com/skydive-project/skydive
         { text: '! Sniffnet', link: '/docs/wi/sniffnet' },
         { text: '0 tpotce', link: '/docs/wi/tpotce' }, // https://github.com/telekom-security/tpotce
@@ -467,6 +468,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '! Draw.io', link: '/docs/wi/draw.io' },
         { text: '! IT-tools', link: '/docs/wi/it-tools' }, 
+        { text: '0 ONLYOFFICE Docs', link: '/docs/wi/onlyofficedocx' }, // https://www.onlyoffice.com/ru/download-docs#docs-community
+        { text: '0 Penpot', link: '/docs/wi/penpot' }, //https://penpot.app/self-host аналог Figma
         { text: '! Photopea', link: '/docs/wi/photopea' }, 
         { text: '! Stirling PDF', link: '/docs/wi/stirling-pdf' }, 
       ]
@@ -506,7 +509,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
         { text: '0 Open vAIR', link: '/docs/wi/openvair' }, // какая то русская система виртуализации
         { text: '0 Pacemaker', link: '/docs/wi/pacemaker' }, // менеджер ресурсов кластера
-        { text: '0 Penpot', link: '/docs/wi/penpot' }, //https://penpot.app/self-host аналог Figma
         { text: '0 SOGo', link: '/docs/wi/sogo' },
         { text: '0 Sphinx', link: '/docs/wi/sphinx' }, // автодокументирование кода
         { text: '0 Veyon', link: '/docs/wi/veyon' },
