@@ -13,5 +13,5 @@ https://moodle.org/plugins/mod_vpl - тоже типа реплита, плюс 
 https://moodle.org/plugins/local_webshell - веб шелл
 
 
-
+// /var/www/html/index.html - если создать, то он будет главной страницей (независимо от мудла). дополнительно конфиги настраивать не надо
 

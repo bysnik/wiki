@@ -301,10 +301,11 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! DPI', link: '/docs/wi/dpi' },
         { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
+        { text: '! Keepalived', link: '/docs/wi/keepalived' },
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
         { text: '! Matrix', link: '/docs/wi/matrix' },   
         { text: 'MinIO', link: '/docs/wi/minio' },     
-        { text: '! Moodle', link: '/docs/wi/moodle' }, // /var/www/html/index.html - если создать, то он будет главной страницей (независимо от мудла). дополнительно конфиги настраивать не надо
+        { text: '! Moodle', link: '/docs/wi/moodle' }, 
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
         { text: '! n8n', link: '/docs/wi/n8n' },
         { text: '! OpenStack', link: '/docs/wi/openstack' }, 
