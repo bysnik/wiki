@@ -301,6 +301,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! DPI', link: '/docs/wi/dpi' },
         { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
+        { text: '! Jitsi Meet', link: '/docs/wi/jitsi' }, 
         { text: '! Keepalived', link: '/docs/wi/keepalived' },
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
         { text: '! Matrix', link: '/docs/wi/matrix' },   
