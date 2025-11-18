@@ -556,6 +556,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' }, 
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
         { text: 'deb', link: '/docs/wi/deb' },
+        { text: 'SFP', link: '/docs/wi/sfp' },
       ]
     },
 
