@@ -3,7 +3,7 @@
 ## Назначение
 
 Пакет 'flawfinder' не найден в ALT Linux p11 (x86_64/i586/noarch).
-
+https://packages.altlinux.org/ru/sisyphus/srpms/flawfinder/
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Flawfinder)
 
 ## Установка

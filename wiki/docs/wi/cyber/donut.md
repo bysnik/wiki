@@ -2,7 +2,7 @@
 
 ## Назначение
 
-Пакет 'donut' не найден в ALT Linux p11 (x86_64/i586/noarch).
+Пакет 'donut' действительно не найден в ALT Linux p11 (x86_64/i586/noarch).
 
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Donut)
 

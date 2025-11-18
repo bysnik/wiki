@@ -2,7 +2,7 @@
 
 ## Назначение
 
-Пакет 'crackmapexec' не найден в ALT Linux p11 (x86_64/i586/noarch).
+Пакет 'crackmapexec' дейтсвительно не найден в ALT Linux p11 (x86_64/i586/noarch).
 
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Crackmapexec)
 

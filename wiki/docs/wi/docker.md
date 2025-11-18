@@ -68,7 +68,7 @@ docker run -d -p 5000:5000 --name my-registry registry:2
 
 ## Создание базового образа Docker на базе tar.xz образа Альт
 
-Заходим на сайт https://ftp.altlinux.org/pub/distributions/ALTLinux/p11/images/cloud/x86_64/ и скачиваем необходимый образ, например `alt-p11-rootfs-minimal-x86_64.tar.xz` (Архитектуру выбирайте по своему вкусу).
+Заходим на сайт https://ftp.altlinux.org/pub/distributions/ALTLinux/p11/images/cloud/x86_64/ или https://download.basealt.ru/pub/distributions/ALTLinux/p11/images/cloud/x86_64/ и скачиваем необходимый образ, например `alt-p11-rootfs-minimal-x86_64.tar.xz` (Архитектуру выбирайте по своему вкусу).
 
 Далее, создаём рабочую директорию:
 ```bash

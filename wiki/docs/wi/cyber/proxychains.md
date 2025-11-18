@@ -3,7 +3,7 @@
 ## Назначение
 
 Пакет 'proxychains' не найден в ALT Linux p11 (x86_64/i586/noarch).
-
+https://packages.altlinux.org/ru/sisyphus/binary/proxychains/x86_64/
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Proxychains)
 
 ## Установка

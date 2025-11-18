@@ -3,7 +3,7 @@
 ## Назначение
 
 Пакет 'ossec' не найден в ALT Linux p11 (x86_64/i586/noarch).
-
+https://packages.altlinux.org/ru/sisyphus/srpms/ossec-hids/
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Ossec)
 
 ## Установка

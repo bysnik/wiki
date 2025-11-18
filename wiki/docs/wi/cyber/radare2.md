@@ -3,7 +3,7 @@
 ## Назначение
 
 Пакет 'radare2' не найден в ALT Linux p11 (x86_64/i586/noarch).
-
+https://packages.altlinux.org/ru/sisyphus/srpms/radare2/
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Radare2)
 
 ## Установка
