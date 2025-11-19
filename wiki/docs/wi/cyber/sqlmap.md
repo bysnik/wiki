@@ -3,7 +3,7 @@
 ## Назначение
 
 Пакет 'sqlmap' не найден в ALT Linux p11 (x86_64/i586/noarch).
-
+https://packages.altlinux.org/ru/sisyphus/srpms/sqlmap/
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Sqlmap)
 
 ## Установка

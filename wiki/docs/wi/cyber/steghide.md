@@ -3,7 +3,7 @@
 ## Назначение
 
 Пакет 'steghide' не найден в ALT Linux p11 (x86_64/i586/noarch).
-
+packages.altlinux.org/ru/sisyphus/srpms/steghide/
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Steghide)
 
 ## Установка

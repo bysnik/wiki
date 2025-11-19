@@ -3,7 +3,7 @@
 ## Назначение
 
 Пакет 'tcpdump' не найден в ALT Linux p11 (x86_64/i586/noarch).
-
+packages.altlinux.org/ru/sisyphus/srpms/tcpdump/
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Tcpdump)
 
 ## Установка

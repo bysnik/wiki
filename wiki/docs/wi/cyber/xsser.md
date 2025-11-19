@@ -2,7 +2,7 @@
 
 ## Назначение
 
-Пакет 'xsser' не найден в ALT Linux p11 (x86_64/i586/noarch).
+Пакет 'xsser' действительно не найден в ALT Linux p11 (x86_64/i586/noarch).
 
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Xsser)
 

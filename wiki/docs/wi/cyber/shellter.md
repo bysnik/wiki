@@ -2,7 +2,7 @@
 
 ## Назначение
 
-Пакет 'shellter' не найден в ALT Linux p11 (x86_64/i586/noarch).
+Пакет 'shellter' действительно не найден в ALT Linux p11 (x86_64/i586/noarch).
 
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Shellter)
 

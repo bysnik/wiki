@@ -2,7 +2,7 @@
 
 ## Назначение
 
-Пакет 'yersinia' не найден в ALT Linux p11 (x86_64/i586/noarch).
+Пакет 'yersinia' действительно не найден в ALT Linux p11 (x86_64/i586/noarch).
 
 ArchWiki: [страница не найдена] (https://wiki.archlinux.org/title/Yersinia)
 
