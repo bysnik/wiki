@@ -444,6 +444,765 @@ https://moodle.org/plugins/local_webshell - веб шелл
 ```
 :::
 
+::: details
+```html
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсы обучения - Магическая академия</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0020, #00001a);
+            overflow: hidden;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .star {
+            position: absolute;
+            pointer-events: none;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        .star::before {
+            content: "★";
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.3; transform: scale(0.8); }
+        }
+
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image {
+            max-width: 90%;
+            height: auto;
+            margin: 2rem auto;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 
+                0 0 5px rgba(255, 255, 255, 0.3),
+                0 0 10px rgba(255, 255, 255, 0.2),
+                0 0 15px rgba(255, 255, 255, 0.1);
+            font-weight: 300;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+            border-radius: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #ddd;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 300px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-petal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: floatPetal 15s linear infinite;
+        }
+
+        @keyframes floatPetal {
+            0% { transform: translateX(-100px) translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(0) rotate(360deg); opacity: 0; }
+        }
+
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+                letter-spacing: 1px;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-image {
+                max-width: 95%;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="particles" id="particles"></div>
+        <div class="floating-elements" id="floatingElements"></div>
+    </div>
+
+    <div class="main-content">
+        <h1 class="title">Магическая Академия</h1>
+        <p class="subtitle">Откройте для себя волшебный мир знаний и мастерства. Наши курсы помогут вам раскрыть свой потенциал и достичь новых высот в обучении.</p>
+        
+        <img src="https://i.imgur.com/1VzRZJL.png" alt="Магический персонаж" class="hero-image" id="heroImage">
+        
+        <div class="buttons">
+            <a href="#courses" class="cta-button">Начать обучение</a>
+            <a href="#about" class="cta-button">Узнать больше</a>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Интерактивные уроки</h3>
+                <p>Учиться с удовольствием — это возможно! Наша платформа предлагает интерактивные уроки, которые превращают обучение в захватывающее приключение.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3 class="feature-title">Экспертные преподаватели</h3>
+                <p>Наши преподаватели — настоящие мастера своего дела, готовые поделиться своими знаниями и опытом, чтобы вы достигли своих целей.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">Гибкий график</h3>
+                <p>Учитесь в удобное для вас время. Наша платформа доступна 24/7, позволяя вам учиться в своем темпе и согласно вашему расписанию.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 Магическая Академия. Все права защищены.
+    </div>
+
+    <script>
+        // Создаем звезды на фоне
+        function createStars() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 80; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Позиция
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                // Случайная задержка анимации
+                star.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Случайный размер
+                const size = Math.random() * 0.5 + 0.5;
+                star.style.transform = `scale(${size})`;
+                
+                particlesContainer.appendChild(star);
+            }
+        }
+
+        // Создаем летящие лепестки
+        function createFloatingPetals() {
+            const floatingContainer = document.getElementById('floatingElements');
+            for (let i = 0; i < 20; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('floating-petal');
+                
+                // Случайная позиция по вертикали
+                petal.style.top = Math.random() * 100 + '%';
+                
+                // Случайная скорость
+                const duration = Math.random() * 10 + 10;
+                petal.style.animationDuration = duration + 's';
+                
+                // Случайная задержка
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Случайный цвет
+                const hue = Math.random() * 60 + 300; // От розового до фиолетового
+                petal.style.backgroundColor = `hsla(${hue}, 100%, 80%, 0.3)`;
+                
+                floatingContainer.appendChild(petal);
+            }
+        }
+
+        // Анимация главного изображения при наведении
+        document.getElementById('heroImage').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) translateY(-10px)';
+            this.style.transition = 'transform 0.5s ease';
+        });
+
+        document.getElementById('heroImage').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) translateY(0)';
+        });
+
+        // Инициализация
+        window.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            createFloatingPetals();
+            
+            // Добавляем плавную анимацию для элементов при прокрутке
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px 50px 0px"
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за карточками
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
+```
+```
+:::
+
+::: details
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсы обучения - Магическая академия</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #1a0033, #00001a);
+            overflow: hidden;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image {
+            max-width: 90%;
+            height: auto;
+            margin: 2rem auto;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e600ff, 0 0 20px #e600ff; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e600ff, 0 0 40px #e600ff; }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #ddd;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 300px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-petal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: floatPetal 15s linear infinite;
+        }
+
+        @keyframes floatPetal {
+            0% { transform: translateX(-100px) translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(0) rotate(360deg); opacity: 0; }
+        }
+
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-image {
+                max-width: 95%;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="particles" id="particles"></div>
+        <div class="floating-elements" id="floatingElements"></div>
+    </div>
+
+    <div class="main-content">
+        <h1 class="title">Магическая Академия</h1>
+        <p class="subtitle">Откройте для себя волшебный мир знаний и мастерства. Наши курсы помогут вам раскрыть свой потенциал и достичь новых высот в обучении.</p>
+        
+        <img src="https://i.imgur.com/1VzRZJL.png" alt="Магический персонаж" class="hero-image" id="heroImage">
+        
+        <div class="buttons">
+            <a href="#courses" class="cta-button">Начать обучение</a>
+            <a href="#about" class="cta-button">Узнать больше</a>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Интерактивные уроки</h3>
+                <p>Учиться с удовольствием — это возможно! Наша платформа предлагает интерактивные уроки, которые превращают обучение в захватывающее приключение.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎓</div>
+                <h3 class="feature-title">Экспертные преподаватели</h3>
+                <p>Наши преподаватели — настоящие мастера своего дела, готовые поделиться своими знаниями и опытом, чтобы вы достигли своих целей.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">Гибкий график</h3>
+                <p>Учитесь в удобное для вас время. Наша платформа доступна 24/7, позволяя вам учиться в своем темпе и согласно вашему расписанию.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 Магическая Академия. Все права защищены.
+    </div>
+
+    <script>
+        // Создаем частицы на фоне
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Размер частицы
+                const size = Math.random() * 5 + 1;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Позиция
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                // Анимация
+                particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationName = 'pulseParticle';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Добавляем анимацию пульсации для частиц
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            @keyframes pulseParticle {
+                0% { opacity: 0.2; transform: scale(1); }
+                50% { opacity: 0.8; transform: scale(1.2); }
+                100% { opacity: 0.2; transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // Создаем летящие лепестки
+        function createFloatingPetals() {
+            const floatingContainer = document.getElementById('floatingElements');
+            for (let i = 0; i < 20; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('floating-petal');
+                
+                // Случайная позиция по вертикали
+                petal.style.top = Math.random() * 100 + '%';
+                
+                // Случайная скорость
+                const duration = Math.random() * 10 + 10;
+                petal.style.animationDuration = duration + 's';
+                
+                // Случайная задержка
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Случайный цвет
+                const hue = Math.random() * 60 + 300; // От розового до фиолетового
+                petal.style.backgroundColor = `hsla(${hue}, 100%, 80%, 0.3)`;
+                
+                floatingContainer.appendChild(petal);
+            }
+        }
+
+        // Анимация главного изображения при наведении
+        document.getElementById('heroImage').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) translateY(-10px)';
+            this.style.transition = 'transform 0.5s ease';
+        });
+
+        document.getElementById('heroImage').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) translateY(0)';
+        });
+
+        // Инициализация
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            createFloatingPetals();
+            
+            // Добавляем плавную анимацию для элементов при прокрутке
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px 50px 0px"
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за карточками
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
+```
+:::
+
 ::: tip чтобы сменить адрес/moodle на что -то другое, например адрес/sdo нужно
 1. отредактировать конфиг /var/www/webapps/moodle/config.php
 строка wwwroot там вместо /moodle написать /sdo
@@ -467,5 +1226,5 @@ crontab -u apache2 -e
 * * * * * /usr/bin/php/path/to/moodle/admin/cli/cron.php >/dev/null'
 ```
 
-Ииииии, почему то не работает)
+Ииииии, почему то не работает) Крон отрабатывает, даже 
 :::
