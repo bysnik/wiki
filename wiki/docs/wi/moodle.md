@@ -16,7 +16,7 @@ https://moodle.org/plugins/local_webshell - веб шелл
 /var/www/html/index.html - если создать, то он будет главной страницей (независимо от мудла). дополнительно конфиги настраивать не надо
 :::
 
-Хахахахах, вот этот код мне qwen с первого раза написал (это для теста)
+::: details Хахахахах, вот этот код мне qwen с первого раза написал (это для теста)
 ```html
 <!DOCTYPE html>
 <html lang="ru">
@@ -442,6 +442,7 @@ https://moodle.org/plugins/local_webshell - веб шелл
 </html>
 
 ```
+:::
 
 ::: tip чтобы сменить адрес/moodle на что -то другое, например адрес/sdo нужно
 1. отредактировать конфиг /var/www/webapps/moodle/config.php
@@ -455,3 +456,16 @@ https://moodle.org/plugins/local_webshell - веб шелл
 :::
 
 
+::: tip включение Планировщика 
+https://docs.moodle.org/37/en/Cron и https://docs.moodle.org/37/en/Scheduled_tasks
+Чтобы работали запланированные задачи (автоматически), нужно включить планировщик
+```bash
+crontab -u apache2 -e
+```
+Это откроет окно редактора. Чтобы запускать скрипт cli cron каждую 1 минуту, добавьте строку:
+```cron
+* * * * * /usr/bin/php/path/to/moodle/admin/cli/cron.php >/dev/null'
+```
+
+Ииииии, почему то не работает)
+:::
