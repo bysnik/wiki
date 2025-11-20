@@ -224,13 +224,6 @@ libva info: va_openDriver() returns 0
 [2025-08-28 12:07:07.922]: Info: Adding avahi service bystrovno-nb
 [2025-08-28 12:07:08.755]: Info: Avahi service bystrovno-nb successfully established.
 ```
-
-Нейронка пишет:
-Проблема с Wayland-композитором: отсутствует wlr-export-dmabuf 
-```bash
-Warning: Missing Wayland wire for wlr-export-dmabuf
-```
-Это критично. Для KMS-захвата в Wayland Sunshine использует wlr-export-dmabuf, который предоставляется только некоторыми композиторами и KDE и GNOME не в их числе. 
 :::
 
 

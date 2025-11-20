@@ -298,7 +298,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' }, 
-        { text: '! DPI', link: '/docs/wi/dpi' },
+        { text: '0 DPI', link: '/docs/wi/dpi' },
         { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
         { text: '! Jitsi Meet', link: '/docs/wi/jitsi' }, 
@@ -435,7 +435,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! kanban-tui', link: '/docs/wi/kanban-tui' }, 
         { text: '! Open Project', link: '/docs/wi/open-project' },
         { text: '! plane', link: '/docs/wi/plane' }, 
-        { text: '! Redmine', link: '/docs/wi/redmine' },
+        { text: '0 Redmine', link: '/docs/wi/redmine' },
         { text: '! REI3', link: '/docs/wi/rei3' },
         { text: '! Taskcafe', link: '/docs/wi/taskcafe' },
         { text: '! worklenz', link: '/docs/wi/worklenz' }, 
@@ -498,6 +498,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: '! Apache Guacamole', link: '/docs/wi/apacheguacamole' },
+        { text: '0 Asterisk', link: '/docs/wi/asterisk' },
         { text: '0 Audiobookself', link: '/docs/wi/audiobookself' }, // audiobookself.org
         { text: '0 Audiorelay', link: '/docs/wi/audiorelay' }, //Turn your phone into a microphone or speakers for PC
         { text: '0 BigBlueButton', link: '/docs/wi/bigbluebutton' },

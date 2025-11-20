@@ -1,5 +1,7 @@
 # Jitsi Meet
 
+![](https://meetrix.io/articles/content/images/2023/07/Jitsi.png)
+
 ## Установка пакетов
 
 ```
