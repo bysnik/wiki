@@ -315,28 +315,28 @@ Server: Jetty(9.4.15.v20190215)
 Для создания самоподписанного сертификата следует:
 
 - создать корневой ключ:
-	```
-	# openssl genrsa -out rootCA.key 2048
-	```
+```
+# openssl genrsa -out rootCA.key 2048
+```
 - создать корневой сертификат:
-	```
-	# openssl req -x509 -new -key rootCA.key -days 10000 -out rootCA.crt -subj "/C=RU/ST=Russia/L=Moscow/CN=SuperPlat CA Root"
-	```
+```
+# openssl req -x509 -new -key rootCA.key -days 10000 -out rootCA.crt -subj "/C=RU/ST=Russia/L=Moscow/CN=SuperPlat CA Root"
+```
 - сгенерировать ключ:
-	```
-	# openssl genrsa -out jitsi2.test.alt.key 2048
-	```
+```
+# openssl genrsa -out jitsi2.test.alt.key 2048
+```
 - создать запрос на сертификат (тут важно указать имя сервера: домен или IP):
-	```
-	# openssl req -new -key jitsi2.test.alt.key -out jitsi2.test.alt.csr -subj "/C=RU/L=Moscow/CN=jitsi2.test.alt"
-	```
+```
+# openssl req -new -key jitsi2.test.alt.key -out jitsi2.test.alt.csr -subj "/C=RU/L=Moscow/CN=jitsi2.test.alt"
+```
 - подписать запрос на сертификат корневым сертификатом:
-	```
-	# openssl x509 -req -in jitsi2.test.alt.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out jitsi2.test.alt.crt -days 5000
-	Signature ok
-	subject=C = RU, CN = jitsi2.test.alt
-	Getting CA Private Key
-	```
+```
+# openssl x509 -req -in jitsi2.test.alt.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out jitsi2.test.alt.crt -days 5000
+Signature ok
+subject=C = RU, CN = jitsi2.test.alt
+Getting CA Private Key
+```
 
 Положить ключ и сертификат в папку `/etc/jitsi/meet/`:
 ```
@@ -475,36 +475,36 @@ Server: Jetty(9.4.15.v20190215)
 Для отключения возможности неавторизованного создания новых конференций, необходимо выполнить следующие действия:
 
 - отредактировать файл `/etc/prosody/conf.d/jitsi2.test.alt.cfg.lua`, изменив в нем запись:
-	```
-	VirtualHost "jitsi2.test.alt"
-	authentication = "anonymous"
-	```
-	на:
-	```
-	VirtualHost "jitsi2.test.alt"
-	authentication = "internal_hashed"
-	```
+```
+VirtualHost "jitsi2.test.alt"
+authentication = "anonymous"
+```
+на:
+```
+VirtualHost "jitsi2.test.alt"
+authentication = "internal_hashed"
+```
 - добавить в конец файла `/etc/prosody/conf.d/jitsi2.test.alt.cfg.lua` строки:
-	```
-	VirtualHost "guest.jitsi2.test.alt"
-	authentication = "anonymous"
-	c2s_require_encryption = false
-	```
-	Эти настройки позволят анонимным пользователям присоединяться к конференциям, созданным пользователем, прошедшим аутентификацию. При этом у гостя должен иметься уникальный адрес и пароль конференции (если этот пароль задан);
+```
+VirtualHost "guest.jitsi2.test.alt"
+authentication = "anonymous"
+c2s_require_encryption = false
+```
+Эти настройки позволят анонимным пользователям присоединяться к конференциям, созданным пользователем, прошедшим аутентификацию. При этом у гостя должен иметься уникальный адрес и пароль конференции (если этот пароль задан);
 - в файле `/etc/jitsi/meet/jitsi2.test.alt-config.js` указать параметры анонимного домена:
-	```
-	domain: 'jitsi2.test.alt',
-	anonymousdomain: 'guest.jitsi2.test.alt',
-	```
+```
+domain: 'jitsi2.test.alt',
+anonymousdomain: 'guest.jitsi2.test.alt',
+```
 - в файл `/etc/jitsi/jicofo/sip-communicator.properties` добавить строку:
-	```
-	org.jitsi.jicofo.auth.URL=XMPP:jitsi2.test.alt
-	```
+```
+org.jitsi.jicofo.auth.URL=XMPP:jitsi2.test.alt
+```
 - перезапустить процессы Jitsi Meet для загрузки новой конфигурации:
-	```
-	# prosodyctl restart
-	# systemctl restart jicofo
-	# systemctl restart jitsi-videobridge
-	```
+```
+# prosodyctl restart
+# systemctl restart jicofo
+# systemctl restart jitsi-videobridge
+```
 
 Теперь при создании конференции сервер Jitsi Meet будет требовать ввести имя пользователя и пароль: ![Запрос пароля при создании конференции](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-admin.png)

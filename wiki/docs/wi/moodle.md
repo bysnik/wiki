@@ -16,7 +16,7 @@ https://moodle.org/plugins/local_webshell - веб шелл
 /var/www/html/index.html - если создать, то он будет главной страницей (независимо от мудла). дополнительно конфиги настраивать не надо
 :::
 
-::: details Хахахахах, вот этот код мне qwen с первого раза написал (это для теста)
+::: details
 ```html
 <!DOCTYPE html>
 <html lang="ru">
@@ -825,7 +825,6 @@ https://moodle.org/plugins/local_webshell - веб шелл
     </script>
 </body>
 </html>
-```
 ```
 :::
 

@@ -432,12 +432,13 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Управление проектами и задачами',
       collapsed: true,
       items: [
-        { text: '0 kanban-tui', link: '/docs/wi/kanban-tui' }, // https://github.com/Zaloog/kanban-tui
+        { text: '! kanban-tui', link: '/docs/wi/kanban-tui' }, 
         { text: '! Open Project', link: '/docs/wi/open-project' },
-        { text: '0 plane', link: '/docs/wi/plane' }, // https://github.com/makeplane/plane
-        { text: '0 Redmine', link: '/docs/wi/redmine' },
+        { text: '! plane', link: '/docs/wi/plane' }, 
+        { text: '! Redmine', link: '/docs/wi/redmine' },
+        { text: '! REI3', link: '/docs/wi/rei3' },
         { text: '! Taskcafe', link: '/docs/wi/taskcafe' },
-        { text: '0 worklenz', link: '/docs/wi/worklenz' }, // https://github.com/Worklenz/worklenz
+        { text: '! worklenz', link: '/docs/wi/worklenz' }, 
         { text: 'Znuny', link: '/docs/wi/znuny' },
       ]
     },
@@ -458,9 +459,9 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '0 EVE-NG', link: '/docs/wi/eve-ng' },
         { text: 'GNS3', link: '/docs/wi/gns3' },
-        { text: '! Containerlab', link: '/docs/wi/containerlab' }, // CLI
+        { text: '! Containerlab', link: '/docs/wi/containerlab' },
         { text: '! Mininet', link: '/docs/wi/mininet' },
-        { text: '! PNetLab', link: '/docs/wi/pnetlab' }, // Cloud
+        { text: '! PNetLab', link: '/docs/wi/pnetlab' },
       ]
     },
 
@@ -470,8 +471,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '! Draw.io', link: '/docs/wi/draw.io' },
         { text: '! IT-tools', link: '/docs/wi/it-tools' }, 
-        { text: '0 ONLYOFFICE Docs', link: '/docs/wi/onlyofficedocx' }, // https://www.onlyoffice.com/ru/download-docs#docs-community
-        { text: '0 Penpot', link: '/docs/wi/penpot' }, //https://penpot.app/self-host аналог Figma
+        { text: '0 ONLYOFFICE Docs', link: '/docs/wi/onlyofficedocs' },
+        { text: '0 Penpot', link: '/docs/wi/penpot' },
         { text: '! Photopea', link: '/docs/wi/photopea' }, 
         { text: '! Stirling PDF', link: '/docs/wi/stirling-pdf' }, 
       ]

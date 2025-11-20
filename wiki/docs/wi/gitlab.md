@@ -126,7 +126,7 @@ GITLAB_OMNIBUS_CONFIG: |
 Если вы не используете SELinux, выполните следующую команду:
 
 ```bash
-sudo docker run --detach \
+docker run --detach \
   --hostname gitlab.example.com \
   --env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.example.com'" \
   --publish 443:443 --publish 80:80 --publish 22:22 \
@@ -143,7 +143,7 @@ sudo docker run --detach \
 Если вы используете интеграцию с Kerberos , необходимо также опубликовать порт Kerberos (например, --publish 8443:8443). В противном случае операции Git с Kerberos будут недоступны. Процесс инициализации может занять много времени. Вы можете отслеживать этот процесс с помощью:
 
 ```bash
-sudo docker logs -f gitlab
+docker logs -f gitlab
 ```
 
 После запуска контейнера вы можете перейти по ссылке gitlab.example.com. Прежде чем Docker-контейнер начнёт отвечать на запросы, может пройти некоторое время.
@@ -151,7 +151,7 @@ sudo docker logs -f gitlab
 Перейдите по URL-адресу GitLab и войдите в систему, используя имя пользователя root и пароль из следующей команды:
 
 ```bash
-sudo docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
+docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
 ```
 Файл паролей автоматически удаляется при первом перезапуске контейнера через 24 часа.
 

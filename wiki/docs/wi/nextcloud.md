@@ -129,11 +129,6 @@ Nextcloud будет установлен в /var/www/webapps/nextcloud, фай�
 	# apt-get install nextcloud nextcloud-nginx php8.2-{fpm-fcgi,apcu,opcache}
 	# systemctl enable --now php8.2-fpm
 	```
-- в [p9](https://www.altlinux.org/P9 "P9"):
-	```
-	# apt-get install nextcloud nextcloud-nginx php7-{fpm-fcgi,apcu,opcache}
-	# systemctl enable --now php7-fpm
-	```
 
 Пакет [nextcloud-nginx](https://packages.altlinux.org/ru/sisyphus/nextcloud-nginx) включает файл настроек виртуального хоста nextcloud: /etc/nginx/sites-available.d/nextcloud.conf.
 
@@ -270,7 +265,7 @@ $ apt-cache depends nextcloud nextcloud-apache2
 
 Если будет использоваться база данных MySQL/MariaDB:
 
-1. Установить необходимые пакеты для MySQL или для MariDB (php8.2-pdo\_mysql — в [p10](https://www.altlinux.org/P10 "P10"), php7-pdo\_mysql — в [p9](https://www.altlinux.org/P9 "P9")):
+1. Установить необходимые пакеты для MySQL или для MariDB (php8.2-pdo\_mysql — в [p10](https://www.altlinux.org/P10 "P10"):
 	```
 	# apt-get install MySQL[mariadb]-server php8.3-pdo_mysql php8.3-mysqlnd
 	```
@@ -307,14 +302,6 @@ $ apt-cache depends nextcloud nextcloud-apache2
 ```
 # apt-get install postgresql14-server php8.2-{pgsql,pdo_pgsql}
 ```
-
-Для [p9](https://www.altlinux.org/P9 "P9") следует установить следующие пакеты (версия postgresql 9.6):
-
-```
-# apt-get install postgresql9.6-server php7-{pgsql,pdo_pgsql}
-```
-
-  
 
 [![](https://www.altlinux.org/Images.www.altlinux.org/7/7a/NextcloudInstallPostgreSQL.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudInstallPostgreSQL.png)
 
@@ -921,10 +908,8 @@ Nextcloud поставляется с приложением LDAP, позвол�
 
 ## Примечания
 
-[^1]: В старых версиях Nextcloud требовался php7 и его пакеты, так что зависимости по мере устаревания этой статьи нужно уточнять на официальном сайте [Nextcloud](https://docs.nextcloud.com/server/latest/admin_manual/installation/system_requirements.html).
+[^1]: Вместо сервера Арache2 может использоваться сервер Nginx.
 
-[^2]: Вместо сервера Арache2 может использоваться сервер Nginx.
+[^2]: При использовании [nginx](https://packages.altlinux.org/ru/sisyphus/nginx) необходимые для него пакеты покажет команда apt-cache depends nextcloud-nginx
 
-[^3]: При использовании [nginx](https://packages.altlinux.org/ru/sisyphus/nginx) необходимые для него пакеты покажет команда apt-cache depends nextcloud-nginx
-
-[^4]: Версию php необходимо указать свою
+[^3]: Версию php необходимо указать свою
