@@ -61,7 +61,13 @@ docker run -it --rm --name="draw" -p 8080:8080 -p 8443:8443 jgraph/drawio
 1. Создайте каталог для хранения данных letsencrypt. (например, /opt/docker/drawiodata/letsencrypt-log, /opt/docker/drawiodata/letsencrypt-etc, /opt/docker/drawiodata/letsencrypt-lib)
 2. Используя образ Docker jgraph/drawio, выполните следующую команду
 ```bash
-docker run -it -m1g -v "/opt/docker/drawiodata/letsencrypt-log:/var/log/letsencrypt/" -v "/opt/docker/drawiodata/letsencrypt-etc:/etc/letsencrypt/" -v "/opt/docker/drawiodata/letsencrypt-lib:/var/lib/letsencrypt" -e LETS_ENCRYPT_ENABLED=true -e PUBLIC_DNS=drawio.example.com --rm --name="draw" -p 80:80 -p 443:8443 jgraph/drawio
+docker run -it -m1g \
+-v "/opt/docker/drawiodata/letsencrypt-log:/var/log/letsencrypt/" \
+-v "/opt/docker/drawiodata/letsencrypt-etc:/etc/letsencrypt/" \
+-v "/opt/docker/drawiodata/letsencrypt-lib:/var/lib/letsencrypt" \
+-e LETS_ENCRYPT_ENABLED=true \
+-e PUBLIC_DNS=drawio.example.com \
+--rm --name="draw" -p 80:80 -p 443:8443 jgraph/drawio
 ```
 Обратите внимание, что проброс порта 80 на порт 80 контейнера позволяет certbot работать в автономном режиме. Проброс порта 443 на порт 8443 контейнера позволяет tomcat напрямую обслуживать https-запросы.
 

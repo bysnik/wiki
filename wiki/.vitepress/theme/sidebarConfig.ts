@@ -291,7 +291,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Сервисы',
       items: [
         { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
-        { text: '! Anytype', link: '/docs/wi/anytype' }, // чёт тип обсидиана
+        { text: '! Anytype', link: '/docs/wi/anytype' },
         { text: '! Beekeeper Studio', link: '/docs/wi/beekeeper-studio' },
         { text: '! BSS Crypto Plugin', link: '/docs/wi/bssCryptoPlugin' },
         { text: '! Bugzilla', link: '/docs/wi/bugzilla' },
@@ -367,7 +367,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Автоматизация и IaC',
       collapsed: true,
       items: [
-        { text: '0 Ansible', link: '/docs/wi/ansible' },
+        { text: '! Ansible', link: '/docs/wi/ansible' },
         { text: '! Foreman', link: '/docs/wi/foreman' }, 
         { text: '! OpenTofu', link: '/docs/wi/opentofu' },
         { text: '0 Puppet', link: '/docs/wi/puppet' },
@@ -471,8 +471,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '! Draw.io', link: '/docs/wi/draw.io' },
         { text: '! IT-tools', link: '/docs/wi/it-tools' }, 
-        { text: '0 ONLYOFFICE Docs', link: '/docs/wi/onlyofficedocs' },
-        { text: '0 Penpot', link: '/docs/wi/penpot' },
+        { text: '! ONLYOFFICE Docs', link: '/docs/wi/onlyofficedocs' },
+        { text: '! Penpot', link: '/docs/wi/penpot' },
         { text: '! Photopea', link: '/docs/wi/photopea' }, 
         { text: '! Stirling PDF', link: '/docs/wi/stirling-pdf' }, 
       ]
