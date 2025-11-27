@@ -17,7 +17,7 @@ WINEDLLOVERRIDES="winhttp=n,b" %command%
 
 ::: tip
 На всякий оставлю тут ссылку на исходник инфы (я знаю что есть офф сайт BepInEx где это описано, но он у меня без ВПН не открылся, так что пофиг)
-https://steamcommunity.com/sharedfiles/filedetails/?id=3432416516
+https://forums.linuxmint.com/viewtopic.php?t=435925
 :::
 
 ::: details
