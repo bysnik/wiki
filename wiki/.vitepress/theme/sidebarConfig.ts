@@ -309,7 +309,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Moodle', link: '/docs/wi/moodle' }, 
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
         { text: '! n8n', link: '/docs/wi/n8n' },
-        { text: '! OpenStack', link: '/docs/wi/openstack' }, 
         { text: '! RustDesk', link: '/docs/wi/rustdesk' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
         { text: 'WinApps', link: '/docs/wi/winapps' },
@@ -494,6 +493,19 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
+      text: 'Clouds & Hypervisors',
+      collapsed: true,
+      items: [
+        { text: '0 Apache Cloudstack', link: '/docs/wi/apachecloudstack' }, // https://github.com/apache/cloudstack
+        { text: '0 Eucalyptus', link: '/docs/wi/eucalyptus' }, // https://github.com/eucalyptus/eucalyptus
+        { text: '0 OpenNebula', link: '/docs/wi/opennebula' },
+        { text: '! OpenStack', link: '/docs/wi/openstack' }, 
+        { text: '0 Open vAIR', link: '/docs/wi/openvair' }, // какая то русская система виртуализации
+        { text: '0 XCP-ng', link: '/docs/wi/xcp-ng' }, // hypervisor based on XEN
+      ]
+    },
+
+    {
       text: 'Сервисы (В планах)',
       collapsed: true,
       items: [
@@ -508,16 +520,13 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 LocalSend', link: '/docs/wi/localsend' }, // Аналог AirDrop, только OpenSource, работает)
         { text: '0 MediaWiki', link: '/docs/wi/mediawiki' },
         { text: '0 MODX', link: '/docs/wi/modx' }, // CMS
-        { text: '0 NextCloud', link: '/docs/wi/nextcloud' },
-        { text: '0 OpenNebula', link: '/docs/wi/opennebula' }, 
+        { text: '0 NextCloud', link: '/docs/wi/nextcloud' }, 
         { text: '0 OpenUDS', link: '/docs/wi/openuds' },
-        { text: '0 Open vAIR', link: '/docs/wi/openvair' }, // какая то русская система виртуализации
         { text: '0 Pacemaker', link: '/docs/wi/pacemaker' }, // менеджер ресурсов кластера
         { text: '0 SOGo', link: '/docs/wi/sogo' },
         { text: '0 Sphinx', link: '/docs/wi/sphinx' }, // автодокументирование кода
         { text: '0 Veyon', link: '/docs/wi/veyon' },
         { text: '0 Weblate', link: '/docs/wi/weblate' },
-        { text: '0 XCP-ng', link: '/docs/wi/xcp-ng' }, // hypervisor based on XEN
         { text: '0 Zabbix', link: '/docs/wi/zabbix' },
       ]
     },
