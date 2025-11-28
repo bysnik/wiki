@@ -10,6 +10,10 @@ outline: deep
 Текущая задача: интегрировать материалы книги [systemd для администраторов Lennart Poettering](http://www2.kangran.su/~nnz/pub/s4a/s4a_latest.pdf) в раздел про процессы, ну и возможно ещё куда нибудь.
 
 
+https://catap.ru/blog/2009/05/03/about-memory-oom-killer/
+
+https://vmblog.ru/out-of-memory-killer-v-linux/
+
 ## Тематический план
 
 <table id="program-table">
