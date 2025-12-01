@@ -85,11 +85,6 @@ apt-get install fcitx5-qt fcitx5-configtool fcitx5 fcitx5-gtk fcitx5-mozc
 ```
 
 
-```bash
-
-```
-
-
 2. Редактируем файл:
 ```bash
 nano ~/.bash_profile
