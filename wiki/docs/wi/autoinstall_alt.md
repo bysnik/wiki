@@ -314,7 +314,7 @@
 ; Установка пароля root (passwd_2 "*" passwd_1 "*" вместо звездочек пишем пароль, auto #f passwd_auto "*" - тут же автопароль выключен, но passwd_auto "*" оставлен как заглушка)
 ("/root/change_password" language ("ru_RU") passwd_auto "*" passwd_2 "*" passwd_1 "*")
 
-; Создание пользователя basealt с правами sudo
+; Создание пользователя basealt с правами на su
 ("/users/create_account" new_name "basealt" real_name "" allow_su #t auto #f passwd_auto "*" passwd_1 "*" passwd_2 "*" autologin #f)
 
 ```
