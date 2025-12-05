@@ -558,6 +558,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Различное по мелочи',
       collapsed: true,
       items: [
+        { text: 'Alt Autoinstall', link: '/docs/wi/autoinstall_alt' },
         { text: 'Веб-камеры', link: '/docs/wi/webcam' },
         { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
         { text: 'Фишки', link: '/docs/wi/tricks' },
