@@ -311,7 +311,7 @@
 ("/net-ifupdown2" action "write" reset #t)
 ("/net-ifupdown2" action "write" name "enp0s3" vlan_id "" add-mask "24" add-ip "192.168.0.11" default "192.168.0.253" search "" dns "" computer_name "pve.example.testic")
 
-; Установка пустого пароля root (звездочки означают оставить без изменения/сгенерировать)
+; Установка пароля root (passwd_2 "*" passwd_1 "*" вместо звездочек пишем пароль, auto #f passwd_auto "*" - тут же автопароль выключен, но passwd_auto "*" оставлен как заглушка)
 ("/root/change_password" language ("ru_RU") passwd_auto "*" passwd_2 "*" passwd_1 "*")
 
 ; Создание пользователя basealt с правами sudo
