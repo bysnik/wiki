@@ -558,18 +558,18 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Различное по мелочи',
       collapsed: true,
       items: [
-        { text: 'Alt Autoinstall', link: '/docs/wi/autoinstall_alt' },
-        { text: 'Веб-камеры', link: '/docs/wi/webcam' },
-        { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
-        { text: 'Фишки', link: '/docs/wi/tricks' },
         { text: '! ALT in WSL', link: '/docs/wi/alt-wsl' },
+        { text: '! Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
+        { text: 'Alt Autoinstall', link: '/docs/wi/autoinstall_alt' },
+        { text: 'deb', link: '/docs/wi/deb' },
         { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
         { text: 'RPMBUILD', link: '/docs/wi/rpmbuild' },
-        { text: '! Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' }, 
-        { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
-        { text: 'deb', link: '/docs/wi/deb' },
         { text: 'SFP', link: '/docs/wi/sfp' },
+        { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
+        { text: 'Веб-камеры', link: '/docs/wi/webcam' },
+        { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/  ' },
+        { text: 'Фишки', link: '/docs/wi/tricks' },
       ]
     },
 
@@ -577,28 +577,27 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Приколы с GitHub (Заготовка)',
       collapsed: true,
       items: [
-          { text: '0 spacebarchat', link: '/docs/wi/spacebarchat' }, // https://github.com/spacebarchat/spacebarchat реверс инж Дискордика (сервер и клиент)
-          { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/bastienwirtz/homer
-          { text: '0 openipc', link: '/docs/wi/openipc' }, // https://openipc.org/
           { text: '0 bunkerweb', link: '/docs/wi/bunkerweb' }, // https://docs.bunkerweb.io/latest/
-          { text: '0 Mindmap', link: '/docs/wi/Mindmap' }, // https://github.com/Ignitetechnologies/Mindmap
-          { text: '0 vhs', link: '/docs/wi/vhs' }, // https://github.com/charmbracelet/vhs
-          { text: '0 phpLDAPadmin', link: '/docs/wi/phpLDAPadmin' }, // https://github.com/leenooks/phpLDAPadmin
-          { text: '0 Chikago95', link: '/docs/wi/chikago95' }, // https://github.com/grassmunk/Chicago95 работает) забавно
-          { text: '0 monaco-editor', link: '/docs/wi/monaco-editor' }, // https://github.com/microsoft/monaco-editor
+          { text: '0 cap', link: '/docs/wi/cap' }, // https://github.com/tiagozip/cap
+          { text: '0 Chikago95', link: '/docs/wi/chikago95' }, // https://github.com/grassmunk/Chicago95   работает) забавно
           { text: '0 counter-osint-guide-ru', link: '/docs/wi/counter-osint-guide-ru' }, // https://github.com/soxoj/counter-osint-guide-ru
-          { text: '0 isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd  epm install isd.x86_64-linux.AppImage вот и вся установка
-          { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android так или иначе работает
+          { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android   так или иначе работает
+          { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/bastienwirtz/homer
+          { text: '0 isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd    epm install isd.x86_64-linux.AppImage вот и вся установка
+          { text: '0 lofi-engine', link: '/docs/wi/lofi-engine' }, // https://github.com/meel-hd/lofi-engine#lofi-engine   забавно)
+          { text: '0 lossless-cut', link: '/docs/wi/lossless-cut' }, // https://github.com/mifi/lossless-cut
+          { text: '0 Mindmap', link: '/docs/wi/Mindmap' }, // https://github.com/Ignitetechnologies/Mindmap
+          { text: '0 monaco-editor', link: '/docs/wi/monaco-editor' }, // https://github.com/microsoft/monaco-editor
+          { text: '0 openipc', link: '/docs/wi/openipc' }, // https://openipc.org/
+          { text: '0 openrouter-bot', link: '/docs/wi/openrouter-bot' }, // https://github.com/Lifailon/openrouter-bot
+          { text: '0 phpLDAPadmin', link: '/docs/wi/phpLDAPadmin' }, // https://github.com/leenooks/phpLDAPadmin
           { text: '0 RedisInsight', link: '/docs/wi/RedisInsight' }, // https://github.com/redis/RedisInsight
           { text: '0 scrypted', link: '/docs/wi/scrypted' }, // https://docs.scrypted.app/
-          { text: '0 lossless-cut', link: '/docs/wi/lossless-cut' }, // https://github.com/mifi/lossless-cut
-          { text: '0 wrapguard', link: '/docs/wi/wrapguard' }, // https://github.com/puzed/wrapguard
-          { text: '0 cap', link: '/docs/wi/cap' }, // https://github.com/tiagozip/cap
-          { text: '0 lofi-engine', link: '/docs/wi/lofi-engine' }, // https://github.com/meel-hd/lofi-engine#lofi-engine забавно)
-          { text: '0 openrouter-bot', link: '/docs/wi/openrouter-bot' }, // https://github.com/Lifailon/openrouter-bot
+          { text: '0 spacebarchat', link: '/docs/wi/spacebarchat' }, // https://github.com/spacebarchat/spacebarchat   реверс инж Дискордика (сервер и клиент)
           { text: '0 ssh-bot', link: '/docs/wi/ssh-bot' }, // https://github.com/Lifailon/ssh-bot
           { text: '0 sshx', link: '/docs/wi/sshx' }, // https://github.com/ekzhang/sshx
-
+          { text: '0 vhs', link: '/docs/wi/vhs' }, // https://github.com/charmbracelet/vhs
+          { text: '0 wrapguard', link: '/docs/wi/wrapguard' },  // https://github.com/puzed/wrapguard
 
           { text: '0 hddsuperclone', link: '/docs/wi/hddsuperclone' }, // https://www.hddsuperclone.com
           { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla
