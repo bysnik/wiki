@@ -17,3 +17,5 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit 
 ---
+
+[ПОДГОТОВКА К ДЕМОНСТРАЦИОННОМУ ЭКЗАМЕНУ ПО 09.02.06 «СЕТЕВОЕ И СИСТЕМНОЕ АДМИНИСТРИРОВАНИЕ» ПРАКТИКУМ](https://kurs.basealt.ru/pluginfile.php/63899/coursecat/description/Demo_Exam_090206_SysNet_Admin.pdf?time=1759318761948)

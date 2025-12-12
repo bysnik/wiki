@@ -562,6 +562,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
         { text: 'Alt Autoinstall', link: '/docs/wi/autoinstall_alt' },
         { text: 'deb', link: '/docs/wi/deb' },
+        { text: 'freeipa-sogo-dovecot-postfix', link: '/docs/wi/freeipa-sogo-dovecot-postfix' },
         { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
         { text: 'RPMBUILD', link: '/docs/wi/rpmbuild' },
