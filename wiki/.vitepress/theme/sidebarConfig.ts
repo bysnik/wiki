@@ -475,6 +475,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Penpot', link: '/docs/wi/penpot' },
         { text: '! Photopea', link: '/docs/wi/photopea' }, 
         { text: '! Stirling PDF', link: '/docs/wi/stirling-pdf' }, 
+        { text: '! Storybook', link: '/docs/wi/storybook' }, 
       ]
     },
 
