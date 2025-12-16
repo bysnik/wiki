@@ -331,6 +331,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Forgejo', link: '/docs/wi/forgejo' },
         { text: 'Git', link: '/docs/wi/git' },
         { text: 'Gitea', link: '/docs/wi/gitea' },
+        { text: '! GitFlic', link: '/docs/wi/gitflic' },
         { text: 'GitLab', link: '/docs/wi/gitlab' },
       ]
     },
