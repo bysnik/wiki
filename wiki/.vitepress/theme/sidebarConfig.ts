@@ -469,6 +469,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Self-hosted Инструменты',
       collapsed: true,
       items: [
+        { text: '! dbdiagram-oss', link: '/docs/wi/dbdiagram-oss' },
         { text: '! Draw.io', link: '/docs/wi/draw.io' },
         { text: '! IT-tools', link: '/docs/wi/it-tools' }, 
         { text: '! ONLYOFFICE Docs', link: '/docs/wi/onlyofficedocs' },
