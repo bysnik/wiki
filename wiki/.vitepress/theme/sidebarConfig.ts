@@ -571,6 +571,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'RPMBUILD', link: '/docs/wi/rpmbuild' },
         { text: 'SFP', link: '/docs/wi/sfp' },
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
+        { text: 'Wine/Proton', link: '/docs/wi/wine' },
         { text: 'Веб-камеры', link: '/docs/wi/webcam' },
         { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/  ' },
         { text: 'Фишки', link: '/docs/wi/tricks' },
