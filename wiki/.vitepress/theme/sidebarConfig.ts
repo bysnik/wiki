@@ -331,6 +331,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Forgejo', link: '/docs/wi/forgejo' },
         { text: 'Git', link: '/docs/wi/git' },
         { text: 'Gitea', link: '/docs/wi/gitea' },
+        { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
         { text: '! GitFlic', link: '/docs/wi/gitflic' },
         { text: 'GitLab', link: '/docs/wi/gitlab' },
       ]
@@ -566,7 +567,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Alt Autoinstall', link: '/docs/wi/autoinstall_alt' },
         { text: 'deb', link: '/docs/wi/deb' },
         { text: 'freeipa-sogo-dovecot-postfix', link: '/docs/wi/freeipa-sogo-dovecot-postfix' },
-        { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
         { text: 'RPMBUILD', link: '/docs/wi/rpmbuild' },
         { text: 'SFP', link: '/docs/wi/sfp' },
