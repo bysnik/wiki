@@ -110,21 +110,3 @@ Guacamole — бесплатная и свободная программа с �
 ## Подключение
 
 Веб-интерфейс доступен по адресу: **ip\_адрес:8080/guacamole**:
-
-[![Авторизация в веб-интерфейсе Guacamole](https://www.altlinux.org/Images.www.altlinux.org/1/19/Guacamole-01.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Guacamole-01.png "Авторизация в веб-интерфейсе Guacamole")
-
-Доступные подключения:
-
-[![Веб-интерфейс Guacamole](https://www.altlinux.org/Images.www.altlinux.org/4/46/Guacamole-02.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Guacamole-02.png "Веб-интерфейс Guacamole")
-
-Пример подключения по ssh:
-
-[![Пример подключения по ssh](https://www.altlinux.org/Images.www.altlinux.org/0/0b/Guacamole-03.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Guacamole-03.png "Пример подключения по ssh")
-
-Пример подключения по RDP (на удалённой системе, к которой происходит подключение, должен быть настроен [XRDP-сервер](https://www.altlinux.org/Xrdp#%D0%9F%D0%B5%D1%80%D0%B2%D0%BE%D0%BD%D0%B0%D1%87%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0_XRDP_%D0%BD%D0%B0_%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5 "Xrdp")):
-
-[![Пример подключения по RDP](https://www.altlinux.org/Images.www.altlinux.org/8/8b/Guacamole-04.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Guacamole-04.png "Пример подключения по RDP")
-
-Пример подключения по VNC (на удалённой системе, к которой происходит подключение, должен быть настроен [VNC-сервер](https://www.altlinux.org/VNC "VNC")):
-
-[![Пример подключения по VNC](https://www.altlinux.org/Images.www.altlinux.org/d/d1/Guacamole-05.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Guacamole-05.png "Пример подключения по VNC")
