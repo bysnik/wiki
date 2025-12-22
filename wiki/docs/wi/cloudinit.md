@@ -41,22 +41,27 @@ $ ssh root@localhost -p 22222
 ```
 
 
-::: tip
-Начиная с версии 24.4.1 необходимо учесть новую логику запуска служб cloud-init в случае самостоятельной инсталяции пакета (При обновлении пакета cloud-init функционал настраивается автоматически). Сначала должна отработать служба cloud-init-main.service , далее - остальные.
-
-    systemctl enable --now cloud-init-main.service
-    systemctl enable --now cloud-init-local.service cloud-init-network.service cloud-config.service cloud-final.service
-    Добавлена новая служба cloud-init-main.service, которая отвечает за настройку сокетов для работы остальных cloud-init служб. В более ранних версиях запускалась служба cloud-init.service, которая теперь переименована в службу cloud-init-network.service.
+::: tip Примечание
+Начиная с версии 24.4.1 необходимо учесть новую логику запуска служб `cloud-init` в случае самостоятельной инсталяции пакета (При обновлении пакета `cloud-init` функционал настраивается автоматически). Сначала должна отработать служба `cloud-init-main.service` , далее - остальные.
+```bash
+systemctl enable --now cloud-init-main.service
+systemctl enable --now cloud-init-local.service cloud-init-network.service cloud-config.service cloud-final.service
+```
+Добавлена новая служба `cloud-init-main.service`, которая отвечает за настройку сокетов для работы остальных `cloud-init` служб. В более ранних версиях запускалась служба `cloud-init.service`, которая теперь переименована в службу `cloud-init-network.service`.
 
 В случае наличия некорректного запуска служб по старому принципу из новой версии пакета простой способ все починить (не забывая добавить недостающие службы в автозапуск при перезагрузке):
-
+```bash
 systemctl stop cloud-init-local.service cloud-init-network.service cloud-config.service cloud-final.service cloud-init-main.service
 systemctl start cloud-init-main.service
+```
 секунду подождать
+```bash
 systemctl start cloud-init-local.service cloud-init-network.service cloud-config.service cloud-final.service
 cloud-init clean --logs --reboot
+```
 Cистема перезагрузится и можно проверить результат:
-
+```bash
 systemctl status cloud-init-local.service cloud-init-network.service cloud-config.service cloud-final.service cloud-init-main.service
 cloud-init status --long
+```
 :::
