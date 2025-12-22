@@ -42,7 +42,7 @@ $ ssh root@localhost -p 22222
 
 
 ::: tip Примечание
-Начиная с версии 24.4.1 необходимо учесть новую логику запуска служб `cloud-init` в случае самостоятельной инсталяции пакета (При обновлении пакета `cloud-init` функционал настраивается автоматически). Сначала должна отработать служба `cloud-init-main.service` , далее - остальные.
+Начиная с версии 24.4.1 необходимо учесть новую логику запуска служб `cloud-init` в случае самостоятельной инсталяции пакета (При обновлении пакета `cloud-init` функционал настраивается автоматически). Сначала должна отработать служба `cloud-init-main.service`, далее - остальные.
 ```bash
 systemctl enable --now cloud-init-main.service
 systemctl enable --now cloud-init-local.service cloud-init-network.service cloud-config.service cloud-final.service
