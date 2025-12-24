@@ -36,6 +36,11 @@ ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 systemctl enable --now AmneziaVPN
 ```
 
+::: warning 
+11 ноября 2025 года появилось решение проблемы с DNS взамен systemd-resolved: Для работы DNS установите пакет libnss-resolve
+:::
+
+
 4. Перезагружаем систему.
 
 5. Теперь входим в графическое приложение как обычно через меню приложений.
