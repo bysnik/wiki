@@ -212,6 +212,7 @@ ansible-playbook <имя файла>
 
 
 :::
+```
 Использование ANSIBLE VAULT
 Назначение:
 - Шифрование данных
@@ -478,4 +479,5 @@ $ ansible-playbook r1task.yml --vault-password-file=say_password
 --vault-id=become105
 --vault-password-file=
 --vault-id=
+```
 :::
