@@ -6,6 +6,8 @@ Ansible — система управления конфигурациями, н
 
 https://www.altlinux.org/Ansible
 
+https://docs.ansible.com/projects/ansible/latest/collections/index.html
+
 ## Быстрый старт
 
 ### Установка на сервер:
