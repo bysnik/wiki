@@ -18,7 +18,7 @@ apt-get install ansible
 apt-get install python python-module-yaml python-module-jinja2 python-modules-json python-modules-distutils
 ```
 
-На клиенте должен быть настроен доступ по ssh пользователем, находящимся в группе wheel.
+На клиенте должен быть настроен ключевой (безпарольный) доступ по ssh к пользователю root на клиенте пользователем, который будет работать с ansible на сервере (не root).
 
 Все дальнейшие действия производим на сервере.
 
@@ -211,14 +211,14 @@ ansible-playbook <имя файла>
 использование плагина [nmap](https://docs.ansible.com/ansible/latest/collections/community/general/nmap_inventory.html) в связке с плагином [constructed](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/constructed_inventory.html). При запуске он опрашивает указанные подсети и формирует список хостов для применения плейбуков или ролей, а потом делает свои грязные делишки на отобранные по правилам хосты.
 
 
-::: tip
-```
+
 Использование ANSIBLE VAULT
 Назначение:
 - Шифрование данных
 - Хранение шифрованных данных
 - Расшифровка данных только в момент использования этих данных
 Работа с ansible-vault в интерактивном режиме:
+```bash
 $ ansible-vault
 - create
 - decrypt
@@ -227,23 +227,23 @@ $ ansible-vault
 - encrypt
 - encrypt_string
 - rekey
+```
 Шифрование отдельных строк:
+```bash
 $ ansible-vault encrypt_string 'password'
 New Vault password:
 Confirm New Vault password:
 !vault |
 $ANSIBLE_VAULT;1.1;AES256
-366163646632396362303866386431
-39383237326533363236323339666162323163376565313138
-3333636130646636363639363530643364656534336338370a3831313061363533
-37303261366430
-613666336562623732363334343535396336313665336236303730323664613466
-30636635313235
-6631393939646632360a6564306263383365333764376462323231616539393837
-39353564353934
-6338
+    36616364663239636230386638643139383237326533363236323339666162323163376565313138
+    3333636130646636363639363530643364656534336338370a383131306136353337303261366430
+    61366633656262373236333434353539633631366533623630373032366461346630636635313235
+    6631393939646632360a656430626338336533376437646232323161653939383739353564353934
+    6338
+```
 Применение полученного результата, создадим плейбук в котором
 используются зашифрованная строка:
+```yaml
 play1.yml:
 ---
 - name: Получим пароль
@@ -252,20 +252,18 @@ gather_facts: no
 vars:
 password: !vault |
 $ANSIBLE_VAULT;1.1;AES256
-366163646632396362303866386431393832373265333632363233396661623231
-63376565313138
-3333636130646636363639363530643364656534336338370a3831313061363533
-37303261366430
-613666336562623732363334343535396336313665336236303730323664613466
-30636635313235
-6631393939646632360a6564306263383365333764376462323231616539393837
-39353564353934
-6338
+    36616364663239636230386638643139383237326533363236323339666162323163376565313138
+    3333636130646636363639363530643364656534336338370a383131306136353337303261366430
+    61366633656262373236333434353539633631366533623630373032366461346630636635313235
+    6631393939646632360a656430626338336533376437646232323161653939383739353564353934
+    6338
 tasks:
 - name: debug
 debug:
 msg: "Пароль: {{ password }} "
+```
 Выполним полученный плейбук:
+```bash
 $ ansible-play play1.yml
 # Получим ошибку, т.к. не указан пароль для расшифровки
 $ ansible-playbook play1.yml --ask-vault-password
@@ -287,39 +285,38 @@ failed=0 skipped=0 rescued=0 ignored=0
 $ ansible-vault encrypt_string 'password' --name 'user_password'
 user_password: !vault |
 $ANSIBLE_VAULT;1.1;AES256
-633661623735373465333162653033613037663939383334396339656138666231
-30376330616531
-3664323366666234363636656264333133653562396135310a6332376139663430
-65643736363733
-343137376437326166623565393831303739623563633333663538343661633130
-30663563623037
-3633663230373636330a3262623534643233343636323236393136333135313331
-64343664376438
-3433
+    63366162373537346533316265303361303766393938333439633965613866623130376330616531
+    3664323366666234363636656264333133653562396135310a633237613966343065643736363733
+    34313737643732616662356539383130373962356363333366353834366163313030663563623037
+    3633663230373636330a326262353464323334363632323639313633313531333164343664376438
+    3433
+```
 Создание хранилища в виде файла:
+```bash
 $ ansible-vault create /tmp/vault1.yml
 New Vault password:
 Confirm New Vault password:
+```
 Запускается редактор по-умолчанию для редактирование файла (vim).
 Просмотр результата:
+```bash
 $ cat /tmp/vault1.yml
 $ANSIBLE_VAULT;1.1;AES256
-313065653137303434316233646139393731623231636432386131373232616531
-39623062646438
-3764383630306665666439663530613538363035386232640a6432653562633031
-33623037363234
-333263363863386130643837326636643964366438643031376539663761396434
-65353566313330
-3662323665636463630a6536373764383261643065363136386536333339306262
-62636362353962
-366134623332613466333234646464373164643430343538303164373734316437
-65
+    31306565313730343431623364613939373162323163643238613137323261653139623062646438
+    3764383630306665666439663530613538363035386232640a643265356263303133623037363234
+    33326336386338613064383732663664396436643864303137653966376139643465353566313330
+    3662323665636463630a653637376438326164306536313638653633333930626262636362353962
+    36613462333261346633323464646437316464343034353830316437373431643765
+```
 Просмотр дешифрованного содержимого файла:
+```bash
 $ ansible-vault view /tmp/vault1.yml
 Vault password:
 user_password: netlab123
+```
 Использование шифрованных файлов в плейбуке:
 play1.yml:
+```yaml
 ---
 - name: Получим пароль
 hosts: localhost
@@ -329,7 +326,9 @@ tasks:
 - name: debug
 debug:
 msg: "Пароль: {{ user_password }}"
+```
 Результат:
+```bash
 $ ansible-playbook play1.yml --ask-vault-password
 Vault password:
 PLAY [Получим пароль]
@@ -346,7 +345,9 @@ PLAY RECAP
 ***********************
 localhost : ok=1 changed=0 unreachable=0
 failed=0 skipped=0 rescued=0 ignored=0
+```
 Редактирование зашифрованного содержимого файла:
+```bash
 $ EDITOR=nano ansible-vault edit /tmp/vault1.yml
 # Данные в виде словаря
 passwords:
@@ -367,18 +368,26 @@ debug:
 msg: "Пароль пользователя {{ item.key }} :
 {{ item.value.password }}"
 loop: "{{ passwords | dict2items }}"
+```
+```bash
 $ ansible-playbook play1.yml --ask-vault-password
 Vault password:
+```
 Шифрованние/дешифрование готового файла:
+```bash
 $ vim user-passwords.yml # создаём файл
 $ ansible-vault encrypt user-passwords.yml # шифрование файла
 $ cat user-passwords.yml # просмотр результата
 $ ansible-vault view user-passwords.yml # просмотр
 $ ansible-vault decrypt user-passwords.yml # шифрование файла
 $ ansible-vault encrypt user-passwords.yml # зашифруем снова
+```
 Шифрование (+ хранение) файла:
+```bash
 $ cp ~/.ssh/id_rsa id_rsa.encrypted
 $ ansible-vault encrypt id_rsa.encrypted
+```
+```yaml
 Создадим плейбук для копирования зашифрованного файла:
 copy-file.yml:
 ---
@@ -414,17 +423,23 @@ register: result
 debug:
 msg: "Пользователь {{ ansible_user }} входит в группы
 {{result.stdout}}"
+```
 Потребуется sshpass:
+```bash
 # apt-get install sshpass
 $ ansible-playbook use-user.yml --ask-vault-password
 Vault password:
 - no_log:
+```
 Использование ansible-vault без введения пароля:
+```bash
 ANSIBLE_VAULT_PASSWORD_FILE=
 --vault-password-file=
 $ ansible-playbook use-user.yml --vault-password-file=
 $ chmod +x <vault-password-file>
+```
 say_password:
+```bash
 #!/bin/sh
 echo U2FsdGVkX1+7Gd8IBqVzGfDmsrbRcT2K0SNZSq8158o= | openssl aes-
 256-cbc -d -a -pass pass:somepassword 2>/dev/null
@@ -438,13 +453,17 @@ passwords.yml:
 passwords:
 user1:
 password: "netlab123"
+```
 Шифруем файл «закрытой части»:
+```bash
 $ ansible-vault encrypt passwords.yml
 New Vault password:
 Confirm New Vault password:
 Encryption successful
 Изменяем файл с задачами:
 $ cd ../tasks/
+```
+```yaml
 main.yml:
 ---
 # tasks file for r1
@@ -463,13 +482,21 @@ password: "{{ item.value.password |
 password_hash('sha512') }}"
 loop: "{{ passwords | dict2items }}"
 no_log: true
+```
+```bash
 $ ansible-playbook r1task.yml --vault-password-file=say_password
+```
 Использование нескольких хранилищ:
+```bash
 $ cat ~/.ansible/inventory.ini
 $ EDITOR=nano ansible-vault create --vault-id become105@prompt
+```
 /home/sysadmin/.ansible/192.168.100.105.yml
+```yaml
 - @
 - prompt
+```
+```bash
 $ cat /home/sysadmin/.ansible/192.168.100.105.yml
 $ANSIBLE_VAULT;1.2;AES256;become105
 $ vim become105
@@ -479,5 +506,183 @@ $ ansible-playbook r1task.yml --vault-password-file=say_password
 --vault-id=become105
 --vault-password-file=
 --vault-id=
+```
+
+::: tip
+```
+Система управления конфигурациями
+Ansible
+Основы Ansible
+Об Ansible
+• Ansible
+• Декларативный синтаксис
+• Отличительные особенности Ansible
+◦ не требует агентского ПО
+◦ декларативный синтаксис
+◦ push-модель управления
+◦ паралельное выполнение изменений
+Назначение
+• Настройка
+• Множество управляемых узлов
+• Параметризация
+• Сборка фактов
+Архитектура
+• Управляющий хост
+• Управляемые хосты (targets)
+• Сетевое взаимодействие
+• Модули
+• Задание (tasks)
+Архитектура Ansible
+```
+![](https://habrastorage.org/getpro/habr/upload_files/5f2/284/e80/5f2284e805ee0ad18b680351866a6621.png)
+```
+Установка в ОС Альт
+Управляющий узел
+$ apt-get install ansible
+/etc/ansible/ansible.cfg
+~/.ansible.cfg
+Подключение к управлемым узлам
+• ssh root@host
+$ ssh-keygen
+$ ssh-copy-id root@<host>
+• ssh user@host
+Управляемые узлы
+$ apt-get install python3 python3-module-yaml python3-module-jinja2 python3-
+module-jsonlib
+Файл инвентаризации (Inventory)
+/etc/ansible/hosts
+$ ansible -i ./hosts
+$ ANSIBLE_HOSTS=./hosts
+Структура файлов инвентаризации
+[all:vars]
+ansible_user=root
+ansible_python_interpreter=/usr/bin/python3
+mail.domain.alt
+[webservers]
+www.domain.alt
+private-web.domain.alt
+[dbases]
+db[1:3].domain.alt
+all:
+hosts:
+mail.domain.alt
+children:
+webservers:
+host:
+www.domain.alt
+private-web.domain.alt
+dbases:
+hosts:
+db[1:3].domain.alt
+Хосты в файле инвенторизации
+Группы файла инвентаризации
+Переменные файла инвентаризации
+Пример файла инвентаризации
+[all:vars]
+ansible_user=root
+ansible_python_interpreter=/usr/bin/python3
+[group1]
+192.168.100.101
+192.168.100.102
+192.168.100.103
+[servers]
+altsrv1.courses.alt
+altsrv2.courses.alt
+[wks]
+altwks1 ansible_ssh_port=2221 ansible_ssh_host=192.168.100.201
+altwks2 ansible_ssh_port=2221 ansible_ssh_host=192.168.100.202
+[alt:children]
+servers
+wks
+Динамическая инвентаризация
+Дополнительное чтение
+• https://habr.com/ru/post/509938/
+Использование ad-hoc команд в Ansible
+Ad-hoc команды
+• Типичное применение
+◦ управление службами и процессами
+◦ проверка содержимого файлов журналов
+◦ проверка установленного ПО
+◦ проверка системных параметров и данных производительности
+◦ знакомство с новыми модулями
+Синтаксис команды ansible
+$ ansible [-i inventory ] \
+[-m module] [-a "params"] \
+[ -b ] \
+[all|group|host]
+• -i inventory-file
+• -m module
+• -a “param1=val param2=val”
+• -b
+• all|group|host
+Пример. ping средствами Ansible
+$ ansible -i hosts -m ping servers
+altsrv1 | SUCCESS => {
+"changed": false,
+"ping": "pong"
+}
+altsrv2 | SUCCESS => {
+"changed": false,
+"ping": "pong"
+}
+$ ansible -m ping all
+Пример. Выполнение команды на управляемых узлах
+$ ansible -i hosts -m shell -a 'uname -a' servers
+altsrv2 | CHANGED | rc=0 >>
+Linux altsrv2 5.10.82-std-def-alt1 #1 SMP Fri Dec 3 14:49:25 UTC 2021 x86_64
+GNU/Linux
+altsrv1 | CHANGED | rc=0 >>
+Linux altsrv1 5.10.82-std-def-alt1 #1 SMP Fri Dec 3 14:49:25 UTC 2021 x86_64
+GNU/Linux
+Пример. Удаление файла
+$ ansible -m file -a "name=/etc/nologin state=absent" all
+Цветовой вывод ansible
+• зеленый
+• желтый
+• красный
+Модули Ansible
+О модулях
+• Модули Ansible
+$ ansible -m module -a "name1=value1 name2=value2"
+$ ansible -i hosts -m copy -a 'src=/etc/hosts dst=/etc' all
+• https://docs.ansible.com
+Часто используемые модули
+Модуль Назначение
+ping Проверка доступности узла
+setup Сбор фактов с управляемых узлов
+apt_rpm Установка/обновление ПО
+service Управление службами
+systemd Управление службами средствами systemd
+copy Копирование файлов
+file создание, удаление, изменение атрибутов
+файлов
+template Тиражирование шаблонных файлов
+replace Замена строк в файлах на основе регулярных
+выражений
+Модуль Назначение
+lineinfile Вставка, замена, удаление строк в файлах
+user Управление пользовательскими УЗ
+group Управление УЗ групп
+command, shell Выполнение произвольных внешних команд
+окружения
+debug Вывод отладочной информации
+Рецепты (плейбуки) ansible
+О рецептах
+Правила написания YAML-плейбуков
+1. Отступы пробелами
+2. Списки play, tasks
+3. Равенство отступов
+Структура плейбука
+play1
+task1
+task2
+. . .
+play2
+task1
+task2
+. . .
+. . .
+• Play (hosts->tasks)
+
 ```
 :::
