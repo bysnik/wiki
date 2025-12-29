@@ -14,6 +14,8 @@ https://catap.ru/blog/2009/05/03/about-memory-oom-killer/
 
 https://vmblog.ru/out-of-memory-killer-v-linux/
 
+https://blog.packagecloud.io/the-definitive-guide-to-linux-system-calls/
+
 ## Тематический план
 
 <table id="program-table">
@@ -171,7 +173,7 @@ https://vmblog.ru/out-of-memory-killer-v-linux/
             <td rowspan="6">ОК ПК ОК ПК ОК ПК</td>
         </tr>
         <tr>
-            <td>Физич принципы орг10	22	4	ПР 16	2 вв, логич принц орг вв, алгоритмы планир запросов к жд.</td>
+            <td>Физич принципы орг вв, логич принц орг вв, алгоритмы планир запросов к жд.</td>
             <td>1</td>
             <td>2</td>
         </tr>
