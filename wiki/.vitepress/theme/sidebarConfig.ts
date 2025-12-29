@@ -575,6 +575,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Веб-камеры', link: '/docs/wi/webcam' },
         { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/  ' },
         { text: 'Фишки', link: '/docs/wi/tricks' },
+        { text: '0 Эльбрус', link: '/docs/wi/elbrus' }, // https://dev.mcst.ru/download/
       ]
     },
 
