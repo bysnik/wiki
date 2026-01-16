@@ -16,6 +16,8 @@ https://vmblog.ru/out-of-memory-killer-v-linux/
 
 https://blog.packagecloud.io/the-definitive-guide-to-linux-system-calls/
 
+https://portal.tpu.ru/SHARED/g/GSHEVELYOV/teacher_work/SPPO/Tab/OS_lek_2019.pdf
+
 ## Тематический план
 
 <table id="program-table">
