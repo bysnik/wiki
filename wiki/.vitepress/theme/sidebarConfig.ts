@@ -392,9 +392,9 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '0 IceBw', link: '/docs/wi/icebw' }, 
         { text: '! NocoBase', link: '/docs/wi/nocobase' }, 
-        { text: '0 SuiteCRM', link: '/docs/wi/games/suitecrm' },
-        { text: '0 Totum', link: '/docs/wi/games/totum' },
-        { text: '0 EspoCRM', link: '/docs/wi/games/espocrm' },
+        { text: '0 SuiteCRM', link: '/docs/wi/suitecrm' },
+        { text: '0 Totum', link: '/docs/wi/totum' },
+        { text: '0 EspoCRM', link: '/docs/wi/espocrm' },
       ]
     },
 
@@ -550,6 +550,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Игры',
       collapsed: true,
       items: [
+        { text: 'Arknights:Endfield', link: '/docs/wi/games/arknights-endfield' },
         { text: 'DayZ', link: '/docs/wi/games/dayz' },
         { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
         { text: 'Moonlight', link: '/docs/wi/games/moonlight' },

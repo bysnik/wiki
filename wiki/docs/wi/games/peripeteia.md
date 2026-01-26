@@ -1,6 +1,6 @@
 # Peripeteia
 
-![](https://i.kickstarter.com/assets/034/468/809/cc1c90dae3ea2a97f9643dbb2c07e416_original.png?anim=false&fit=cover&gravity=auto&height=873&origin=ugc&q=92&v=1628530087&width=1552&sig=XnBheoMoNI%2FWyfX6Qzya8sQf0vu18AyuDbdcrIzZjKU%3D)
+![Картинка?](https://cdn1.epicgames.com/spt-assets/dc2fb63f594c40af842dd80886b86c0a/peripeteia-158ip.png)
 
 ## Моя Борьба с руссификатором
 
