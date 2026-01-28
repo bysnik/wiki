@@ -588,6 +588,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 bunkerweb', link: '/docs/wi/bunkerweb' }, // https://docs.bunkerweb.io/latest/
           { text: '0 cap', link: '/docs/wi/cap' }, // https://github.com/tiagozip/cap
           { text: '0 Chikago95', link: '/docs/wi/chikago95' }, // https://github.com/grassmunk/Chicago95   работает) забавно
+          { text: '0 code-server', link: '/docs/wi/code-server' }, //https://github.com/coder/code-server vscode в браузере
           { text: '0 counter-osint-guide-ru', link: '/docs/wi/counter-osint-guide-ru' }, // https://github.com/soxoj/counter-osint-guide-ru
           { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android   так или иначе работает
           { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/bastienwirtz/homer
@@ -599,6 +600,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 openipc', link: '/docs/wi/openipc' }, // https://openipc.org/
           { text: '0 openrouter-bot', link: '/docs/wi/openrouter-bot' }, // https://github.com/Lifailon/openrouter-bot
           { text: '0 phpLDAPadmin', link: '/docs/wi/phpLDAPadmin' }, // https://github.com/leenooks/phpLDAPadmin
+          { text: '0 Pixelorama', link: '/docs/wi/pixelorama' }, //https://github.com/Orama-Interactive/Pixelorama крутая рисовалка пиксель арта 
           { text: '0 RedisInsight', link: '/docs/wi/RedisInsight' }, // https://github.com/redis/RedisInsight
           { text: '0 scrypted', link: '/docs/wi/scrypted' }, // https://docs.scrypted.app/
           { text: '0 spacebarchat', link: '/docs/wi/spacebarchat' }, // https://github.com/spacebarchat/spacebarchat   реверс инж Дискордика (сервер и клиент)
