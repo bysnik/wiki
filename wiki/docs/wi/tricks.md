@@ -3,6 +3,112 @@
 https://factory.altlinux.space/
 
 
+## Своя репа Альта:
+
+Создание собственного репозитория происходит в несколько шагов:
+
+1. Создаём директорию, в которой будет располагаться Ваш репозиторий, например `testrepo`:
+
+```bash
+mkdir testrepo
+```
+
+2. Переходим в данную директорию:
+
+```bash
+cd testrepo/
+```
+
+3. Создаём структуру репозитория. В данном примере создаётся структура из трёх архитектур: `x86_64` — 64-битные программы, `i586` — 32-битные программы, `noarch` — всё, что не зависит от архитектуры.
+
+```bash
+mkdir -p x86_64/RPMS.classic i586/RPMS.classic noarch/RPMS.classic
+```
+
+4. В директории `RPMS.classic` необходимо поместить пакеты соответствующих архитектур.
+
+5. Для каждой архитектуры создаём метаинформацию:
+
+```bash
+genbasedir --create --progress --topdir=. x86_64 classic
+genbasedir --create --progress --topdir=. i586 classic
+genbasedir --create --progress --topdir=. noarch classic
+```
+
+По итогу у Вас должна получиться следующая структура:
+
+```bash
+testrepo
+├── i586 # пакеты архитектуры i586
+│   ├── base # метаинформация
+│   │   ├── pkglist.classic
+│   │   ├── pkglist.classic.bz2
+│   │   ├── pkglist.classic.xz
+│   │   ├── release
+│   │   └── release.classic
+│   └── RPMS.classic
+│       └── foobar-1.2-5.i586.rpm
+├── noarch # архитектурно-независимые пакеты
+│   ├── base # метаинформация
+│   │   ├── pkglist.classic
+│   │   ├── pkglist.classic.bz2
+│   │   ├── pkglist.classic.xz
+│   │   ├── release
+│   │   └── release.classic
+│   └── RPMS.classic
+│       └── foobar-doc-1.2-5.noarch.rpm
+└── x86_64 # пакеты архитектуры x86_64
+    ├── base # метаинформация
+    │   ├── pkglist.classic
+    │   ├── pkglist.classic.bz2
+    │   ├── pkglist.classic.xz
+    │   ├── release
+    │   └── release.classic
+    └── RPMS.classic
+        └── foobar-1.2-5.x86_64.rpm
+```
+
+Далее необходимо опубликовать всю директорию `testrepo` в сети, например:
+
+- Nginx: https://docs.altlinux.org/ru-RU/alt-server/11.1/html/alt-server/server-network--mirror.html#nginx
+- FTP: https://docs.altlinux.org/ru-RU/alt-server/11.1/html/alt-server/server-network--ftp.html
+
+Вы можете опубликовать любым способом, используя следующие протоколы: `http`, `ftp`, `rsync`.
+
+Дополнительно:  
+Если потребуется обновить пакеты в репозитории, нужно будет также обновить и метаинформацию, например, следующей командой:
+
+```bash
+for arch in x86_64 i586 noarch; do genbasedir --bloat --progress --topdir=путь/до/testrepo/ $arch classic; done
+```
+
+___
+
+На клиенте необходимо подключить созданный репозиторий, для этого создадим отдельный `source.list`, например:
+
+```bash
+touch /etc/apt/sources.list.d/testrepo.list
+```
+
+Далее необходимо заполнить данный файл. Содержимое будет примерно следующим:
+
+```
+# Протокол http
+rpm http://<сервер>/testrepo x86_64 classic 
+rpm http://<сервер>/testrepo i586 classic
+rpm http://<сервер>/testrepo noarch classic
+
+# Протокол ftp
+rpm ftp://<сервер>/testrepo x86_64 classic 
+rpm ftp://<сервер>/testrepo i586 classic
+rpm ftp://<сервер>/testrepo noarch classic
+
+# Протокол rsync
+rpm rsync://<сервер>/testrepo x86_64 classic 
+rpm rsync://<сервер>/testrepo i586 classic
+rpm rsync://<сервер>/testrepo noarch classic
+```
+
 ## Запуск графического приложения по ssh на удалённой машине с уже запущенной сессией
 
 Мне нужно было запусить Rustdesk, чтобы подключиться полноценно, но клиент был выключен. Сессия у меня была Wayland. Я подключился к компьютеру по ssh под тем же пользователем, что и в графической сессии на той стороне и сделал:
