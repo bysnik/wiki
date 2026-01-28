@@ -555,6 +555,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
         { text: 'Moonlight', link: '/docs/wi/games/moonlight' },
         { text: 'Peripeteia', link: '/docs/wi/games/peripeteia' },
+        { text: 'Persona 4', link: '/docs/wi/games/persona4' },
         { text: 'RenPy', link: '/docs/wi/games/renpy' },
       ]
     },
