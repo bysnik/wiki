@@ -294,18 +294,19 @@ ansible-playbook <имя файла>
 
 Структура проекта:
 
-xrdp-server.yaml - главный запускатор, пусть лежит в любом месте.
+- xrdp-server.yaml - главный запускатор, пусть лежит в любом месте.
 
-/etc/ansible/roles/xrdp-server/ - директория роли
+- /etc/ansible/roles/xrdp-server/ - директория роли
 
-/etc/ansible/roles/xrdp-server/tasks/main.yml - основной плейбук роли
-/etc/ansible/roles/xrdp-server/vars/main.yml - там у меня буквально одна переменная чисто подстраховаться
+- /etc/ansible/roles/xrdp-server/tasks/main.yml - основной плейбук роли
 
-/etc/ansible/roles/xrdp-server/всё-остальное - тут у меня всё пусто, чисто как было создано командой ansible-galaxy
+- /etc/ansible/roles/xrdp-server/vars/main.yml - там у меня буквально одна переменная чисто подстраховаться
+
+- /etc/ansible/roles/xrdp-server/всё-остальное - тут у меня всё пусто, чисто как было создано командой ansible-galaxy
 
 #### xrdp-server.yaml
 
-::: detail
+::: details
 ```yaml
 - hosts: rdp_server
   roles:
@@ -372,7 +373,7 @@ xrdp-server.yaml - главный запускатор, пусть лежит в
 
 #### /etc/ansible/roles/xrdp-server/tasks/main.yml
 
-::: detail
+::: details
 ```yaml
 #SPDX-License-Identifier: MIT-0
 ---
@@ -430,7 +431,7 @@ xrdp-server.yaml - главный запускатор, пусть лежит в
 
 #### /etc/ansible/roles/xrdp-server/vars/main.yml
 
-::: detail
+::: details
 ```yaml
 #SPDX-License-Identifier: MIT-0
 ---
