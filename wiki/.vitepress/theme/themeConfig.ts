@@ -49,7 +49,7 @@ export const themeConfig: DefaultTheme.Config = {
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/nik5612/wiki' },
+      { icon: 'github', link: 'https://github.com/bysnik/wiki' },
 //      { icon: 'gitlab', link: 'https://gitlab.basealt.space/' }
     ],
 
@@ -59,7 +59,7 @@ export const themeConfig: DefaultTheme.Config = {
     },
 
     editLink: {
-      pattern: 'https://github.com/nik5612/wiki/edit/main/wiki/:path'
+      pattern: 'https://github.com/bysnik/wiki/edit/main/wiki/:path'
     },
 
 
