@@ -572,6 +572,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
         { text: 'RPMBUILD', link: '/docs/wi/rpmbuild' },
         { text: 'SFP', link: '/docs/wi/sfp' },
+        { text: 'TeX', link: '/docs/wi/tex' },
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
         { text: 'Wine/Proton', link: '/docs/wi/wine' },
         { text: 'Веб-камеры', link: '/docs/wi/webcam' },
