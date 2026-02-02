@@ -4,7 +4,8 @@
 
 ::: warning Ссылка на собраный пакет
 DupeGuru: [dupeguru-4.3.1-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/dupeguru-4.3.1-alt1.x86_64.rpm)
-Я в пакете забыл указать зависимость python3-module-send2trash. Попозже пересоберу)
+
+Пересобрал, сделал патч под Python 3.12
 :::
 
 Установка сборочных зависимостей:
@@ -19,79 +20,122 @@ wget https://github.com/arsenetar/dupeguru/archive/refs/tags/4.3.1.tar.gz
 
 ### Копируем архив в сборочницу:
 ```bash
-cp ./dupeguru-4.3.1.tar.gz ~/RPM/SOURCE/dupeguru-4.3.1.tar.gz
+cp ./4.3.1.tar.gz ~/RPM/SOURCES/4.3.1.tar.gz
 ```
 
 ### Создаём патч:
 
-1. Разархивируем архив:
-```bash
-tar -xzf dupeguru-4.3.1.tar.gz
-```
-
-2. Делаем копию:
-```bash
-cp -r dupeguru-4.3.1 dupeguru-4.3.1-modified
-```
-
-3. Редактируем файл `dupeguru-4.3.1-modified/build.py`:
-
-Замените:
-
-```python
-from setuptools import sandbox
-...
-sandbox.run_setup(...)
-```
-
-на:
-
-```python
-import subprocess
-import sys
-...
-subprocess.check_call([sys.executable, "setup.py", "build_ext", "--inplace"])
-```
-
-Убедитесь, что вы заменили **все** вызовы `sandbox.run_setup`.
-
-4. Создайте патч:
-
-```bash
-diff -Naur dupeguru-4.3.1 dupeguru-4.3.1-modified > dupeguru-sandbox-to-subprocess.patch
-```
-
-Должно получиться следующее, файл `dupeguru-sandbox-to-subprocess.patch`:
+1. Создайте файл `dupeguru-sandbox-to-subprocess.patch` и поместите в него следующее:
 
 ```diff
 diff -Naur dupeguru-4.3.1/build.py dupeguru-4.3.1-modified/build.py
 --- dupeguru-4.3.1/build.py	2022-07-08 06:06:06.000000000 +0300
-+++ dupeguru-4.3.1-modified/build.py	2025-10-22 11:14:35.393716582 +0300
++++ dupeguru-4.3.1-modified/build.py	2026-02-02 12:43:26.747653102 +0300
 @@ -10,7 +10,8 @@
  import shutil
  from multiprocessing import Pool
  
 -from setuptools import sandbox
-+#from setuptools import sandbox
 +import subprocess
++import sys
  from hscommon import sphinxgen
  from hscommon.build import (
      add_to_pythonpath,
-@@ -118,7 +119,8 @@
+@@ -118,7 +119,7 @@
  def build_pe_modules():
      print("Building PE Modules")
      # Leverage setup.py to build modules
 -    sandbox.run_setup("setup.py", ["build_ext", "--inplace"])
-+    #sandbox.run_setup("setup.py", ["build_ext", "--inplace"])
 +    subprocess.check_call([sys.executable, "setup.py", "build_ext", "--inplace"])
  
  
  def build_normal():
+diff -Naur dupeguru-4.3.1/hscommon/pygettext.py dupeguru-4.3.1-modified/hscommon/pygettext.py
+--- dupeguru-4.3.1/hscommon/pygettext.py	2022-07-08 06:06:06.000000000 +0300
++++ dupeguru-4.3.1-modified/hscommon/pygettext.py	2026-02-02 12:55:28.222580520 +0300
+@@ -15,7 +15,9 @@
+ #
+ 
+ import os
+-import imp
++import types
++#import imp
++import importlib.util
+ import sys
+ import glob
+ import token
+@@ -108,16 +110,17 @@
+ def _visit_pyfiles(list, dirname, names):
+     """Helper for getFilesForName()."""
+     # get extension for python source files
+-    if "_py_ext" not in globals():
+-        global _py_ext
+-        _py_ext = [triple[0] for triple in imp.get_suffixes() if triple[2] == imp.PY_SOURCE][0]
++    #if "_py_ext" not in globals():
++    #    global _py_ext
++    #    _py_ext = [triple[0] for triple in imp.get_suffixes() if triple[2] == imp.PY_SOURCE][0]
+ 
+     # don't recurse into CVS directories
+     if "CVS" in names:
+         names.remove("CVS")
+ 
+     # add all *.py files to list
+-    list.extend([os.path.join(dirname, file) for file in names if os.path.splitext(file)[1] == _py_ext])
++    #list.extend([os.path.join(dirname, file) for file in names if os.path.splitext(file)[1] == _py_ext])
++    list.extend([os.path.join(dirname, file) for file in names if file.endswith('.py')])
+ 
+ 
+ def _get_modpkg_path(dotted_name, pathlist=None):
+@@ -133,14 +136,19 @@
+     if len(parts) > 1:
+         # we have a dotted path, import top-level package
+         try:
+-            file, pathname, description = imp.find_module(parts[0], pathlist)
+-            if file:
+-                file.close()
++            #file, pathname, description = imp.find_module(parts[0], pathlist)
++            #if file:
++            #    file.close()
++            spec = importlib.util.find_spec(parts[0], pathlist)
++            if spec is None:
++                return None
++            pathname = spec.submodule_search_locations[0] if spec.submodule_search_locations else spec.origin
+         except ImportError:
+             return None
+ 
+         # check if it's indeed a package
+-        if description[2] == imp.PKG_DIRECTORY:
++        #if description[2] == imp.PKG_DIRECTORY:
++        if spec.submodule_search_locations:
+             # recursively handle the remaining name parts
+             pathname = _get_modpkg_path(parts[1], [pathname])
+         else:
+@@ -148,11 +156,17 @@
+     else:
+         # plain name
+         try:
+-            file, pathname, description = imp.find_module(dotted_name, pathlist)
+-            if file:
+-                file.close()
+-            if description[2] not in [imp.PY_SOURCE, imp.PKG_DIRECTORY]:
++            #file, pathname, description = imp.find_module(dotted_name, pathlist)
++            #if file:
++            #    file.close()
++            #if description[2] not in [imp.PY_SOURCE, imp.PKG_DIRECTORY]:
++            spec = importlib.util.find_spec(dotted_name, pathlist)
++            if spec is None:
+                 pathname = None
++            elif spec.origin and not spec.origin.endswith('.py') and not spec.submodule_search_locations:
++                pathname = None
++            else:
++                pathname = spec.submodule_search_locations[0] if spec.submodule_search_locations else spec.origin
+         except ImportError:
+             pathname = None
 ```
 
-5. Копируем патч в сборочницу:
+2. Копируем патч в сборочницу:
 ```bash
-cp dupeguru-sandbox-to-subprocess.patch ~/RPM/SOURCE/
+cp dupeguru-sandbox-to-subprocess.patch ~/RPM/SOURCES/
 ```
 
 ### Создаём spec-файл:
