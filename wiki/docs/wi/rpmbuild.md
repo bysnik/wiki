@@ -43,8 +43,24 @@ $ nano ~/.rpmmacros
 ```
 %__gpg /usr/bin/gpg
 %__gpg_sign_cmd %{__gpg} --batch --no-verbose --no-armor --no-secmem-warning -u "%{_gpg_name}" -sbo %{__signature_filename} %{__plaintext_filename}
+%_gpg_name Nikita Bystrov <bystrovno@basealt.ru>
 ```
 :::
+
+## Подпись собранного пакета
+
+```bash
+rpm --addsign ~/RPM/RPMS/x86_64/packagename.rpm
+# или
+rpmbuild -ba --sign ~/RPM/RPMS/x86_64/packagename.rpm
+```
+
+### Автоматическая подпись после сборки (через ~/.rpmmacros)
+
+Добавьте в `~/.rpmmacros`:
+```bash
+%__rpmhook_posttrans /usr/lib/rpm/posttrans.d/sign-rpms.sh
+```
 
 ## Сборка пакета с простыми файлами
 
