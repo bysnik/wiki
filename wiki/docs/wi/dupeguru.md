@@ -225,7 +225,7 @@ EOF
 %{_datadir}/applications/dupeguru.desktop
 
 %changelog
-* Wed Oct 22 2025 Nikita Bystrov <bystrovno@basealt.ru> %version-%release
+* Wed Oct 22 2025 Nikita Bystrov <bystrovno@basealt.ru> 4.3.1-alt1
 - Initial build for ALT Linux
 ```
 
