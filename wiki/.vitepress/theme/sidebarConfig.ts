@@ -592,6 +592,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 code-server', link: '/docs/wi/code-server' }, //https://github.com/coder/code-server vscode в браузере
           { text: '0 counter-osint-guide-ru', link: '/docs/wi/counter-osint-guide-ru' }, // https://github.com/soxoj/counter-osint-guide-ru
           { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android   так или иначе работает
+          { text: '! docx2tex', link: '/docs/wi/docx2tex' },
           { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/bastienwirtz/homer
           { text: '0 isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd    epm install isd.x86_64-linux.AppImage вот и вся установка
           { text: '0 lofi-engine', link: '/docs/wi/lofi-engine' }, // https://github.com/meel-hd/lofi-engine#lofi-engine   забавно)
