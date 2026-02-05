@@ -8,7 +8,7 @@ https://github.com/transpect/docx2tex
 Download the latest [docx2tex release](https://github.com/transpect/docx2tex/releases)
 
 …or get source via Git. Please note that you have to add the `--recursive` option in order to clone docx2hub with submodules.
-```
+```bash
 git clone https://github.com/transpect/docx2tex --recursive
 ```
 
@@ -20,7 +20,7 @@ git clone https://github.com/transpect/docx2tex --recursive
 You can run docx2tex with a Bash script (Linux, Mac OSX, Cygwin) or the Windows batch script whose options are somewhat limited, compared to the Bash script.
 
 ### Linux/MacOSX
-```
+```bash
 ./d2t [options ...] myfile.docx
 ```
 
@@ -35,3 +35,8 @@ Option  | Description
  -e     | custom XSLT stylesheet for evolve-hub overrides
  -x     | custom XSLT stylesheet for postprocessing the evolve-hub results
  -d     | debug mode
+
+### via XML Calabash
+```bash
+calabash/calabash.sh -o result=myfile.tex -o hub=myfile.xml xpl/docx2tex.xpl docx=myfile.docx conf=conf/conf.xml
+```
