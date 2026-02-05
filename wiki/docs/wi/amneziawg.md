@@ -20,7 +20,12 @@ apt-get install amnezia-vpn-client kernel-modules-amneziawg-6.12
 apt-get install amnezia-vpn-service amneziawg-go amneziawg-tools
 ```
 
-2. Настраиваем systemd-resolved (https://bugzilla.altlinux.org/52679)
+::: details Устаревшее
+
+11 ноября 2025 года появилось решение проблемы с DNS взамен systemd-resolved: Для работы DNS установите пакет libnss-resolve. В версии пакета [amnezia-vpn-4.8.10.0-alt2](https://packages.altlinux.org/ru/sisyphus/srpms/amnezia-vpn/3276394386284475711) добавили этот пакет в зависимость, так что ничего делать не нужно.
+
+Настраиваем systemd-resolved (https://bugzilla.altlinux.org/52679)
+
 ```bash
 apt-get install systemd-networkd
 ```
@@ -30,20 +35,16 @@ systemctl enable --now systemd-resolved
 ```bash
 ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 ```
+:::
 
-3. Запускаем сервис:
+2. Запускаем сервис:
 ```bash
 systemctl enable --now AmneziaVPN
 ```
 
-::: warning 
-11 ноября 2025 года появилось решение проблемы с DNS взамен systemd-resolved: Для работы DNS установите пакет libnss-resolve
-:::
+3. Перезагружаем систему.
 
-
-4. Перезагружаем систему.
-
-5. Теперь входим в графическое приложение как обычно через меню приложений.
+4. Теперь входим в графическое приложение как обычно через меню приложений.
 
 ## Настройка сервера OpenVPN, WireGuard, Shadowsocks, IKEv2/IPSec и Cloak, L2TP/IPSec, PPTP, OpenConnect VPN, SSTP, XRay Reality, MPLS, VLESS, L2TP, FreeLAN SSL P2. Помимо VLESS существуют и другие защищённые протоколы, такие как Trojan, Cloak, ShadowTLS, Hysteria/Hysteria2, mKCP и прочие...
 
