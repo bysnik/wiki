@@ -194,6 +194,12 @@ beep
 
 ## 皆さんこんにちは！ Устанавливаем поддержку нормальной японской раскладки (Пока с этим гайдом есть проблемки)
 
+<iframe src="https://quizlet.com/1145339581/match/embed?i=6o26kk&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+
+<iframe src="https://quizlet.com/1145340199/match/embed?i=6o26kk&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+
+<iframe src="https://quizlet.com/1145340969/match/embed?i=6o26kk&x=1jj1" height="500" width="100%" style="border:0"></iframe>
+
 `mozc` позволит печатать romaji и получать на выходе хирагану, катакану и, соответственно, кандзи.
 
 Я настраивал это только в KDE Plasma 6
