@@ -15,4 +15,8 @@ https://www.mediawiki.org/wiki/Skin:Liberty/ru
 
 https://www.mediawiki.org/wiki/Skin:Evelution - стремится максимально воспроизвести внешний вид FandomDesktop
 
+::: details Skin:Evelution
+![](https://upload.wikimedia.org/wikipedia/commons/d/d9/SkinEvelution_new.png)
+:::
+
 https://www.mediawiki.org/wiki/Skin:Mirage/ru
