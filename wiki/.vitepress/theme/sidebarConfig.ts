@@ -484,6 +484,15 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     },
 
     {
+      text: 'Self-hosted Хранилища книг (Reading server)',
+      collapsed: true,
+      items: [
+        { text: '! Calibre-web ', link: '/docs/wi/calibre-web' }, 
+        { text: '! Kavita', link: '/docs/wi/kavita' },
+      ]
+    },
+
+    {
       text: 'Веб-серверы',
       collapsed: true,
       items: [
