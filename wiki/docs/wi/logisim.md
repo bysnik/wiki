@@ -45,9 +45,9 @@ flatpak install flathub com.github.reds.LogisimEvolution
 apt-get install java-21-openjdk
 ```
 
-Запустите Logism:
+Запустите Logisim:
 ```bash
-java -jar logism-generic-2.7.1.jar
+java -jar logisim-generic-2.7.1.jar
 ```
 
 Можно создать пункт в меню (пример для KDE):
