@@ -6,6 +6,10 @@ RARS (RISC-V Assembler, Simulator, and Runtime) транслирует и сим
 
 ## Установка
 
+```bash
+apt-get install rars
+```
+
 Скачайте [Rars Emulator](https://github.com/TheThirdOne/rars)
 
 Установите OpenJDK:

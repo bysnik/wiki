@@ -421,7 +421,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Прикладное ПО',
       collapsed: true,
       items: [
-        { text: 'Logism', link: '/docs/wi/logism' },
+        { text: 'Logisim', link: '/docs/wi/logisim' },
         { text: 'Modelio', link: '/docs/wi/modelio' },
         { text: 'OBS', link: '/docs/wi/obs' },
         { text: 'RARS Emulator', link: '/docs/wi/rars' },

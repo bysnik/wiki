@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Logism
+# Logisim
 
 ![](https://github.com/logisim-evolution/logisim-evolution/raw/main/docs/img/logisim-evolution-logo.png)
 
@@ -15,6 +15,10 @@ Logisim Evolution существенно расширяет функционал
 :::
 
 ## Установка
+
+```bash
+apt-get install logisim
+```
 
 Скачайте [Logism](https://sourceforge.net/projects/circuit/) или [Logism Evolution](https://github.com/logisim-evolution/logisim-evolution). Выбирайте что скачивать в зависимости от вариантов установки.
 
