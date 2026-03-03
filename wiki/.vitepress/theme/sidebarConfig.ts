@@ -481,6 +481,14 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Photopea', link: '/docs/wi/photopea' }, 
         { text: '! Stirling PDF', link: '/docs/wi/stirling-pdf' }, 
         { text: '! Storybook', link: '/docs/wi/storybook' }, 
+        { 
+          text: 'Автоскачиватели с тытрубы (синхронизаторы)',
+          items: [
+            { text: '0 TubeSync', link: 'https://github.com/meeb/tubesync' },
+            { text: '0 ytdl-sub', link: 'https://github.com/jmbannon/ytdl-sub' },
+          ]
+        },
+
       ]
     },
 
