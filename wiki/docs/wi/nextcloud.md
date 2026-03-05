@@ -4,7 +4,7 @@ outline: deep
 
 # Nextcloud
 
-source: "https://www.altlinux.org/Nextcloud)"
+source: "https://www.altlinux.org/Nextcloud"
 
 Данная статья описывает частные случаи установки Nextcloud, официально рекомендованный способ его установки описан в документации дистрибутива ОС Альт, например в [Руководстве пользователя Альт Сервер 10.1](https://docs.altlinux.org/ru-RU/alt-server/10.1/html-single/alt-server/index.html#nextcloud). Также стоит иметь в виду, что Nextcloud присутствует в репозитории p11, но по умолчанию не входит в состав продукта Альт Сервер 11.
 

@@ -2,4 +2,4 @@
 
 ![](https://plane.so/home/projects.webp)
 
-// https://github.com/makeplane/plane
+https://github.com/makeplane/plane
