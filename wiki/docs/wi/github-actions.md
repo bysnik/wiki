@@ -70,7 +70,7 @@ jobs:
 Порядок:
 ```
 setup
-   ├── test-backend ─┐
+   ├── test-backend  ─┐
    └── test-frontend ─┤
                       └── deploy
 ```

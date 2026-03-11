@@ -17,7 +17,7 @@ title: "Сотрудники"
       name: 'Быстров Никита',
       title: 'Создатель',
       links: [
-        { icon: 'github', link: 'https://github.com/' },
+        { icon: 'github', link: 'https://github.com/bysnik' },
         { icon: 'mailboxdotorg', link: 'mailto:bystrovno@basealt.ru?subject=Доработка СиСА Вики' }
       ]
     },
