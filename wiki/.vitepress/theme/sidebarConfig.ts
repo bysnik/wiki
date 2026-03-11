@@ -589,6 +589,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Alt Autoinstall', link: '/docs/wi/autoinstall_alt' },
         { text: 'deb', link: '/docs/wi/deb' },
         { text: 'freeipa-sogo-dovecot-postfix', link: '/docs/wi/freeipa-sogo-dovecot-postfix' },
+        { text: 'iptables', link: '/docs/wi/iptables' },
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
         { text: 'RPMBUILD', link: '/docs/wi/rpmbuild' },
         { text: 'SFP', link: '/docs/wi/sfp' },
