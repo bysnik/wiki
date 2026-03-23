@@ -486,7 +486,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { 
           text: 'Автоскачиватели с тытрубы (синхронизаторы)',
           items: [
-            { text: '0 TubeSync', link: 'https://github.com/meeb/tubesync' },
+            { text: '! TubeSync', link: '/docs/wi/tubesync' },
             { text: '0 ytdl-sub', link: 'https://github.com/jmbannon/ytdl-sub' },
           ]
         },
