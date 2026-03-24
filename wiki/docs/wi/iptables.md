@@ -15,3 +15,4 @@ systemctl enable iptables
 ::: tip
 Интересно, что пока файл sysconfig/iptables пустой, сервис iptables будет стартовать с ошибкой
 :::
+

@@ -2,6 +2,31 @@
 
 https://factory.altlinux.space/
 
+## Смена режимов в Альт Рабочая станция GNOOME с помощью скриптов
+
+`enable-panel-style.sh`
+```bash
+#!/usr/bin/env bash
+set -e
+
+PANEL_EXT="dash-to-panel@jderose9.github.com" 
+MENU_EXT="arcmenu@arcmenu.com" 
+
+gnome-extensions enable "$PANEL_EXT" 
+gnome-extensions enable "$MENU_EXT" 
+```
+
+`disable-panel-style.sh`
+```bash
+#!/usr/bin/env bash
+set -e
+
+PANEL_EXT="dash-to-panel@jderose9.github.com" 
+MENU_EXT="arcmenu@arcmenu.com" 
+
+gnome-extensions disable "$PANEL_EXT" 
+gnome-extensions disable "$MENU_EXT" 
+```
 
 ## Своя репа Альта:
 
