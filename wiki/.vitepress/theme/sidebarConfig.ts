@@ -483,6 +483,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Photopea', link: '/docs/wi/photopea' }, 
         { text: '! Stirling PDF', link: '/docs/wi/stirling-pdf' }, 
         { text: '! Storybook', link: '/docs/wi/storybook' }, 
+        { text: '! TorrentPier', link: '/docs/wi/torrentpier' }, 
         { 
           text: 'Автоскачиватели с тытрубы (синхронизаторы)',
           items: [
