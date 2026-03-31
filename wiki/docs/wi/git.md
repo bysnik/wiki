@@ -795,3 +795,51 @@ git clone http://<git_server_ip_address>/git/my_project.git
 :::
 
 
+## LFS - Git Large File Storage
+
+![](https://git-lfs.com/images/graphic.gif)
+
+Git Large File Storage (LFS) заменяет большие файлы, такие как аудиоэмплексы, видео, наборы данных и графика, текстовыми указателями внутри Git, сохраняя содержимое файла на удаленном сервере, таком как GitHub.com или GitHub Enterprise.
+
+Скачайте установочник с официального сайта:
+```bash
+wget https://github.com/git-lfs/git-lfs/releases/download/v3.7.1/git-lfs-linux-amd64-v3.7.1.tar.gz
+```
+
+Расспакуйте:
+```bash
+tar -xzvf git-lfs-linux-amd64-v3.7.1.tar.gz
+```
+
+Установите:
+```bash
+bash git-lfs-3.7.1/install.sh 
+```
+
+ИЛИ установите пакет:
+
+```bash
+apt-get install git-lfs
+```
+
+В каждом репозитории Git, где вы хотите использовать Git LFS, выберите типы файлов, которыми вы хотите управлять Git LFS (или непосредственно редактировать ваши `.gitattributes`). Вы можете настроить дополнительные расширения файлов в любое время.
+
+```bash
+git lfs track "*.psd"
+```
+
+Теперь убедитесь, что `.gitattributes` отслеживается:
+
+```bash
+git add .gitattributes
+```
+
+Обратите внимание, что определение типов файлов Git LFS должно отслеживаться, само по себе не преобразует любые ранее существовавшие файлы в Git LFS, такие как файлы на других ветвях или в вашей предыдущей истории совершения. Для этого используйте команду [gitlfs migrate(1)](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-migrate.adoc?utm_source=gitlfs_site&utm_medium=doc_man_migrate_link&utm_campaign=gitlfs), которая имеет ряд опций, предназначенных для различных потенциальных вариантов использования.
+
+Третьего шага не существует. Просто закоммите и запушьте, как обычно; например, если ваша текущая ветвь названа `main`:
+
+```bash
+git add file.psd
+git commit -m "Add design file"
+git push origin main
+```
