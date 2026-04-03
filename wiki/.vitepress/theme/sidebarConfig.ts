@@ -598,6 +598,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'SFP', link: '/docs/wi/sfp' },
         { text: 'TeX', link: '/docs/wi/tex' },
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
+        { text: 'Winehelper', link: '/docs/wi/winehelper' },
         { text: 'Wine/Proton', link: '/docs/wi/wine' },
         { text: 'Веб-камеры', link: '/docs/wi/webcam' },
         { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/  ' },
