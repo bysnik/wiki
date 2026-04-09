@@ -288,6 +288,13 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       ]
     },
     {
+      text: 'Дистрибутивы',
+      items: [
+        { text: '0 hddsuperclone', link: '/docs/wi/hddsuperclone' }, // https://www.hddsuperclone.com
+        { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla       
+      ]
+    },
+    {
       text: 'Сервисы',
       items: [
         { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
@@ -302,6 +309,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 DPI', link: '/docs/wi/dpi' },
         { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
+        { text: '! iVentoy', link: '/docs/wi/iventoy' }, 
         { text: '! Jitsi Meet', link: '/docs/wi/jitsi' }, 
         { text: '! Keepalived', link: '/docs/wi/keepalived' },
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
@@ -637,9 +645,6 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 sshx', link: '/docs/wi/sshx' }, // https://github.com/ekzhang/sshx
           { text: '0 vhs', link: '/docs/wi/vhs' }, // https://github.com/charmbracelet/vhs
           { text: '0 wrapguard', link: '/docs/wi/wrapguard' },  // https://github.com/puzed/wrapguard
-
-          { text: '0 hddsuperclone', link: '/docs/wi/hddsuperclone' }, // https://www.hddsuperclone.com
-          { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla
         ]
     },
 
