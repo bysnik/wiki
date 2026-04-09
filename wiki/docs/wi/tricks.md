@@ -370,3 +370,90 @@ $ sudo wondershaper clear eth0
 ### Заключение
 
 В данном руководстве я рассказал о двух различных вариантах ограничения пропускной способности сетевого соединения в системе Linux для настольных компьютеров, а именно, об ограничении пропускной способности сетевого соединения на уровне отдельных приложений и на уровне сетевых интерфейсов. Оба рассмотренных инструмента являются максимально простыми и позволяют быстро и просто организовать шейпинг ранее никоим образом не контролируемого сетевого трафика. Те из вас, кто желает узнать больше о способах ограничения пропускной способности сетевых соединений в Linux, могут ознакомиться со [следующим руководством](http://www.lartc.org/lartc.html).
+
+
+## Откат и фиксация версии пакета в Альт
+
+https://www.altlinux.org/Apt/Preferences
+
+Если Вы не обновляли систему и версия Wine осталась 10.18.1-alt2 (https://packages.altlinux.org/ru/p11/srpms/wine/3305776168109423221)*
+
+Создайте файл _/etc/apt/preferences.d/wine_
+
+В нём укажите следующее:
+<pre>
+Package: wine
+Pin: release v=1769530897
+Pin-Priority: 1001
+
+Package: wine-common
+Pin: release v=1769530897
+Pin-Priority: 1001
+
+Package: wine-devel
+Pin: release v=1769530897
+Pin-Priority: 1001
+
+Package: wine-devel-tools
+Pin: release v=1769530897
+Pin-Priority: 1001
+
+Package: wine-full
+Pin: release v=1769530897
+Pin-Priority: 1001
+
+Package: wine-ping
+Pin: release v=1769530897
+Pin-Priority: 1001
+
+Package: wine-programs
+Pin: release v=1769530897
+Pin-Priority: 1001
+</pre>
+
+release v=1769530897 означает, что apt будет данный пакет устанавливать из репозитория, в котором в base/release.classic написано Version: 1769530897. Это значение можно посмотреть в самом файле, например: http://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/x86_64/base/release.classic; чаще всего это значение $(date -s) на момент начала создания girar'ом баз apt'а. 
+
+После этого, можно обновлять систему, во время выполнения _dist-upgrade_ Вы увидите примерно следующее:
+<pre>
+Чтение списков пакетов... Завершено
+Построение дерева зависимостей... Завершено
+Подсчет обновлений... Завершено
+Следующие пакеты будут СОХРАНЕНЫ:
+  wine  wine-common  wine-gecko-2.47.4
+0 будет обновлено, 0 новых установлено, 0 пакетов будет удалено и 3 не будет обновлено.
+</pre>
+
+Должны сохраниться такие версии ПО:
+<pre>
+$ rpm -qa | grep wine
+wine-mono-10.3.0-10.3.0-alt1.noarch
+wine-10.18.1-alt1.x86_64
+i586-wine-cpcsp_proxy-0.7.7-alt1.i586
+wine-cpcsp_proxy-0.7.7-alt1.x86_64
+wine-common-10.18.1-alt1.noarch
+winetricks-20250207-alt3.noarch
+wine-mono-9.0.0-9.0.0-alt1.noarch
+wine-gecko-2.47.4-2.47.4-alt1.noarch
+</pre>
+
+
+*Если же Вы обновляли систему, то необходимо совершить дополнительные манипуляции:*
+# Удалить пакеты Wine:
+<pre>
+# apt-get remove wine
+</pre>
+# Подключить архивный репозиторий:
+<pre>
+# apt-repo rm all
+# apt-repo add p11 20260128
+# apt-get update
+</pre>
+# Установить Wine:
+<pre>
+# apt-get install wine
+</pre>
+
+Далее, после того, как зафиксировали версии, возвращаем репозитории:
+<pre>
+# apt-repo rm all && apt-repo add p11
+</pre>
