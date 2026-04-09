@@ -311,6 +311,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
         { text: '! n8n', link: '/docs/wi/n8n' },
         { text: '! RustDesk', link: '/docs/wi/rustdesk' },
+        { text: '! Torrent File Editor', link: '/docs/wi/torrent-file-editor' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
         { text: 'WinApps', link: '/docs/wi/winapps' },
         { text: 'Yandex Music', link: '/docs/wi/yandexmusic' },
