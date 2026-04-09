@@ -580,6 +580,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Peripeteia', link: '/docs/wi/games/peripeteia' },
         { text: 'Persona 4', link: '/docs/wi/games/persona4' },
         { text: 'RenPy', link: '/docs/wi/games/renpy' },
+        { text: 'Russian Railway Simulator', link: '/docs/wi/games/rrs' },
       ]
     },
 
