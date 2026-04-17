@@ -694,6 +694,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 sshx', link: '/docs/wi/sshx' }, // https://github.com/ekzhang/sshx
           { text: '0 vhs', link: '/docs/wi/vhs' }, // https://github.com/charmbracelet/vhs
           { text: '0 wrapguard', link: '/docs/wi/wrapguard' },  // https://github.com/puzed/wrapguard
+
+          //https://github.com/jamiepine/voicebox
         ]
     },
 
