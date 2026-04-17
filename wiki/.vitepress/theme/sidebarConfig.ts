@@ -318,7 +318,9 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Moodle', link: '/docs/wi/moodle' }, 
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
         { text: '! n8n', link: '/docs/wi/n8n' },
+        { text: '! NTP', link: '/docs/wi/ntp' },
         { text: '! RustDesk', link: '/docs/wi/rustdesk' },
+        { text: '! SAP', link: '/docs/wi/sap' },
         { text: '! Torrent File Editor', link: '/docs/wi/torrent-file-editor' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
         { text: 'WinApps', link: '/docs/wi/winapps' },
@@ -614,6 +616,53 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
         { text: 'Фишки', link: '/docs/wi/tricks' },
         { text: '! Эльбрус', link: '/docs/wi/elbrus' },
+      ]
+    },
+
+    {
+      text: 'Hardware, drivers and other',
+      collapsed: true,
+      items: [
+        {
+          text: 'Принтеры и сканеры',
+          collapsed: true,
+          items: [
+            {
+              text: 'Xerox',
+              collapsed: true,
+              items: [
+                { text: '! B205/B215', link: '/docs/wi/mfu/xeroxb215' },
+              ]
+            },
+
+            {
+              text: 'Kyocera',
+              collapsed: true,
+              items: [
+                { text: '! ECOSYS MA4500x', link: '/docs/wi/mfu/kyoceraecosysma4500x' },
+                { text: '! FS 1016 MFP', link: '/docs/wi/mfu/kyocerafs1016mfp' },
+              ]
+            },
+
+          ]
+        },
+
+        {
+          text: 'Различное',
+          collapsed: true,
+          items: [
+            { text: '! Moxa', link: '/docs/wi/moxa' },
+          ]
+        },
+
+        //{
+        //  text: 'Различное2',
+        //  collapsed: true,
+        //  items: [
+        //    //{ text: '! ALT in WSL', link: '/docs/wi/alt-wsl' },
+        //  ]
+        //},
+
       ]
     },
 
@@ -954,6 +1003,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: 'Назад', link: '/docs/wi/' },
         { text: 'Альт СП', link: '/docs/wi/altsp/' },
+        { text: 'Установка DE на сервер', link: '/docs/wi/altsp/installde' },
         { text: '1) x86-64, aarch64, Elbrus', link: '/docs/wi/altsp/1.arch' },
         { text: '2) Legacy or CSM, UEFU (Secure Boot)', link: '/docs/wi/altsp/2.install' },
         { text: '3) Ядро не ниже 6.1', link: '/docs/wi/altsp/3.core' },
