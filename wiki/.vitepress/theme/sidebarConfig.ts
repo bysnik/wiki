@@ -292,6 +292,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '0 hddsuperclone', link: '/docs/wi/hddsuperclone' }, // https://www.hddsuperclone.com
         { text: '0 rescuezilla', link: '/docs/wi/rescuezilla' }, // https://github.com/rescuezilla/rescuezilla       
+        { text: '0 TrueNAS SCALE', link: '/docs/wi/truenasscale' },
       ]
     },
     {
@@ -321,6 +322,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! NTP', link: '/docs/wi/ntp' },
         { text: '! RustDesk', link: '/docs/wi/rustdesk' },
         { text: '! SAP', link: '/docs/wi/sap' },
+        { text: '! Tmux', link: '/docs/wi/tmux' },
         { text: '! Torrent File Editor', link: '/docs/wi/torrent-file-editor' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
         { text: 'WinApps', link: '/docs/wi/winapps' },
