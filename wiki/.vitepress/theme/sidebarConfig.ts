@@ -614,6 +614,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
         { text: 'Winehelper', link: '/docs/wi/winehelper' },
         { text: 'Wine/Proton', link: '/docs/wi/wine' },
+        { text: 'Альт Домен', link: '/docs/wi/alt-domain' },
         { text: 'Веб-камеры', link: '/docs/wi/webcam' },
         { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
         { text: 'Фишки', link: '/docs/wi/tricks' },
