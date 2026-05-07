@@ -232,3 +232,45 @@ Failed to set up tap device in namespace
 ```bash
 chmod 666 /dev/net/tun
 ```
+
+## Пример: как загрузить образ из архива в удалённый реестр
+
+Шаг 1. Загрузить образ в локальное хранилище
+```bash
+podman load -i control-image.tgz
+```
+```bash
+Getting image source signatures
+Copying blob 1866432ca14f done   | 
+Copying blob e1705604f02a skipped: already exists  
+Copying blob d436fe10aa5e done   | 
+Copying blob 867a9a61860e done   | 
+Copying blob 5f70bf18a086 skipped: already exists  
+Copying blob 732a857a6dee done   | 
+Copying blob de72fa2c47af done   | 
+Copying config ab0874981e done   | 
+Writing manifest to image destination
+Loaded image: docker-sc.t-rtk-it.ru/repository/image-smart-control/domain/control:2.2.1-202604201121-b2b1c5b
+```
+
+Шаг 2. Обновить тэг образа
+```bash
+podman tag docker-sc.t-rtk-it.ru/repository/image-smart-control/domain/control:2.2.1-202604201121-b2b1c5b 10.9.103.247:80/smartcontrol/control:2.2.1-202604201121-b2b1c5b
+```
+
+Шаг 3. Запушить образ
+```bash
+podman push 10.9.103.247:80/smartcontrol/control:2.2.1-202604201121-b2b1c5b
+```
+```bash
+Getting image source signatures
+Copying blob 867a9a61860e done   | 
+Copying blob 732a857a6dee done   | 
+Copying blob 1866432ca14f done   | 
+Copying blob d436fe10aa5e done   | 
+Copying blob bd9ddc54bea9 skipped: already exists  
+Copying blob de72fa2c47af done   | 
+Copying blob 9fcebe27a0bc skipped: already exists  
+Copying config ab0874981e done   | 
+Writing manifest to image destination
+```
