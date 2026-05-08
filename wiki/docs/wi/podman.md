@@ -274,3 +274,27 @@ Copying blob 9fcebe27a0bc skipped: already exists
 Copying config ab0874981e done   | 
 Writing manifest to image destination
 ```
+
+
+## Создание сервиса из контейнера
+
+Запустите контейнер:
+```bash
+podman run -d -p 5000:5000 --name my-registry --restart=unless-stopped registry:2
+```
+Сгенерируйте systemd-файл:
+```bash
+podman generate systemd --name my-registry --files --new
+```
+Установите юнит:
+- Для root: `sudo mv container-my-registry.service /etc/systemd/system/`
+- Для обычного пользователя: `mkdir -p ~/.config/systemd/user && mv container-my-registry.service ~/.config/systemd/user/`
+
+Включите автозапуск:
+- Root: `sudo systemctl daemon-reload && sudo systemctl enable --now container-my-registry.service`
+- User: `systemctl --user daemon-reload && systemctl --user enable --now container-my-registry.service`
+
+Если используете rootless-режим, разрешите запуск юнитов при старте системы без входа пользователя:
+```bash
+sudo loginctl enable-linger $(whoami)
+```

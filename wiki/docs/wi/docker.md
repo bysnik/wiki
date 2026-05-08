@@ -64,6 +64,15 @@ export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 ```bash
 docker run -d -p 5000:5000 --name my-registry registry:2
 ```
+Чтобы посмотреть список образов с тегами, нужно ввести команду:
+```bash
+for repo in $(curl -s http://<ip-реестра>:5000/v2/_catalog | jq -r '.repositories[]'); do echo "$repo:"; curl -s http://<ip-реестра>:5000/v2/$repo/tags/list | jq -r '.tags[]?' 2>/dev/null | sed 's/^/  └─ /'; done
+```
+
+Чтобы посмотреть, какие образы на нём хранятся, нужно ввести команду:
+```bash
+curl -s http://<ip-реестра>:5000/v2/_catalog | jq '.repositories[]'
+```
 
 
 ## Создание базового образа Docker на базе tar.xz образа Альт
