@@ -2,16 +2,6 @@
 
 ## Установка
 
-::: tip
-Блин, я пытался собрать пакет, но в RenPy есть некоторые файлы и библиотеки, которые не создаются при компиляции. 
-`Ren'Py Source Code: renpy-8.4.1-source.tar.bz2 Contains the source code of the Ren'Py distribution without any binary components.`
-
-И если с pygame_sdl2-2.1.0+renpy8.4.1.tar.gz проблем, в принципе, нет, то вот эти самые бинарники...
-
-
-Вариант второй: упаковать готовый тарболл.... иииии..... тоже нет. Скомпилированные ELF файлы не проходят валидацию.
-:::
-
 Скачиваете архив https://www.renpy.org/latest.html формата `tar.bz2`
 
 Распаковываете в любом месте
