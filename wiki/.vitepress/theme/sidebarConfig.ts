@@ -366,6 +366,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Lens', link: '/docs/wi/k8slens' },
         { text: '0 Openshift', link: '/docs/wi/openshift' }, // https://packages.altlinux.org/ru/sisyphus/srpms/openshift-installer/
         { text: 'Podman', link: '/docs/wi/podman' },
+        { text: '0 Portainer', link: '/docs/wi/ortainer' }, // https://github.com/portainer/portainer https://packages.altlinux.org/ru/sisyphus/srpms/portainer/
         { text: '! Rancher', link: '/docs/wi/rancher' },
         {
           text: 'Репозитории',
@@ -586,6 +587,20 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Игры',
       collapsed: true,
       items: [
+        {
+          text: 'Настольные',
+          collapsed: true,
+          items: [
+            { text: 'The UNIX Pipe Card Game', link: '/docs/wi/games/board/pipes' },
+            { text: 'programming time', link: '/docs/wi/games/board/prog_time' },
+            { text: 'The C Pointer Game - Pointers, Arrays and Strings for Kids', link: '/docs/wi/games/board/c_pointer' },
+            { text: '4917: Machine Code For Kids - The Card Game', link: '/docs/wi/games/board/4917' },
+            { text: 'The UNIX Pipe Card Game: Process Substitution', link: '/docs/wi/games/board/pipes2' },
+            { text: 'ENCODE/DECODE - RUNLENGTH ENCODING FOR KIDS', link: '/docs/wi/games/board/encode_decode' },
+            { text: 'PUNK0 - A FUNCTION COMPOSITION CARD GAME', link: '/docs/wi/games/board/punk0' },
+            { text: 'PROJEKT: OVERFLOW \n RISC-V assembly board game', link: '/docs/wi/games/board/projeckt_overflow' },
+          ]
+        },
         { text: 'Arknights:Endfield', link: '/docs/wi/games/arknights-endfield' },
         { text: 'DayZ', link: '/docs/wi/games/dayz' },
         { text: 'Minecraft', link: '/docs/wi/games/minecraft' },

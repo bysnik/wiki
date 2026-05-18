@@ -18,3 +18,5 @@ https://habr.com/ru/articles/457542/
 http://altrepo.ru/
 
 https://git.da2001.ru/da2001
+
+https://github.com/jackdoe/programming-for-kids/blob/master/book.md
