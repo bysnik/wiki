@@ -129,3 +129,51 @@ esac
 
 Запускаем под рутом. Если запустиь его без параметров, он установит RenPy 8.4.1 (на 17.10.2025 это текущая стабильная версия), если же с параметром --remove, то скрипт удалит всё, что создал.
 
+
+## Как вскрыть игру, чтобы сделать руссификатор
+
+(УСТАНОВКА этой софтины)
+```bash
+pip3 install unrpa
+```
+Распкаовка архива:
+```bash
+unrpa archive.rpa -p ./archive.pack --mkdir
+```
+
+---
+
+::: details Не нужно для сборки игры
+(УСТАНОВКА этой софтины)
+```bash
+wget https://github.com/shizmob/rpatool/blob/master/rpatool
+sudo cp rpatool /usr/local/bin/
+sudo chmod +x /usr/local/bin/rpatool
+rpatool -c archive.rpa -d archive.pack
+```
+Упаковка архива:
+```bash
+rpatool -c archive.rpa -d archive.pack
+```
+:::
+
+---
+
+(УСТАНОВКА этой софтины)
+```bash
+pip3 install git+https://github.com/CensoredUsername/unrpyc.git
+```
+декомпиляция одного файла
+```bash
+unrpyc.py s001.rpyc
+```
+декомпиляция всех файлов в папке
+```bash
+for f in *.rpyc; do unrpyc.py -c "$f"; done
+```
+
+---
+
+компиляция файлов происходит уже в RenPy SDK, для этого удаляем всё, кроме папки `./game/*`, распаковываем всё, что можем (все файлы из архивов `data.rpa`, `script.rpa`, `archive.rpa` сбрасываем в `./game/`), находим версию RenPy SDK равную версии, в которой собиралась игра, добавляем эту игру как проект, создаём перевод, после чего как обычно собираем игру
+
+В качестве руссификатора нам достаточно отдавать эти архивы: `data.rpa`, `script.rpa`, `archive.rpa`

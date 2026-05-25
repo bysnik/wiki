@@ -5,7 +5,7 @@ outline: deep
 
 https://factory.altlinux.space/
 
-## Смена режимов в Альт Рабочая станция GNOOME с помощью скриптов
+## Смена режимов в Альт Рабочая станция GNOME с помощью скриптов
 
 `enable-panel-style.sh`
 ```bash
@@ -433,17 +433,17 @@ wine-gecko-2.47.4-2.47.4-alt1.noarch
 
 
 *Если же Вы обновляли систему, то необходимо совершить дополнительные манипуляции:*
-# Удалить пакеты Wine:
+1. Удалить пакеты Wine:
 ```bash
 apt-get remove wine
 ```
-# Подключить архивный репозиторий:
+2. Подключить архивный репозиторий:
 ```bash
 apt-repo rm all
 apt-repo add p11 20260128
 apt-get update
 ```
-# Установить Wine:
+3. Установить Wine:
 ```bash
 apt-get install wine
 ```
@@ -452,3 +452,10 @@ apt-get install wine
 ```bash
 apt-repo rm all && apt-repo add p11
 ```
+
+
+## Ошибка "Disk quota exceeded"
+
+Ошибка "Disk quota exceeded" вероятнее всего указывает на превышение лимитов, настроенных кем-то/чем-то в /etc/security/limits.conf, проверить это можно утилитой "quota" (за подробностями в "man quota").
+
+Дополнительно, при проверке свободного места на диске помимо "df -h", следует также проверять свободные inode - "df -ih"
