@@ -603,6 +603,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         },
         { text: 'Arknights:Endfield', link: '/docs/wi/games/arknights-endfield' },
         { text: 'DayZ', link: '/docs/wi/games/dayz' },
+        { text: 'Kirikiri', link: '/docs/wi/games/kirikiri' },
         { text: 'Minecraft', link: '/docs/wi/games/minecraft' },
         { text: 'Moonlight', link: '/docs/wi/games/moonlight' },
         { text: 'Peripeteia', link: '/docs/wi/games/peripeteia' },
