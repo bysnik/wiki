@@ -668,6 +668,21 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         },
 
         {
+          text: 'Сетевые адаптеры',
+          collapsed: true,
+          items: [
+            {
+              text: 'Broadcom',
+              collapsed: true,
+              items: [
+                { text: '! BCM4322', link: '/docs/wi/wifi/broadcom/bcm4322' },
+              ]
+            },
+
+          ]
+        },
+
+        {
           text: 'Различное',
           collapsed: true,
           items: [
