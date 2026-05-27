@@ -713,6 +713,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 dockerify-android', link: '/docs/wi/dockerify-android' }, // https://github.com/Shmayro/dockerify-android   так или иначе работает
           { text: '! docx2tex', link: '/docs/wi/docx2tex' },
           { text: '0 homer', link: '/docs/wi/homer' }, // https://github.com/bastienwirtz/homer
+          { text: '0 immich', link: '/docs/wi/immich' }, // https://github.com/immich-app/immich
           { text: '0 isd', link: '/docs/wi/isd' }, // https://github.com/kainctl/isd    epm install isd.x86_64-linux.AppImage вот и вся установка
           { text: '0 lofi-engine', link: '/docs/wi/lofi-engine' }, // https://github.com/meel-hd/lofi-engine#lofi-engine   забавно)
           { text: '0 lossless-cut', link: '/docs/wi/lossless-cut' }, // https://github.com/mifi/lossless-cut
