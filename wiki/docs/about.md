@@ -18,6 +18,7 @@ title: "Сотрудники"
       title: 'Создатель',
       links: [
         { icon: 'github', link: 'https://github.com/bysnik' },
+        { icon: 'altlinux-space', link: 'https://altlinux.space/bysnik' },
         { icon: 'mailboxdotorg', link: 'mailto:bystrovno@basealt.ru?subject=Доработка СиСА Вики' }
       ]
     },

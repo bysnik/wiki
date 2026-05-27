@@ -1,7 +1,6 @@
 import { DefaultTheme } from 'vitepress'
 import { sidebarConfig } from './sidebarConfig.ts'
 
-
 export const themeConfig: DefaultTheme.Config = { 
     lastUpdated: {
       text: 'Обновлено',
@@ -65,7 +64,7 @@ export const themeConfig: DefaultTheme.Config = {
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/bysnik/wiki' },
-      { icon: 'forgejo', link: 'https://altlinux.space/bysnik' }
+      { icon: 'altlinux-space', link: 'https://altlinux.space/bysnik' }
     ],
 
     footer: {
