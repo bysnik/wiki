@@ -45,12 +45,27 @@ export const themeConfig: DefaultTheme.Config = {
       {
         text: 'О нас',
         link: '/docs/about'
-      }
+      },
+      {
+        text: 'Альт Вики\'s',
+        items: [
+          { text: 'Официальная документация', link: 'https://www.basealt.ru/documentation' },
+          { text: 'ALT Linux Wiki', link: 'https://www.altlinux.org' },
+          { text: 'ALT Gnome Wiki', link: 'https://alt-gnome.wiki/' },
+          { text: 'ALT KDE Wiki', link: 'https://alt-kde.wiki/' },
+          { text: 'ALT Mobile Wiki', link: 'https://altmobile.org/' },
+          { text: 'ALT Atomic Wiki', link: 'https://atomic.alt-gnome.ru/' },
+          { text: 'ALT Orchestra Wiki', link: 'https://alt-orchestra.altlinux.team/' },
+          { text: 'Stapler', link: 'https://stplr.dev/' },
+          { text: 'Aides', link: 'https://aides.space/' },
+
+        ]
+      },
     ],
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/bysnik/wiki' },
-//      { icon: 'gitlab', link: 'https://gitlab.basealt.space/' }
+      { icon: 'forgejo', link: 'https://altlinux.space/bysnik' }
     ],
 
     footer: {
