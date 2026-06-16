@@ -228,13 +228,15 @@ beep
 
 <iframe src="https://quizlet.com/1145340969/match/embed?i=6o26kk&x=1jj1" height="500" width="100%" style="border:0"></iframe>
 
+https://www.altlinux.org/IME#Fcitx5
+
 `mozc` позволит печатать romaji и получать на выходе хирагану, катакану и, соответственно, кандзи.
 
 Я настраивал это только в KDE Plasma 6
 
 1. Устанавливаем необходимые пакеты:
 ```bash
-apt-get install fcitx5-qt fcitx5-configtool fcitx5 fcitx5-gtk fcitx5-mozc
+apt-get install fcitx5 fcitx5-autostart fcitx5-qt fcitx5-gtk fcitx5-configtool fcitx5-mozc
 ```
 
 2. Редактируем файл:
@@ -260,7 +262,7 @@ export XMODIFIERS=@im=fcitx
 
 ![](/img/mozc.png)
 
-Профит. Но после перезагрузки всё подохло окончательно)
+Профит. С какого то раза всё заработало и работает корректно, только, блин, нельзя настроить Control+L_Shift в качестве комбинации для переключения раскладки(
 
 ::: warning Wayland-VS_Codium-fcitx5
 С этой системой в Wayland шалит VS Codium. Чтобы это решить, отредактируйте параметры запуска, измените их на:

@@ -301,6 +301,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
         { text: '! Anytype', link: '/docs/wi/anytype' },
         { text: '! Beekeeper Studio', link: '/docs/wi/beekeeper-studio' },
+        { text: '0 Bookstack', link: '/docs/wi/bookstack' },// https://www.bookstackapp.com/docs/admin/installation/
         { text: '! BSS Crypto Plugin', link: '/docs/wi/bssCryptoPlugin' },
         { text: '! Bugzilla', link: '/docs/wi/bugzilla' },
         { text: 'Cloud-init', link: '/docs/wi/cloudinit' },
@@ -314,14 +315,17 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Jitsi Meet', link: '/docs/wi/jitsi' }, 
         { text: '! Keepalived', link: '/docs/wi/keepalived' },
         { text: '! Компас 3D', link: '/docs/wi/compas3d' },
+        { text: '0 LINSTOR', link: '/docs/wi/linstor' },// https://habr.com/ru/articles/423101/
         { text: '! Matrix', link: '/docs/wi/matrix' },   
         { text: 'MinIO', link: '/docs/wi/minio' },     
         { text: '! Moodle', link: '/docs/wi/moodle' }, 
         { text: 'MTS Link', link: '/docs/wi/mts-link' },
         { text: '! n8n', link: '/docs/wi/n8n' },
         { text: '! NTP', link: '/docs/wi/ntp' },
+        { text: '0 Postman', link: '/docs/wi/postman' },
         { text: '! RustDesk', link: '/docs/wi/rustdesk' },
         { text: '! SAP', link: '/docs/wi/sap' },
+        { text: '0 TestLink', link: '/docs/wi/testlink' }, // https://github.com/testlinkopensourcetrms/testlink-code https://habr.com/ru/articles/234483/
         { text: '! Tmux', link: '/docs/wi/tmux' },
         { text: '! Torrent File Editor', link: '/docs/wi/torrent-file-editor' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
@@ -360,7 +364,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Docker', link: '/docs/wi/docker' },
         { text: '0 Deckhouse', link: '/docs/wi/deckhouse' },
         { text: '0 Kubernetes', link: '/docs/wi/kubernetes' },
-        { text: '0 kubesolo', link: '/docs/wi/kubesolo' }, // https://github.com/portainer/kubesolo
+        { text: '! kubesolo', link: '/docs/wi/kubesolo' },
         { text: '0 K3s', link: '/docs/wi/k3s' },
         { text: '! K9s', link: '/docs/wi/k9s' },
         { text: '! Lens', link: '/docs/wi/k8slens' },
@@ -627,6 +631,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Phoronix Test Suite', link: '/docs/wi/pts' },
         { text: 'RPMBUILD', link: '/docs/wi/rpmbuild' },
         { text: 'SFP', link: '/docs/wi/sfp' },
+        { text: 'SSH', link: '/docs/wi/ssh' },
         { text: 'TeX', link: '/docs/wi/tex' },
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
         { text: 'Winehelper', link: '/docs/wi/winehelper' },

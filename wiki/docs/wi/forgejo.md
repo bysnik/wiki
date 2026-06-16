@@ -394,3 +394,6 @@ apt-get install {package_name}
 apt-get install {package_name}-{package_version}
 ```
 
+## После обновления версии ошибка статуса 500
+
+Необходимо удалить все куки сайта, после чего обновить страницу.

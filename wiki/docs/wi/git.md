@@ -421,7 +421,6 @@ ssh-keygen -R 192.168.56.10
 ```bash
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 ```
-Ну и почему то он потом начал выдавать ошибку при клонировании
 
 ## Как клонировать определённый брэнч
 
