@@ -559,3 +559,10 @@ apt-get install postgresql17-server ./otrs-7.2.3-alt1.noarch.rpm ./otrs-apache2-
 ```
 
 5. Насчёт `Cron` - пакет при установке автоматически должен запускать `Cron` и типа через 5 минут после запуска `Znuny` ошибка пропадёт.
+
+
+## Сборка RPM-пакета версии 7.3.3 (релиз 2026-05-27)
+
+::: tip Собрать?
+https://download.znuny.org/releases/znuny-7.3.3.tar.gz
+:::

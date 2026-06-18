@@ -309,6 +309,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' }, 
         { text: '0 DPI', link: '/docs/wi/dpi' },
+        { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
         { text: '! geckodriver', link: '/docs/wi/geckodriver' },
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
         { text: '! iVentoy', link: '/docs/wi/iventoy' }, 
@@ -1038,7 +1039,19 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           ]
         }
       ]
-    }
+    },
+
+    {
+      text: 'Самосбор',
+      collapsed: true,
+      items: [
+        { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
+        { text: '! geckodriver', link: '/docs/wi/geckodriver' },
+        { text: '! Torrent File Editor', link: '/docs/wi/torrent-file-editor' },
+        { text: 'ZeroTier', link: '/docs/wi/zerotier' },
+        { text: 'Znuny', link: '/docs/wi/znuny' },
+      ]
+    },
   ],
 
   '/docs/wi/altsp/': [
