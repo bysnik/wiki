@@ -309,7 +309,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Codeberg Pages', link: '/docs/wi/codeberg-pages' },
         { text: '! CTFd', link: '/docs/wi/ctfd' }, 
         { text: '0 DPI', link: '/docs/wi/dpi' },
-        { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
+        { text: '! geckodriver', link: '/docs/wi/geckodriver' },
         { text: '! INFRAX', link: '/docs/wi/infrax' }, 
         { text: '! iVentoy', link: '/docs/wi/iventoy' }, 
         { text: '! Jitsi Meet', link: '/docs/wi/jitsi' }, 
