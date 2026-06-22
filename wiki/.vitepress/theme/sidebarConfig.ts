@@ -634,6 +634,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'SFP', link: '/docs/wi/sfp' },
         { text: 'SSH', link: '/docs/wi/ssh' },
         { text: 'TeX', link: '/docs/wi/tex' },
+        { text: 'tldr', link: '/docs/wi/tldr' },
         { text: 'Wake On Lan', link: '/docs/wi/wake-on-lan' },
         { text: 'Winehelper', link: '/docs/wi/winehelper' },
         { text: 'Wine/Proton', link: '/docs/wi/wine' },
