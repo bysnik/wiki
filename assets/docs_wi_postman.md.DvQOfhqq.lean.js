@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./chunks/framework.D4Vqf8I7.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"docs/wi/postman.md","filePath":"docs/wi/postman.md","lastUpdated":1782128211000}'),o={name:"docs/wi/postman.md"};function s(n,c,r,p,d,i){return a(),e("div")}const f=t(o,[["render",s]]);export{_ as __pageData,f as default};
