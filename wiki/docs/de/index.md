@@ -18,4 +18,6 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit 
 ---
 
-[ПОДГОТОВКА К ДЕМОНСТРАЦИОННОМУ ЭКЗАМЕНУ ПО 09.02.06 «СЕТЕВОЕ И СИСТЕМНОЕ АДМИНИСТРИРОВАНИЕ» ПРАКТИКУМ](https://kurs.basealt.ru/pluginfile.php/63899/coursecat/description/Demo_Exam_090206_SysNet_Admin.pdf?time=1759318761948)
+[ПОДГОТОВКА К ДЕМОНСТРАЦИОННОМУ ЭКЗАМЕНУ ПО 09.02.06 «СЕТЕВОЕ И СИСТЕМНОЕ АДМИНИСТРИРОВАНИЕ» ПРАКТИКУМ (2025)](https://kurs.basealt.ru/pluginfile.php/63899/coursecat/description/Demo_Exam_090206_SysNet_Admin.pdf?time=1759318761948)
+
+[Сетевое и системное администрирование. Подготовка к Демонстрационному экзамену КОД 09.02.06-1-2026: практикум ](https://kurs.basealt.ru/pluginfile.php/63899/coursecat/description/Demo_Exam_090206-1-2026_SysNet_Admin.pdf)
