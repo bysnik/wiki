@@ -542,7 +542,7 @@ rpmbuild -ba ~/RPM/SPECS/otrs.spec
 
 1. Устанавливаем зависимости для `cpan`:
 ```bash
-apt-get install gcc make perl-devel
+apt-get install gcc make perl-devel perl-CPAN
 ```
 
 2. Устанавливаем недостающие модули `perl`:

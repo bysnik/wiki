@@ -284,7 +284,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     {
       text: 'Дистрибутивы Альт',
       items: [
-        { text: 'Альт СП', link: '/docs/wi/altsp/' },       
+        { text: 'Альт СП', link: '/docs/wi/altsp/' },     
+        { text: 'Альт Виртуализация', link: '/docs/wi/pve/' },   
       ]
     },
     {
@@ -1121,7 +1122,15 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       ]
     }
   ],
- 
+
+  '/docs/wi/pve/': [
+    {
+      items: [  
+        { text: 'Использование ресуссов хоста', link: '/docs/wi/pve/resources' },
+      ]
+    }
+  ],
+
   '/docs/disciplines/': [
     {
       text: 'Общепрофессиональные дисциплины',
