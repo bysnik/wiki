@@ -289,6 +289,12 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       ]
     },
     {
+      text: 'Странные штуки Альт',
+      items: [
+        { text: '0 Join - NeuroRebuild', link: '/docs/wi/join' },
+      ]
+    },
+    {
       text: 'Дистрибутивы',
       items: [
         { text: '0 hddsuperclone', link: '/docs/wi/hddsuperclone' }, // https://www.hddsuperclone.com
@@ -614,6 +620,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Moonlight', link: '/docs/wi/games/moonlight' },
         { text: 'Peripeteia', link: '/docs/wi/games/peripeteia' },
         { text: 'Persona 4', link: '/docs/wi/games/persona4' },
+        { text: 'PSX', link: '/docs/wi/games/psx' },
         { text: 'RenPy', link: '/docs/wi/games/renpy' },
         { text: 'Russian Railway Simulator', link: '/docs/wi/games/rrs' },
       ]
