@@ -525,6 +525,8 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Self-hosted Хранилища книг (Reading server)',
       collapsed: true,
       items: [
+        { text: '0 BookOrbit', link: '/docs/wi/bookorbit' }, //https://bookorbit.app/
+        { text: '0 BookStack', link: '/docs/wi/bookstack' },//https://www.bookstackapp.com/
         { text: '! Calibre-web ', link: '/docs/wi/calibre-web' }, 
         { text: '! Kavita', link: '/docs/wi/kavita' },
       ]
