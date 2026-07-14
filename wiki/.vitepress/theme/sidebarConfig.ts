@@ -337,6 +337,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Tmux', link: '/docs/wi/tmux' },
         { text: '! Torrent File Editor', link: '/docs/wi/torrent-file-editor' },
         { text: 'Uptime Kuma', link: '/docs/wi/uptime-kuma' },
+        { text: '! VLC', link: '/docs/wi/vlc' },
         { text: 'WinApps', link: '/docs/wi/winapps' },
         { text: 'Yandex Music', link: '/docs/wi/yandexmusic' },
       ]
