@@ -499,7 +499,7 @@ KDE: (https://docs.altlinux.org/ru-RU/alt-kworkstation/11.4/html/alt-kworkstatio
   - Оставить Wayland: удалите или переименуйте `/usr/share/xsessions/plasmax11.desktop`
 
 GNOME: (https://docs.altlinux.org/ru-RU/alt-workstation/11.1/html/alt-workstation/ch27.html#id851)
-  - Оставить X11: в /etc/gdm/custom.conf в секции `[daemon]` раскомментируйте `WaylandEnable=false`
+  - Оставить X11: в `/etc/gdm/custom.conf` в секции `[daemon]` раскомментируйте `WaylandEnable=false`
   - Оставить Wayland: удалите или переименуйте файлы в директории `/usr/share/xsessions/`
 
 После изменений перезагрузите систему.
