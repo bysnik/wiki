@@ -458,9 +458,9 @@ apt-repo rm all && apt-repo add p11
 
 ## Ошибка "Disk quota exceeded"
 
-Ошибка "Disk quota exceeded" вероятнее всего указывает на превышение лимитов, настроенных кем-то/чем-то в /etc/security/limits.conf, проверить это можно утилитой "quota" (за подробностями в "man quota").
+Ошибка "Disk quota exceeded" вероятнее всего указывает на превышение лимитов, настроенных кем-то/чем-то в `/etc/security/limits.conf`, проверить это можно утилитой `quota` (за подробностями в `man quota`).
 
-Дополнительно, при проверке свободного места на диске помимо "df -h", следует также проверять свободные inode - "df -ih"
+Дополнительно, при проверке свободного места на диске помимо `df -h`, следует также проверять свободные inode - `df -ih`
 
 
 ## Получение списка установленных пакетов не из официального репозитория Альта
@@ -491,3 +491,17 @@ fuser -vm /dev/sdb1
 # По точке монтирования
 fuser -vm /mnt/my_disk
 ```
+
+## Как убрать выбор сеанса X11|Gnome
+
+KDE: (https://docs.altlinux.org/ru-RU/alt-kworkstation/11.4/html/alt-kworkstation/login-to-system.html#dm-protocol)
+  - Оставить X11: удалите или переименуйте `/usr/share/wayland-sessions/plasma.desktop`
+  - Оставить Wayland: удалите или переименуйте `/usr/share/xsessions/plasmax11.desktop`
+
+GNOME: (https://docs.altlinux.org/ru-RU/alt-workstation/11.1/html/alt-workstation/ch27.html#id851)
+  - Оставить X11: в /etc/gdm/custom.conf в секции `[daemon]` раскомментируйте `WaylandEnable=false`
+  - Оставить Wayland: удалите или переименуйте файлы в директории `/usr/share/xsessions/`
+
+После изменений перезагрузите систему.
+
+Проверка текущей сессии: `echo $XDG_SESSION_TYPE`

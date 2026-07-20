@@ -162,3 +162,11 @@ cat alt-base.tar | docker import - alt-base:11.1
 ```bash
 docker images
 ```
+
+## Мелочи
+
+### Удаление ВСЕХ контейнеров ( и работающих и выключенных)
+
+```bash
+docker rm -f $(docker ps -aq)
+```
