@@ -372,11 +372,13 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '0 caretta', link: '/docs/wi/caretta' }, // https://github.com/groundcover-com/caretta 
         { text: 'Docker', link: '/docs/wi/docker' },
         { text: '0 Deckhouse', link: '/docs/wi/deckhouse' },
-        { text: '0 Kubernetes', link: '/docs/wi/kubernetes' },
+        { text: '! Kind', link: '/docs/wi/kind' },
+        { text: '! Kubernetes', link: '/docs/wi/kubernetes' },
         { text: '! kubesolo', link: '/docs/wi/kubesolo' },
         { text: '0 K3s', link: '/docs/wi/k3s' },
         { text: '! K9s', link: '/docs/wi/k9s' },
         { text: '! Lens', link: '/docs/wi/k8slens' },
+        { text: '! Minikube', link: '/docs/wi/minikube' },
         { text: '0 Openshift', link: '/docs/wi/openshift' }, // https://packages.altlinux.org/ru/sisyphus/srpms/openshift-installer/
         { text: 'Podman', link: '/docs/wi/podman' },
         { text: '0 Portainer', link: '/docs/wi/ortainer' }, // https://github.com/portainer/portainer https://packages.altlinux.org/ru/sisyphus/srpms/portainer/
