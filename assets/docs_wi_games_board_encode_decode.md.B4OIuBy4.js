@@ -1,0 +1,28 @@
+import{_ as a,c as s,o as e,ag as p}from"./chunks/framework.D4Vqf8I7.js";const h=JSON.parse('{"title":"ENCODE/DECODE - RUNLENGTH ENCODING FOR KIDS","description":"","frontmatter":{},"headers":[],"relativePath":"docs/wi/games/board/encode_decode.md","filePath":"docs/wi/games/board/encode_decode.md","lastUpdated":1784639561000}'),r={name:"docs/wi/games/board/encode_decode.md"};function t(l,n,o,c,i,d){return e(),s("div",null,n[0]||(n[0]=[p(`<h1 id="encode-decode-runlength-encoding-for-kids" tabindex="-1">ENCODE/DECODE - RUNLENGTH ENCODING FOR KIDS <a class="header-anchor" href="#encode-decode-runlength-encoding-for-kids" aria-label="Permalink to &quot;ENCODE/DECODE - RUNLENGTH ENCODING FOR KIDS&quot;">​</a></h1><p><a href="https://punkx.org/runlength-for-kids/" target="_blank" rel="noreferrer">https://punkx.org/runlength-for-kids/</a></p><p><a href="https://punkx.org/runlength-for-kids/photos/deck-large.jpg" target="_blank" rel="noreferrer"><img src="https://punkx.org/runlength-for-kids/photos/deck.jpg" alt="Deck"></a><a href="https://punkx.org/runlength-for-kids/photos/deck1-large.jpg" target="_blank" rel="noreferrer"><img src="https://punkx.org/runlength-for-kids/photos/deck1.jpg" alt="Deck 1"></a><a href="https://punkx.org/runlength-for-kids/photos/deck2-large.jpg" target="_blank" rel="noreferrer"><img src="https://punkx.org/runlength-for-kids/photos/deck2.jpg" alt="Deck 2"></a><a href="https://punkx.org/runlength-for-kids/photos/deck3-large.jpg" target="_blank" rel="noreferrer"><img src="https://punkx.org/runlength-for-kids/photos/deck3.jpg" alt="Deck 3"></a></p><ul><li>распечатайте сами: <a href="encode-decode-cards.pdf">encode-decode-cards.pdf</a>, <a href="encode-decode-box.pdf">encode-decode-box.pdf</a></li><li>код: <a href="https://github.com/jackdoe/programming-for-kids/tree/master/projects/compress" target="_blank" rel="noreferrer">compress</a></li><li>автор: <a href="https://github.com/jackdoe" target="_blank" rel="noreferrer">github.com/jackdoe</a></li><li>соавтор: <a href="https://punkjazz.org/jackie" target="_blank" rel="noreferrer">Jackie</a> (помогала с тестированием и идеями)</li><li>контакт: <a href="mailto:punkx@fastmail.com" target="_blank" rel="noreferrer">punkx@fastmail.com</a></li><li>лицензия: CC BY 4.0</li></ul><hr><p>Цель этой игры — научить детей сжатию данных и поиску паттернов, кодированию пикселей в числа и последующему обнаружению закономерностей в этих числах. Любимое аниме моей дочери — «Наруто», поэтому в качестве примеров изображений мы использовали символы из этой вселенной. Первые ~10 карт объясняют концепции «пикселей» (в данном случае это просто ASCII-символы), их кодирование в числа, RLE-кодирование (кодирование длин серий), а также усреднение нескольких «пикселей». Но в ~1000 символов можно уместить лишь ограниченное количество информации, поэтому лучше, если родитель хорошо понимает эти концепции и может показать больше примеров сжатия и паттернов в повседневной жизни (например, кодирование флага вашей страны, сравнение чёрно-белых и цветных изображений и т.д.).</p><p><a href="https://punkx.org/runlength-for-kids/photos/deck4-large.jpg" target="_blank" rel="noreferrer"><img src="https://punkx.org/runlength-for-kids/photos/deck4.jpg" alt="Deck 4"></a></p><p>Это скорее головоломка, чем настоящая игра, но я считаю, что она очень хорошо передаёт концепцию сжатия и кодирования.</p><hr><h2 id="правила-игры" tabindex="-1">ПРАВИЛА ИГРЫ <a class="header-anchor" href="#правила-игры" aria-label="Permalink to &quot;ПРАВИЛА ИГРЫ&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>Эта игра — скорее головоломка, чем игра.</span></span>
+<span class="line"><span>Можно играть одному или с друзьями,</span></span>
+<span class="line"><span>но лучше начать с простых и очевидных карт.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Помните: читать закодированные изображения</span></span>
+<span class="line"><span>на самом деле очень сложно, так что не</span></span>
+<span class="line"><span>унывайте и просто пробуйте — по одной</span></span>
+<span class="line"><span>карте за раз.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&gt; 1. ПОСМОТРИТЕ «НАРУТО», ЕСЛИ ЕЩЁ НЕ СМОТРЕЛИ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&gt; 2. ВЫБЕРИТЕ КАРТУ С ИЗОБРАЖЕНИЕМ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&gt; 3. НАЙДИТЕ КАРТУ С КОДИРОВКОЙ,</span></span>
+<span class="line"><span>     СООТВЕТСТВУЮЩУЮ ВЫХОДНОМУ ИЗОБРАЖЕНИЮ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&gt; 4. &lt;font color=&quot;red&quot;&gt;ЕСЛИ&lt;/font&gt; ВАМ НРАВИТСЯ — &lt;font color=&quot;red&quot;&gt;ПЕРЕЙТИ&lt;/font&gt; к шагу 2</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&gt; 5. ПОСМОТРИТЕ:</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>     Hunter x Hunter</span></span>
+<span class="line"><span>     One Piece</span></span>
+<span class="line"><span>     Bleach</span></span>
+<span class="line"><span>     One Punch Man</span></span>
+<span class="line"><span>     Dragonball Z</span></span>
+<span class="line"><span>     Fairy Tail</span></span>
+<span class="line"><span>     My Hero Academia</span></span>
+<span class="line"><span>     Sword Art Online</span></span></code></pre></div>`,11)]))}const k=a(r,[["render",t]]);export{h as __pageData,k as default};
