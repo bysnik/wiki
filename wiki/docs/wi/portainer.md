@@ -4,6 +4,8 @@
 
 **Portainer** — это бесплатный веб-интерфейс для управления Docker и Kubernetes, который позволяет в пару кликов разворачивать, мониторить и обслуживать контейнеры, не залезая в командную строку, и подходит как для локальных сред, так и для продакшн-кластеров.
 
+https://github.com/portainer/portainer https://packages.altlinux.org/ru/sisyphus/srpms/portainer/
+
 ## Запуск Portainer в Minikube с помощью Helm
 
 ### 1. Запуск Minikube с драйвером `docker`

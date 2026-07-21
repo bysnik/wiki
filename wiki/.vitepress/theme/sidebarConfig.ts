@@ -369,9 +369,9 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Контейнеризация и оркестрация',
       collapsed: true,
       items: [
-        { text: '0 caretta', link: '/docs/wi/caretta' }, // https://github.com/groundcover-com/caretta 
+        { text: '! caretta', link: '/docs/wi/caretta' },
         { text: 'Docker', link: '/docs/wi/docker' },
-        { text: '0 Deckhouse', link: '/docs/wi/deckhouse' },
+        { text: '0 Deckhouse', link: '/docs/wi/deckhouse' }, // https://deckhouse.ru/products/kubernetes-platform/gs/ good guidlines
         { text: '! Kind', link: '/docs/wi/kind' },
         { text: '! Kubernetes', link: '/docs/wi/kubernetes' },
         { text: '! kubesolo', link: '/docs/wi/kubesolo' },
@@ -381,7 +381,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Minikube', link: '/docs/wi/minikube' },
         { text: '0 Openshift', link: '/docs/wi/openshift' }, // https://packages.altlinux.org/ru/sisyphus/srpms/openshift-installer/
         { text: 'Podman', link: '/docs/wi/podman' },
-        { text: '! Portainer', link: '/docs/wi/portainer' }, // https://github.com/portainer/portainer https://packages.altlinux.org/ru/sisyphus/srpms/portainer/
+        { text: '! Portainer', link: '/docs/wi/portainer' },
         { text: '! Rancher', link: '/docs/wi/rancher' },
         {
           text: 'Репозитории',
