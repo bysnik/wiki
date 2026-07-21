@@ -381,7 +381,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Minikube', link: '/docs/wi/minikube' },
         { text: '0 Openshift', link: '/docs/wi/openshift' }, // https://packages.altlinux.org/ru/sisyphus/srpms/openshift-installer/
         { text: 'Podman', link: '/docs/wi/podman' },
-        { text: '0 Portainer', link: '/docs/wi/ortainer' }, // https://github.com/portainer/portainer https://packages.altlinux.org/ru/sisyphus/srpms/portainer/
+        { text: '! Portainer', link: '/docs/wi/portainer' }, // https://github.com/portainer/portainer https://packages.altlinux.org/ru/sisyphus/srpms/portainer/
         { text: '! Rancher', link: '/docs/wi/rancher' },
         {
           text: 'Репозитории',
