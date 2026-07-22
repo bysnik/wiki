@@ -58,6 +58,7 @@ export const themeConfig: DefaultTheme.Config = {
           { text: 'ALT Orchestra Wiki', link: 'https://alt-orchestra.altlinux.team/' },
           { text: 'Stapler', link: 'https://stplr.dev/' },
           { text: 'Aides', link: 'https://aides.space/' },
+          { text: 'ALT Zero by PLAFON', link: 'https://plafon.gitbook.io/alt-zero' },
 
         ]
       },
