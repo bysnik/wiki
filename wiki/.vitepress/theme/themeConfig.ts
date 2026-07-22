@@ -50,6 +50,7 @@ export const themeConfig: DefaultTheme.Config = {
         items: [
           { text: 'Официальная документация', link: 'https://www.basealt.ru/documentation' },
           { text: 'ALT Linux Wiki', link: 'https://www.altlinux.org' },
+          { text: 'ALT Docs Altlinux Team', link: 'https://alt-docs.altlinux.team/docs-vitepress-pages/' },
           { text: 'ALT Gnome Wiki', link: 'https://alt-gnome.wiki/' },
           { text: 'ALT KDE Wiki', link: 'https://alt-kde.wiki/' },
           { text: 'ALT Mobile Wiki', link: 'https://altmobile.org/' },
