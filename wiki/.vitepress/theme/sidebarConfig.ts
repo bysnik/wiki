@@ -534,7 +534,16 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! Kavita', link: '/docs/wi/kavita' },
       ]
     },
-
+    
+    {
+      text: 'Генераторы сайтов',
+      collapsed: true,
+      items: [
+        { text: '0 Vitepress', link: '/docs/wi/vitepress' }, //https://github.com/vuejs/vitepress
+        { text: '0 Astro', link: '/docs/wi/astro' }, //https://github.com/withastro/astro
+        //{ text: '0 Caddy', link: '/docs/wi/caddy' },
+      ]
+    },
     {
       text: 'Веб-серверы',
       collapsed: true,
