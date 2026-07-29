@@ -291,6 +291,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
     {
       text: 'Странные штуки Альт',
       items: [
+        { text: '0 Альт Инфраструктура', link: '/docs/wi/infra' },
         { text: '0 Join - NeuroRebuild', link: '/docs/wi/join' },
       ]
     },
