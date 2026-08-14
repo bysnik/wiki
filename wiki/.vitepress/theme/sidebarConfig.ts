@@ -424,9 +424,10 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '0 IceBw', link: '/docs/wi/icebw' }, 
         { text: '! NocoBase', link: '/docs/wi/nocobase' }, 
-        { text: '0 SuiteCRM', link: '/docs/wi/suitecrm' },
-        { text: '0 Totum', link: '/docs/wi/totum' },
-        { text: '0 EspoCRM', link: '/docs/wi/espocrm' },
+        { text: '! SuiteCRM', link: '/docs/wi/suitecrm' },
+        { text: '! Totum', link: '/docs/wi/totum' },
+        { text: '! EspoCRM', link: '/docs/wi/espocrm' },
+        // NocoDB, Baserow, Directus и Budibase
       ]
     },
 
@@ -649,6 +650,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: '! ALT in WSL', link: '/docs/wi/alt-wsl' },
         { text: '! Thunderbird + NextCloud', link: '/docs/wi/thunderbird-nextcloud' },
         { text: '! Alt Autoinstall', link: '/docs/wi/autoinstall_alt' },
+        { text: '! Сертификаты', link: '/docs/wi/cert' },
         { text: 'deb', link: '/docs/wi/deb' },
         { text: 'freeipa-sogo-dovecot-postfix', link: '/docs/wi/freeipa-sogo-dovecot-postfix' },
         { text: 'iptables', link: '/docs/wi/iptables' },

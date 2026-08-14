@@ -62,6 +62,15 @@ export const themeConfig: DefaultTheme.Config = {
 
         ]
       },
+      {
+        text: 'Альт Ресурсы',
+        items: [
+          { text: 'Бюллетени об исправлениях в пакетах ALT Linux', link: 'https://errata.altlinux.org/' },
+          { text: 'Информация о пакетах ALT Linux', link: 'https://packages.altlinux.org/' },
+          { text: 'Новости об обновлениях безопасности ALT Linux', link: 'https://cve.basealt.ru/' },
+          { text: 'Багзилла ALT Linux', link: 'https://bugzilla.altlinux.org/' }, 
+        ]
+      },
     ],
 
     socialLinks: [
