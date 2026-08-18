@@ -69,6 +69,8 @@ export const themeConfig: DefaultTheme.Config = {
           { text: 'Информация о пакетах ALT Linux', link: 'https://packages.altlinux.org/' },
           { text: 'Новости об обновлениях безопасности ALT Linux', link: 'https://cve.basealt.ru/' },
           { text: 'Багзилла ALT Linux', link: 'https://bugzilla.altlinux.org/' }, 
+          { text: 'Бета-версии ALT Linux', link: 'https://beta.altlinux.org/' }, 
+          { text: 'Реестр контейнеров OCI ALT Linux', link: 'https://registry.basealt.ru/' }, 
         ]
       },
     ],
