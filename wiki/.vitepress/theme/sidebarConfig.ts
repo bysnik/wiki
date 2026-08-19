@@ -1072,6 +1072,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Самосбор',
       collapsed: true,
       items: [
+        { text: 'ХЛАВНАЯ СТРАНИЦА', link: '/docs/wi/samosbor_index' },
         { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
         { text: '! geckodriver', link: '/docs/wi/geckodriver' },
         { text: 'OBS', link: '/docs/wi/obs' },
