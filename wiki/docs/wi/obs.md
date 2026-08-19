@@ -35,7 +35,7 @@ obs-studio-plugin-input-overlay - потыкал его, чёт плохо ра�
 ### Сборка плагина obs-studio-plugin-rtspserver
 
 ::: warning Собранный пакет
-- obs-studio-plugi-rtspserver-3.1.0: [obs-studio-plugi-rtspserver-3.1.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/obs-studio-plugi-rtspserver-3.1.0-alt1.x86_64.rpm)
+- obs-studio-plugin-rtspserver-3.1.0: [obs-studio-plugin-rtspserver-3.1.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/obs-studio-plugin-rtspserver-3.1.0-alt1.x86_64.rpm)
 :::
 
 1. Скачиваем исходники:
@@ -51,7 +51,7 @@ nano ~/RPM/SPECS/obs-studio-plugin-rtspserver.spec
 ```spec
 %define _unpackaged_files_terminate_build 1
 
-Name: obs-studio-plugi-rtspserver
+Name: obs-studio-plugin-rtspserver
 Version: 3.1.0
 Release: alt1
 
