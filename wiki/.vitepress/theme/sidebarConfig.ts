@@ -1074,6 +1074,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
         { text: '! geckodriver', link: '/docs/wi/geckodriver' },
+        { text: 'OBS', link: '/docs/wi/obs' },
         { text: '! Torrent File Editor', link: '/docs/wi/torrent-file-editor' },
         { text: 'ZeroTier', link: '/docs/wi/zerotier' },
         { text: 'Znuny', link: '/docs/wi/znuny' },
