@@ -640,6 +640,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'RenPy', link: '/docs/wi/games/renpy' },
         { text: 'Russian Railway Simulator', link: '/docs/wi/games/rrs' },
         { text: '! Steam', link: '/docs/wi/games/steam' },
+        { text: '! Steins;Gate Re:Boot', link: '/docs/wi/games/sgre' },
       ]
     },
 
