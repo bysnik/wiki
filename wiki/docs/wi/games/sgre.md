@@ -4,13 +4,26 @@
 
 ## на 20.08.2026 Отсуствие озвучки
 
-Устанавливаем программу ProtonUp-Qt
+### Полуавтомат
+
+Устанавливаем программу `ProtonUp-Qt`
 ```bash
 flatpak install flathub net.davidotek.pupgui2
 ```
 
 Устанавливаем GE-Proton 11-5 в наш стим.
 
+### Руками
+
+Скачиваем протон: https://github.com/GloriousEggroll/proton-ge-custom/releases/download/GE-Proton11-5/GE-Proton11-5-x86_64.tar.gz
+
+Распаковываем архив в `~/.local/share/Steam/compatibilitytools.d/`
+
+Получается `~/.local/share/Steam/compatibilitytools.d/GE-Proton11-5-x86_64/`
+
+### Уже в стиме
+
 Выбираем данную версию протона для нашей игры.
 
 Радуемся озвучке!
+
