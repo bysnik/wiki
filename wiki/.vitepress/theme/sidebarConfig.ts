@@ -308,6 +308,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       items: [
         { text: '1С:Предприятие 8.3', link: '/docs/wi/1c' },
         { text: '! Anytype', link: '/docs/wi/anytype' },
+        { text: '! AurexTranslator', link: '/docs/wi/aurextranslator' },
         { text: '! Beekeeper Studio', link: '/docs/wi/beekeeper-studio' },
         { text: '0 Bookstack', link: '/docs/wi/bookstack' },// https://www.bookstackapp.com/docs/admin/installation/
         { text: '! BSS Crypto Plugin', link: '/docs/wi/bssCryptoPlugin' },
@@ -1074,6 +1075,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       collapsed: true,
       items: [
         { text: 'ХЛАВНАЯ СТРАНИЦА', link: '/docs/wi/samosbor_index' },
+        { text: '! AurexTranslator', link: '/docs/wi/aurextranslator' },
         { text: '! DupeGuru', link: '/docs/wi/dupeguru' },
         { text: '! geckodriver', link: '/docs/wi/geckodriver' },
         { text: 'OBS', link: '/docs/wi/obs' },
