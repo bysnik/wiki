@@ -27,3 +27,7 @@ flatpak install flathub net.davidotek.pupgui2
 
 Радуемся озвучке!
 
+## Руссификатор
+
+### на 20.08.2026
+https://t.me/SamecApelsina/119 (https://app.filen.io/#/d/b256ff35-f947-400b-ac7f-5a15a44cdb57%2354614f6453793938516f467536305859476f766c45725773696b575574564d69) (https://disk.yandex.ru/d/Qw3E-6QTs7mCEA)
