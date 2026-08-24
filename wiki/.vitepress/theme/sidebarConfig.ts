@@ -766,7 +766,19 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '0 vhs', link: '/docs/wi/vhs' }, // https://github.com/charmbracelet/vhs
           { text: '0 wrapguard', link: '/docs/wi/wrapguard' },  // https://github.com/puzed/wrapguard
 
-          //https://github.com/jamiepine/voicebox
+          { text: '-1 voicebox', link: '/docs/wi/voicebox' },  // https://github.com/jamiepine/voicebox
+          { text: '-1 cryptolayer', link: '/docs/wi/cryptolayer' },  // https://github.com/igmunv/cryptolayer
+          { text: '-1 ffmpeg-webCLI', link: '/docs/wi/ffmpeg-webCLI' },  // https://github.com/tejaswigowda/ffmpeg-webCLI
+          { text: '-1 decimen-optical-transfer', link: '/docs/wi/decimen-optical-transfer' },  // https://github.com/bashalarmistalt/decimen-optical-transfer/
+          { text: '-1 appflowy', link: '/docs/wi/appflowy' },  // https://github.com/appflowy-io/appflowy
+          { text: '-1 open-telemetry', link: '/docs/wi/open-telemetry' },  // https://github.com/open-telemetry
+          { text: '-1 community-scripts', link: '/docs/wi/community-scripts' },  // https://community-scripts.org/categories?category=proxmox-and-virtualization
+          { text: '-1 LinusTrinus', link: '/docs/wi/LinusTrinus' },  // https://github.com/MyrikLD/LinusTrinus
+          //{ text: '-1 ', link: '/docs/wi/' },  // 
+          //{ text: '-1 ', link: '/docs/wi/' },  // 
+          //{ text: '-1 ', link: '/docs/wi/' },  // 
+          //{ text: '-1 ', link: '/docs/wi/' },  // 
+          //{ text: '-1 ', link: '/docs/wi/' },  // 
         ]
     },
 
