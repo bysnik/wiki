@@ -173,8 +173,8 @@ systemctl enable --now httpd2
 Итак, после кучи тестов я жёстко дописал спеку, это новая версия пакетов
 
 Вот ссылка на собранные пакеты: 
-- otrs-7.2.3: [otrs-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/otrs-7.2.3-alt1.noarch.rpm)
-- otrs-apache2-7.2.3: [otrs-apache2-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/otrs-apache2-7.2.3-alt1.noarch.rpm)
+- otrs-7.2.3: [otrs-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/noarch/RPMS.classic/otrs-7.2.3-alt1.noarch.rpm)
+- otrs-apache2-7.2.3: [otrs-apache2-7.2.3-alt1.noarch.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/noarch/RPMS.classic/otrs-apache2-7.2.3-alt1.noarch.rpm)
 :::
 
 1. Скачиваем архив с необходимой версией:

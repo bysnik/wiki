@@ -139,7 +139,7 @@ Wrote: /home/<user>/RPM/RPMS/x86_64/torrent-file-editor-debuginfo-1.0.3-alt1.x86
 ```
 
 ::: warning Мой собранный пакет
-- torrent-file-editor-1.0.3: [torrent-file-editor-1.0.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/torrent-file-editor-1.0.3-alt1.x86_64.rpm)
+- torrent-file-editor-1.0.3: [torrent-file-editor-1.0.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/torrent-file-editor-1.0.3-alt1.x86_64.rpm)
 :::
 
 

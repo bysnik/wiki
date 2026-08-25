@@ -67,5 +67,5 @@ Wrote: /home/<user>/RPM/RPMS/x86_64/geckodriver-debuginfo-0.37.0-alt1.x86_64.rpm
 ```
 
 ::: warning Мой собранный пакет
-- geckodriver-0.37.0: [geckodriver-0.37.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/geckodriver-0.37.0-alt1.x86_64.rpm)
+- geckodriver-0.37.0: [geckodriver-0.37.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/geckodriver-0.37.0-alt1.x86_64.rpm)
 :::

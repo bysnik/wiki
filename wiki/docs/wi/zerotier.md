@@ -29,13 +29,13 @@ ZeroTier поддерживает все основные операционны
 :::
 
 ::: danger Дублирую ссылки на мои пакеты
-ZeroTier-One: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.x86_64.rpm)
+ZeroTier-One: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/zerotier-one-1.16.0-alt1.x86_64.rpm)
 
-ZeroTier-One NonFree: [zerotier-one-1.16.0-alt1.nf.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.nf.x86_64.rpm)
+ZeroTier-One NonFree: [zerotier-one-1.16.0-alt1.nf.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/zerotier-one-1.16.0-alt1.nf.x86_64.rpm)
 
-ZeroTier Desktop UI: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm)
+ZeroTier Desktop UI: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm)
 
-ZTNCUI: [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm)
+ZTNCUI: [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/ztncui-0.8.14-alt1.x86_64.rpm)
 
 Пишите, если будут ошибки)
 :::
@@ -200,9 +200,9 @@ make ZT_NONFREE=1
 :::
 
 ::: danger
-В принципе, я считаю, что шалость удалась. Вот сама собранная rpm`ка (без контроллера) если кому надо: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.x86_64.rpm)
+В принципе, я считаю, что шалость удалась. Вот сама собранная rpm`ка (без контроллера) если кому надо: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/zerotier-one-1.16.0-alt1.x86_64.rpm)
 
-Также, собрал Non Free версию: [zerotier-one-1.16.0-alt1.nf.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-one-1.16.0-alt1.nf.x86_64.rpm)
+Также, собрал Non Free версию: [zerotier-one-1.16.0-alt1.nf.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/zerotier-one-1.16.0-alt1.nf.x86_64.rpm)
 :::
 
 ## Desktop UI
@@ -555,7 +555,7 @@ tar cvf ~/RPM/SOURCES/zerotier-desktop-ui-1.8.3.tar DesktopUI-1.8.3/
 rpmbuild -ba ~/RPM/SPECS/zerotier-desktop-ui.spec
 ```
 ::: danger
-В принципе, я считаю, что шалость2 удалась. Вот сама собранная rpmка (из ветки 1.16.0) если кому надо: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm) (Вероятнее всего пакет вообще не установится без уже установленного `zerotier-one` и будет кричать, что пакет битый, так как `apt` не сможет сам удовлетворить зависимость)
+В принципе, я считаю, что шалость2 удалась. Вот сама собранная rpmка (из ветки 1.16.0) если кому надо: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm) (Вероятнее всего пакет вообще не установится без уже установленного `zerotier-one` и будет кричать, что пакет битый, так как `apt` не сможет сам удовлетворить зависимость)
 
 
 Так, обнаружена проблемка, что это програ требует права sudo у твоего пользователя.
@@ -575,7 +575,7 @@ ztncui is a web user interface for a standalone ZeroTier network controller.
 ![](https://key-networks.com/images/ztncui/18-members-named.png)
 
 ::: danger
-Вот собранный пакет: [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/rpms/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий, я исправил права доступа, теперь вроде как всё нормально
+Вот собранный пакет: [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий, я исправил права доступа, теперь вроде как всё нормально
 :::
 
 Данный пакет:
