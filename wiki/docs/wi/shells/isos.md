@@ -75,46 +75,69 @@ check_and_download() {
         local url="$BASE_URL/$dir/x86_64/"
     fi
     local local_path="$DOWNLOAD_DIR/$iso_name"
-    local md5_file="$DOWNLOAD_DIR/MD5SUM.$dir.tmp"
+    local sum_file=""
+    local sum_type=""
 
-    if [[ -f "$local_path" ]]; then
-        log "INFO" "Файл уже существует: $local_path"
-    else
+    if [[ ! -f "$local_path" ]]; then
         log "INFO" "Скачиваем $iso_name ..."
         if ! wget -q --show-progress -O "$local_path" "$url/$iso_name"; then
             log "ERROR" "Ошибка скачивания $iso_name"
             return 1
         fi
         log "INFO" "Скачивание завершено"
+    else
+        log "INFO" "Файл уже существует: $local_path"
     fi
 
-    log "INFO" "Скачиваем MD5SUM из $url"
-    if ! curl -sSL "$url/MD5SUM" > "$md5_file"; then
-        log "ERROR" "Не удалось скачать MD5SUM"
+    local sha_file="$DOWNLOAD_DIR/SHA512SUM.$dir.tmp"
+    if curl -sSL -o "$sha_file" "$url/SHA512SUM"; then
+        log "INFO" "Проверяем SHA512SUM"
+        expected_sum=$(grep -F "$iso_name" "$sha_file" | head -n1 | awk '{print $1}')
+        if [[ -n "$expected_sum" ]]; then
+            sum_file="$sha_file"
+            sum_type="SHA512"
+        else
+            rm -f "$sha_file"
+        fi
+    fi
+
+    if [[ -z "$sum_file" ]]; then
+        local md5_file="$DOWNLOAD_DIR/MD5SUM.$dir.tmp"
+        if curl -sSL -o "$md5_file" "$url/MD5SUM"; then
+            log "INFO" "Проверяем MD5SUM"
+            expected_sum=$(grep -F "$iso_name" "$md5_file" | head -n1 | awk '{print $1}')
+            if [[ -n "$expected_sum" ]]; then
+                sum_file="$md5_file"
+                sum_type="MD5"
+            else
+                rm -f "$md5_file"
+            fi
+        fi
+    fi
+
+    if [[ -z "$sum_file" ]]; then
+        log "ERROR" "Не удалось найти контрольную сумму для $iso_name (ни SHA512, ни MD5)"
         return 1
     fi
 
-    expected_sum=$(awk -v name="$iso_name" '$NF == name || $NF == "alt-"name {print $1}' "$md5_file")
-    if [[ -z "$expected_sum" ]]; then
-        log "ERROR" "Файл $iso_name не найден в MD5SUM"
-        rm -f "$md5_file"
-        return 1
+    if [[ "$sum_type" == "SHA512" ]]; then
+        actual_sum=$(sha512sum "$local_path" | awk '{print $1}')
+    else
+        actual_sum=$(md5sum "$local_path" | awk '{print $1}')
     fi
-
-    actual_sum=$(md5sum "$local_path" | awk '{print $1}')
 
     if [[ "$expected_sum" == "$actual_sum" ]]; then
-        log "INFO" "Контрольная сумма (MD5) совпадает для $iso_name"
+        log "INFO" "Контрольная сумма ($sum_type) совпадает для $iso_name"
         log "INFO" "  Ожидаемая: $expected_sum"
         log "INFO" "  Фактическая: $actual_sum"
-        rm -f "$md5_file"
+        rm -f "$sum_file"
         return 0
     else
-        log "ERROR" "Контрольная сумма (MD5) НЕ совпадает для $iso_name"
+        log "ERROR" "Контрольная сумма ($sum_type) НЕ совпадает для $iso_name"
         log "ERROR" "  Ожидаемая: $expected_sum"
         log "ERROR" "  Фактическая: $actual_sum"
         rm -f "$local_path"
-        rm -f "$md5_file"
+        rm -f "$sum_file"
         log "INFO" "Удалён повреждённый файл, повторяем попытку..."
         check_and_download "$dir" "$iso_name"
         return $?
@@ -173,6 +196,5 @@ main() {
 }
 
 main "$@"
-
 ```
 :::
