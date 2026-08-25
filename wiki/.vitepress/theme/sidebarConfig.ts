@@ -671,6 +671,13 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
         { text: 'Фишки', link: '/docs/wi/tricks' },
         { text: '! Эльбрус', link: '/docs/wi/elbrus' },
+        {
+          text: 'Ужасные скрипты',
+          collapsed: true,
+          items: [
+            { text: '! Обновление локального хранилища с дистрами Альт', link: '/docs/wi/shells/isos' },
+          ]
+        },
       ]
     },
 
