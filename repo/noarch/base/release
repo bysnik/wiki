@@ -1,0 +1,19 @@
+Origin: Unknown
+Label: Unknown
+Suite: Unknown
+Codename: Unknown
+Date: Tue, 25 Aug 2026 13:23:07 +0300
+Architectures: Unknown
+Components: classic
+Description: Not Available
+MD5Sum:
+ 3d37be1e35aa28c4c695ac426fc3d0d2 3374 base/pkglist.classic
+ af202839aa25a09af745cb12fd91c780 1645 base/pkglist.classic.bz2
+ b619e67d00269d1c618ed49779ff1772 1460 base/pkglist.classic.xz
+ 556d9ccb33784f71860d106f55552d02 126 base/release.classic
+BLAKE2b:
+ 428e433b1a2aecec62269c9042478d522e938947d4c7466e487aaef188362776f41653de932ab049fb46a56b72114cc0567fb9ac2358bda8ded612eaf68616c6 3374 base/pkglist.classic
+ 196d665bf5eebfb8b99961fab6904f1a6b54230032706284f6b4720ae2e926dfe6f9021598e6f038cf22a77a0293bfc905d5a84e0d20c5dfa3dac3409365774a 1645 base/pkglist.classic.bz2
+ d9bba039a03bc74828b090f52ca6f199c4264c6da097b15083f22d3a66ceb5be9cc85df47785535a1e6dd53b73ea871b043434cf1683fc52f8c01b21765a59f7 1460 base/pkglist.classic.xz
+ 250b7953ff082da969dbb5e2267ef71b2673b139f17d8e44326624a4ddc0f785135af39f5ffa408520ed4a6fade77e54b2a97208df9a12fc5203e47ae226cd01 126 base/release.classic
+

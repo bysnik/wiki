@@ -781,7 +781,7 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
           { text: '-1 open-telemetry', link: '/docs/wi/open-telemetry' },  // https://github.com/open-telemetry
           { text: '-1 community-scripts', link: '/docs/wi/community-scripts' },  // https://community-scripts.org/categories?category=proxmox-and-virtualization
           { text: '-1 LinusTrinus', link: '/docs/wi/LinusTrinus' },  // https://github.com/MyrikLD/LinusTrinus
-          //{ text: '-1 ', link: '/docs/wi/' },  // 
+          { text: '-1 webspeak3', link: '/docs/wi/webspeak3' },  // https://github.com/Moepchi/webspeak3
           //{ text: '-1 ', link: '/docs/wi/' },  // 
           //{ text: '-1 ', link: '/docs/wi/' },  // 
           //{ text: '-1 ', link: '/docs/wi/' },  // 

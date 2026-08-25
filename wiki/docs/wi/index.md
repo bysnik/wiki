@@ -20,3 +20,10 @@ http://altrepo.ru/
 https://git.da2001.ru/da2001
 
 https://github.com/jackdoe/programming-for-kids/blob/master/book.md
+
+https://bdu.fstec.ru/threat
+
+https://tldp.org/LDP/GNU-Linux-Tools-Summary/GNU-Linux-Tools-Summary.pdf?from=cp_footer&utm_campaign=blog_24&utm_content=all&utm_medium=career&utm_source=letter&utm_term=digest_22072026
+
+
+https://yandex.ru/jobs/interview/devops?from=interview

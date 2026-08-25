@@ -34,3 +34,7 @@ flatpak install flathub net.davidotek.pupgui2
 ![](/img/sgrerus.jpg)
 
 https://t.me/SamecApelsina/119 (https://app.filen.io/#/d/c2fced6b-8b91-4de9-9f8c-2027dc4f5067%23303946686168774e7361565f4553317243717630694955442d394a3444586146)
+
+### на 24.08.2026
+
+https://t.me/SamecApelsina/121 - 1.1.7
