@@ -4,7 +4,7 @@ outline: deep
 
 # Logisim
 
-![](https://github.com/logisim-evolution/logisim-evolution/raw/main/docs/img/logisim-evolution-logo.png)
+<ImageZoom src="https://github.com/logisim-evolution/logisim-evolution/raw/main/docs/img/logisim-evolution-logo.png" />
 
 Logisim Evolution представляет собой современное, активно развиваемое ответвление оригинального проекта Logisim, разработка которого официально прекращена. В отличие от классического Logisim, Evolution предлагает значительно улучшенную производительность и стабильность, особенно при работе со сложными схемами, благодаря глубокой оптимизации кода. Проект отличается современным пользовательским интерфейсом, включающим поддержку вкладок для нескольких схем и тем оформления (светлая/тёмная). 
 
@@ -51,5 +51,5 @@ java -jar logisim-generic-2.7.1.jar
 ```
 
 Можно создать пункт в меню (пример для KDE):
-![alt text](/public/img/logism.png)
+<ImageZoom src="/img/logism.png" />
 

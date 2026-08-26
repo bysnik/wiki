@@ -1,6 +1,6 @@
 # Minecraft
 
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmUvGHr1oSKz2OdywFk7kXobu1yg6eJw2Mog&s)
+<ImageZoom src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmUvGHr1oSKz2OdywFk7kXobu1yg6eJw2Mog&s" />
 
 1. Установка классического ланучера:
 ```bash

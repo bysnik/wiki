@@ -6,10 +6,10 @@ https://punkx.org/punk0/
 
 **Выход** каждой карты — это **вход** для другой карты.
 
-[![Deck](https://punkx.org/punk0/photos/deck.jpg)](https://punkx.org/punk0/photos/deck-large.jpg)
-[![Deck 1](https://punkx.org/punk0/photos/deck1.jpg)](https://punkx.org/punk0/photos/deck1-large.jpg)
-[![Deck 2](https://punkx.org/punk0/photos/deck2.jpg)](https://punkx.org/punk0/photos/deck2-large.jpg)
-[![Deck 3](https://punkx.org/punk0/photos/deck3.jpg)](https://punkx.org/punk0/photos/deck3-large.jpg)
+[<ImageZoom src="https://punkx.org/punk0/photos/deck.jpg" />](https://punkx.org/punk0/photos/deck-large.jpg)
+[<ImageZoom src="https://punkx.org/punk0/photos/deck1.jpg" />](https://punkx.org/punk0/photos/deck1-large.jpg)
+[<ImageZoom src="https://punkx.org/punk0/photos/deck2.jpg" />](https://punkx.org/punk0/photos/deck2-large.jpg)
+[<ImageZoom src="https://punkx.org/punk0/photos/deck3.jpg" />](https://punkx.org/punk0/photos/deck3-large.jpg)
 
 ~~**Купить сейчас: €5,00 EUR**~~ [ распродано ]
 
@@ -59,7 +59,7 @@ https://punkx.org/punk0/
 
 ## Пример раунда
 
-[![Example](https://punkx.org/punk0/photos/example1.jpg)](https://punkx.org/punk0/photos/example1-large.jpg)
+[<ImageZoom src="https://punkx.org/punk0/photos/example1.jpg" />](https://punkx.org/punk0/photos/example1-large.jpg)
 
 ### Краткое объяснение игры:
 
@@ -92,6 +92,6 @@ https://punkx.org/punk0/
 
 Вот некоторые из неудачных попыток:
 
-[![Attempts](https://punkx.org/punk0/photos/attempts.jpg)](https://punkx.org/punk0/photos/attempts.jpg)
+[<ImageZoom src="https://punkx.org/punk0/photos/attempts.jpg" />](https://punkx.org/punk0/photos/attempts.jpg)
 
 > **P.S.:** Для создания карт не использовались LLM, но я применял ChatGPT, чтобы помочь переформулировать правила, так как английский — не мой родной язык, и мне бывает сложно выражать идеи, особенно когда пространство так ограничено.

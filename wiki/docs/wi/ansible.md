@@ -4,7 +4,7 @@ outline: deep
 
 # Ansible
 
-![](https://habrastorage.org/getpro/habr/upload_files/81b/5e2/9f1/81b5e29f12b41ba26dff6cdd05848a5b.webp)
+<ImageZoom src="https://habrastorage.org/getpro/habr/upload_files/81b/5e2/9f1/81b5e29f12b41ba26dff6cdd05848a5b.webp" />
 
 Ansible — система управления конфигурациями, написанная на Python, с использованием декларативного языка разметки для описания конфигураций. Используется для автоматизации настройки и развертывания программного обеспечения. Обычно используется для управления Linux-узлами, но Windows также поддерживается. Поддерживает работу с сетевыми устройствами, на которых установлен Python версии 2.4 и выше по SSH или WinRM соединению.
 
@@ -770,7 +770,7 @@ Ansible
 • Задание (tasks)
 Архитектура Ansible
 ```
-![](https://habrastorage.org/getpro/habr/upload_files/5f2/284/e80/5f2284e805ee0ad18b680351866a6621.png)
+<ImageZoom src="https://habrastorage.org/getpro/habr/upload_files/5f2/284/e80/5f2284e805ee0ad18b680351866a6621.png" />
 ```
 Установка в ОС Альт
 Управляющий узел

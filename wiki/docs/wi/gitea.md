@@ -4,7 +4,7 @@ outline: deep
 
 # Gitea
 
-![](/public/img/20250728123353.png)
+<ImageZoom src="/img/20250728123353.png" />
 
 это бесплатный сервис с открытым исходным кодом для хостинга Git-репозиториев, разработанный для совместной работы над проектами. Он предоставляет функциональность для хранения, управления и совместной работы над исходным кодом, включая такие инструменты, как отслеживание ошибок, ревью кода, непрерывная интеграция и многое другое.
 
@@ -170,7 +170,7 @@ systemctl enable --now gitea
 
 Будем использовать уровень репозитория. Справа в верху: Создать новый раннер. Копируем Токен.
 
-![](/public/img/20250723113505.png)
+<ImageZoom src="/img/20250723113505.png" />
 
 ### Быстрый старт
 
@@ -349,10 +349,10 @@ jobs:
 ```
 
 После пуша в репозитории, переходим на страницу Действия, там и Увидим как это действие отработало.
- ![](/public/img/20250723114050.png)
+ <ImageZoom src="/img/20250723114050.png" />
 
 Можно изучить логи, нажав на Нужное действие:
-![](/public/img/20250723114145.png)
+<ImageZoom src="/img/20250723114145.png" />
 
 ### Раннер на Альт Р11
 
@@ -446,7 +446,7 @@ if [[ ! -s "$RUNNER_STATE_FILE" ]]; then
     fi
   done
 fi
-# Prevent reading the ![](/public/img/giteaalt.png)token from the act_runner process
+# Prevent reading the <ImageZoom src="/img/giteaalt.png" />token from the act_runner process
 unset GITEA_RUNNER_REGISTRATION_TOKEN
 unset GITEA_RUNNER_REGISTRATION_TOKEN_FILE
 
@@ -511,7 +511,7 @@ docker compose up
 
 В Gitea мы должны увидеть наш зарегистрированный раннер:
 
-![](/public/img/giteaalt.png)
+<ImageZoom src="/img/giteaalt.png" />
 
 Там мы должны увидеть нашу метку.
 
@@ -614,7 +614,7 @@ docker push localhost:5000/alt-p11-rpmbuild
 
 Проверяем, что наш образ определился:
 
-![](/public/img/altp11rpmbuild.png)
+<ImageZoom src="/img/altp11rpmbuild.png" />
 
 #### Workflow
 
@@ -657,7 +657,7 @@ jobs:
 
 В итоге должно получиться примерно следующее:
 
-![alt text](/public/img/image.png)
+<ImageZoom src="/img/image.png" />
 
 (Если нет файла Readme, это не проблема)
 
@@ -667,23 +667,23 @@ jobs:
 
 Заходим в раздел Релизы:
 
-![alt text](/public/img/image-0.png)
+<ImageZoom src="/img/image-0.png" />
 
 Справа вверху кнопка Новый релиз. Нажимаем её и переходим в создание релиза.
 
 Минимально достаточно лишь придумать номер тэга. В нашем случае, в workflow файле было указано правило, что сборка будет произведена только тогда, когда номер тэга будет в виде например: v0.0.1
 
-![alt text](/public/img/image-2.png)
+<ImageZoom src="/img/image-2.png" />
 
 Указываем номер тэга и нажимаем внизу Создать только тэг.
 
 Сразу же запустится Действие. 
 
-![alt text](/public/img/image-222.png)
+<ImageZoom src="/img/image-222.png" />
 
 После его завершения, если зайти в раздел Релизы, то можно будет увидеть созданный релиз, в котором будут содержаться как исходные коды, так и собранные пакеты:
 
-![alt text](/public/img/image-3.png)
+<ImageZoom src="/img/image-3.png" />
 
 ### Пример: сборка HASHER
 
@@ -1152,4 +1152,4 @@ Gitea поддерживает следующие методы аутентиф�
 
 Вы  можете создать токен API через веб-интерфейс вашей установки Gitea: Настройки - Приложения - Создать новый токен.
 
-![alt text](/public/img/generate-api-token.png)
+<ImageZoom src="/img/generate-api-token.png" />

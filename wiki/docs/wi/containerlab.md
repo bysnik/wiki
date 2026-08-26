@@ -1,6 +1,6 @@
 # Containerlab
 
-![](/public/img/clab.png)
+<ImageZoom src="/img/clab.png" />
 
 ## Установка
 

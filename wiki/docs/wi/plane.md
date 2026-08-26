@@ -1,5 +1,5 @@
 # Plane
 
-![](https://plane.so/home/projects.webp)
+<ImageZoom src="https://camo.githubusercontent.com/f4c99421a3db215c0a35c4f27e6062b5d64799f28bc6ca75df3947f95167da5a/68747470733a2f2f6d656469612e646f63732e706c616e652e736f2f4769744875622d726561646d652f6769746875622d776f726b2d6974656d732e77656270" />
 
 https://github.com/makeplane/plane

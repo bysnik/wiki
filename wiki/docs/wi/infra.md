@@ -1,6 +1,6 @@
 # Альт Инфраструктура
 
-![](https://www.basealt.ru/fileadmin/user_upload/products/smart_control_screen/info3_b.png)
+<ImageZoom src="https://www.basealt.ru/fileadmin/user_upload/products/smart_control_screen/info3_b.png" />
 
 https://www.basealt.ru/alt-infrastructure
 

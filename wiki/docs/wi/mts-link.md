@@ -1,6 +1,6 @@
 # MTS Link
 
-![](https://alt-gnome.wiki/mts-link/mts-link-3.png)
+<ImageZoom src="https://alt-gnome.wiki/mts-link/mts-link-3.png" />
 
 ## Установка (Через отдельную перепаковку) (устарело)
 

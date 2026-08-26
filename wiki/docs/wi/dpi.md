@@ -313,7 +313,7 @@ EveBox is a web based Suricata "EVE" event viewer for Elastic Search.
 
 - Homepage and documentation: https://evebox.org
 
-![EveBox](https://evebox.org/img/evebox-inbox-dark.png)
+<ImageZoom src="https://evebox.org/img/evebox-inbox-dark.png" />
 
 ## Features
 

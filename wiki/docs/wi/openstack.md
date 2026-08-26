@@ -1,6 +1,6 @@
 # OpenStack
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/OpenStack%C2%AE_Logo_2016.svg/1200px-OpenStack%C2%AE_Logo_2016.svg.png)
+<ImageZoom src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMOsEufb1Q5syxwm8FJMY7VW3wU_wj0HkeTPZlO0kaoNn9Rctg5wu6wIU&s=10" />
 
 https://docs.openstack.org/kolla-ansible/latest/user/quickstart.html
 

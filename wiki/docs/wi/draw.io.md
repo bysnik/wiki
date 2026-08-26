@@ -1,6 +1,6 @@
 # draw.io
 
-![](https://www.drawio.com/assets/img/blog/simple-mode.png)
+<ImageZoom src="https://www.drawio.com/img/blog/sketch-theme-tutorial.png" />
 
 ## Введение
 

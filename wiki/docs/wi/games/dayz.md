@@ -4,7 +4,7 @@ outline: deep
 
 # Dayz
 
-![](https://i.imgur.com/BvVmvC5.png)
+<ImageZoom src="https://i.imgur.com/BvVmvC5.png" />
 
 ## Установка сервера DayZ
 

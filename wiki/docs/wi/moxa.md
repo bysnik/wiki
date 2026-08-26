@@ -1,6 +1,6 @@
 # Moxa
 
-![](https://cdn.moxa.ru.com/r/d5x9lvQWns4/rs:fit:740:0:1/q:100/plain/files/1/347/37314907/original/moxa_kollaj.jpg@jpg)
+<ImageZoom src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3DJ5sxVltBPCZXaTa_3G4Bcbk74zBjEnyrHfGqE7l-S4TzUXt7zUNwa8&s=10" />
 
 # Устновка Real TTY Linux Kernel 6.x Driver в Альт
 

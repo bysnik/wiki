@@ -1,6 +1,6 @@
 # Steins;Gate Re:boot
 
-![](https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000127391/360e9341342bbd40fb8fcb45a03e174032555c13d8bd30037f6ce343efdd4d28)
+<ImageZoom src="https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/store/software/switch/70010000127391/360e9341342bbd40fb8fcb45a03e174032555c13d8bd30037f6ce343efdd4d28" />
 
 ## на 20.08.2026 Отсуствие озвучки
 
@@ -31,7 +31,7 @@ flatpak install flathub net.davidotek.pupgui2
 
 ### на 23.08.2026
 
-![](/img/sgrerus.jpg)
+<ImageZoom src="/img/sgrerus.jpg" />
 
 https://t.me/SamecApelsina/119 (https://app.filen.io/#/d/c2fced6b-8b91-4de9-9f8c-2027dc4f5067%23303946686168774e7361565f4553317243717630694955442d394a3444586146)
 

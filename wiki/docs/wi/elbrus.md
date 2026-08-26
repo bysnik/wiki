@@ -4,7 +4,7 @@
 
 https://habr.com/ru/news/981424/
 
-![](https://habrastorage.org/r/w1560/getpro/habr/upload_files/880/bdd/323/880bdd32399ab95e46cef4619b7bc151.png)
+<ImageZoom src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/880/bdd/323/880bdd32399ab95e46cef4619b7bc151.png" />
 
 https://git.openelbrus.ru/mcst/qemu
 
@@ -14,7 +14,7 @@ https://dev.mcst.ru/download/
 
 Эмулятор qemu‑e2k обеспечивает возможность, используя операционную систему семейства Linux, запускать прикладные программы для операционных систем семейства Linux в машинных кодах «Эльбрус» (e2k) на ПК с архитектурой x86-64.
 
-![](https://habrastorage.org/r/w1560/getpro/habr/upload_files/289/855/339/2898553399bedad9be565292e40bd1d1.png)
+<ImageZoom src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/289/855/339/2898553399bedad9be565292e40bd1d1.png" />
 
 Предполагаемые сценарии использования эмулятора QEMU:
 
@@ -34,4 +34,4 @@ QEMU — это универсальное средство эмуляции р�
 
 В сентябре 2025 года состоялся релиз пакетного менеджера RPM 6.0. Примечательно, что это первый выпуск проекта RPM, в который добавлена поддержка архитектуры «Эльбрус» (e2k).
 
-![](https://habrastorage.org/r/w1560/getpro/habr/upload_files/6ae/d2f/d76/6aed2fd7641c5820fbe64f936cb75a1c.png)
+<ImageZoom src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/6ae/d2f/d76/6aed2fd7641c5820fbe64f936cb75a1c.png" />

@@ -1,6 +1,6 @@
 # TeX
 
-![](https://ctan.org/assets/teaser/M/tex-1.png)
+<ImageZoom src="https://ctan.org/assets/teaser/M/tex-1.png" />
 
 https://mydebianblog.blogspot.com/2012/12/latex.html
 

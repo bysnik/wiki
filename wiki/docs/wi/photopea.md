@@ -1,6 +1,6 @@
 # Photopea
 
-![](https://i.imgur.com/aVbU10d.jpeg)
+<ImageZoom src="https://i.imgur.com/aVbU10d.jpeg" />
 
 https://github.com/avisra/photopea
 

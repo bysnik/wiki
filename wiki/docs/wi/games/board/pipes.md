@@ -6,7 +6,7 @@ punkx.org/unix-pipe-game/
 
 Игра предполагает, что родитель знает основные unix-команды: `cat, grep, tail, head, wc, sort, uniq`. Родитель также должен показать эти команды в действии на компьютере. Если у вас нет UNIX-системы, вы можете использовать [jslinux](https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192) в вашем браузере.
 
-![Deck](https://punkx.org/unix-pipe-game/photos/deck.jpg)
+<ImageZoom src="https://punkx.org/unix-pipe-game/photos/deck.jpg" />
 
 - распечатайте сами: [unix-pipe-cards.pdf](unix-pipe-cards.pdf), [unix-pipe-box.pdf](unix-pipe-box.pdf)
 - код: [unix-pipe-game](https://github.com/jackdoe/programming-for-kids/tree/master/projects/unix-pipe-game)
@@ -27,7 +27,7 @@ punkx.org/unix-pipe-game/
 cat 03.txt | sort | uniq -c | sort -n | tail -1
 ```
 
-![Example](https://punkx.org/unix-pipe-game/photos/example.jpg)
+<ImageZoom src="https://punkx.org/unix-pipe-game/photos/example.jpg" />
 
 ---
 
@@ -75,4 +75,4 @@ cat 03.txt | sort | uniq -c | sort -n | tail -1
 
 Вот как выглядят колоды карт:
 
-![Many decks](https://punkx.org/unix-pipe-game/photos/many-decks.jpg)
+<ImageZoom src="https://punkx.org/unix-pipe-game/photos/many-decks.jpg" />

@@ -1,6 +1,6 @@
 # Moodle
 
-![](https://moodle.org/theme/moodleorg/pix/moodle_logo_TM.svg)
+<ImageZoom src="https://moodle.org/theme/moodleorg/pix/moodle_logo_TM.svg" />
 
 https://gist.github.com/burningTyger/9a8be114731a3cc041d7689247bbdd52 отсюда подсмотрим Nginx, не только апачем едины
 

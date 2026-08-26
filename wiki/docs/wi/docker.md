@@ -1,6 +1,6 @@
 # Docker
 
-![](https://1000logos.net/wp-content/uploads/2021/11/Docker-Logo-2015.png)
+<ImageZoom src="https://1000logos.net/wp-content/uploads/2021/11/Docker-Logo-2015.png" />
 
 Docker – это открытая платформа для разработки, доставки и запуска приложений. Состоит из утилиты командной строки docker, которая вызывает одноименный сервис (сервис является потенциальной единой точкой отказа) и требует права доступа root. По умолчанию использует в качестве Container Runtime runc. Все файлы Docker (образы, контейнеры и др.) по умолчанию хранятся в каталоге /var/lib/docker.
 
@@ -112,7 +112,7 @@ docker run -it altlinux:p11 /bin/bash
 
 ## Docker Desktop
 
-![](https://lh7-qw.googleusercontent.com/docsz/AD_4nXcJUyHMeleX4bZxoPwzJazF7wNsJEBRZR7Cu-fZEXebsi5Z4bnUpxda07yLkHN2OgpSLFEezCPG4hq3vVLAK1Sk-59E_2tJ2hqDQgR3sN2ExnSKu3EqRsiQESojTBn1TNTFaklM?key=5K-4atmrx18Kq4xriCXX3JiH)
+<ImageZoom src="https://lh7-qw.googleusercontent.com/docsz/AD_4nXcJUyHMeleX4bZxoPwzJazF7wNsJEBRZR7Cu-fZEXebsi5Z4bnUpxda07yLkHN2OgpSLFEezCPG4hq3vVLAK1Sk-59E_2tJ2hqDQgR3sN2ExnSKu3EqRsiQESojTBn1TNTFaklM?key=5K-4atmrx18Kq4xriCXX3JiH" />
 
 https://docs.docker.com/desktop/troubleshoot-and-support/faqs/linuxfaqs/
 

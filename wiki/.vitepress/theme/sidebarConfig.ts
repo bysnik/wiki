@@ -357,13 +357,16 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
       text: 'Git и репозитории',
       collapsed: true,
       items: [
-        { text: 'Forgejo', link: '/docs/wi/forgejo' },
+        { text: '0 Apache Allura', link: '/docs/wi/allura' }, // https://github.com/apache/allura
+        { text: '! Forgejo', link: '/docs/wi/forgejo' },
         { text: 'Git', link: '/docs/wi/git' },
+        { text: '0 GitBucket', link: '/docs/wi/gitbucket' }, // https://github.com/gitbucket/gitbucket
         { text: 'Gitea', link: '/docs/wi/gitea' },
         { text: '! GitFlic', link: '/docs/wi/gitflic' },
-        { text: 'GitHub Actions', link: '/docs/wi/github-actions' },
-        { text: 'GitLab', link: '/docs/wi/gitlab' },
+        { text: '! GitHub Actions', link: '/docs/wi/github-actions' },
+        { text: '! GitLab', link: '/docs/wi/gitlab' },
         { text: 'Git и Obsidian', link: '/docs/wi/git-obsidian' },
+        { text: '0 sourcehut', link: '/docs/wi/sourcehut' }, // https://man.sr.ht/installation.md
       ]
     },
 

@@ -1,6 +1,6 @@
 # SAP
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/1280px-SAP_2011_logo.svg.png)
+<ImageZoom src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/1280px-SAP_2011_logo.svg.png" />
 
 SAP SE — ведущая немецкая компания и одноименная система планирования ресурсов предприятия (ERP), предназначенная для автоматизации бизнес-процессов: финансов, логистики, HR и закупок. SAP объединяет все отделы компании в единую информационную среду. Компания занимает третье место в мире по разработке ПО.
 

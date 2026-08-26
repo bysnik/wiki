@@ -1,7 +1,7 @@
 # Kyocera Ecosys MA4500x
 
 Я так понял, они бывают в различных конфигурациях
-![](https://www.kyoceradocumentsolutions.eu/content/dam/kyocera/common/products/mfp/ECOSYSMA4500X/square-540x540.ECOSYS-MA4500x.png)
+<ImageZoom src="https://www.kyoceradocumentsolutions.eu/content/dam/kyocera/common/products/mfp/ECOSYSMA4500X/square-540x540.ECOSYS-MA4500x.png" />
 
 # Установка драйвера на принтер (CUPS)
 

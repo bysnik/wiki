@@ -4,7 +4,7 @@ outline: deep
 
 # Harbor
 
-![](https://habrastorage.org/r/w1560/webt/to/ed/6i/toed6ijlvl_n0r90t6rgvmzbixa.png)
+<ImageZoom src="https://habrastorage.org/r/w1560/webt/to/ed/6i/toed6ijlvl_n0r90t6rgvmzbixa.png" />
 
 Harbor — это бесплатный реестр для хранения Docker и Podman образов c открытым исходным кодом, который предоставляет доступ к образам с помощью политик, а также умеет сканировать образы на наличие уязвимостей.
 
@@ -73,15 +73,15 @@ storage_service:
 ```
 
 1. Регион `ru-central-1` работать не будет. Как я понял, отрабатывают ТОЛЬКО [стандартные AWS регионы](https://github.com/aws/aws-sdk-go/blob/v1.44.130/aws/endpoints/defaults.go#L141). Иначе вот такая ошибка:
-![alt text](/public/img/harbor-minio-region-panic.png)
+<ImageZoom src="/img/harbor-minio-region-panic.png" />
 
 2. Вот эта ошибка происходит если использовать `endpoint`, а не `regionendpoint` (можно указывать и IP в качестве URL, главное протокол и порт не забудьте):
-![alt text](/public/img/harbor-minio-hell.png)
+<ImageZoom src="/img/harbor-minio-hell.png" />
 
 3. Если у Вас кластер - он должен быть за балансировщиком, или, если по простому, указать только одну ноду, иначе не работает - синтаксис не позволяет указать несколько нод.
 
 4. Кажется, эта ошибка вознокает, если аналогичный Image уже лежит в проекте (в смысле, один образ с разными тегами):
-![alt text](/public/img/harbor-minio-encrypt.png)
+<ImageZoom src="/img/harbor-minio-encrypt.png" />
 
 P.S. Чисто чтобы понимали - это единственная [более-менее официальная документация по настройки связки Harbor-MinIO](https://blog.min.io/how-to-use-vmware-harbor-with-minio/)
 

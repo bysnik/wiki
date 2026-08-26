@@ -403,7 +403,7 @@ Aug 29 14:17:35 backup Keepalived_vrrp[1037]: (VI_1) Entering MASTER STATE
 
 В панели управления добавим новый публичный адрес и привяжем его к порту. Для этого перейдем в карточку приватной сети 192.168.10.0/24 на вкладку Порты, добавим новый порт с адресацией 192.168.10.22 и подключим публичный адрес 87.228.8.202.
 
-![](https://6ef4e6a1-9d49-47ac-bfed-170f67a815cf.selcdn.net/blog/wp-content/uploads/2024/10/unnamed-1.png)
+<ImageZoom src="https://6ef4e6a1-9d49-47ac-bfed-170f67a815cf.selcdn.net/blog/wp-content/uploads/2024/10/unnamed-1.png" />
 
 Перезапустим службу Keepalived:
 

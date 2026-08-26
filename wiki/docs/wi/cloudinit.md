@@ -1,7 +1,7 @@
 
 # Cloud-init
 
-![alt text](https://habrastorage.org/getpro/habr/upload_files/901/939/bf5/901939bf5394112ee22a760f230c8ab0.png)
+<ImageZoom src="https://habrastorage.org/getpro/habr/upload_files/901/939/bf5/901939bf5394112ee22a760f230c8ab0.png" />
 
 cloud-init это программа для инициализации виртуальных машин, обычно применяющаяся в облачных платформах. Но использовать cloud-init можно и локально. Примеры конфигурационных файлов - https://cloudinit.readthedocs.io/en/latest/topics/examples.html.
 Использование с qemu

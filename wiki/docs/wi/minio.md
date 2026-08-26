@@ -4,7 +4,7 @@ outline: deep
 
 # MinIO
 
-![](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F1kco4frqn1sh3y3umvye.png)
+<ImageZoom src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F1kco4frqn1sh3y3umvye.png" />
 
 MinIO — это высокопроизводительное, легковесное объектное хранилище данных с открытым исходным кодом, совместимое с Amazon S3 API, предназначенное для работы в облачных и локальных средах. Оно обеспечивает масштабируемое и отказоустойчивое хранение больших объёмов неструктурированных данных, таких как изображения, видео, логи и резервные копии, поддерживая при этом высокую скорость доступа и минимальные задержки. Благодаря модульной архитектуре и простоте развёртывания MinIO идеально подходит для Kubernetes, edge-устройств и гибридных инфраструктур, предлагая инструменты для репликации, шифрования и управления доступом через IAM-подобную политику. Его эффективность и низкие требования к ресурсам делают его популярным выбором для DevOps, разработчиков и компаний, ищущих S3-совместимое решение без сложностей традиционных облачных хранилищ.
 
@@ -288,7 +288,7 @@ mc alias set myminio http://minio1.example.com:9000 <MINIO_ROOT_USER> <MINIO_ROO
 ```bash
 mc admin info myminio
 ```
-![minio-cluster-status](/img/minio-cluster-status.png)
+<ImageZoom src="/img/minio-cluster-status.png" />
 
 
 ### Шаг 10. Создание бакета
@@ -313,7 +313,7 @@ mc mb -p myminio/testbucket --region=ru-central-1
 
 ## Проблема: отсутствие панели администратора в веб-интерфейсе
 
-![minio-console](/img/minio.png)
+<ImageZoom src="/img/minio.png" />
 
 ::: tip Цитата со страницы [документации](https://docs.min.io/community/minio-object-store/administration/minio-console.html)
 Изменено в версии `RELEASE.2025-05-24T17-08-30Z`: Консоль теперь предоставляет только возможности обозревателя объектов, аналогичные доступным в `mc` инструменте. Для административных действий, таких как управление пользователями, используйте команду `mc admin`

@@ -1,6 +1,6 @@
 # Portainer
 
-![](https://cdn.prod.website-files.com/69bc83ff083bf63749b6bdcb/69bc83ff083bf63749b6cb90_95617e26.png)
+<ImageZoom src="https://cdn.prod.website-files.com/69bc83ff083bf63749b6bdcb/69bc83ff083bf63749b6cb90_95617e26.png" />
 
 **Portainer** — это бесплатный веб-интерфейс для управления Docker и Kubernetes, который позволяет в пару кликов разворачивать, мониторить и обслуживать контейнеры, не залезая в командную строку, и подходит как для локальных сред, так и для продакшн-кластеров.
 

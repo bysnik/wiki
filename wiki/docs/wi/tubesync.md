@@ -1,6 +1,6 @@
 # TubeSync
 
-![](https://mariushosting.com/wp-content/uploads/2022/01/TubeSync-Synology-NAS-Set-up-6-new.png)
+<ImageZoom src="https://mariushosting.com/wp-content/uploads/2022/01/TubeSync-Synology-NAS-Set-up-6-new.png" />
 
 https://github.com/meeb/tubesync
 

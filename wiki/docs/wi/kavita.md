@@ -1,6 +1,6 @@
 # Kavita
 
-![](https://private-user-images.githubusercontent.com/735851/367529276-f016b34f-3c4c-4f07-8e72-12cd6f4e71ea.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzIxOTEwMDUsIm5iZiI6MTc3MjE5MDcwNSwicGF0aCI6Ii83MzU4NTEvMzY3NTI5Mjc2LWYwMTZiMzRmLTNjNGMtNGYwNy04ZTcyLTEyY2Q2ZjRlNzFlYS5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMjI3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDIyN1QxMTExNDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jZjUwZjIwMWFkNDgwMWI3YWNjZTRjNTdhNzFiMzQyYTVmNGQ0YTM1NDM2MTU4YzQ1N2YyZGE1YzA4NzIxZWI4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.QIkAh2Enu7Y5CAMrxl1CBtNvNVkWhd8uvGNjRT3xU6Q)
+<ImageZoom src="https://private-user-images.githubusercontent.com/735851/367529276-f016b34f-3c4c-4f07-8e72-12cd6f4e71ea.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODc3NDU2ODMsIm5iZiI6MTc4Nzc0NTM4MywicGF0aCI6Ii83MzU4NTEvMzY3NTI5Mjc2LWYwMTZiMzRmLTNjNGMtNGYwNy04ZTcyLTEyY2Q2ZjRlNzFlYS5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwODI2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDgyNlQxMTU2MjNaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kMWFiMTE4ZTRhYzE5ZmVhNWI0NzE3MTZiMjYyYTlkZTA0NzBjMDA3YWU2M2QwY2ZhYzU5ZTc5YTA5MTEwMDcwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZyZXNwb25zZS1jb250ZW50LXR5cGU9aW1hZ2UlMkZnaWYifQ.VnxpEPq5IkYVm_5ISSwQchaS5YBXKAg_mm9NYP2r6Dw" />
 
 Kavita is a fast, feature rich, cross-platform reading server. Built with a focus for being a full solution for all your reading needs. Set up your own server and share your reading collection with your friends and family!
 
@@ -439,7 +439,7 @@ PDF в первую очередь парсятся на основе [спец�
 Kavita сканирует PDF в два этапа. На первом этапе извлекаются внутренние метаданные. Если серия отсутствует, Kavita будет использовать заголовок, а если заголовок отсутствует, то будет использован резервный парсер имён файлов. На втором этапе имя файла будет использовано для заполнения недостающей информации, которая будет включена в Kavita.
 Для управления метаданными на PDF следует использовать [Calibre](https://wiki.kavitareader.com/guides/external-tools/calibre/). Использование тегов Series и Title гарантирует, что элементы будут правильно сгруппированы в Kavita.
 ## Пользовательские темы
-![Theme Manager](https://wiki.kavitareader.com/_next/static/media/theme-manager.97ba1d86.png)
+<ImageZoom src="https://wiki.kavitareader.com/_next/static/media/theme-manager.97ba1d86.png" />
 Kavita поддерживает настройку большинства цветов через темы. Вы можете создать свою собственную тему или поделиться ею через наш [репозиторий тем](https://github.com/Kareadita/Themes) и загружать/обновлять её с помощью встроенного клиента.
 Есть несколько вещей, которые следует учитывать:
 - Вам нужно добавить только те переменные, которые вы хотите переопределить, или любой пользовательский CSS

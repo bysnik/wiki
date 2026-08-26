@@ -1,6 +1,6 @@
 # iVentoy
 
-![](https://www.bachmann-lan.de/wp-content/uploads/2023/07/iventoy-webui-boot-information.png)
+<ImageZoom src="https://www.bachmann-lan.de/wp-content/uploads/2023/07/iventoy-webui-boot-information.png" />
 
 https://www.iventoy.com/en/index.html
 

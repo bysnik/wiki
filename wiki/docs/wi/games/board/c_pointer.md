@@ -4,10 +4,10 @@ https://punkx.org/c-pointer-game/
 
 Одна из самых сложных для понимания концепций в современном программировании — это разница между **значением** и **ссылкой**. Эта игра призвана помочь с этим. Родителю нужно немного знать язык C, чтобы играть.
 
-[![Deck](https://punkx.org/c-pointer-game/photos/deck.jpg)](https://punkx.org/c-pointer-game/photos/deck.jpg)
-[![Deck 1](https://punkx.org/c-pointer-game/photos/deck1.jpg)](https://punkx.org/c-pointer-game/photos/deck1.jpg)
-[![Deck 2](https://punkx.org/c-pointer-game/photos/deck2.jpg)](https://punkx.org/c-pointer-game/photos/deck2.jpg)
-[![Deck 3](https://punkx.org/c-pointer-game/photos/deck3.jpg)](https://punkx.org/c-pointer-game/photos/deck3.jpg)
+[<ImageZoom src="https://punkx.org/c-pointer-game/photos/deck.jpg" />](https://punkx.org/c-pointer-game/photos/deck.jpg)
+[<ImageZoom src="https://punkx.org/c-pointer-game/photos/deck1.jpg" />](https://punkx.org/c-pointer-game/photos/deck1.jpg)
+[<ImageZoom src="https://punkx.org/c-pointer-game/photos/deck2.jpg" />](https://punkx.org/c-pointer-game/photos/deck2.jpg)
+[<ImageZoom src="https://punkx.org/c-pointer-game/photos/deck3.jpg" />](https://punkx.org/c-pointer-game/photos/deck3.jpg)
 
 ~~**Купить сейчас: €5,00 EUR**~~ [ распродано ]
 
@@ -82,7 +82,7 @@ print(b)
 
 ## Пример раунда:
 
-[![Example 1](https://punkx.org/c-pointer-game/photos/example1.jpg)](https://punkx.org/c-pointer-game/photos/example1.jpg)
-[![Example 2](https://punkx.org/c-pointer-game/photos/example2.jpg)](https://punkx.org/c-pointer-game/photos/example2.jpg)
+[<ImageZoom src="https://punkx.org/c-pointer-game/photos/example1.jpg" />](https://punkx.org/c-pointer-game/photos/example1.jpg)
+[<ImageZoom src="https://punkx.org/c-pointer-game/photos/example2.jpg" />](https://punkx.org/c-pointer-game/photos/example2.jpg)
 
 > **P.S.:** Я пытался подобрать синий цвет коробки под синий цвет книги Кернигана и Ритчи (K&R), но, к сожалению, он немного отличается — я всё ещё привыкаю к цветам CMYK.

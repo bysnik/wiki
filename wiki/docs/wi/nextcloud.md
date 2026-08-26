@@ -202,7 +202,7 @@ $ apt-cache depends nextcloud nextcloud-apache2
   
 Далее переходим по ссылке [http://your\_web\_server\_adress/setup-nextcloud.php](http://your_web_server_adress/setup-nextcloud.php) и следуем инструкциям установщика.
 
-[![](https://www.altlinux.org/Images.www.altlinux.org/5/5f/NextcloudInstallFolder.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudInstallFolder.png)
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/5/5f/NextcloudInstallFolder.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudInstallFolder.png)
 
 Установка Nextcloud. Проверка зависимостей и выбор каталога
 
@@ -241,7 +241,7 @@ $ apt-cache depends nextcloud nextcloud-apache2
 
 ## Завершение установки
 
-[![](https://www.altlinux.org/Images.www.altlinux.org/2/26/NextcloudInstallSQLite.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudInstallSQLite.png)
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/2/26/NextcloudInstallSQLite.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudInstallSQLite.png)
 
 Установка Nextcloud с базой данных SQLite
 
@@ -259,7 +259,7 @@ $ apt-cache depends nextcloud nextcloud-apache2
 
 #### MySQL/MariaDB для Nextcloud
 
-[![](https://www.altlinux.org/Images.www.altlinux.org/6/6d/NextcloudInstallMySQL.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudInstallMySQL.png)
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/6/6d/NextcloudInstallMySQL.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudInstallMySQL.png)
 
 Установка Nextcloud с базой данных MySQL
 
@@ -303,7 +303,7 @@ $ apt-cache depends nextcloud nextcloud-apache2
 # apt-get install postgresql14-server php8.2-{pgsql,pdo_pgsql}
 ```
 
-[![](https://www.altlinux.org/Images.www.altlinux.org/7/7a/NextcloudInstallPostgreSQL.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudInstallPostgreSQL.png)
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/7/7a/NextcloudInstallPostgreSQL.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudInstallPostgreSQL.png)
 
 Установка Nextcloud с базой данных PostgreSQL
 
@@ -530,9 +530,9 @@ Collabora Online это мощный онлайн офисный пакет, о�
 
 1. Установить приложение «Collabora Online - Built-in CODE Server» («Значок пользователя» → «Приложения» → «Офис и текст» → «Collabora Online - Built-in CODE Server» -> «Скачать и включить»).
 2. Установить приложение «Nextcloud Office» («Значок пользователя» → «Приложения» → «Офис и текст» → «Nextcloud Office» -> «Скачать и включить»).
-	[![Установленные приложения в Nextcloud](https://www.altlinux.org/Images.www.altlinux.org/thumb/f/f3/Nextcloud_collabora02.png/800px-Nextcloud_collabora02.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloud_collabora02.png "Установленные приложения в Nextcloud")
+	[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/thumb/f/f3/Nextcloud_collabora02.png/800px-Nextcloud_collabora02.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloud_collabora02.png "Установленные приложения в Nextcloud")
 3. Перейти в «Значок пользователя» → «Параметры сервера» → «Офис» и выбрать пункт «Использовать встраиваемый сервер CODE (Collabora Online Development Edition)»:
-	[![Настройка встроенного сервера Collabora в Nextcloud](https://www.altlinux.org/Images.www.altlinux.org/thumb/1/17/Nextcloud_collabora01.png/800px-Nextcloud_collabora01.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloud_collabora01.png "Настройка встроенного сервера Collabora в Nextcloud")
+	[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/thumb/1/17/Nextcloud_collabora01.png/800px-Nextcloud_collabora01.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloud_collabora01.png "Настройка встроенного сервера Collabora в Nextcloud")
 
   
 
@@ -557,7 +557,7 @@ location ~ ^/(?:index|remote|public|cron|core/ajax/update|status|ocs/v[12]|updat
   
 Перейти к папкам и файлам на облачном сервисе. Попробовать открыть любой документ или создать новый — он должен открыться в Collabora:
 
-[![Редактирование документа в браузере](https://www.altlinux.org/Images.www.altlinux.org/thumb/d/de/Nextcloud_collabora03.png/800px-Nextcloud_collabora03.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloud_collabora03.png "Редактирование документа в браузере")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/thumb/d/de/Nextcloud_collabora03.png/800px-Nextcloud_collabora03.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloud_collabora03.png "Редактирование документа в браузере")
 
 ### Собственный сервер Collabora Online
 
@@ -787,12 +787,12 @@ DNS-имена должны разрешаться как на сервере, �
 
 1. Установить приложение «Nextcloud Office» («Приложения» → «Офис и текст» → «Nextcloud Office» -> «Скачать и включить»).
 2. Перейти в «Параметры сервера» → «Офис»/«Набор офисных приложений для Nextcloud», выбрать пункт «Использовать собственный сервер». В поле «URL-адрес (и порт) сервера документов Collabora Online» указать адрес сервера Collabora с портом ([https://nextcloud.test.alt:4443](https://nextcloud.test.alt:4443/)):
-	[![Настройка Collabora Online в Nextcloud](https://www.altlinux.org/Images.www.altlinux.org/1/18/NextcloudCollaboraOnline.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudCollaboraOnline.png "Настройка Collabora Online в Nextcloud")
+	[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/1/18/NextcloudCollaboraOnline.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudCollaboraOnline.png "Настройка Collabora Online в Nextcloud")
 3. Если сертификат самоподписной или если, например, нет полной цепочки, то необходимо установить отметку «Отключить проверку сертификата (небезопасно)».
 
 Перейти к папкам и файлам на облачном сервисе. Попробовать открыть любой документ или создать новый — он должен открыться в Collabora:
 
-[![Редактирование документа в браузере](https://www.altlinux.org/Images.www.altlinux.org/thumb/d/de/Nextcloud_collabora03.png/800px-Nextcloud_collabora03.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloud_collabora03.png "Редактирование документа в браузере")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/thumb/d/de/Nextcloud_collabora03.png/800px-Nextcloud_collabora03.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloud_collabora03.png "Редактирование документа в браузере")
 
 **Примечание:** Проверьте записи «Allow list for WOPI requests»: очистите список для тестирования, затем добавьте IP-адреса по мере необходимости.
 
@@ -846,7 +846,7 @@ Nextcloud поставляется с приложением LDAP, позвол�
 - DN пользователя: uid=nextcloud,cn=users,cn=accounts,dc=example,dc=test
 - база поиска (Base DN): dc=example,dc=test
 
-[![Интеграция с LDAP. Вкладка «Сервер»](https://www.altlinux.org/Images.www.altlinux.org/a/a7/Nextcloudldap01.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap01.png "Интеграция с LDAP. Вкладка «Сервер»")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/a/a7/Nextcloudldap01.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap01.png "Интеграция с LDAP. Вкладка «Сервер»")
 
 **Примечание:** В разных реализациях LDAP могут быть разные требования для указания учётной записи пользователя.
 
@@ -857,20 +857,20 @@ Nextcloud поставляется с приложением LDAP, позвол�
 
 На вкладке «Пользователи» («Users») следует указать, какие пользователи LDAP будут отображаться как пользователи Nextcloud. В поле «Фильтр LDAP» указать: (|(objectclass=inetorgperson)(objectclass=person))
 
-[![Интеграция с LDAP. Вкладка «Пользователи»](https://www.altlinux.org/Images.www.altlinux.org/9/9c/Nextcloudldap02.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap02.png "Интеграция с LDAP. Вкладка «Пользователи»")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/9/9c/Nextcloudldap02.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap02.png "Интеграция с LDAP. Вкладка «Пользователи»")
 
 На вкладке «Учетные данные» («Login Attributes») следует указать атрибуты, которые можно будет использовать в качестве логина. Например:
 
 - (&(|(objectclass=person))(|(uid=%uid)(|(mailPrimaryAddress=%uid)(mail=%uid)))) — в качестве логина можно использовать имя пользователя или email;
 - (&(|(objectclass=inetorgperson)(objectclass=person))(uid=%uid)) — в качестве логина можно использовать имя пользователя.
 
-[![Интеграция с LDAP. Вкладка «Учетные данные»](https://www.altlinux.org/Images.www.altlinux.org/c/cb/Nextcloudldap03.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap03.png "Интеграция с LDAP. Вкладка «Учетные данные»")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/c/cb/Nextcloudldap03.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap03.png "Интеграция с LDAP. Вкладка «Учетные данные»")
 
 Проверить данную настройку можно, вписав пользователя FreeIPA в поле «Проверить логин» и нажав на кнопку «Проверить настройки».
 
 На вкладке «Группы» («Groups») необходимо задать фильтры для групп (например, (|(cn=ipausers))):
 
-[![Интеграция с LDAP. Вкладка «Группы»](https://www.altlinux.org/Images.www.altlinux.org/c/c4/Nextcloudldap04.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap04.png "Интеграция с LDAP. Вкладка «Группы»")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/c/c4/Nextcloudldap04.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap04.png "Интеграция с LDAP. Вкладка «Группы»")
 
 Вкладка «Дополнительно» («Advanced») -> раздел «Настройки каталога» («Directory Settings»):
 
@@ -878,20 +878,20 @@ Nextcloud поставляется с приложением LDAP, позвол�
 - «База дерева пользователей» («Base User Tree»): cn=users,cn=accounts,dc=example,dc=test
 - «База дерева групп» («Base Group Tree»): cn=groups,cn=accounts,dc=example,dc=test
 
-[![Интеграция с LDAP. Вкладка «Дополнительно»](https://www.altlinux.org/Images.www.altlinux.org/4/4c/Nextcloudldap05.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap05.png "Интеграция с LDAP. Вкладка «Дополнительно»")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/4/4c/Nextcloudldap05.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap05.png "Интеграция с LDAP. Вкладка «Дополнительно»")
 
 Вкладка «Эксперт» («Expert»):
 
 - «Атрибут для внутреннего имени» («Internal Username Attribute»): uid
 - «UUID-атрибуты для пользователей» («UUID Attribute for Users»): uid
 
-[![Интеграция с LDAP. Вкладка «Эксперт»](https://www.altlinux.org/Images.www.altlinux.org/5/51/Nextcloudldap06.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap06.png "Интеграция с LDAP. Вкладка «Эксперт»")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/5/51/Nextcloudldap06.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Nextcloudldap06.png "Интеграция с LDAP. Вкладка «Эксперт»")
 
 Проверить конфигурацию, нажав на кнопку «Проверить конфигурацию».
 
 Просмотреть список пользователей можно в разделе «Пользователи» (должны подгрузиться пользователи из ldap):
 
-[![Пользователи Nextcloud](https://www.altlinux.org/Images.www.altlinux.org/thumb/9/95/NextcloudldapUsers.png/800px-NextcloudldapUsers.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudldapUsers.png "Пользователи Nextcloud")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/thumb/9/95/NextcloudldapUsers.png/800px-NextcloudldapUsers.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudldapUsers.png "Пользователи Nextcloud")
 
 Теперь можно попробовать зайти доменным пользователем используя свой логин и пароль.
 
@@ -904,7 +904,7 @@ Nextcloud поставляется с приложением LDAP, позвол�
 
 Далее перейти на страницу администрирования Nextcloud: «Параметры сервера» -> «Подтверждение подлинности SSO и SAML» («SSO & SAML authentication»), выбрать пункт «Использовать переменные окружения», указать переменную **REMOTE\_USER**, установить отметку «Разрешайте аутентификацию только в том случае, если учетная запись существует на каком-либо другом бэкэнде (например, LDAP)», чтобы SSO пускал только известных пользователей.
 
-[![Подтверждение подлинности SSO и SAML](https://www.altlinux.org/Images.www.altlinux.org/4/49/NextcloudSSO01.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudSSO01.png "Подтверждение подлинности SSO и SAML")
+[<ImageZoom src="https://www.altlinux.org/Images.www.altlinux.org/4/49/NextcloudSSO01.png" />](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:NextcloudSSO01.png "Подтверждение подлинности SSO и SAML")
 
 ## Примечания
 

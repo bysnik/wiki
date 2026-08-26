@@ -1,6 +1,6 @@
 # RARS Emulator
 
-![alt text](/public/img/rars-1.png)
+<ImageZoom src="/img/rars-1.png" />
 
 RARS (RISC-V Assembler, Simulator, and Runtime) транслирует и симулирует выполнение программ, написанных на языке ассемблера RISC-V. Его основная цель — быть эффективной средой разработки для начинающих знакомиться с RISC-V.
 
@@ -24,7 +24,7 @@ java -jar rars1_6.jar
 
 
 Можно создать пункт в меню (пример для KDE):
-![alt text](/public/img/rars.png)
+<ImageZoom src="/img/rars.png" />
 
 ## Пример: hello-world
 
@@ -58,4 +58,4 @@ _start: addi  a0, x0, 1      # 1 = StdOut (стандартный вывод)
 .data
 helloworld:      .ascii "Hello World!\n"
 ```
-![alt text](/public/img/rars-hello-world.png)
+<ImageZoom src="/img/rars-hello-world.png" />

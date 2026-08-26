@@ -1,6 +1,6 @@
 # Arknights:Endfield
 
-![](https://preview.redd.it/arknights-endfield-release-discussion-megathread-v0-wq266i4tgceg1.jpg?width=1920&format=pjpg&auto=webp&s=888aa2d796932adcc47677f543da2a49fe837e72)
+<ImageZoom src="https://preview.redd.it/arknights-endfield-release-discussion-megathread-v0-wq266i4tgceg1.jpg?width=1920&format=pjpg&auto=webp&s=888aa2d796932adcc47677f543da2a49fe837e72" />
 
 Спасибо людям с сайта [LINUX-GAMING.RU](https://linux-gaming.ru/t/problema-s-zapuskom-arknights-endfield/4451)
 
@@ -14,4 +14,4 @@
 
 Что-то типа такого:
 
-![](/img/arknightendfield.png)
+<ImageZoom src="/img/arknightendfield.png" />

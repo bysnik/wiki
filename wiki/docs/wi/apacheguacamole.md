@@ -1,6 +1,6 @@
 # Apache Guacamole
 
-![](https://www.credativ.de/wp-content/uploads/2024/05/Apache_Guacamole-1024x410.png)
+<ImageZoom src="https://www.credativ.de/wp-content/uploads/2024/05/Apache_Guacamole-1024x410.png" />
 
 https://www.altlinux.org/Guacamole
 

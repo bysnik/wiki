@@ -6,7 +6,7 @@ https://punkx.org/unix-pipe-game/ext-0.1/
 
 Дополнение предполагает, что родитель знаком с базовыми unix-командами: `cat, grep, tail, head, wc, sort, uniq, **paste, tr, cut, bc**`. Родитель также должен показать эти команды в действии на компьютере. Если у вас нет UNIX-системы, вы можете использовать [jslinux](https://bellard.org/jslinux/vm.html?url=alpine-x86.cfg&mem=192) в вашем браузере.
 
-[![Deck](https://punkx.org/unix-pipe-game/ext-0.1/photos/deck.jpg)](https://punkx.org/unix-pipe-game/ext-0.1/photos/deck.jpg)
+[<ImageZoom src="https://punkx.org/unix-pipe-game/ext-0.1/photos/deck.jpg" />](https://punkx.org/unix-pipe-game/ext-0.1/photos/deck.jpg)
 
 - распечатайте сами: [unix-pipe-cards-v01.pdf](unix-pipe-cards-ext-v01.pdf), [unix-pipe-ext-v01-box.pdf](unix-pipe-ext-v01-box.pdf)
 - код: [unix-pipe-game/ext-0.1](https://github.com/jackdoe/programming-for-kids/tree/master/projects/unix-pipe-game/ext-0.1)
@@ -31,7 +31,7 @@ https://punkx.org/unix-pipe-game/ext-0.1/
 paste -d/- <(<span style="color:red">cat 03.txt | cut -f 4 -d, | grep -v Rating | paste -sd+ | bc</span>) <(<span style="color:blue">cat 03.txt | grep -v Rating | wc -l</span>) | bc
 ```
 
-[![Example](https://punkx.org/unix-pipe-game/ext-0.1/photos/example.jpg)](https://punkx.org/unix-pipe-game/ext-0.1/photos/example.jpg)
+[<ImageZoom src="https://punkx.org/unix-pipe-game/ext-0.1/photos/example.jpg" />](https://punkx.org/unix-pipe-game/ext-0.1/photos/example.jpg)
 
 ---
 

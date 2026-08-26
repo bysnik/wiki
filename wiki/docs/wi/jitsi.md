@@ -1,6 +1,6 @@
 # Jitsi Meet
 
-![](https://meetrix.io/articles/content/images/2023/07/Jitsi.png)
+<ImageZoom src="https://meetrix.io/articles/content/images/2023/07/Jitsi.png" />
 
 ## Установка пакетов
 
@@ -421,7 +421,7 @@ Getting CA Private Key
 
 Для общения достаточно запустить веб-браузер и перейти на сайт. В нашем примере сервис доступен по адресу: `https://jitsi2.test.alt`:
 
-![Главная страница jitsi-meet](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet1.png)
+<ImageZoom src="https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet1.png" />
 
 Для того чтобы начать новую конференцию, достаточно придумать и ввести название будущей конференции (в имени можно использовать буквы на любом языке и пробелы). Чуть ниже будет отображаться список прошлых созданных конференций.
 
@@ -433,11 +433,11 @@ Getting CA Private Key
 
 Ввести название конференции и нажать кнопку **ОК**. Будет создана конференция:
 
-![Конференция jitsi-meet](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet2.png)
+<ImageZoom src="https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet2.png" />
 
 **Примечание**
 
-После создания конференции браузер попросит дать ему разрешение на использование веб-камеры и микрофона: ![Запрос на использование веб-камеры и микрофона](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet2_2.png)
+После создания конференции браузер попросит дать ему разрешение на использование веб-камеры и микрофона: <ImageZoom src="https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet2_2.png" />
 
 После создания конференции её администратором становится только тот, кто её создал. Администратор может удалять пользователей из конференции, выключать их микрофоны, давать пользователю слово. В случае если администратор покинул конференцию, то её администратором становится тот, кто подключился следующий после него.
 
@@ -445,7 +445,7 @@ Getting CA Private Key
 
 Внизу окна конференции находится панель управления:
 
-![Панель управления jitsi-meet](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-control-panel.png)
+<ImageZoom src="https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-control-panel.png" />
 
 Первая кнопка на панели управления кнопка **Показать экран**. Если нажать на эту кнопку, откроется окно, в котором можно выбрать, что будет демонстрироваться другим участникам конференции. Доступны следующие опции:
 
@@ -453,20 +453,20 @@ Getting CA Private Key
 - окно приложения;
 - определённая вкладка браузера.
 
-![Выбор окна экрана](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet3.png)
+<ImageZoom src="https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet3.png" />
 
 Нажатие на кнопку **Хочу говорить** сигнализирует организатору, что участник хочет говорить. В окне, соответствующем персонажу (справа), появится такой же значок ладони.
 
 Кнопка **Чат** запускает чат в данной конференции:
 
-![Чат конференции jitsi-meet](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-chat.png) Следующие кнопки на панели управления и их назначение:
+<ImageZoom src="https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-chat.png" /> Следующие кнопки на панели управления и их назначение:
 
 - **Микрофон**  — позволяет включать и отключать микрофон;
 - **Завершить**  — выход из конференции;
 - **Камера**  — включение и выключение веб-камеры;
 - **Вкл/Выкл плитку**  — вывести окна собеседников в центр чата;
-- **Информация о чате**  — всплывающее окно, в котором приведена ссылка на конференцию. Здесь же администратор конференции может установить пароль для доступа к конференции: ![Установка пароля для доступа к конференции](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-password.png)
-- **Больше**  — настройка дополнительных функций Jitsi Meet: ![Установка дополнительных функций Jitsi Meet](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-more.png)
+- **Информация о чате**  — всплывающее окно, в котором приведена ссылка на конференцию. Здесь же администратор конференции может установить пароль для доступа к конференции: <ImageZoom src="https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-password.png" />
+- **Больше**  — настройка дополнительных функций Jitsi Meet: <ImageZoom src="https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-more.png" />
 
 
 
@@ -509,4 +509,4 @@ org.jitsi.jicofo.auth.URL=XMPP:jitsi2.test.alt
 # systemctl restart jitsi-videobridge
 ```
 
-Теперь при создании конференции сервер Jitsi Meet будет требовать ввести имя пользователя и пароль: ![Запрос пароля при создании конференции](https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-admin.png)
+Теперь при создании конференции сервер Jitsi Meet будет требовать ввести имя пользователя и пароль: <ImageZoom src="https://docs.altlinux.org/ru-RU/alt-server/10.1/html/alt-server/images/jitsi-meet-admin.png" />

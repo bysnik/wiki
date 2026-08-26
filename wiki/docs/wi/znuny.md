@@ -4,7 +4,7 @@ outline: deep
 
 # Znuny OTRS
 
-![](https://media.licdn.com/dms/image/v2/D4D12AQEkvB14kAEA1A/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1689080388968?e=2147483647&v=beta&t=H2PcishkaF5cppDy5pkpwBUhSe2dY43ZQWnn0X8XDPY)
+<ImageZoom src="https://media.licdn.com/dms/image/v2/D4D12AQEkvB14kAEA1A/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1689080388968?e=2147483647&v=beta&t=H2PcishkaF5cppDy5pkpwBUhSe2dY43ZQWnn0X8XDPY" />
 
 Znuny — это сообщество-ориентированная версия популярной системы управления запросами и инцидентами, изначально известной как OTRS (Open-source Ticket Request System). После того как оригинальный проект OTRS перешёл к коммерческой модели и ограничил функциональность бесплатной версии, сообщество разработчиков и пользователей создало Znuny как полностью открытый и свободный форк OTRS. Znuny сохраняет все ключевые возможности системы: управление тикетами, интеграцию с почтой, гибкие правила обработки обращений, поддержку SLA, а также расширенные возможности для настройки под нужды конкретной организации.
 
@@ -96,7 +96,7 @@ echo httpd-addon.d=yes > /etc/httpd2/conf/extra-start.d/999-otrs.conf
 ::: details Дополнительные настройки
 Вообще, эта заррраза ругается на всякую фигню: ой ой, у тебя не установлен модуль `perl` для `Oracle SQL` и `MS SQL`, вот жешь ты плохой. У тебя не установлена поддержка китайских символов. Ну ты и хад! Ну и т.д.
 
-![](https://www.meme-arsenal.com/memes/b23f273efb17fcd5536ef8eb129fbad7.jpg)
+<ImageZoom src="https://www.meme-arsenal.com/memes/b23f273efb17fcd5536ef8eb129fbad7.jpg" />
 
 Да, плюсом там руготня про оптимизацию.
 

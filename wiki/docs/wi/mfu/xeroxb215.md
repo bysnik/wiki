@@ -1,10 +1,10 @@
 # Xerox B205/B215
 
 Xerox B215
-![](https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQowLwQJqmaw21fYgZWpDfxx-0-D-s_OKGZVPWySMK8I9-5jF5KCzL-QPTeWBgHDCT0ZIM07JVTTU1eLh3ioOGVst95t7tEnPUCCrPpDH4S6URBI9xT5gdLaA)
+<ImageZoom src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQowLwQJqmaw21fYgZWpDfxx-0-D-s_OKGZVPWySMK8I9-5jF5KCzL-QPTeWBgHDCT0ZIM07JVTTU1eLh3ioOGVst95t7tEnPUCCrPpDH4S6URBI9xT5gdLaA" />
 
 Xerox B205
-![](https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQSunayScAZU6gxASKgISwn3KI3yFDakYd-FpztOWYzywfSyk02Vl30BuBNaxIPUqLURq42MdQt2NKn2XsI0UlNA12sY36ymyuFc7ixBoaP_J9Ewc6tq7r2Hg)
+<ImageZoom src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQSunayScAZU6gxASKgISwn3KI3yFDakYd-FpztOWYzywfSyk02Vl30BuBNaxIPUqLURq42MdQt2NKn2XsI0UlNA12sY36ymyuFc7ixBoaP_J9Ewc6tq7r2Hg" />
 
 # Установка драйвера на принтер (CUPS)
 

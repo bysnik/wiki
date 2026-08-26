@@ -1,6 +1,6 @@
 # Torrent File Editor
 
-![](/img/torrent-file-editor.png)
+<ImageZoom src="/img/torrent-file-editor.png" />
 
 https://github.com/torrent-file-editor/torrent-file-editor
 

@@ -1,6 +1,6 @@
 # DupeGuru
 
-![](/img/dupeguru.png)
+<ImageZoom src="/img/dupeguru.png" />
 
 https://github.com/arsenetar/dupeguru
 

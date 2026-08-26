@@ -2,9 +2,9 @@
 
 https://punkjazz.org/programming-time/
 
-[![B](https://punkjazz.org/programming-time/photos/b-800.jpg)](https://punkjazz.org/programming-time/photos/b.jpg)
-[![A](https://punkjazz.org/programming-time/photos/a-800.jpg)](https://punkjazz.org/programming-time/photos/a.jpg)
-[![C](https://punkjazz.org/programming-time/photos/c-800.jpg)](https://punkjazz.org/programming-time/photos/c.jpg)
+[<ImageZoom src="https://punkjazz.org/programming-time/photos/b-800.jpg" />](https://punkjazz.org/programming-time/photos/b.jpg)
+[<ImageZoom src="https://punkjazz.org/programming-time/photos/a-800.jpg" />](https://punkjazz.org/programming-time/photos/a.jpg)
+[<ImageZoom src="https://punkjazz.org/programming-time/photos/c-800.jpg" />](https://punkjazz.org/programming-time/photos/c.jpg)
 
 Я создал эту игру, чтобы улучшить способность моей дочери **читать и отлаживать код**. Каждая карта содержит что-то интересное для изучения. Игра проста: возьмите карту, прочитайте код, бросьте 20-гранный кубик (где бы вы ни увидели символ ⚂), чтобы получить значение, и вместе с ребёнком выполните код.
 
@@ -21,7 +21,7 @@ https://punkjazz.org/programming-time/
 
 ## Примеры карт
 
-[![Example cards](https://punkjazz.org/programming-time/photos/example.jpg)](https://punkjazz.org/programming-time/photos/example.jpg)
+[<ImageZoom src="https://punkjazz.org/programming-time/photos/example.jpg" />](https://punkjazz.org/programming-time/photos/example.jpg)
 
 Как видите, карты охватывают самые разные темы: некоторые более сложные, другие довольно простые, но главное — вы берёте кубик, ручку и бумагу и вместе следуете по коду.
 

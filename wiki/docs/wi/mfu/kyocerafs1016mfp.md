@@ -1,6 +1,6 @@
 # Kyocera FS 1016 MFP
 
-![](https://mega-zapravka.ru/upload/ammina.optimizer/jpg-webp/q80/upload/iblock/aad/aadc85a334c0534ee689e4a55b73f8a5.webp)
+<ImageZoom src="https://static-data2.manualslib.com/product-images/180/643853/kyocera-fs-1016mfp-all-in-one-printer.jpg" />
 
 # Установка драйвера на принтер (CUPS)
 

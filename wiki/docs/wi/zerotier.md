@@ -4,7 +4,7 @@ outline: deep
 
 # ZeroTier
 
-![](https://www.zerotier.com/wp-content/uploads/2025/01/Default-OG-Image.jpg)
+<ImageZoom src="https://www.zerotier.com/wp-content/uploads/2025/01/Default-OG-Image.jpg" />
 
 ZeroTier — это программное обеспечение с открытым исходным кодом, предназначенное для создания виртуальных частных сетей (VPN) на основе концепции «сети как услуги» (Network as a Service). Оно позволяет объединять устройства, находящиеся в разных физических сетях и географических локациях, в одну логическую сеть, как если бы они были подключены к одному локальному коммутатору. Это особенно полезно для удалённой работы, распределённых команд, IoT-устройств или гибридных облачных инфраструктур, где требуется безопасное и прозрачное сетевое взаимодействие.
 
@@ -209,7 +209,7 @@ make ZT_NONFREE=1
 
 Соберём и сделаем автозапуск графического интерфейса клиента, который будет висеть в трее. С помощью него можно подключаться к сетям и чёт там настраивать.
 
-![](/img/ztdui.png)
+<ImageZoom src="/img/ztdui.png" />
 
 ::: warning
 Была попытка сборка именно релиза 1.8.3, а не текущего состояния main ветки (6 октября 2025 года). Там у меня проблема с зависимостями, а именно `tauri-libappindicator-sys` требует именно `appindicator3` которого в Альте нет и ради которого делается патч (при сборке пакета).
@@ -569,10 +569,10 @@ systemctl --user enable --now zerotier-desktop-ui.service
 
 ztncui is a web user interface for a standalone ZeroTier network controller.
 
-![](https://key-networks.com/images/ztncui/07-networks-list.png)
+<ImageZoom src="https://key-networks.com/images/ztncui/07-networks-list.png" />
 
 
-![](https://key-networks.com/images/ztncui/18-members-named.png)
+<ImageZoom src="https://key-networks.com/images/ztncui/18-members-named.png" />
 
 ::: danger
 Вот собранный пакет: [ztncui-0.8.14-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/ztncui-0.8.14-alt1.x86_64.rpm) Так, ну вроде пакет рабочий, я исправил права доступа, теперь вроде как всё нормально

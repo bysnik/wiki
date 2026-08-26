@@ -4,11 +4,11 @@ outline: deep
 
 # Kubernetes
 
-![](https://platform9.com/media/kubernetes-constructs-concepts-architecture.jpg)
+<ImageZoom src="https://platform9.com/media/kubernetes-constructs-concepts-architecture.jpg" />
 
 ## Развёртывание вашего первого приложения
 
-![](https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_02_first_app.svg)
+<ImageZoom src="https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_02_first_app.svg" />
 
 Вы можете создавать и управлять деплойментами через консольный инструмент Kubernetes под названием `kubectl`. Kubectl использует Kubernetes API для работы с кластером. В этом модуле вы узнаете про наиболее используемые команды kubectl, необходимые для создания деплойментов, которые будут запускать приложения в кластере Kubernetes.
 
@@ -144,7 +144,7 @@ curl http://localhost:8080
 
 ### Создание сервиса для открытия доступа к приложению
 
-![](https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_04_services.svg)
+<ImageZoom src="https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_04_services.svg" />
 
 Сервис направляет трафик через набор подов. Сервисы — это абстракция, позволяющая взаимозаменять поды Kubernetes без ущерба для работы приложения. Сервисы в Kubernetes находят и маршрутизируют трафик между зависимыми подами (это могут быть фронтенд- и бэкенд-компоненты приложения).
 
@@ -154,7 +154,7 @@ curl http://localhost:8080
 - встроить теги версии;
 - классифицировать объекты через теги.
 
-![](https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_04_labels.svg)
+<ImageZoom src="https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_04_labels.svg" />
 
 Лейблы могут добавляться во время создания объектов или после этого. Они также могут быть изменены в любое время. Теперь давайте откроем доступ к приложению с помощью создания сервиса и добавим лейблы.
 
@@ -268,7 +268,7 @@ kubectl exec -ti $POD_NAME -- curl http://localhost:8080
 
 ### Запуск нескольких экземпляров приложения
 
-![](https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_05_scaling1.svg)
+<ImageZoom src="https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_05_scaling1.svg" />
 
 Для вывода списка депойментов воспользуйтесь подкомандой `get deployments`: 
 ```bash
@@ -366,7 +366,7 @@ kubectl get pods -o wide
 
 ### Выполнение плавающего обновления
 
-![](https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_06_rollingupdates1.svg)
+<ImageZoom src="https://kubernetes.io/docs/tutorials/kubernetes-basics/public/images/module_06_rollingupdates1.svg" />
 
 Подобно масштабированию приложения, если деплоймент доступен извне, при обновлении сервис будет балансировать трафик только между доступными подами. Доступный под — это экземпляр, который может быть запущен для пользователей приложения.
 

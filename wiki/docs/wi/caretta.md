@@ -1,6 +1,6 @@
 # caretta
 
-![](https://github.com/groundcover-com/caretta/raw/main/images/caretta.gif)
+<ImageZoom src="https://github.com/groundcover-com/caretta/raw/main/images/caretta.gif" />
 
 https://github.com/groundcover-com/caretta 
 

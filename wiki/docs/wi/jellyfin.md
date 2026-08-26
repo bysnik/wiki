@@ -1,6 +1,6 @@
 # Jellyfin
 
-![](https://habrastorage.org/webt/gt/jy/vn/gtjyvnhzcqxlxk-yo9tqudm_fac.jpeg)
+<ImageZoom src="https://habrastorage.org/webt/gt/jy/vn/gtjyvnhzcqxlxk-yo9tqudm_fac.jpeg" />
 
 https://github.com/jellyfin/jellyfin
 

@@ -4,7 +4,7 @@ hack the planet
 https://punkx.org/overflow/
 
 
-![Logo](https://punkx.org/overflow/logo.svg)
+<ImageZoom src="https://punkx.org/overflow/logo.svg" />
 
 - [ИГРАТЬ В ВЕБ-ВЕРСИЮ: ОДИН](local.html)
 - [ИГРАТЬ В ВЕБ-ВЕРСИЮ: С ДРУГОМ](remote.html)
@@ -29,11 +29,11 @@ https://punkx.org/overflow/
 
 Как выглядит игра, когда мы играем с друзьями (доказательство того, что люди действительно играют в эту игру, и также того, что у меня есть друзья):
 
-![Friends playing](https://punkx.org/overflow/friends.jpg)
+<ImageZoom src="https://punkx.org/overflow/friends.jpg" />
 
 С моей дочерью и собакой:
 
-![Playing with kid](https://punkx.org/overflow/play.jpg)
+<ImageZoom src="https://punkx.org/overflow/play.jpg" />
 
 Код компилируется следующей командой:
 
@@ -62,8 +62,8 @@ riscv64-unknown-elf-objdump -S -l -fd game
 
 **Предпросмотр игрового поля:**
 
-[![Left board](https://punkx.org/overflow/build/game-l-thumb.jpg)](build/game-l.pdf)
-[![Right board](https://punkx.org/overflow/build/game-r-thumb.jpg)](build/game-r.pdf)
+[<ImageZoom src="https://punkx.org/overflow/build/game-l-thumb.jpg" />](build/game-l.pdf)
+[<ImageZoom src="https://punkx.org/overflow/build/game-r-thumb.jpg" />](build/game-r.pdf)
 
 ### Требования к оборудованию
 
@@ -239,15 +239,15 @@ riscv64-unknown-elf-objdump -S -l -fd game
 
 **Версия «Виселица»** — это тот же обычный PDF, но некоторые инструкции ассемблера пропущены, и вам нужно их вписать:
 
-![Hangman example](https://punkx.org/overflow/hangman.png)
+<ImageZoom src="https://punkx.org/overflow/hangman.png" />
 
 Если вам нужно подтянуть знания по C, мы используем руководство Бижда: [Beej's Guide to C Programming](https://beej.us/guide/bgc/html/split/), особенно первые 7–8 глав. Но есть много других отличных ресурсов. Вы также можете использовать следующие примеры ассемблера, чтобы освежить знания по C — хороший пример: [упражнение с указателями](https://punkx.org/overflow/build/l1-pointers-1.pdf):
 
-[![Pointers exercise](https://punkx.org/overflow/pointers-1.png)](https://punkx.org/overflow/build/l1-pointers-1.pdf)
+[<ImageZoom src="https://punkx.org/overflow/pointers-1.png" />](https://punkx.org/overflow/build/l1-pointers-1.pdf)
 
 Когда вы печатаете упражнение и шаблон памяти, это выглядит так:
 
-![Printed example](https://punkx.org/overflow/printed.png)
+<ImageZoom src="https://punkx.org/overflow/printed.png" />
 
 **Список выполненных упражнений:**
 

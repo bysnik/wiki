@@ -1,6 +1,6 @@
 # Podman
 
-![](https://basis.gnulinux.pro/ru/latest/_images/podman.png)
+<ImageZoom src="https://basis.gnulinux.pro/ru/latest/_images/podman.png" />
 
 Podman – это инструмент с открытым исходным кодом для поиска, сборки, передачи и запуска приложений. Является утилитой командной строки с аналогичными docker командами, однако не требует дополнительный сервис для работы и может работать без прав доступа root. По умолчанию использует в качестве Container Runtime crun (ранее runc).
 
@@ -119,7 +119,7 @@ podman run -it --name alt registry.altlinux.org/alt/alt
 
 ## Podman Desktop
 
-![](https://podman-desktop.io/img/features/homepage.webp)
+<ImageZoom src="https://podman-desktop.io/img/features/homepage.webp" />
 
 Документация - https://podman-desktop.io/docs/intro
 

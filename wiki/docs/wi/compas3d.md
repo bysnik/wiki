@@ -4,7 +4,7 @@ outline: deep
 
 # Компас 3D
 
-![](/public/img/kompas-alt.jpg)
+<ImageZoom src="/img/kompas-alt.jpg" />
 
 ::: danger Новость на 2 февраля 2026 г. 
 АСКОН и «Базальт СПО» подтвердили прямую совместимость КОМПАС-3D v24 и ОС «Альт»

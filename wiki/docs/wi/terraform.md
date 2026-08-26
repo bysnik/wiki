@@ -1,6 +1,6 @@
 # Terraform
 
-![](https://pan.dev/img/product-landing/terraform/terraform-article.jpeg)
+<ImageZoom src="https://pan.dev/img/product-landing/terraform/terraform-article.jpeg" />
 
 https://habr.com/ru/articles/743334/
 
@@ -568,4 +568,95 @@ supports running Linux containers in Docker for Windows.  For example,
 AppVeyor is free for open source projects and provides Docker on its
 Windows builds, but only offers Linux containers on Windows as a paid
 upgrade.
+
+
+## ЗЕРКАЛО
+
+Есть несколько способов организовать такое зеркало, от самого простого до полностью автоматизированного. Я опишу основные подходы.
+
+### Способ 1: Локальное файловое зеркало (Filesystem Mirror)
+
+Этот метод подходит для изолированных сред (air-gapped) или когда нужно просто создать локальную копию провайдеров на диске.
+
+**1. Скачайте провайдеры в директорию:**
+
+Используйте встроенную команду `terraform providers mirror` или `tofu providers mirror`. Она скачает все провайдеры, необходимые для вашей текущей конфигурации, и создаст нужную структуру каталогов.
+
+```bash
+# Для Terraform
+terraform providers mirror /path/to/mirror/directory
+
+# Для OpenTofu
+tofu providers mirror /path/to/mirror/directory
 ```
+
+По умолчанию скачиваются версии для вашей текущей платформы. Чтобы добавить другие (например, `linux_amd64`), используйте флаг `-platform`:
+
+```bash
+tofu providers mirror -platform=linux_amd64 -platform=darwin_arm64 /path/to/mirror/directory
+```
+
+**2. Настройте клиенты (Terraform/OpenTofu) для использования этого зеркала:**
+
+Создайте или отредактируйте файл конфигурации CLI (`~/.terraformrc` для Terraform, `~/.tofurc` для OpenTofu).
+
+```hcl
+provider_installation {
+  filesystem_mirror {
+    path = "/path/to/mirror/directory"
+  }
+}
+```
+
+Теперь `terraform init` или `tofu init` будут искать провайдеры только в этой локальной директории.
+
+### Способ 2: Сетевой mirror-сервер (Network Mirror)
+
+Этот метод удобен для командной работы, так как зеркало размещается на общем сервере и доступно по сети.
+
+**Вариант А: Использовать готовое решение**
+
+Существуют готовые сервисы, реализующие [протокол Network Mirror Protocol](https://developer.hashicorp.com/terraform/internals/provider-network-mirror-protocol). Один из примеров — проект [terraform-registry-mirror](https://github.com/jonasasx/terraform-registry-mirror).
+
+Его можно легко запустить с помощью Docker:
+
+```bash
+docker run -d -p 8080:8080 ghcr.io/jonasasx/terraform-registry-mirror:0.0.9
+```
+
+После запуска настройте клиенты на использование этого mirror-сервера, указав его URL:
+
+```hcl
+provider_installation {
+  network_mirror {
+    url = "https://ваш-сервер:8080/"
+  }
+}
+```
+
+**Вариант Б: Создать свой Network Mirror из файлового зеркала**
+
+Если вы уже создали файловое зеркало (как в Способе 1), его можно превратить в сетевой mirror. Команда `providers mirror` автоматически генерирует JSON-индексы, необходимые для работы протокола. Вам останется только разместить всю директорию на любом статическом веб-сервере (например, Nginx) и настроить клиентов на его URL, используя блок `network_mirror`, как показано выше.
+
+### Способ 3: Зеркало в OCI-реестре (OCI Registry Mirror)
+
+OpenTofu (начиная с некоторых версий) и Terraform (экспериментально) поддерживают установку провайдеров из OCI-реестров, таких как Docker Hub, JFrog Artifactory или GitLab Container Registry.
+
+**1. Настройте клиент OpenTofu:**
+
+В конфигурационном файле (`~/.tofurc`) укажите блок `oci_mirror`:
+
+```hcl
+provider_installation {
+  oci_mirror {
+    repository_template = "my-registry.com/opentofu-providers/${namespace}/${type}"
+    include = ["registry.opentofu.org/*/*"]
+  }
+}
+```
+
+В этом примере OpenTofu будет искать провайдеры в OCI-репозитории `my-registry.com/opentofu-providers/`.
+
+**2. Наполните OCI-репозиторий провайдерами:**
+
+Вам нужно будет самостоятельно загрузить образы провайдеров в ваш OCI-реестр, соблюдая структуру тегов (версии) и манифестов, описанную в [документации OpenTofu](https://opentofu.org/docs/cli/oci_registries/provider-mirror/).

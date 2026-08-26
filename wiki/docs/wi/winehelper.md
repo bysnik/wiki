@@ -11,15 +11,15 @@ apt-get install winehelper-qt
 
 1. Выберите меню "Менеджер префиксов":
 
-![](/public/img/clipboard-202603121501-tarjj.png)
+<ImageZoom src="/img/clipboard-202603121501-tarjj.png" />
 
 2. Создайте новый префикс, выбрав нужную версию Wine:
 
-![](/public/img/123123123.png)
+<ImageZoom src="/img/123123123.png" />
 
 3. После создания префикса, можете попробовать запустить (установить) необходимое ПО:
 
-![](/public/img/123123.png)
+<ImageZoom src="/img/123123.png" />
 
 ## Как добавить свой дистрибутив Wine
 

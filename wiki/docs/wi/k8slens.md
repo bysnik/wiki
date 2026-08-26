@@ -1,12 +1,14 @@
 # Lens
 
-![](https://k8slens.dev/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F67awagrd%2Fproduction%2F27d8ffc2d91f38cc5c5b4aa3aa8908ee15621faf-1588x802.png&w=3840&q=95)
+<ImageZoom src="https://lenshq.io/images/products/k8s-ide-hero.webp" />
 
 https://k8slens.dev/
 
 https://habr.com/ru/companies/flant/articles/563422/
 
 https://docs.k8slens.dev/getting-started/install-lens/
+
+https://github.com/MuhammedKalkan/OpenLens - Устаревшее, но хоть что то
 
 ## Установка
 

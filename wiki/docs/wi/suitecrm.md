@@ -1,6 +1,6 @@
 # SuiteCRM
 
-![](https://suitecrm.ru/img/slider/dasboard.jpg)
+<ImageZoom src="https://suitecrm.ru/img/slider/dasboard.jpg" />
 
 https://github.com/SuiteCRM/SuiteCRM
 

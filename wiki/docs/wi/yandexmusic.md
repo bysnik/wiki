@@ -1,6 +1,6 @@
 # Яндекс.Музыка
 
-![](https://img.ixbt.site/live/topics/preview/00/12/15/30/66fbd0ebd5.png)
+<ImageZoom src="https://img.ixbt.site/live/topics/preview/00/12/15/30/66fbd0ebd5.png" />
 
 Официальный линукс клиент.
 
