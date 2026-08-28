@@ -27,3 +27,5 @@ https://tldp.org/LDP/GNU-Linux-Tools-Summary/GNU-Linux-Tools-Summary.pdf?from=cp
 
 
 https://yandex.ru/jobs/interview/devops?from=interview
+
+https://rgc.zone/retropages/

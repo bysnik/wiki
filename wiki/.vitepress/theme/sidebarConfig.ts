@@ -674,6 +674,9 @@ export const sidebarConfig: DefaultTheme.Sidebar = {
         { text: 'Семантическое версионирование', link: 'https://semver.org/lang/ru/' },
         { text: 'Фишки', link: '/docs/wi/tricks' },
         { text: '! Эльбрус', link: '/docs/wi/elbrus' },
+        { text: '--1 QEMU', link: '/docs/wi/qemu' },
+        { text: '--1 oVirt', link: '/docs/wi/ovirt' },
+        { text: '--1 Loongson', link: '/docs/wi/loongson' },
         {
           text: 'Ужасные скрипты',
           collapsed: true,

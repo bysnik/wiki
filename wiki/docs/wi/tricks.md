@@ -505,3 +505,66 @@ GNOME: (https://docs.altlinux.org/ru-RU/alt-workstation/11.1/html/alt-workstatio
 После изменений перезагрузите систему.
 
 Проверка текущей сессии: `echo $XDG_SESSION_TYPE`
+
+## GRUB - Ставим ручками
+
+Находим разделы нашей ОС:
+```bash
+lsblk -f
+```
+
+Монтируем корневой раздел:
+```bash
+mount /dev/sda3 /mnt 
+```
+
+Монтируем раздел EFI:
+```bash
+mount /dev/nvme0n1p1 /mnt/boot/efi
+```
+
+Монтируем системные разделы:
+```bash
+mount --bind /dev /mnt/dev
+```
+```bash
+mount --bind /dev/pts /mnt/dev/pts
+```
+```bash
+mount --bind /proc /mnt/proc
+```
+```bash
+mount --bind /sys /mnt/sys
+```
+```bash
+mount -t efivarfs efivarfs /mnt/sys/firmware/efi/efivars
+```
+
+Чрутимся в ОС:
+```bash
+chroot /mnt
+```
+
+Устанавливаем GRUB:
+```bash
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=altlinux --recheck
+```
+```bash
+update-grub
+```
+
+Проверяем, что всё установилось корректно:
+```bash
+ls -la /boot/efi/EFI/altlinux/
+```
+```bash
+efibootmgr -v | grep -i altlinux
+```
+
+Выходим и перезагружаемся:
+```bash
+exit
+```
+```bash
+reboot
+```
