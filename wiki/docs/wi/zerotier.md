@@ -31,7 +31,7 @@ ZeroTier поддерживает все основные операционны
 ::: danger Дублирую ссылки на мои пакеты
 ZeroTier-One: [zerotier-one-1.16.0-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/zerotier-one-1.16.0-alt1.x86_64.rpm)
 
-ZeroTier-One NonFree: [zerotier-one-1.16.0-alt1.nf.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/zerotier-one-1.16.0-alt1.nf.x86_64.rpm)
+ZeroTier-One NonFree: [zerotier-one-1.16.0-alt1.nf.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/zerotier-one-1.16.0-alt1.nf.x86_64.rpm)
 
 ZeroTier Desktop UI: [zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm](https://raw.githubusercontent.com/bysnik/wiki/main/repo/x86_64/RPMS.classic/zerotier-desktop-ui-1.8.3-alt1.x86_64.rpm)
 
