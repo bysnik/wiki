@@ -17,8 +17,8 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-echo "=== 1. Создание файла репозитория /etc/apt/sources.list.d/bysnik.list2 ==="
-cat > /etc/apt/sources.list.d/bysnik.list2 <<EOF
+echo "=== 1. Создание файла репозитория /etc/apt/sources.list.d/bysnik.list ==="
+cat > /etc/apt/sources.list.d/bysnik.list <<EOF
 rpm https://raw.githubusercontent.com/bysnik/wiki/main/repo x86_64 classic
 rpm https://raw.githubusercontent.com/bysnik/wiki/main/repo i586 classic
 rpm https://raw.githubusercontent.com/bysnik/wiki/main/repo noarch classic
