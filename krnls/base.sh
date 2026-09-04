@@ -6,7 +6,7 @@
 #  - разблокировка NOPASSWD для группы wheel
 #  - установка VPN-пакетов
 #  - включение сервиса AmneziaVPN
-#  - выключение ПК
+#  - перезагрузка ПК
 
 set -e          # остановка при любой ошибке
 set -o pipefail # учитывать ошибки в конвейерах
@@ -45,5 +45,5 @@ apt-get install -y zerotier-one zerotier-desktop-ui amnezia-vpn-client kernel-mo
 echo "=== 7. Включение автозапуска AmneziaVPN ==="
 systemctl enable AmneziaVPN
 
-echo "=== 8. Выключение системы ==="
-systemctl poweroff
+echo "=== 8. Перезагрузка системы ==="
+systemctl reboot
