@@ -73,13 +73,13 @@ cd zerotier-one
 
 - Редактируем спеку, меняем только версию (можно ещё changelog написать, если охота):
 
-```spec
+```rpm-spec
 Version: 1.16.0
 ```
 
 ::: warning
 Для некоммерческого использования: в строку 58 добавляем параметр `ZT_NONFREE=1`:
-```spec
+```rpm-spec
 %make_build ZT_USE_MINIUPNPC=1 ZT_NONFREE=1 one
 ```
 При добавлении данного параметра должна произойти Non Free сборка, содержащая контролер, ранее же этот контроллер шёл в поставке свободно, теперь только так (подробнее об этом ниже).
@@ -343,7 +343,7 @@ mv DesktopUI DesktopUI-1.8.3
 
 3. Создаём файл `zerotier-desktop-ui.spec`
 
-```spec
+```rpm-spec
 Name:           zerotier-desktop-ui
 Version:        1.8.3
 Release:        alt1
@@ -610,7 +610,7 @@ tar -czf ~/RPM/SOURCES/ztncui-0.8.14.tar.gz ztncui
 
 5. Создайте файл `~/RPM/SPECS/ztncui.spec` со следующим содержимым:
 
-```spec
+```rpm-spec
 Name:           ztncui
 Version:        0.8.14
 Release:        alt1
