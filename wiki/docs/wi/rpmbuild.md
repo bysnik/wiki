@@ -80,7 +80,7 @@ mycompany-wallpapers-1.0/
 
 ### `mycompany-wallpapers.spec`
 
-```spec
+```rpm-spec
 %define wallpaper_dir /usr/share/backgrounds/mycompany
 
 Name:           mycompany-wallpapers

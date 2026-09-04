@@ -50,7 +50,7 @@ wget -O ~/RPM/SOURCES/obs-rtspserver-3.1.0.tar.gz https://github.com/iamscottxu/
 nano ~/RPM/SPECS/obs-studio-plugin-rtspserver.spec
 ```
 ::: details
-```spec
+```rpm-spec
 %define _unpackaged_files_terminate_build 1
 
 Name: obs-studio-plugin-rtspserver

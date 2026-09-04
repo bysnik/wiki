@@ -1,7 +1,19 @@
 import { defineConfig } from 'vitepress'
 import { themeConfig } from './theme/themeConfig.ts'
 
-// https://vitepress.dev/reference/site-config
+import rpmSpecRaw from '@wooorm/starry-night/source.rpm-spec'
+import changelogsRaw from '@wooorm/starry-night/source.changelogs.rpm-spec'
+
+function toShikiLanguage(rawGrammar, langName) {
+  return {
+    name: langName,
+    scopeName: rawGrammar.scopeName,
+    patterns: rawGrammar.patterns,
+    repository: rawGrammar.repository
+    // aliases убраны, чтобы избежать циклических ссылок
+  }
+}
+
 export default defineConfig({
   title: "СиСА Вики",
   description: "Сборник различной документации по Сетевому и Системному администрированию",
@@ -10,38 +22,16 @@ export default defineConfig({
   themeConfig: themeConfig,
   ignoreDeadLinks: true,
   head: [
-    [
-      'link',
-      { rel: 'icon', type: 'image/png', href: '/wiki/tcpip.png' }
-    ],
-    // ['meta', { name: 'theme-color', content: '#5f67ee' }],
-    // ['meta', { property: 'og:type', content: 'website' }],
-    // ['meta', { property: 'og:site_name', content: 'VitePress' }],
-    // [
-    //   'meta',
-    //   {
-    //     property: 'og:image',
-    //     content: 'https://vitepress.dev/vitepress-og.jpg'
-    //   }
-    // ],
-    // ['meta', { property: 'og:url', content: 'https://vitepress.dev/' }],
-    // [
-    //   'script',
-    //   {
-    //     src: 'https://cdn.usefathom.com/script.js',
-    //     'data-site': 'AZBRSFGG',
-    //     'data-spa': 'auto',
-    //     defer: ''
-    //   }
-    // ]
+    ['link', { rel: 'icon', type: 'image/png', href: '/wiki/tcpip.png' }],
   ],
-
   sitemap: {
     hostname: 'https://bysnik.github.io/wiki/',
   },
-
   markdown: {
-    math: true
+    math: true,
+    async shikiSetup(shiki) {
+      shiki.loadLanguage(toShikiLanguage(changelogsRaw, 'changelogs-rpm-spec'))
+      shiki.loadLanguage(toShikiLanguage(rpmSpecRaw, 'rpm-spec'))
+    }
   }
-
 })

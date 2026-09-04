@@ -1110,7 +1110,7 @@ $ mcedit hello.spec
 
 Вставим следующее содержимое:
 
-```spec
+```rpm-spec
 Name: hello
 Version: 2.10
 Release: alt1
@@ -2549,13 +2549,13 @@ $ ssh gyle task run --commit 1234
 
 Некоторые пакеты не собираются на определённых архитектурах. В этом случае используется директива `ExcludeArch` в spec-файле:
 
-```spec
+```rpm-spec
 ExcludeArch: armh ppc64le
 ```
 
 Или с использованием условных конструкций:
 
-```spec
+```rpm-spec
 %ifarch %e2k ppc64le
 %def_disable qtwebengine
 %else
@@ -2569,13 +2569,13 @@ ExcludeArch: armh ppc64le
 
 Если автоматически определённые зависимости мешают, их можно отключить:
 
-```spec
+```rpm-spec
 AutoReqProv: no
 ```
 
 Или отключить конкретные методы:
 
-```spec
+```rpm-spec
 AutoReq: noshell,noperl
 AutoProv: nolib
 ```
@@ -3011,7 +3011,7 @@ $ chrpath --delete %{buildroot}/usr/bin/program
 
 Пример удаления в spec-файле:
 
-```spec
+```rpm-spec
 %install
 ...
 find %{buildroot} -name "*.la" -delete
@@ -3025,7 +3025,7 @@ find %{buildroot} -name "*.la" -delete
 
 Решение — добавить флаг `-Wl,--no-as-needed` в CFLAGS или LDFLAGS:
 
-```spec
+```rpm-spec
 %build
 %configure LDFLAGS="%{?ldflags} -Wl,--no-as-needed"
 ```
@@ -3038,14 +3038,14 @@ find %{buildroot} -name "*.la" -delete
 
 Пример использования:
 
-```spec
+```rpm-spec
 %check
 %make_build check
 ```
 
 Если тесты могут не выполняться, используют условные зависимости:
 
-```spec
+```rpm-spec
 %{?!_disable_check:BuildRequires: fakechroot}
 %if_enabled check
 make check
@@ -3065,7 +3065,7 @@ make check
 
 #### 11.4.2. Пример разделения
 
-```spec
+```rpm-spec
 %package devel
 Summary: Development files for foo
 Requires: %name = %version-%release
@@ -3083,7 +3083,7 @@ Requires: %name-devel = %version-%release
 
 Пример правильной зависимости:
 
-```spec
+```rpm-spec
 Requires: %name = %version-%release
 ```
 
@@ -3119,7 +3119,7 @@ Requires: %name = %version-%release
 
 Начиная с `rpm-build 4.0.4-alt133`, все патчи можно применить одной директивой:
 
-```spec
+```rpm-spec
 %prep
 %autopatch -p1
 ```
@@ -3148,12 +3148,12 @@ Requires: %name = %version-%release
 > *Макросы в комментариях раскрываются. Если вы написали `%install` в комментарии, RPM попытается выполнить этот макрос. Экранируйте макросы с помощью `%%`.*
 
 Неправильно:
-```spec
+```rpm-spec
 # %install section
 ```
 
 Правильно:
-```spec
+```rpm-spec
 # %%install section
 ```
 

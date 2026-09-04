@@ -148,7 +148,7 @@ cp dupeguru-sandbox-to-subprocess.patch ~/RPM/SOURCES/
 
 Файл `~/RPM/SPECS/dupeguru.spec`:
 
-```spec
+```rpm-spec
 Name: dupeguru
 Version: 4.3.1
 Release: alt1

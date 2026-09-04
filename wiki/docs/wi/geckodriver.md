@@ -18,7 +18,7 @@ wget https://github.com/mozilla/geckodriver/archive/refs/tags/v0.37.0.tar.gz
 2. Создайте файл `~/RPM/SPECS/geckodriver.spec`
 
 `geckodriver.spec`
-```spec
+```rpm-spec
 Name:           geckodriver
 Version:        0.37.0
 Release:        alt1

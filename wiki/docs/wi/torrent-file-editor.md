@@ -65,7 +65,7 @@ Keywords[ru]=торрент;битторрент;редактор;
 3. Создайте файл `~/RPM/SPECS/torrent-file-editor.spec`
 
 `torrent-file-editor`
-```spec
+```rpm-spec
 Name:           torrent-file-editor
 Version:        1.0.3
 Release:        alt1
