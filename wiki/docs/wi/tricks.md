@@ -568,3 +568,134 @@ exit
 ```bash
 reboot
 ```
+
+## kde6 greeter
+
+https://www.altlinux.org/Lightdm-kde-greeter
+
+::: details
+```
+---
+title: "Lightdm-kde-greeter — ALT Linux Wiki"
+source: "https://www.altlinux.org/Lightdm-kde-greeter"
+author:
+published:
+created: 2026-10-27
+description:
+tags:
+  - "clippings"
+---
+Экран входа в систему LightDM с KDE-greeter (пакет [lightdm-kde-greeter](https://packages.altlinux.org/ru/sisyphus/lightdm-kde-greeter) начиная с версии 6.1.3 ) запускается в среде Wayland вместо устаревшей графической подсистемы X11 (Xorg).
+
+Изменение применяется автоматически и не требует действий со стороны пользователя.
+
+## Преимущества решения
+
+Повышенная стабильность экрана входа
+
+Экран входа реже зависает или аварийно завершается, особенно на системах с современными видеокартами и несколькими мониторами.
+
+Лучшая совместимость с KDE Plasma
+
+Использование того же графического стека (Wayland + KWin), что и в рабочей среде, обеспечивает согласованное поведение системы до и после входа в сеанс.
+
+Повышенная отзывчивость интерфейса
+
+Возможны более плавные анимации и быстрый отклик, особенно на системах с аппаратным ускорением.
+
+Улучшенная работа в нестандартных сценариях
+
+Экран входа корректнее работает в конфигурациях:
+- с несколькими мониторами;
+- с отключением или подключением дисплеев «на горячую»;
+- без подключённых физических устройств ввода/вывода (headless-режим).
+
+### Совместимость и отказоустойчивость
+
+В случае проблем с запуском экрана входа в среде Wayland система автоматически переключится на Xorg:
+
+[![Автоматическое переключение на Xorg](https://www.altlinux.org/Images.www.altlinux.org/e/e2/Lightdm-kde-greeter-fallback.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Lightdm-kde-greeter-fallback.png "Автоматическое переключение на Xorg")
+
+Пользователь при этом сохраняет возможность войти в систему.
+
+## Описание работы
+
+По умолчанию LightDM использует Wayland-сессию входа lightdm-kde-greeter.
+
+Просмотреть текущую сессию, используемую на экране входа, можно, нажав клавишу \<F10>. При этом в нижнем правом углу появится отладочная информация, с указанием используемой графической платформы (wayland или xcb):
+
+[![Wayland-сессия](https://www.altlinux.org/Images.www.altlinux.org/6/66/Lightdm-kde-greeter-wayland.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Lightdm-kde-greeter-wayland.png "Wayland-сессия")
+
+[![X11-сессия](https://www.altlinux.org/Images.www.altlinux.org/d/d3/Lightdm-kde-greeter-x11.png)](https://www.altlinux.org/%D0%A4%D0%B0%D0%B9%D0%BB:Lightdm-kde-greeter-x11.png "X11-сессия")
+
+### Резервный вариант (fallback)
+
+Для автоматического переключения на X11 при сбое Wayland используется файл: /etc/lightdm/lightdm.conf.d/90-lightdm-kde-greeter-fallback.conf
+
+Содержимое файла:
+
+```
+[Seat:*]
+greeter-session-fallback=lightdm-kde-greeter-x11
+```
+
+### Принудительное использование X11
+
+Для принудительного использования X11-сессии в секции \[Seat:\*\] файла /etc/lightdm/lightdm.conf укажите:
+
+```
+greeter-session=lightdm-kde-greeter-x11
+```
+
+После этого перезапустите службу LightDM:
+
+```
+# systemctl restart lightdm
+```
+
+Для отмены изменений достаточно закомментировать добавленную строку или изменить значение параметра greeter-session на lightdm-kde-greeter.
+
+Просмотреть текущие активные настройки LightDM можно, выполнив команду:
+
+```
+# lightdm --show-config | grep greeter
+```
+
+Пример вывода:
+
+```
+[Seat:*]
+A  greeter-session-fallback=lightdm-kde-greeter-x11
+B  xserver-command=/etc/X11/xinit/xserverrc
+B  session-wrapper=/etc/X11/Xsession
+B  greeter-wrapper=/etc/X11/Xgreeter.lightdm
+
+   [LightDM]
+B  minimum-vt=1
+B  log-directory=/var/log/lightdm
+B  run-directory=/run/lightdm
+B  cache-directory=/var/cache/lightdm
+B  sessions-directory=/usr/share/lightdm/sessions:/usr/share/xsessions:/usr/share/wayland-sessions
+
+Sources:
+A  /etc/lightdm/lightdm.conf.d/90-lightdm-kde-greeter-fallback.conf
+B  /etc/lightdm/lightdm.conf
+```
+
+## Особенности
+
+### Num Lock на экране входа
+
+Утилита numlockx работает только в сеансе X11. При запуске в среде Wayland она не находит X-сервер и завершается с кодом возврата 1, что приводит к перезапуску сессии greeter.
+
+Если ранее в файле /etc/lightdm/lightdm.conf использовалась строка:
+
+```
+greeter-setup-script=/usr/bin/numlockx on
+```
+
+то после обновления (когда lightdm-kde-greeter начинает работать в Wayland) greeter может не запускаться и перезапускаться циклически.
+
+В этом случае указанную строку необходимо закомментировать либо принудительно использовать X11-сеанс для greeter.
+```
+:::

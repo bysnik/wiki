@@ -357,7 +357,7 @@ desktop-file-install --dir %buildroot%_desktopdir \
 
 
 ::: details НЕЙРОПОЛЯ
-```prm-spec
+```rpm-spec
 %def_enable shared
 %def_disable static
 

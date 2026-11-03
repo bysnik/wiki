@@ -152,5 +152,5 @@ apt-get install cmake gcc-c++ libobs obs-frontend-api Qt6Core Qt6Widgets libb64-
 
 4. Собираем плагин:
 ```bash
-rpmbuild -ba ~/RPM/SPECS/obs-studio-plugi-rtspserver.spec
+rpmbuild -ba ~/RPM/SPECS/obs-studio-plugin-rtspserver.spec
 ```
